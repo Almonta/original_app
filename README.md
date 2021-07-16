@@ -23,7 +23,7 @@
 ## 実行手順
 ```
 $ git clone git@github.com:Almonta/original_app.git
-$ cd oroginal_app
+$ cd original_app
 $ bundle install
 $ rails db:create
 $ rails db:migrate
@@ -36,7 +36,7 @@ https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6
 https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing
 
 ## ER図  
-https://i.gyazo.com/057cb54cf5630a611ce199de5b63a403.png
+https://i.gyazo.com/c6676478a4425dfd899ecf9ccf624fcb.png
 
 ## 画面遷移図  
 https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png
