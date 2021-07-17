@@ -17,10 +17,15 @@
         </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link" href="#">Features</a>
-          <a class="nav-item nav-link" href="#">Pricing</a>
-          <a class="nav-item nav-link disabled" href="#">Disabled</a>
+          <% if user_signed_in? %>
+            <a class="nav-item nav-link active" href="#">製品・お客様一覧 <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">★登録プロジェクト</a>
+            <a class="nav-item nav-link" href="#">プロフィール</a>
+            <a class="nav-item nav-link" href="#"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a>
+          <% else %>
+            <a class="nav-item nav-link active" href="#"><%= link_to "サインアップ", new_user_registration_path %> <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#"><%= link_to "ログイン", new_user_session_path %></a>
+          <% end %>
         </div>
       </div>
     </nav>
