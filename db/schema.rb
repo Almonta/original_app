@@ -16,14 +16,14 @@ ActiveRecord::Schema.define(version: 2021_07_17_083939) do
   enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
-    t.string "customer_number"
-    t.string "customer_name"
+    t.string "customer_number", null: false
+    t.string "customer_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "product_name"
+    t.string "product_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
