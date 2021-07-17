@@ -6,12 +6,12 @@
 
 ## 就職Termの技術
 - devise
-- Ajax(コメント機能)
+- Ajax (コメント機能)
 - AWS
 
 ## カリキュラム外の技術
-- Vue.js
 - ransack
+- Vue.js (優先度:低)
 
 ## その他の技術
 - お気に入り機能
@@ -36,7 +36,7 @@ https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6
 https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing
 
 ## ER図  
-https://i.gyazo.com/c6676478a4425dfd899ecf9ccf624fcb.png
+https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png
 
 ## 画面遷移図  
 https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png
