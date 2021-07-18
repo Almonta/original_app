@@ -30,16 +30,16 @@ $ rails db:migrate
 $ rails s
 ```
 ## カタログ設計
-[カタログ設計](https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6kmY/edit?usp=sharing){:target="_blank"}
+[カタログ設計](https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6kmY/edit?usp=sharing)
 
 ## テーブル設計
-[テーブル設計](https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing){:target="_blank"}
+[テーブル設計](https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing)
 
 ## ER図  
-https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png
+![ER図](https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png)
 
 ## 画面遷移図  
-https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png
+![画面遷移図](https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png)
 
 ## ワイヤーフレーム
-[ワイヤーフレーム](https://cacoo.com/diagrams/YurmX2riFADlnI3Z/7F0CC){:target="_blank"}
+[ワイヤーフレーム](https://cacoo.com/diagrams/YurmX2riFADlnI3Z/7F0CC)
