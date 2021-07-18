@@ -30,10 +30,10 @@ $ rails db:migrate
 $ rails s
 ```
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6kmY/edit?usp=sharing
+[カタログ設計](https://docs.google.com/spreadsheets/d/1fp5PEtnYYU6hirToJtlg3giSCGADTWTKpE_8FrO6kmY/edit?usp=sharing){:target="_blank}
 
 ## テーブル設計
-https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing
+[テーブル設計](https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing){:target="_blank}
 
 ## ER図  
 https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png
