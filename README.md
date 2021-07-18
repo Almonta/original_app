@@ -42,4 +42,4 @@ https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png
 https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png
 
 ## ワイヤーフレーム
-https://cacoo.com/diagrams/YurmX2riFADlnI3Z/7F0CC
+[ワイヤーフレーム](https://cacoo.com/diagrams/YurmX2riFADlnI3Z/7F0CC){:target="_blank"}
