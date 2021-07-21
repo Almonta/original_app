@@ -25,7 +25,16 @@
             <% if current_user.try(:admin?) %>
               <a class="nav-item nav-link" href="http://localhost:3000/admin">管理者画面</a>
             <% end %>
-            <a class="nav-item nav-link active" href="#"><i class="fas fa-home"></i>製品・お客様一覧 <span class="sr-only">(current)</span></a>
+            <li class="nav-item <%= active_class(homes_index_path) %>">
+              <%= link_to homes_index_path, class: 'nav-link' do %>
+                <i class="fas fa-home"></i>製品・お客様一覧
+              <% end %>
+            </li>
+            <li class="nav-item <%= active_class(products_path) %>">
+                <%= link_to products_path, class: 'nav-link' do %>
+                  <i class="fas fa-home"></i>製品一覧
+                <% end %>
+            </li>
             <a class="nav-item nav-link" href="#"><i class="fas fa-star"></i>登録プロジェクト</a>
             <a class="nav-item nav-link" href="#"><i class="fas fa-user"></i>プロフィール</a>
             <li class="nav-item <%= active_class(destroy_user_session_path) %>">
