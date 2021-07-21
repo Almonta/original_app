@@ -13,7 +13,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= customer.customer_number %></td>
+        <td><%= customer.number %></td>
         <td><%= customer.name %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>

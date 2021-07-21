@@ -50,7 +50,7 @@ $ rails s
 [テーブル設計](https://docs.google.com/spreadsheets/d/1t0XmDtx391A8mWkQZK8hT667f7sE4cdtrQQgI1ZB09I/edit?usp=sharing)
 
 ## ER図  
-![ER図](https://i.gyazo.com/b971ac58a6d3575283ecc165de6fad8e.png)
+![ER図](https://i.gyazo.com/0bb0a678b16e2ad52d0ea64e19a86e7a.png)
 
 ## 画面遷移図  
 ![画面遷移図](https://i.gyazo.com/4e2f20dcbe74eb16e0d471891913153e.png)
