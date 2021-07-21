@@ -204,3 +204,12 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  views:
+    messages:
+      create_product: 'お客様名の登録が完了しました'
+      create_customer: '製品名の登録が完了しました'
+      update_product: 'お客様名を更新しました'
+      update_customer: '製品名を更新しました'
+      destroy_product: 'お客様名を削除しました'
+      destroy_customer: '製品名を削除しました'
+      
