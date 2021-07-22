@@ -35,6 +35,8 @@
 
 <h3>カスタマー検索</h3>
 <%= search_form_for @q, url: homes_path do |f| %>
+  <%= f.label :number_cont, 'プロダクトNo.' %>
+  <%= f.search_field :number_cont %>
   <%= f.label :name_cont, 'プロダクト名' %>
   <%= f.search_field :name_cont %>
   <br>
@@ -42,7 +44,7 @@
 
   <br>
 
-  <%= sort_link(@q, :name, "Name_sort") %>
+  <%= sort_link(@q, :number, "Noソート") %>
 <% end %>
 
 <table>
