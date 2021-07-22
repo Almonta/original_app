@@ -1,22 +1,12 @@
 
+<h2>Product name</h2>
 
-<h1>Products</h1>
-<p>productsのindexをコピー</p>
-
-
-<p>Product name</p>
-
-<h1>プロダクト検索</h1>
-<%= search_form_for @q, url: homes_path do |f| %>
-  <%= f.label :name, 'プロダクト名' %>
-  <%= f.search_field :name_cont %>
-  <br>
-  <%= f.submit '検索' %>
-
-  <br>
-
-  <%= sort_link(@q, :name, "Name_sort") %>
+<h3>プロダクト検索</h3>
+<%= form_with url: homes_path, method: :get, local: true do |s| %>
+  <%= s.text_field :search %>
+  <%= s.submit '検索', name: nil %>
 <% end %>
+
 
 <%= link_to t('views.button.new_product'), new_product_path %>
 
@@ -41,8 +31,19 @@
 <br>
 
 
-<h1>Customers</h1>
-<p>customersのindexをコピー</p>
+<h2>Customer name</h2>
+
+<h3>カスタマー検索</h3>
+<%= search_form_for @q, url: homes_path do |f| %>
+  <%= f.label :name_cont, 'プロダクト名' %>
+  <%= f.search_field :name_cont %>
+  <br>
+  <%= f.submit '検索' %>
+
+  <br>
+
+  <%= sort_link(@q, :name, "Name_sort") %>
+<% end %>
 
 <table>
   <thead>

@@ -1,14 +1,9 @@
 class HomesController < ApplicationController
   def index
-    @q = Product.ransack(params[:q])
-    @products = @q.result(distinct: true)
-    # @products = Product.all
-    @customers = Customer.all
+    @products = Product.all
+    @products = Product.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true)
   end
-
-  # def search
-  #   @q = Product.ransack(params[:q])
-  #   @results = @q.result
-  # end
 
 end
