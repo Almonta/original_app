@@ -52,7 +52,7 @@ class CustomersController < ApplicationController
   def destroy
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to homes_index_path, alert: t('views.messages.destroy_customer') }
+      format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
       format.json { head :no_content }
     end
   end

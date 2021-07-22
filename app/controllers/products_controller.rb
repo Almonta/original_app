@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    # @q = Product.ransack(params[:q])
     @products = Product.all
   end
 
@@ -52,10 +53,15 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to homes_index_path, alert: t('views.messages.destroy_product') }
+      format.html { redirect_to homes_path, alert: t('views.messages.destroy_product') }
       format.json { head :no_content }
     end
   end
+
+  # def search
+  #   @q = Product.ransack(params[:q])
+  #   @results = @q.result
+  # end
 
   private
     # Use callbacks to share common setup or constraints between actions.

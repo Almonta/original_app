@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  get 'homes/index'
+  resources :homes, only: [:index]
   resources :customers
   resources :products
   devise_for :users
