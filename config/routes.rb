@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'homes/index'
   resources :customers
-  resources :products
+  resources :products do
+    collection do
+      get 'serch'
+    end
+  end
   devise_for :users
   # devise_for :users, controllers: {
   #   registrations: 'users/registrations'
