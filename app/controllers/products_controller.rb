@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @user_product = current_user.user_products.find_by(product_id: @product.id)
   end
 
   # GET /products/new
