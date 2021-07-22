@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: I18n.t('views.messages.create_product') }
+        format.html { redirect_to @product, notice: t('views.messages.create_product') }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: I18n.t('views.messages.update_product') }
+        format.html { redirect_to @product, notice: t('views.messages.update_product') }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to homes_index_path, notice: I18n.t('views.messages.destroy_product') }
+      format.html { redirect_to homes_index_path, alert: t('views.messages.destroy_product') }
       format.json { head :no_content }
     end
   end

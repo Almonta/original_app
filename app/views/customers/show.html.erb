@@ -10,5 +10,5 @@
   <%= @customer.name %>
 </p>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', homes_index_path %>
+<%= link_to t('views.button.edit'), edit_customer_path(@customer) %> |
+<%= link_to t('views.button.back_home'), homes_index_path %>
