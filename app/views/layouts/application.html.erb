@@ -4,59 +4,63 @@
     <title>MakerAwesome</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width"> 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/0233699884.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
-        <a class="navbar-brand" href="/homes">Maker awesome</a>
+          <a class="navbar-brand" href="/homes">Maker awesome</a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <% if user_signed_in? %>
-            <% if current_user.try(:admin?) %>
-              <a class="nav-item nav-link" href="http://localhost:3000/admin">管理者画面</a>
-            <% end %>
-            <li class="nav-item <%= active_class(homes_path) %>">
-              <%= link_to homes_path, class: 'nav-link' do %>
-                <i class="fas fa-home"></i>製品・お客様一覧
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <% if user_signed_in? %>
+              <% if current_user.try(:admin?) %>
+                <a class="nav-item nav-link" href="http://localhost:3000/admin">管理者画面</a>
               <% end %>
-            </li>
-            <li class="nav-item <%= active_class(products_path) %>">
-                <%= link_to products_path, class: 'nav-link' do %>
-                  <i class="fas fa-home"></i>製品一覧
+              <li class="nav-item <%= active_class(homes_path) %>">
+                <%= link_to homes_path, class: 'nav-link' do %>
+                  <i class="fas fa-home"></i>製品・お客様一覧
                 <% end %>
-            </li>
-            <a class="nav-item nav-link" href="#"><i class="fas fa-star"></i>登録プロジェクト</a>
-            <a class="nav-item nav-link" href="#"><i class="fas fa-user"></i>プロフィール</a>
-            <li class="nav-item <%= active_class(destroy_user_session_path) %>">
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          <% else %>
-            <li class="nav-item <%= active_class(new_user_registration_path) %>">
-              <%= link_to 'サインアップ', new_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item <%= active_class(new_user_session_path) %>">
-              <%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %>
-            </li>
-          <% end %>
+              </li>
+              <li class="nav-item <%= active_class(products_path) %>">
+                  <%= link_to products_path, class: 'nav-link' do %>
+                    <i class="fas fa-home"></i>製品一覧
+                  <% end %>
+              </li>
+              <a class="nav-item nav-link" href="#"><i class="fas fa-star"></i>登録プロジェクト</a>
+              <a class="nav-item nav-link" href="#"><i class="fas fa-user"></i>プロフィール</a>
+              <li class="nav-item <%= active_class(destroy_user_session_path) %>">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+            <% else %>
+              <li class="nav-item <%= active_class(new_user_registration_path) %>">
+                <%= link_to 'サインアップ', new_user_registration_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item <%= active_class(new_user_session_path) %>">
+                <%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %>
+              </li>
+            <% end %>
+          </div>
         </div>
-      </div>
-    </nav>
-  <% if notice %>
-    <p class="alert alert-info"><%= notice %></p>
-  <% end %>
-  <% if alert %>
-    <p class="alert alert-danger"><%= alert %></p>
-  <% end %>
+      </nav>
+    </header>
+    <% if notice %>
+      <p class="alert alert-info"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
-    
+    <footer>
+      <p>© 2021 TKG INC</p>
+    </footer>
   </body>
 </html>

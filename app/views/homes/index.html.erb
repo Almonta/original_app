@@ -1,76 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 clearfix">
+      <h2>プロダクト</h2>
 
-<h2>Product name</h2>
+      <h4>プロダクト検索</h4>
+      <%= form_with url: homes_path, method: :get, local: true do |s| %>
+        <%= s.label :name, 'プロダクト名' %>
+        <%= s.text_field :search %>
+        <%= s.submit '検索', name: nil %>
+      <% end %>
 
-<h3>プロダクト検索</h3>
-<%= form_with url: homes_path, method: :get, local: true do |s| %>
-  <%= s.text_field :search %>
-  <%= s.submit '検索', name: nil %>
-<% end %>
+      <br>
+
+      <%= link_to t('views.button.new_product'), new_product_path %>
+      <div class="row">
+        <% @products.each do |product| %>
+          <div class="col-lg-4 col-md-6 p-1"> 
+            <div class="card rounded-pill shadow-sm" style="width: 99%;">
+              <div class="card-body">
+                <h5 class="card-title"><%= product.name %></h5>
+                <%#= link_to t('views.button.show'), product, class: "card-link" %>
+                <%= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-6 center-block">
+      <h2>カスタマー</h2>
+
+      <h4>カスタマー検索</h4>
+      <%= search_form_for @q, url: homes_path do |f| %>
+        <div class="row">
+          <div class="col-md-5">
+            <%= f.label :number_cont, 'カスタマーNo.' %>
+            <%= f.search_field :number_cont %>
+          </div>
+          <div class="col-md-5">
+            <%= f.label :name_cont, 'カスタマー名' %>
+            <%= f.search_field :name_cont %>
+          </div>
+          <div class="col-md-2 d-flex align-items-end text-left">
+            <%= f.submit '検索' %>
+          </div>
+            <%= sort_link(@q, :number, "Noソート") %>
+        </div>
+      <% end %>
+
+      <%= link_to t('views.button.new_customer'), new_customer_path %>
 
 
-<%= link_to t('views.button.new_product'), new_product_path %>
-
-<% @products.each do |product| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= product.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <%= link_to t('views.button.show'), product, class: "card-link" %>
-      <%= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
-      <%= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+      <div class="row">
+        <% @customers.each do |customer| %>
+          <div class="col-lg-4 col-md-6 p-1"> 
+            <div class="card shadow-sm" style="width: 99%;">
+              <div class="card-body">
+                <h5 class="card-title"><%= customer.number %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
+                <%= link_to t('views.button.show'), customer, class: "card-link" %>
+                <%= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
-<% end %>
-
-
-
-<br>
-
-
-
-<br>
-
-
-<h2>Customer name</h2>
-
-<h3>カスタマー検索</h3>
-<%= search_form_for @q, url: homes_path do |f| %>
-  <%= f.label :number_cont, 'プロダクトNo.' %>
-  <%= f.search_field :number_cont %>
-  <%= f.label :name_cont, 'プロダクト名' %>
-  <%= f.search_field :name_cont %>
-  <br>
-  <%= f.submit '検索' %>
-
-  <br>
-
-  <%= sort_link(@q, :number, "Noソート") %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Customer number</th>
-      <th>Customer name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.number %></td>
-        <td><%= customer.name %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Customer', new_customer_path %>
-
-
+</div>
