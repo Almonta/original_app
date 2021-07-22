@@ -1,7 +1,14 @@
 class HomesController < ApplicationController
   def index
-    @products = Product.all
+    @q = Product.ransack(params[:q])
+    @products = @q.result(distinct: true)
+    # @products = Product.all
     @customers = Customer.all
   end
+
+  # def search
+  #   @q = Product.ransack(params[:q])
+  #   @results = @q.result
+  # end
 
 end
