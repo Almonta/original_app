@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
+    @q = Product.ransack(params[:q])
     @products = Product.all
   end
 
@@ -55,6 +56,11 @@ class ProductsController < ApplicationController
       format.html { redirect_to homes_index_path, alert: t('views.messages.destroy_product') }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @q = User.ransack(params[:q])
+    @results = @q.result
   end
 
   private
