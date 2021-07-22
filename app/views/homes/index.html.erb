@@ -6,7 +6,13 @@
 
 <p>Product name</p>
 
-
+<h1>プロダクト検索</h1>
+<%= search_form_for @q, url: search_products_path do |f| %>
+  <%= f.label :name_cont, 'プロダクト名' %>
+  <%= f.search_field :name_cont %>
+  <br>
+  <%= f.submit '検索' %>
+<% end %>
 
 <%= link_to t('views.button.new_product'), new_product_path %>
 
