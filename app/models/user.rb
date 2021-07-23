@@ -16,7 +16,9 @@ class User < ApplicationRecord
     end
   end
 
-  belongs_to :product
+  has_many :products
   has_many :user_products, dependent: :destroy
   
+  has_many :customers
+
 end
