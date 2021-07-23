@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :products
   resources :customers
-  resources :user_products, only: [:create, :destroy]
-  resources :user_customers, only: [:create, :destroy]
+  resources :projects, only: [:index]
+  resources :user_products, only: %i[create destroy]
+  resources :user_customers, only: %i[create destroy]
 end

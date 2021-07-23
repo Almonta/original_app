@@ -5,5 +5,4 @@ class HomesController < ApplicationController
     @q = Customer.ransack(params[:q])
     @customers = @q.result(distinct: true)
   end
-
 end
