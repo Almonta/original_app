@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   has_many :products
   has_many :user_products, dependent: :destroy
+  has_many :registered_products, through: :user_products, source: :product
   has_many :customers
   has_many :user_customers, dependent: :destroy
+  has_many :registered_customers, through: :user_customers, source: :customer
 end

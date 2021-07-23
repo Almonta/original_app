@@ -36,7 +36,12 @@
                     <i class="fas fa-home"></i>製品一覧
                   <% end %>
               </li>
-              <a class="nav-item nav-link" href="#"><i class="fas fa-star"></i>登録プロジェクト</a>
+
+              <li class="nav-item <%= active_class(registered_projects_path) %>">
+                <%= link_to registered_projects_path, class: 'nav-link' do %>
+                  <i class="fas fa-star"></i>登録プロジェクト
+                <% end %>
+              </li>
               <a class="nav-item nav-link" href="#"><i class="fas fa-user"></i>プロフィール</a>
               <li class="nav-item <%= active_class(destroy_user_session_path) %>">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>

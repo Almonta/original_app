@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'registered_projects/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'tops#index'
   devise_for :users
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :products
   resources :customers
-  resources :projects, only: [:index]
+  resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
   resources :user_customers, only: %i[create destroy]
 end
