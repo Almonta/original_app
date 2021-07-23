@@ -6,11 +6,6 @@ class User < ApplicationRecord
   def self.guest
     find_or_create_by!(name: 'ゲスト', department: '未所属', email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
-      # user.name = "ゲスト"
-      # user.department = "未所属"
-      # user.admin = true
-      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
-      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
   end
 
@@ -20,4 +15,11 @@ class User < ApplicationRecord
       user.admin = true
     end
   end
+
+  has_many :products
+  has_many :user_products, dependent: :destroy
+  
+  has_many :customers
+  has_many :user_customers, dependent: :destroy
+
 end

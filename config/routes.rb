@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :homes, only: [:index]
-  resources :customers
-  resources :products
+  root to: 'tops#index'
   devise_for :users
   # devise_for :users, controllers: {
   #   registrations: 'users/registrations'
@@ -11,7 +9,9 @@ Rails.application.routes.draw do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
-  # get 'tops/index'
-  root to: 'tops#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :homes, only: [:index]
+  resources :products
+  resources :customers
+  resources :user_products, only: [:create, :destroy]
+  resources :user_customers, only: [:create, :destroy]
 end

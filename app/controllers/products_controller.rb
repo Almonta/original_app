@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   # GET /products/1 or /products/1.json
   def show
+    @user_product = current_user.user_products.find_by(product_id: @product.id)
   end
 
   # GET /products/new
@@ -23,7 +24,7 @@ class ProductsController < ApplicationController
 
   # POST /products or /products.json
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.build(product_params)
 
     respond_to do |format|
       if @product.save

@@ -9,6 +9,7 @@ class CustomersController < ApplicationController
 
   # GET /customers/1 or /customers/1.json
   def show
+    @user_customer = current_user.user_customers.find_by(customer_id: @customer.id)
   end
 
   # GET /customers/new
@@ -22,7 +23,8 @@ class CustomersController < ApplicationController
 
   # POST /customers or /customers.json
   def create
-    @customer = Customer.new(customer_params)
+    # @customer = Customer.new(customer_params)
+    @customer = current_user.customers.build(customer_params)
 
     respond_to do |format|
       if @customer.save
