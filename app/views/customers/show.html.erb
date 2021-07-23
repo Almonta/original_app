@@ -11,9 +11,15 @@
 </p>
 
 <% if @user_customer.present? %>
-  <%= link_to 'お気に入り解除する', user_customer_path(id: @user_customer.id), method: :delete, class: 'btn btn-danger' %>
+  <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
+    <i class="fas fa-star"></i>
+  <% end %>
+  <p>プロジェクトから解除する</p>
 <% else %>
-  <%= link_to 'お気に入りする', user_customers_path(customer_id: @customer.id), method: :post, class: 'btn btn-primary' %>
+  <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
+    <i class="far fa-star fa-5x"></i>
+  <% end %>
+  <p>プロジェクトに登録する</p>
 <% end %>
 
 <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> |

@@ -1,0 +1,2 @@
+module RegisteredProjectsHelper
+end
