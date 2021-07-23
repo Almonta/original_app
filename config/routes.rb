@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :products
   resources :customers
   resources :user_products, only: [:create, :destroy]
+  resources :user_customers, only: [:create, :destroy]
 end
