@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
   get 'registered_projects/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'tops#index'
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
   resources :user_customers, only: %i[create destroy]
+  resources :users, only: [:show]
 end
