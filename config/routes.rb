@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :homes, only: [:index]
   resources :products do
-    resources :product_contacts, only: [:create]
+    resources :product_contacts, only: %i[index create]
   end
   resources :customers
   resources :registered_projects, only: [:index]

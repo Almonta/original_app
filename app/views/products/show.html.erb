@@ -11,5 +11,12 @@
   <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 
+<p>コンタクト</p>
+<div id="comments_area">
+  <%= render partial: 'product_contacts/index', locals: { contact_messages: @contact_messages, product:@product } %>
+</div>
+<%= render partial: 'product_contacts/form', locals: { contact_messages: @contact_messages, product:@product } %>
+
+
 <%= link_to t('views.button.edit'), edit_product_path(@product) %> |
 <%= link_to t('views.button.back_home'), homes_path %>
