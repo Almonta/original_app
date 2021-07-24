@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'registered_projects/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: 'tops#index'
   devise_for :users
@@ -13,7 +11,7 @@ Rails.application.routes.draw do
   end
   resources :homes, only: [:index]
   resources :products do
-    resources :product_contacts
+    resources :product_contacts, only: [:create]
   end
   resources :customers
   resources :registered_projects, only: [:index]
