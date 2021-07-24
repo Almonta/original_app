@@ -12,7 +12,9 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
   resources :homes, only: [:index]
-  resources :products
+  resources :products do
+    resources :product_contacts
+  end
   resources :customers
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
