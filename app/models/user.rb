@@ -16,13 +16,12 @@ class User < ApplicationRecord
     end
   end
 
-  enum department: { no_position: 0, 
-                      sales: 1, 
-                      engineering: 2,
-                      planning: 3,
-                      manufacturing: 4,
-                      service: 5 
-                    }
+  enum department: { no_position: 0,
+                     sales: 1,
+                     engineering: 2,
+                     planning: 3,
+                     manufacturing: 4,
+                     service: 5 }
 
   has_many :products
   has_many :user_products, dependent: :destroy
