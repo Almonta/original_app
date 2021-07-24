@@ -220,5 +220,14 @@ ja:
       new_product: 'プロダクト新規登録'
       new_customer: 'カスタマー新規登録'
       back_home: 'ホーム画面に戻る'
+  enums:
+    user:
+      department:
+        no_position: '未所属'
+        sales: '営業部'
+        engineering: '技術部'
+        planning: '計画部'
+        manufacturing: '製造部'
+        service: 'サービス部'
 
 

@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.select :department, User.departments.keys.to_a, {} %>
+    <%= f.select :department, User.departments_i18n.keys.map{|k| [I18n.t("enums.user.department.#{k}"), k]} %>
   </div>
 
   <div class="field">
