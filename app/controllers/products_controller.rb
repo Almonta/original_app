@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
 
   def show
     @user_product = current_user.user_products.find_by(product_id: @product.id)
-    @product_contacts = @product_contact.contact_messages
-    @product_contacts = @product_contact.comments.build
+    @product_contacts = @product.product_contacts
+    @product_contact = @product.product_contacts.build
   end
 
   def new
