@@ -41,11 +41,19 @@ a.btn_10:hover span {
   box-shadow: 0 0 4px #CAD4E2, -2px -2px 4px #FFF;
 }
 
+body{
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 120px;
+  box-sizing: border-box;
+}
+
 footer {
   width: 100%;
   background-color:#343a40;
   padding: 20px 0 10px 0;
   color: white;
+  text-align: center;
   margin: auto;
   padding-bottom: 10px;
   font-size: 12px;

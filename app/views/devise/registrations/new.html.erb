@@ -10,12 +10,12 @@
 
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.select :department, autofocus: true, autocomplete: "depatrment" %>
+    <%= f.select :department, User.departments_i18n.keys.map{|k| [I18n.t("enums.user.department.#{k}"), k]} %>
   </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">
