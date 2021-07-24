@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :department %><br />
-    <%= f.select :department, autofocus: true, autocomplete: "depatrment" %>
+    <%= f.select :department, User.departments.keys.to_a, {} %>
   </div>
 
   <div class="field">

@@ -16,7 +16,7 @@ class User < ApplicationRecord
     end
   end
 
-  enum departments: { 未所属:0, 営業:1, 技術:2, 計画:3 }
+  enum departments: { 未所属: 0, 営業: 1, 技術: 2, 計画: 3 }
 
   has_many :products
   has_many :user_products, dependent: :destroy
