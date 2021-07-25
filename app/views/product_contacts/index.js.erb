@@ -1,0 +1,3 @@
+$("#product_contacts_area").html("<%= j(render 'product_contacts/index', { product_contacts: @product_contact.product.product_contacts }) %>");
+$("textarea").val('');
+$("#notice").html("<%= j flash[:notice] %>");
