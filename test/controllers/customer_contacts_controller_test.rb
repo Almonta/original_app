@@ -5,5 +5,4 @@ class CustomerContactsControllerTest < ActionDispatch::IntegrationTest
     get customer_contacts_create_url
     assert_response :success
   end
-
 end

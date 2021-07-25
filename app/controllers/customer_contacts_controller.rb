@@ -11,7 +11,7 @@ class CustomerContactsController < ApplicationController
       end
     end
   end
-  
+
   private
 
   def customer_contact_params

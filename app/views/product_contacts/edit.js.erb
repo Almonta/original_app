@@ -1,0 +1,2 @@
+$("#this_product_contact_<%= @product_contact.id %>").replaceWith("<%= j render 'product_contacts/edit', product_contact: @product_contact %>");
+$("#notice").html("<%= j flash[:notice] %>");

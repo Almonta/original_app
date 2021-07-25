@@ -5,5 +5,4 @@ class RegisteredProjectsControllerTest < ActionDispatch::IntegrationTest
     get registered_projects_index_url
     assert_response :success
   end
-
 end

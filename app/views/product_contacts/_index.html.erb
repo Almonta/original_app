@@ -2,8 +2,10 @@
   <% product_contacts.each do |product_contact| %>
     <% if product_contact.id.present? %>
       <li>
+        <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <p><%= current_user.name %></p>
         <p><%= product_contact.contact_message %></p>
+        <p><%= link_to "編集", edit_product_product_contact_path(product, product_contact), remote: true %></p>
         <hr>
       </li>
     <% end %>
