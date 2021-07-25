@@ -4,12 +4,20 @@
   <%= @product.name %>
 </p>
 
+<p>作成者</p>
+<%= @product.user.name %>
+
+<br>
+<br>
+
 <% if @user_product.present? %>
   <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
 <% else %>
   <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 
+<br>
+<br>
 
 <h3>プロジェクトメンバー</h3>
 <% @user_products.each do |user_product| %>
