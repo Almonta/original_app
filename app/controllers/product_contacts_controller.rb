@@ -2,7 +2,6 @@ class ProductContactsController < ApplicationController
   def create
     # raise
     # binding.irb
-    @user = current_user
     @product = Product.find(params[:product_id])
     @product_contact = @product.product_contacts.build(product_contact_params)
     respond_to do |format|

@@ -8,6 +8,8 @@ class CustomersController < ApplicationController
 
   def show
     @user_customer = current_user.user_customers.find_by(customer_id: @customer.id)
+    @customer_contacts = @customer.customer_contacts
+    @customer_contact = @customer.customer_contacts.build
   end
 
   def new

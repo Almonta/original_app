@@ -3,4 +3,5 @@ class Customer < ApplicationRecord
   belongs_to :user
   has_many :user_customers, dependent: :destroy
   # has_many :registered_customer, through: :user_customers, source: :user
+  has_many :customer_contacts, dependent: :destroy
 end
