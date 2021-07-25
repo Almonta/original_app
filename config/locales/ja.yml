@@ -213,6 +213,7 @@ ja:
       destroy_product: 'お客様名を削除しました'
       destroy_customer: '製品名を削除しました'
       confirm_destroy: '本当に削除してもよろしいですか？'
+      check_number: '数字を入力してください'
     button:
       show: '詳細'
       edit: '編集'

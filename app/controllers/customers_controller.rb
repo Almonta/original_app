@@ -23,14 +23,20 @@ class CustomersController < ApplicationController
     # @customer = Customer.new(customer_params)
     @customer = current_user.customers.build(customer_params)
 
-    respond_to do |format|
-      if @customer.save
-        format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
-        format.json { render :show, status: :created, location: @customer }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+    # binding.irb
+    if @customer.number =~ /^[0-9]+$/
+      respond_to do |format|
+        if @customer.save
+          format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
+          format.json { render :show, status: :created, location: @customer }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @customer.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash.now[:alert] = t('views.messages.check_number') 
+      render :new
     end
   end
 

@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   end
   resources :homes, only: [:index]
   resources :products do
-    resources :product_contacts, only: %i[create edit update]
+    resources :product_contacts, only: %i[create edit update destroy]
   end
   resources :customers do
-    resources :customer_contacts, only: %i[create edit update]
+    resources :customer_contacts, only: %i[create edit update destroy]
   end
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
