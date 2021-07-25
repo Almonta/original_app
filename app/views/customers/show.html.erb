@@ -21,5 +21,13 @@
   <p>プロジェクトに登録する</p>
 <% end %>
 
+
+<p>コンタクト</p>
+<div id="customer_contacts_area">
+  <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
+</div>
+<%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
+
+
 <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> |
 <%= link_to t('views.button.back_home'), homes_path %>

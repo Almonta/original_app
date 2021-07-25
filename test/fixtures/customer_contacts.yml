@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  user: one
+  contact_message: MyText
+
+two:
+  customer: two
+  user: two
+  contact_message: MyText

@@ -1,0 +1,11 @@
+<ul>
+  <% customer_contacts.each do |customer_contact| %>
+    <% if customer_contact.id.present? %>
+      <li>
+        <p><%= current_user.name %></p>
+        <p><%= customer_contact.contact_message %></p>
+        <hr>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

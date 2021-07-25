@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'users/show'
-  get 'registered_projects/index'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # get 'user/show'
   root to: 'tops#index'
   devise_for :users
   # devise_for :users, controllers: {
@@ -12,8 +11,12 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
   resources :homes, only: [:index]
-  resources :products
-  resources :customers
+  resources :products do
+    resources :product_contacts#, only: %i[index create]
+  end
+  resources :customers do
+    resources :customer_contacts#, only: %i[index create]
+  end
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
   resources :user_customers, only: %i[create destroy]
