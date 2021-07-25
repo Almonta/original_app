@@ -3,7 +3,7 @@ class ProductContactsController < ApplicationController
   def create
     # raise
     # binding.irb
-    @product = Product.find(params[:product_id])
+    # @product = Product.find(params[:product_id])
     @product_contact = @product.product_contacts.build(product_contact_params)
     respond_to do |format|
       if @product_contact.save
@@ -15,6 +15,7 @@ class ProductContactsController < ApplicationController
   end
 
   def edit
+    # binding.pry
     @product_contact = @product.product_contacts.find(params[:id])
     respond_to do |format|
       flash.now[:notice] = 'コメントの編集中'
@@ -32,6 +33,15 @@ class ProductContactsController < ApplicationController
         flash.now[:notice] = 'コメントの編集に失敗しました'
         format.js { render :edit_error }
       end
+    end
+  end
+
+  def destroy
+    @product_contact = ProductContact.find(params[:id])
+    @product_contact.destroy
+    respond_to do |format|
+      flash.now[:notice] = 'コメントが削除されました'
+      format.js { render :index }
     end
   end
 
