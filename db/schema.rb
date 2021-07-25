@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_24_101344) do
+ActiveRecord::Schema.define(version: 2021_07_25_045744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +29,9 @@ ActiveRecord::Schema.define(version: 2021_07_24_101344) do
     t.text "contact_message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["product_id"], name: "index_product_contacts_on_product_id"
+    t.index ["user_id"], name: "index_product_contacts_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -80,6 +82,7 @@ ActiveRecord::Schema.define(version: 2021_07_24_101344) do
 
   add_foreign_key "customers", "users"
   add_foreign_key "product_contacts", "products"
+  add_foreign_key "product_contacts", "users"
   add_foreign_key "products", "users"
   add_foreign_key "user_customers", "customers"
   add_foreign_key "user_customers", "users"

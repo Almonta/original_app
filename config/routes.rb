@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :product_contacts#, only: %i[index create]
   end
-  resources :customers
+  resources :customers do
+    resources :customer_contacts
+  end
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
   resources :user_customers, only: %i[create destroy]
