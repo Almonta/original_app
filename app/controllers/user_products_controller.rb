@@ -1,4 +1,9 @@
 class UserProductsController < ApplicationController
+  # def index
+  #   @user_products = UserProduct.all
+  #   binding.irb
+  # end
+
   def create
     user_product = current_user.user_products.create(product_id: params[:product_id])
     # binding.pry

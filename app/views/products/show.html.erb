@@ -1,5 +1,4 @@
 
-
 <p>
   <strong>Product name:</strong>
   <%= @product.name %>
@@ -11,7 +10,15 @@
   <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 
-<p>コンタクト</p>
+
+<h3>プロジェクトメンバー</h3>
+<% @user_products.each do |user_product| %>
+  <p><%= user_product.user.name %></p>
+<% end %>
+
+
+<h3>コンタクト</h3>
+<hr>
 <div id="product_contacts_area">
   <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
 </div>
