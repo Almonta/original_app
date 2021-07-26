@@ -3,7 +3,11 @@ class ProductDocumentsController < ApplicationController
 
   def index
     # @product_documents = ProductDocument.all
-    @product = Product.where(id: params[:product_id]).first
+    # @product = Product.where(id: params[:product_id]).first
+    # .firstを無しにする
+    # @product = Product.where(id: params[:product_id])
+    # find_byでやってみる
+    @product = Product.find_by(id: params[:product_id])
     @product_documents = @product.product_documents.all
   end
 

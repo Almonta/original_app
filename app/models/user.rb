@@ -34,4 +34,6 @@ class User < ApplicationRecord
   has_many :customers
   has_many :user_customers, dependent: :destroy
   has_many :registered_customers, through: :user_customers, source: :customer
+  has_many :customer_contacts
+  has_many :customer_documents
 end

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
   resources :customers do
     resources :customer_contacts, only: %i[create edit update destroy]
+    resources :customer_documents
   end
   resources :registered_projects, only: [:index]
   resources :user_products, only: %i[create destroy]
