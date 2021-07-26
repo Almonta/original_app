@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :homes, only: [:index]
   resources :products do
     resources :product_contacts, only: %i[create edit update destroy]
+    resources :product_documents
   end
   resources :customers do
     resources :customer_contacts, only: %i[create edit update destroy]

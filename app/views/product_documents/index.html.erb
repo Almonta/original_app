@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Product Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Product</th>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Public level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @product_documents.each do |product_document| %>
+      <tr>
+        <td><%= product_document.user %></td>
+        <td><%= product_document.product %></td>
+        <td><%= product_document.name %></td>
+        <td><%= product_document.content %></td>
+        <td><%= product_document.public_level %></td>
+        <td><%#= link_to 'Show', product_document %></td>
+        <td><%= link_to 'Show', product_product_document(@product, product_document) %></td>
+        <td><%#= link_to 'Edit', edit_product_document_path(product_document) %></td>
+        <td><%= link_to 'Edit', edit_product_product_document_path(@product, product_document) %></td>
+        <td><%#= link_to 'Destroy', product_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', product_product_document_path(@product, product_document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Product Document', new_product_product_document_path %>

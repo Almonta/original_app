@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @product_document.user %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_document.product %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @product_document.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @product_document.content %>
+</p>
+
+<p>
+  <strong>Public level:</strong>
+  <%= @product_document.public_level %>
+</p>
+
+<%#= link_to 'Edit', edit_product_document_path(@product_document) %> |
+<%= link_to 'Edit', edit_product_product_document_path(@product_document, @product) %> |
+<%#= link_to 'Back', product_documents_path %>
+<%= link_to 'Back', product_product_documents_path %>
