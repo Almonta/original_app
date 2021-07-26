@@ -1,0 +1,2 @@
+module CustomerDocumentsHelper
+end

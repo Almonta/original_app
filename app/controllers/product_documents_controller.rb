@@ -20,15 +20,9 @@ class ProductDocumentsController < ApplicationController
   end
 
   def create
-  # 参考
-    # @product = Product.find(params[:product_id])
-    # @product_contact = @product.product_contacts.build(product_contact_params)
-
     # @product_document = ProductDocument.new(product_document_params)
-    # @product_document.user_id = current_user.id
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build(product_document_params)
-    # binding.pry
     @product_document.user_id = current_user.id
 
     respond_to do |format|
@@ -45,6 +39,7 @@ class ProductDocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @product_document.update(product_document_params)
+        # format.html { redirect_to @product, notice: "Product document was successfully updated." }
         format.html { redirect_to [@product, @product_document], notice: "Product document was successfully updated." }
         format.json { render :show, status: :ok, location: @product_document }
       else
