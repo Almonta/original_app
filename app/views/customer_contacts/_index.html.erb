@@ -5,9 +5,11 @@
         <div class="customer_contact_message" id ="this_customer_contact_<%= customer_contact.id %>"></div>
         <p><%= customer_contact.user.name %></p>
         <p><%= customer_contact.contact_message %></p>
-        <p><%= link_to "編集", edit_customer_customer_contact_path(customer, customer_contact), remote: true %></p>
-        <p><%= link_to "削除", customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true,
-                              data: { confirm: "本当に削除しますか?"} %></p>
+        <p>
+        <%= link_to "編集", edit_customer_customer_contact_path(customer, customer_contact), remote: true %>
+        <%= link_to "削除", customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true,
+                            data: { confirm: "本当に削除しますか?"} %>
+        </p>
         <hr>
       </li>
     <% end %>

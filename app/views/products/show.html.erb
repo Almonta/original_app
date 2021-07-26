@@ -1,9 +1,12 @@
 
+<h3><strong>プロダクト名</strong></h3>
+<%= @product.name %>
 
-<p>
-  <strong>Product name:</strong>
-  <%= @product.name %>
-</p>
+<h3>作成者</h3>
+<%= @product.user.name %>
+
+<br>
+<br>
 
 <% if @user_product.present? %>
   <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
@@ -11,7 +14,35 @@
   <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
 <% end %>
 
-<p>コンタクト</p>
+<br>
+<br>
+
+<!--
+<h3>プロジェクトメンバー</h3>
+<% @user_products.each do |user_product| %>
+  <p>
+  <%= user_product.user.name %>
+  <%= user_product.user.department_i18n %>
+  </p>
+<% end %>
+-->
+
+<div class="col-3">
+  <ul class="list-group">
+    <li class="list-group-item active">プロジェクトメンバー</li>
+    <% @user_products.each do |user_product| %>
+      <li class="list-group-item">
+        <div class="row">
+          <span class="col-8"><%= user_product.user.name %></span>
+          <span class="col-4"><%= user_product.user.department_i18n %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<h3>コンタクト</h3>
+<hr>
 <div id="product_contacts_area">
   <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
 </div>
