@@ -20,10 +20,16 @@ class ProductDocumentsController < ApplicationController
   end
 
   def create
+  # 参考
+    # @product = Product.find(params[:product_id])
+    # @product_contact = @product.product_contacts.build(product_contact_params)
+
     # @product_document = ProductDocument.new(product_document_params)
     # @product_document.user_id = current_user.id
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build(product_document_params)
+    # binding.pry
+    @product_document.user_id = current_user.id
 
     respond_to do |format|
       if @product_document.save
@@ -61,7 +67,7 @@ class ProductDocumentsController < ApplicationController
     def set_product_document
       # @product_document = ProductDocument.find(params[:id])
       @product = Product.where(id: params[:product_id]).first
-      @product_document = @product.product_document.where(id: params[:id]).first
+      @product_document = @product.product_documents.where(id: params[:id]).first
     end
 
     def product_document_params
