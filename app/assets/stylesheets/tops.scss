@@ -48,6 +48,14 @@ body{
   box-sizing: border-box;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
 footer {
   width: 100%;
   background-color:#343a40;
@@ -59,4 +67,9 @@ footer {
   font-size: 12px;
   position: absolute;
   bottom: 0;
+}
+
+body{
+  background: #f3f3f3;
+  padding: 70px 0;
 }
