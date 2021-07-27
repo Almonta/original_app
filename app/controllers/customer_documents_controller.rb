@@ -1,5 +1,5 @@
 class CustomerDocumentsController < ApplicationController
-  before_action :set_customer_document, only: %i[ show edit update destroy ]
+  before_action :set_customer_document, only: %i[show edit update destroy]
 
   def index
     # @customer_documents = CustomerDocument.all
@@ -7,8 +7,7 @@ class CustomerDocumentsController < ApplicationController
     @customer_documents = @customer.customer_documents.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     # @customer_document = CustomerDocument.new
@@ -16,8 +15,7 @@ class CustomerDocumentsController < ApplicationController
     @customer_document = @customer.customer_documents.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     # @customer_document = CustomerDocument.new(customer_document_params)
@@ -59,14 +57,15 @@ class CustomerDocumentsController < ApplicationController
   end
 
   private
-    def set_customer_document
-      # @customer_document = CustomerDocument.find(params[:id])
-      @customer = Customer.where(id: params[:customer_id]).first
-      @customer_document = @customer.customer_documents.where(id: params[:id]).first
-      # binding.pry
-    end
 
-    def customer_document_params
-      params.require(:customer_document).permit(:name, :content, :public_level, :user_id, :customer_id)
-    end
+  def set_customer_document
+    # @customer_document = CustomerDocument.find(params[:id])
+    @customer = Customer.where(id: params[:customer_id]).first
+    @customer_document = @customer.customer_documents.where(id: params[:id]).first
+    # binding.pry
+  end
+
+  def customer_document_params
+    params.require(:customer_document).permit(:name, :content, :public_level, :user_id, :customer_id)
+  end
 end

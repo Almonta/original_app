@@ -36,7 +36,7 @@ class CustomersController < ApplicationController
         end
       end
     else
-      flash.now[:alert] = t('views.messages.check_number') 
+      flash.now[:alert] = t('views.messages.check_number')
       render :new
     end
   end
