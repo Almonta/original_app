@@ -16,6 +16,12 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Document:</strong>
+  <%#= @feed.image.url %>
+  <object data="<%= @customer_document.document.url %>" type="application/pdf"></object>
+</p>
+
 <%#= link_to 'Edit', edit_customer_document_path(@customer_document) %> |
 <%= link_to 'Edit', edit_customer_customer_document_path(@customer, @customer_document) %> |
 <%#= link_to 'Back', customer_documents_path %>

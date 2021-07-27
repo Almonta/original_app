@@ -67,6 +67,6 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def customer_document_params
-    params.require(:customer_document).permit(:name, :content, :public_level, :user_id, :customer_id)
+    params.require(:customer_document).permit(:name, :content, :public_level, :user_id, :customer_id, :document, :document_cache)
   end
 end

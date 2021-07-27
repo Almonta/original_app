@@ -70,6 +70,6 @@ class ProductDocumentsController < ApplicationController
   end
 
   def product_document_params
-    params.require(:product_document).permit(:user_id, :product_id, :name, :content, :public_level)
+    params.require(:product_document).permit(:user_id, :product_id, :name, :content, :public_level, :document, :document_cache)
   end
 end
