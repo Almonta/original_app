@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @customer_document.name %>
@@ -12,7 +10,10 @@
 
 <p>
   <strong>Public level:</strong>
-  <%= @customer_document.public_level %>
+  <%#= @customer_document.public_level %>
+  <% if @customer_document.public_level == 0 %>一般
+  <% elsif @customer_document.public_level == 1 %>技術
+  <% end %>
 </p>
 
 <%#= link_to 'Edit', edit_customer_document_path(@customer_document) %> |

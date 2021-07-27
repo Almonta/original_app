@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @product_document.name %>
@@ -12,7 +10,10 @@
 
 <p>
   <strong>Public level:</strong>
-  <%= @product_document.public_level %>
+  <%#= @product_document.public_level %>
+  <% if @product_document.public_level == 0 %>一般
+  <% elsif @product_document.public_level == 1 %>技術
+  <% end %>
 </p>
 
 <%#= link_to 'Edit', edit_product_document_path(@product_document) %> |

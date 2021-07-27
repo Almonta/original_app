@@ -25,6 +25,7 @@ class CustomerDocumentsController < ApplicationController
 
     respond_to do |format|
       if @customer_document.save
+        format.html { redirect_to [@customer, @customer_document], notice: "Customer document was successfully created." }
         format.html { redirect_to @customer_document, notice: "Customer document was successfully created." }
         format.json { render :show, status: :created, location: @customer_document }
       else
@@ -61,8 +62,8 @@ class CustomerDocumentsController < ApplicationController
   def set_customer_document
     # @customer_document = CustomerDocument.find(params[:id])
     @customer = Customer.where(id: params[:customer_id]).first
-    @customer_document = @customer.customer_documents.where(id: params[:id]).first
     # binding.pry
+    @customer_document = @customer.customer_documents.where(id: params[:id]).first
   end
 
   def customer_document_params
