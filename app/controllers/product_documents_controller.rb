@@ -66,6 +66,7 @@ class ProductDocumentsController < ApplicationController
     def set_product_document
       # @product_document = ProductDocument.find(params[:id])
       @product = Product.where(id: params[:product_id]).first
+      # binding.pry 
       @product_document = @product.product_documents.where(id: params[:id]).first
     end
 

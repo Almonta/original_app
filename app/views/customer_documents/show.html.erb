@@ -15,15 +15,7 @@
   <%= @customer_document.public_level %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @customer_document.user %>
-</p>
-
-<p>
-  <strong>Customer:</strong>
-  <%= @customer_document.customer %>
-</p>
-
-<%= link_to 'Edit', edit_customer_document_path(@customer_document) %> |
-<%= link_to 'Back', customer_documents_path %>
+<%#= link_to 'Edit', edit_customer_document_path(@customer_document) %> |
+<%= link_to 'Edit', edit_customer_customer_document_path(@customer, @customer_document) %> |
+<%#= link_to 'Back', customer_documents_path %>
+<%= link_to 'Back', customer_customer_documents_path %>

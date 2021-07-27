@@ -63,6 +63,7 @@ class CustomerDocumentsController < ApplicationController
       # @customer_document = CustomerDocument.find(params[:id])
       @customer = Customer.where(id: params[:customer_id]).first
       @customer_document = @customer.customer_documents.where(id: params[:id]).first
+      # binding.pry
     end
 
     def customer_document_params

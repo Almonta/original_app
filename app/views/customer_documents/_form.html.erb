@@ -1,4 +1,5 @@
-<%= form_with(model: customer_document, local: true) do |form| %>
+<%#= form_with(model: customer_document, local: true) do |form| %>
+<%= form_with(model: [customer, customer_document], local: true) do |form| %>
   <% if customer_document.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer_document.errors.count, "error") %> prohibited this customer_document from being saved:</h2>
@@ -24,16 +25,6 @@
   <div class="field">
     <%= form.label :public_level %>
     <%= form.number_field :public_level %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
   </div>
 
   <div class="actions">
