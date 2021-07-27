@@ -1,14 +1,17 @@
 class ProductDocumentsController < ApplicationController
-  before_action :set_product_document, only: %i[ show edit update destroy ]
+  before_action :set_product_document, only: %i[show edit update destroy]
 
   def index
     # @product_documents = ProductDocument.all
     @product = Product.where(id: params[:product_id]).first
+    # .firstを無しにする
+    # @product = Product.where(id: params[:product_id])
+    # find_byでやってみる
+    # @product = Product.find_by(id: params[:product_id])
     @product_documents = @product.product_documents.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     # @product_document = ProductDocument.new
@@ -16,14 +19,13 @@ class ProductDocumentsController < ApplicationController
     @product_document = @product.product_documents.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     # @product_document = ProductDocument.new(product_document_params)
-    # @product_document.user_id = current_user.id
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build(product_document_params)
+    @product_document.user_id = current_user.id
 
     respond_to do |format|
       if @product_document.save
@@ -39,6 +41,7 @@ class ProductDocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @product_document.update(product_document_params)
+        # format.html { redirect_to @product, notice: "Product document was successfully updated." }
         format.html { redirect_to [@product, @product_document], notice: "Product document was successfully updated." }
         format.json { render :show, status: :ok, location: @product_document }
       else
@@ -58,13 +61,15 @@ class ProductDocumentsController < ApplicationController
   end
 
   private
-    def set_product_document
-      # @product_document = ProductDocument.find(params[:id])
-      @product = Product.where(id: params[:product_id]).first
-      @product_document = @product.product_document.where(id: params[:id]).first
-    end
 
-    def product_document_params
-      params.require(:product_document).permit(:user_id, :product_id, :name, :content, :public_level)
-    end
+  def set_product_document
+    # @product_document = ProductDocument.find(params[:id])
+    @product = Product.where(id: params[:product_id]).first
+    # binding.pry
+    @product_document = @product.product_documents.where(id: params[:id]).first
+  end
+
+  def product_document_params
+    params.require(:product_document).permit(:user_id, :product_id, :name, :content, :public_level)
+  end
 end

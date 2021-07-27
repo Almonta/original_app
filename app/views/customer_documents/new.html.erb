@@ -1,0 +1,7 @@
+<h1>New Customer Document</h1>
+
+<%#= render 'form', customer_document: @customer_document %>
+<%= render 'form', { customer: @customer, customer_document: @customer_document } %>
+
+<%#= link_to 'Back', customer_documents_path %>
+<%= link_to 'Back', customer_customer_documents_path %>

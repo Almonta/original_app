@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_26_022726) do
+ActiveRecord::Schema.define(version: 2021_07_26_120638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(version: 2021_07_26_022726) do
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_customer_contacts_on_customer_id"
     t.index ["user_id"], name: "index_customer_contacts_on_user_id"
+  end
+
+  create_table "customer_documents", force: :cascade do |t|
+    t.string "name"
+    t.text "content"
+    t.integer "public_level"
+    t.bigint "user_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_customer_documents_on_customer_id"
+    t.index ["user_id"], name: "index_customer_documents_on_user_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -104,6 +116,8 @@ ActiveRecord::Schema.define(version: 2021_07_26_022726) do
 
   add_foreign_key "customer_contacts", "customers"
   add_foreign_key "customer_contacts", "users"
+  add_foreign_key "customer_documents", "customers"
+  add_foreign_key "customer_documents", "users"
   add_foreign_key "customers", "users"
   add_foreign_key "product_contacts", "products"
   add_foreign_key "product_contacts", "users"

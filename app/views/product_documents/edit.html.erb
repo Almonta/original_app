@@ -1,6 +1,7 @@
 <h1>Editing Product Document</h1>
 
-<%= render 'form', product_document: @product_document %>
+<%#= render 'form', product_document: @product_document %>
+<%= render 'form', { product: @product, product_document: @product_document } %>
 
 <%#= link_to 'Show', @product_document %> |
 <%= link_to 'Show', product_product_document_path(@product, @product_document) %> |
