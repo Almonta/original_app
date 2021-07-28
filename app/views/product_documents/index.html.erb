@@ -10,6 +10,20 @@
     </tr>
   </thead>
 
+  <%# binding.pry %>
+
+  <% @general_documents.each do |general_document| %>
+    <%= general_document.name %>
+    <%= general_document.content %>
+  <% end %>
+
+  <% @technical_documents.each do |technical_document| %>
+    <%= technical_document.name %>
+    <%= technical_document.content %>
+  <% end %>
+
+
+
   <tbody>
     <% @product_documents.each do |product_document| %>
       <tr>
@@ -20,16 +34,14 @@
         <% elsif product_document.public_level == 1 %>技術
         <% end %>
         </td>
-        <td><%#= link_to 'Show', product_document %></td>
         <td><%= link_to 'Show', product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to 'Edit', edit_product_document_path(product_document) %></td>
         <td><%= link_to 'Edit', edit_product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to 'Destroy', product_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Destroy', product_product_document_path(@product, product_document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
 
 <br>
 

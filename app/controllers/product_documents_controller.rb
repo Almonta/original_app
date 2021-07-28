@@ -9,6 +9,11 @@ class ProductDocumentsController < ApplicationController
     # find_byでやってみる
     # @product = Product.find_by(id: params[:product_id])
     @product_documents = @product.product_documents.all
+    @general_documents = @product_documents.where(public_level: 0)
+    @technical_documents = @product_documents.where(public_level: 1)
+    binding.pry
+    if @product_documents.find.first.public_level == 0
+    end
   end
 
   def show; end
