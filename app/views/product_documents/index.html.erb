@@ -29,8 +29,8 @@
         </td>
         <td><%= link_to 'Show', product_product_document_path(@product, document) %></td>
         <td><%= link_to 'Edit', edit_product_product_document_path(@product, document) %></td>
-        <td><%#= link_to 'Destroy', product_product_document_path(@product, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Destroy', :back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', product_product_document_path(@product, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%#= link_to 'Destroy', :back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -104,28 +104,20 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
-    # @product_documents = @product.product_documents.all
-    # @general_documents = @product_documents.where(public_level: 0)
-    # @technical_documents = @product_documents.where(public_level: 1)
-    # # binding.pry
-    # # もし一般資料ボタンを押されたら
-    # if params[:general]
-    #   @documents = @general_documents
-    # # もし技術資料ボタンを押されたら
-    # elsif params[:technical]
-    #   @documents = @technical_documents
-    # end
-    # binding.pry
 
     # @document = @product_document
     @product_document.destroy
     respond_to do |format|
       # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
-      format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
-      format.json { head :no_content }
+      # binding.pry
+      if @product_document.public_level == 0
+        format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
+        format.json { head :no_content }
+      elsif @product_document.public_level == 1
+        format.html { redirect_to product_product_documents_path(technical: "true"), notice: "Product document was successfully destroyed." }
+        format.json { head :no_content }
+      end
     end
-
-
   end
 
   private
