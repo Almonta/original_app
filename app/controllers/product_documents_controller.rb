@@ -11,9 +11,15 @@ class ProductDocumentsController < ApplicationController
     @product_documents = @product.product_documents.all
     @general_documents = @product_documents.where(public_level: 0)
     @technical_documents = @product_documents.where(public_level: 1)
-    binding.pry
-    if @product_documents.find.first.public_level == 0
+    # binding.pry
+    # もし一般資料ボタンを押されたら
+    if params[:general]
+      @documents = @general_documents
+    # もし技術資料ボタンを押されたら
+    elsif params[:technical]
+      @documents = @technical_documents
     end
+    # binding.pry
   end
 
   def show; end
