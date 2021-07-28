@@ -49,6 +49,7 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def destroy
+    # binding.pry
     @customer_document.destroy
     respond_to do |format|
       # format.html { redirect_to customer_documents_url, notice: "Customer document was successfully destroyed." }

@@ -22,15 +22,56 @@ class ProductDocumentsController < ApplicationController
     # binding.pry
   end
 
-  def show; end
+  def show
+  
+    @product_documents = @product.product_documents.all
+    @general_documents = @product_documents.where(public_level: 0)
+    @technical_documents = @product_documents.where(public_level: 1)
+    # binding.pry
+    # もし一般資料ボタンを押されたら
+    if params[:general]
+      @documents = @general_documents
+    # もし技術資料ボタンを押されたら
+    elsif params[:technical]
+      @documents = @technical_documents
+    end
+  
+  end
 
   def new
     # @product_document = ProductDocument.new
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build
+
+    @product_documents = @product.product_documents.all
+    @general_documents = @product_documents.where(public_level: 0)
+    @technical_documents = @product_documents.where(public_level: 1)
+    # binding.pry
+    # もし一般資料ボタンを押されたら
+    if params[:general]
+      @documents = @general_documents
+    # もし技術資料ボタンを押されたら
+    elsif params[:technical]
+      @documents = @technical_documents
+    end
+
   end
 
-  def edit; end
+  def edit
+  
+    @product_documents = @product.product_documents.all
+    @general_documents = @product_documents.where(public_level: 0)
+    @technical_documents = @product_documents.where(public_level: 1)
+    # binding.pry
+    # もし一般資料ボタンを押されたら
+    if params[:general]
+      @documents = @general_documents
+    # もし技術資料ボタンを押されたら
+    elsif params[:technical]
+      @documents = @technical_documents
+    end
+
+  end
 
   def create
     # @product_document = ProductDocument.new(product_document_params)
@@ -63,12 +104,28 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
+    # @product_documents = @product.product_documents.all
+    # @general_documents = @product_documents.where(public_level: 0)
+    # @technical_documents = @product_documents.where(public_level: 1)
+    # # binding.pry
+    # # もし一般資料ボタンを押されたら
+    # if params[:general]
+    #   @documents = @general_documents
+    # # もし技術資料ボタンを押されたら
+    # elsif params[:technical]
+    #   @documents = @technical_documents
+    # end
+    # binding.pry
+
+    # @document = @product_document
     @product_document.destroy
     respond_to do |format|
       # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
-      format.html { redirect_to product_product_documents_url, notice: "Product document was successfully destroyed." }
+      format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
       format.json { head :no_content }
     end
+
+
   end
 
   private
