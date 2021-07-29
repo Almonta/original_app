@@ -3,7 +3,10 @@
     <% if customer_contact.id.present? %>
       <li>
         <div class="customer_contact_message" id ="this_customer_contact_<%= customer_contact.id %>"></div>
-        <p><%= customer_contact.user.name %></p>
+        <p>
+          <strong><%= customer_contact.user.name %></strong>
+          <%= l customer_contact.created_at %>
+        </p>
         <p><%= customer_contact.contact_message %></p>
         <p>
         <%= link_to "編集", edit_customer_customer_contact_path(customer, customer_contact), remote: true %>
