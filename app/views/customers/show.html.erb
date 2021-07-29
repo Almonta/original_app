@@ -21,7 +21,11 @@
   <p>プロジェクトに登録する</p>
 <% end %>
 
-<%= link_to '資料', customer_customer_documents_path(@customer.id) %>
+<%#= link_to '資料', customer_customer_documents_path(@customer.id) %>
+<%= link_to '一般資料', customer_customer_documents_path(@customer.id, general: "true") %>
+<br>
+<%= link_to '技術資料', customer_customer_documents_path(@customer.id, technical: "true") %>
+
 
 <div class="col-3">
   <ul class="list-group">

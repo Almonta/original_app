@@ -6,26 +6,25 @@
       <th>Name</th>
       <th>Content</th>
       <th>Public level</th>
-      <th colspan="3"></th>
+      <th colspan="3">Document</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @product_documents.each do |product_document| %>
+    <% @documents.each do |document| %>
       <tr>
-        <td><%= product_document.name %></td>
-        <td><%= product_document.content %></td>
+        <td><%= document.name %></td>
+        <td><%= document.content %></td>
         <td>
-        <% if product_document.public_level == 0 %>一般
-        <% elsif product_document.public_level == 1 %>技術
+        <% if document.public_level == 0 %>一般
+        <% elsif document.public_level == 1 %>技術
         <% end %>
         </td>
-        <td><%#= link_to 'Show', product_document %></td>
-        <td><%= link_to 'Show', product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to 'Edit', edit_product_document_path(product_document) %></td>
-        <td><%= link_to 'Edit', edit_product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to 'Destroy', product_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td><%= link_to 'Destroy', product_product_document_path(@product, product_document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!--前のdocumentが変数で後ろのdocumentがuploader-->
+        <td><object data="<%= document.document.url %>" type="application/pdf" ></object></td>
+        <td><%= link_to 'Show', product_product_document_path(@product, document) %></td>
+        <td><%= link_to 'Edit', edit_product_product_document_path(@product, document) %></td>
+        <td><%= link_to 'Destroy', product_product_document_path(@product, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +32,6 @@
 
 <br>
 
-<%#= link_to 'New Product Document', new_product_document_path %>
 <%= link_to 'New Product Document', new_product_product_document_path %>
+<br>
+<%= link_to '一覧へ', product_path(@product.id) %>
