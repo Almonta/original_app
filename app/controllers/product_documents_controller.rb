@@ -52,10 +52,11 @@ class ProductDocumentsController < ApplicationController
     @product_document.destroy
     respond_to do |format|
       # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
-      if @product_document.public_level == 0
+      case @product_document.public_level
+      when 0
         format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
         format.json { head :no_content }
-      elsif @product_document.public_level == 1
+      when 1
         format.html { redirect_to product_product_documents_path(technical: "true"), notice: "Product document was successfully destroyed." }
         format.json { head :no_content }
       end
