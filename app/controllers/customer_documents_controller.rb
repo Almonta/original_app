@@ -51,10 +51,18 @@ class CustomerDocumentsController < ApplicationController
   def destroy
     @customer_document.destroy
     respond_to do |format|
-      if @customer_document.public_level == 0
+      # if @customer_document.public_level == 0
+      #   format.html { redirect_to customer_customer_documents_path(general: "true"), notice: "Customer document was successfully destroyed." }
+      #   format.json { head :no_content }
+      # elsif @customer_document.public_level == 1
+      #   format.html { redirect_to customer_customer_documents_path(technical: "true"), notice: "Customer document was successfully destroyed." }
+      #   format.json { head :no_content }
+      # end
+      case @customer_document.public_level
+      when 0
         format.html { redirect_to customer_customer_documents_path(general: "true"), notice: "Customer document was successfully destroyed." }
         format.json { head :no_content }
-      elsif @customer_document.public_level == 1
+      when 1
         format.html { redirect_to customer_customer_documents_path(technical: "true"), notice: "Customer document was successfully destroyed." }
         format.json { head :no_content }
       end
