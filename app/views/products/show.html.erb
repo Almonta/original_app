@@ -1,58 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <h3><strong>プロダクト名</strong></h3>
+      <%= @product.name %>
 
-<h3><strong>プロダクト名</strong></h3>
-<%= @product.name %>
+      <h3>作成者</h3>
+      <%= @product.user.name %>
 
-<h3>作成者</h3>
-<%= @product.user.name %>
+      <br>
+      <br>
 
-<br>
-<br>
+      <% if @user_product.present? %>
+        <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
+      <% else %>
+        <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
+      <% end %>
+      <br>
+      <%= link_to t('views.button.edit'), edit_product_path(@product) %>
+    </div>
 
-<% if @user_product.present? %>
-  <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
-<% else %>
-  <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
-<% end %>
 
-<br>
-<br>
+    <div class="col-lg-9 col-md-8">
+      <div class="position-absolute" style="top:100px; left:30px;">
+        <%= link_to product_product_documents_path(@product.id, general: "true") do %>
+        <button type="button" class="btn btn-info ">一般資料</button>
+        <% end %>
+      </div>
+      <div class="position-absolute" style="top:100px; left:170px;">
+        <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
+        <button type="button" class="btn btn-info">技術資料</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
-<%= link_to '一般資料', product_product_documents_path(@product.id, general: "true") %>
-<br>
-<%= link_to '技術資料', product_product_documents_path(@product.id, technical: "true") %>
-<%#= link_to '資料', 'product_documents/index' %>
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item active">プロジェクトメンバー</li>
+        <% @user_products.each do |user_product| %>
+          <li class="list-group-item">
+            <div class="row">
+              <span class="col-7"><%= user_product.user.name %></span>
+              <span class="col-5"><%= user_product.user.department_i18n %></span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-<!--
-<h3>プロジェクトメンバー</h3>
-<% @user_products.each do |user_product| %>
-  <p>
-  <%= user_product.user.name %>
-  <%= user_product.user.department_i18n %>
-  </p>
-<% end %>
--->
+    <div class="col-lg-9 col-md-8">
+      <h3>コンタクト</h3>
+      <div id="product_contacts_area" class="box">
+        <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
+      </div>
+      <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
+    </div>
+  </div>
 
-<div class="col-3">
-  <ul class="list-group">
-    <li class="list-group-item active">プロジェクトメンバー</li>
-    <% @user_products.each do |user_product| %>
-      <li class="list-group-item">
-        <div class="row">
-          <span class="col-8"><%= user_product.user.name %></span>
-          <span class="col-4"><%= user_product.user.department_i18n %></span>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+  <%= link_to t('views.button.back_home'), homes_path %>
 </div>
-
-<h3>コンタクト</h3>
-<hr>
-<div id="product_contacts_area">
-  <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
-</div>
-<%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
-
-
-<%= link_to t('views.button.edit'), edit_product_path(@product) %> |
-<%= link_to t('views.button.back_home'), homes_path %>
