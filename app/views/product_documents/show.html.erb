@@ -18,7 +18,6 @@
 
 <p>
   <strong>Document:</strong>
-  <%#= @feed.image.url %>
   <object data="<%= @product_document.document.url %>" type="application/pdf" width="800" height="450"></object>
 </p>
 
@@ -29,7 +28,7 @@
 <%#= link_to 'Back', product_product_documents_path(general: "true") %>
 <%#= link_to '戻る', :back %>
 <% if @product_document.public_level == 0 %>
-<%= link_to '一般資料一覧へ', product_product_documents_path(general: "true") %>
+  <%= link_to '一般資料一覧へ', product_product_documents_path(general: "true") %>
 <% elsif @product_document.public_level == 1 %>
-<%= link_to '技術資料一覧へ', product_product_documents_path(technical: "true") %>
+  <%= link_to '技術資料一覧へ', product_product_documents_path(technical: "true") %>
 <% end %>

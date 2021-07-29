@@ -2,79 +2,25 @@ class ProductDocumentsController < ApplicationController
   before_action :set_product_document, only: %i[show edit update destroy]
 
   def index
-    # @product_documents = ProductDocument.all
     @product = Product.where(id: params[:product_id]).first
-    # .firstを無しにする
-    # @product = Product.where(id: params[:product_id])
-    # find_byでやってみる
-    # @product = Product.find_by(id: params[:product_id])
     @product_documents = @product.product_documents.all
-    @general_documents = @product_documents.where(public_level: 0)
-    @technical_documents = @product_documents.where(public_level: 1)
-    # binding.pry
-    # もし一般資料ボタンを押されたら
     if params[:general]
-      @documents = @general_documents
-    # もし技術資料ボタンを押されたら
+      @documents = @product_documents.where(public_level: 0)
     elsif params[:technical]
-      @documents = @technical_documents
+      @documents = @product_documents.where(public_level: 1)
     end
-    # binding.pry
   end
 
-  def show
-  
-    @product_documents = @product.product_documents.all
-    @general_documents = @product_documents.where(public_level: 0)
-    @technical_documents = @product_documents.where(public_level: 1)
-    # binding.pry
-    # もし一般資料ボタンを押されたら
-    if params[:general]
-      @documents = @general_documents
-    # もし技術資料ボタンを押されたら
-    elsif params[:technical]
-      @documents = @technical_documents
-    end
-  
-  end
+  def show; end
 
   def new
-    # @product_document = ProductDocument.new
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build
-
-    @product_documents = @product.product_documents.all
-    @general_documents = @product_documents.where(public_level: 0)
-    @technical_documents = @product_documents.where(public_level: 1)
-    # binding.pry
-    # もし一般資料ボタンを押されたら
-    if params[:general]
-      @documents = @general_documents
-    # もし技術資料ボタンを押されたら
-    elsif params[:technical]
-      @documents = @technical_documents
-    end
-
   end
 
-  def edit
-  
-    @product_documents = @product.product_documents.all
-    @general_documents = @product_documents.where(public_level: 0)
-    @technical_documents = @product_documents.where(public_level: 1)
-    # binding.pry
-    # もし一般資料ボタンを押されたら
-    if params[:general]
-      @documents = @general_documents
-    # もし技術資料ボタンを押されたら
-    elsif params[:technical]
-      @documents = @technical_documents
-    end
-
-  end
+  def edit; end
 
   def create
-    # @product_document = ProductDocument.new(product_document_params)
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build(product_document_params)
     @product_document.user_id = current_user.id
@@ -93,7 +39,6 @@ class ProductDocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @product_document.update(product_document_params)
-        # format.html { redirect_to @product, notice: "Product document was successfully updated." }
         format.html { redirect_to [@product, @product_document], notice: "Product document was successfully updated." }
         format.json { render :show, status: :ok, location: @product_document }
       else
@@ -104,12 +49,9 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
-
-    # @document = @product_document
     @product_document.destroy
     respond_to do |format|
       # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
-      # binding.pry
       if @product_document.public_level == 0
         format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
         format.json { head :no_content }
@@ -123,9 +65,7 @@ class ProductDocumentsController < ApplicationController
   private
 
   def set_product_document
-    # @product_document = ProductDocument.find(params[:id])
     @product = Product.where(id: params[:product_id]).first
-    # binding.pry
     @product_document = @product.product_documents.where(id: params[:id]).first
   end
 
