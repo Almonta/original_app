@@ -9,11 +9,17 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
+
+  <span class="field">
     <%= form.label :contact_message %>
-    <%= form.text_area :contact_message %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <%= form.text_area :contact_message, size: "80x2" %>
+  </span>
+
+  <span class="actions">
+    <%#= form.submit %>
+    <button name="button" type="submit" class="btn comment_btn">
+    <i class="far fa-paper-plane fa-lg"></i>
+    </button>
+  </span>
+
 <% end %>

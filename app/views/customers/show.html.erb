@@ -1,53 +1,68 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <p>
+        <strong>Customer number:</strong>
+        <%= @customer.number %>
+      </p>
 
-<p>
-  <strong>Customer number:</strong>
-  <%= @customer.number %>
-</p>
+      <p>
+        <strong>Customer name:</strong>
+        <%= @customer.name %>
+      </p>
 
-<p>
-  <strong>Customer name:</strong>
-  <%= @customer.name %>
-</p>
+      <% if @user_customer.present? %>
+        <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <p>プロジェクトから解除する</p>
+      <% else %>
+        <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
+          <i class="far fa-star fa-5x"></i>
+        <% end %>
+        <p>プロジェクトに登録する</p>
+      <% end %>
+      <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> 
+    </div>
 
-<% if @user_customer.present? %>
-  <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
-    <i class="fas fa-star"></i>
-  <% end %>
-  <p>プロジェクトから解除する</p>
-<% else %>
-  <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
-    <i class="far fa-star fa-5x"></i>
-  <% end %>
-  <p>プロジェクトに登録する</p>
-<% end %>
+    <div class="col-lg-9 col-md-8">
+      <div class="position-absolute" style="top:100px; left:30px;">
+        <%= link_to customer_customer_documents_path(@customer.id, general: "true") do %>
+        <button type="button" class="btn btn-info ">一般資料</button>
+        <% end %>
+      </div>
+      <div class="position-absolute" style="top:100px; left:170px;">
+        <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
+        <button type="button" class="btn btn-info">技術資料</button>
+        <% end %>
+      </div>
+    </div>
 
-<%#= link_to '資料', customer_customer_documents_path(@customer.id) %>
-<%= link_to '一般資料', customer_customer_documents_path(@customer.id, general: "true") %>
-<br>
-<%= link_to '技術資料', customer_customer_documents_path(@customer.id, technical: "true") %>
+  </div>
 
+  <div class="row">
+    <div class="col-lg-3 col-md-4">
+      <ul class="list-group">
+        <li class="list-group-item active">プロジェクトメンバー</li>
+        <% @user_customers.each do |user_customer| %>
+          <li class="list-group-item">
+            <div class="row">
+              <span class="col-7"><%= user_customer.user.name %></span>
+              <span class="col-5"><%= user_customer.user.department_i18n %></span>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
 
-<div class="col-3">
-  <ul class="list-group">
-    <li class="list-group-item active">プロジェクトメンバー</li>
-    <% @user_customers.each do |user_customer| %>
-      <li class="list-group-item">
-        <div class="row">
-          <span class="col-8"><%= user_customer.user.name %></span>
-          <span class="col-4"><%= user_customer.user.department_i18n %></span>
-        </div>
-      </li>
-    <% end %>
-  </ul>
+    <div class="col-lg-9 col-md-8">
+      <p>コンタクト</p>
+      <div id="customer_contacts_area" class="box">
+        <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
+      </div>
+      <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
+
+    </div>
+  </div>
+  <%= link_to t('views.button.back_home'), homes_path %>
 </div>
-
-
-<p>コンタクト</p>
-<div id="customer_contacts_area">
-  <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
-</div>
-<%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
-
-
-<%= link_to t('views.button.edit'), edit_customer_path(@customer) %> |
-<%= link_to t('views.button.back_home'), homes_path %>
