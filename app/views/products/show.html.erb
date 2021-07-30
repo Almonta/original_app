@@ -7,9 +7,6 @@
       <h3>作成者</h3>
       <%= @product.user.name %>
 
-      <br>
-      <br>
-
       <% if @user_product.present? %>
         <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
       <% else %>
@@ -18,7 +15,6 @@
       <br>
       <%= link_to t('views.button.edit'), edit_product_path(@product) %>
     </div>
-
 
     <div class="col-lg-9 col-md-8">
       <div class="position-absolute" style="top:100px; left:30px;">

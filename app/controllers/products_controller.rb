@@ -12,7 +12,6 @@ class ProductsController < ApplicationController
     @product_contacts = @product.product_contacts
     @product_contact = @product.product_contacts.build
     @user_products = @product.user_products
-    # binding.pry
   end
 
   def new
