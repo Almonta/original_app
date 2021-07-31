@@ -25,6 +25,14 @@
       <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> 
     </div>
 
+
+  <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+
+  <div id="schedules_area">
+    <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
+  </div>
+
+
     <div class="col-lg-9 col-md-8">
       <div class="position-absolute" style="top:100px; left:30px;">
         <%= link_to customer_customer_documents_path(@customer.id, general: "true") do %>
