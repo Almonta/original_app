@@ -11,6 +11,8 @@ class CustomersController < ApplicationController
     @customer_contacts = @customer.customer_contacts
     @customer_contact = @customer.customer_contacts.build
     @user_customers = @customer.user_customers
+    @schedules = @customer.schedules.order(created_at: :desc)
+    @schedule = @customer.schedules.build
   end
 
   def new

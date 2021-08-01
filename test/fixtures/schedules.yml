@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  serial_number: MyString
+  line_on: 2021-07-31
+  completed_on: 2021-07-31
+  shipmented_on: 2021-07-31
+  deliveried_on: 2021-07-31
+
+two:
+  customer: two
+  serial_number: MyString
+  line_on: 2021-07-31
+  completed_on: 2021-07-31
+  shipmented_on: 2021-07-31
+  deliveried_on: 2021-07-31

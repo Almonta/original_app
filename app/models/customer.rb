@@ -5,4 +5,5 @@ class Customer < ApplicationRecord
   # has_many :registered_customer, through: :user_customers, source: :user
   has_many :customer_contacts, dependent: :destroy
   has_many :customer_documents, dependent: :destroy
+  has_many :schedules, dependent: :destroy
 end

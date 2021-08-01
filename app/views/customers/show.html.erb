@@ -22,8 +22,11 @@
         <% end %>
         <p>プロジェクトに登録する</p>
       <% end %>
-      <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> 
+      <div>
+        <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> 
+      </div>
     </div>
+
 
     <div class="col-lg-9 col-md-8">
       <div class="position-absolute" style="top:100px; left:30px;">
@@ -39,6 +42,14 @@
     </div>
 
   </div>
+
+
+  <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+
+  <div id="schedules_area">
+    <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
+  </div>
+
 
   <div class="row">
     <div class="col-lg-3 col-md-4">
