@@ -1,17 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-4">
-      <h3><strong>プロダクト名</strong></h3>
-      <%= @product.name %>
+      <h3><strong>プロダクト詳細</strong></h3>
+      <div class="product_name_title">
+        <%= @product.name %>
 
-      <h3>作成者</h3>
-      <%= @product.user.name %>
+      <br>
 
       <% if @user_product.present? %>
-        <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
+        <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
+          <i class="fas fa-star">プロジェクトから解除する</i>
+        <% end %>
       <% else %>
-        <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
+        <%= link_to user_products_path(product_id: @product.id), method: :post do %>
+          <i class="far fa-star">プロジェクトに登録する</i>
+        <% end %>
       <% end %>
+
+      </div>
+
+      <br>
+      <h3>作成者</h3>
+      <%= @product.user.name %>
       <br>
       <%= link_to t('views.button.edit'), edit_product_path(@product) %>
     </div>
