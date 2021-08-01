@@ -4,6 +4,22 @@
 
 .product_name_title {
   padding: 1rem 2rem;
-  background: #bebebe;
+  background: rgb(201, 201, 201);
   border-radius: 1rem;
+}
+
+.box {
+  height: 280px;
+  border: 2px solid rgb(201, 201, 201);
+  overflow-y: scroll;
+  border-radius: 1rem;
+}
+
+.editer {
+  text-align: left;
+  float: left;
+}
+
+.edit_link {
+  text-align: right;
 }
