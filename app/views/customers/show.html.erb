@@ -18,7 +18,7 @@
         <p>プロジェクトから解除する</p>
       <% else %>
         <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
-          <i class="far fa-star fa-5x"></i>
+          <i class="far fa-star"></i>
         <% end %>
         <p>プロジェクトに登録する</p>
       <% end %>
