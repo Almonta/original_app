@@ -221,8 +221,14 @@ ja:
       new_product: 'プロダクト新規登録'
       new_customer: 'カスタマー新規登録'
       back_home: 'ホーム画面に戻る'
+      new_product_document: 'プロダクト資料新規登録'
     title:
       contact_message: 'コンタクトメッセージ'
+      product_documents: 'プロダクト資料'
+      document_name: '資料名'
+      content: '概要'
+      public_level: '公開レベル'
+      document: '資料'
   enums:
     user:
       department:
