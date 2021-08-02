@@ -13,22 +13,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label t('views.title.document_name') %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label t('views.title.content') %>
     <%= form.text_area :content %>
   </div>
 
   <div class="field">
-    <%= form.label :public_level %>
+    <%= form.label t('views.title.public_level') %>
     <%= form.radio_button :public_level, 0 %>一般 <%= form.radio_button :public_level, 1 %>技術
   </div>
 
   <div class="field">
-    <%= form.label :document %>
+    <%= form.label t('views.title.document') %>
     <%= form.file_field :document %>
   </div>
 

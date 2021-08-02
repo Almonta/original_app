@@ -221,6 +221,7 @@ ja:
       show: '詳細'
       edit: '編集'
       destroy: '削除'
+      back: '戻る'
       new_product: 'プロダクト新規登録'
       new_customer: 'カスタマー新規登録'
       back_home: 'ホーム画面に戻る'
@@ -228,6 +229,7 @@ ja:
     title:
       contact_message: 'コンタクトメッセージ'
       product_documents: 'プロダクト資料'
+      editing_product_documents: 'プロダクト資料編集'
       document_name: '資料名'
       content: '概要'
       public_level: '公開レベル'
