@@ -206,12 +206,15 @@ ja:
     pm: 午後
   views:
     messages:
-      create_product: 'お客様名の登録が完了しました'
-      create_customer: '製品名の登録が完了しました'
-      update_product: 'お客様名を更新しました'
-      update_customer: '製品名を更新しました'
-      destroy_product: 'お客様名を削除しました'
-      destroy_customer: '製品名を削除しました'
+      create_product: 'プロダクトの登録が完了しました'
+      create_customer: 'カスタマーの登録が完了しました'
+      create_product_document: 'プロダクト資料の登録が完了しました'
+      update_product: 'プロダクト名を更新しました'
+      update_customer: 'カスタマー情報を更新しました'
+      update_product_document: 'プロダクト資料を更新しました'
+      destroy_product: 'プロダクトを削除しました'
+      destroy_customer: 'カスタマーを削除しました'
+      destroy_product_document: 'プロダクト資料を削除しました'
       confirm_destroy: '本当に削除してもよろしいですか？'
       check_number: '数字を入力してください'
     button:
