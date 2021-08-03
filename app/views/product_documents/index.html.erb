@@ -1,4 +1,6 @@
 <h3><%= t('views.title.product_documents') %></h3>
+<br>
+<%= link_to t('views.button.new_product_document'), new_product_product_document_path %>
 
 <table>
   <thead>
@@ -24,7 +26,7 @@
         <td><object data="<%= document.document.url %>" type="application/pdf" ></object></td>
         <td><%= link_to t('views.button.show'), product_product_document_path(@product, document) %></td>
         <td><%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document) %></td>
-        <td><%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,6 +34,4 @@
 
 <br>
 
-<%= link_to t('views.button.new_product_document'), new_product_product_document_path %>
-<br>
 <%= link_to '一覧へ', product_path(@product.id) %>

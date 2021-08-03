@@ -228,12 +228,23 @@ ja:
       new_product_document: 'プロダクト資料新規登録'
     title:
       contact_message: 'コンタクトメッセージ'
+      product_show: 'プロダクト詳細'
+      product_edit: 'プロダクト編集'
+      product_name: 'プロダクト名'
       product_documents: 'プロダクト資料'
+      customer_show: 'カスタマー詳細'
+      customer_number: 'カスタマーNo'
+      customer_name: 'カスタマー名'
       editing_product_documents: 'プロダクト資料編集'
       document_name: '資料名'
       content: '概要'
       public_level: '公開レベル'
       document: '資料'
+      serial_number: '製造番号'
+      line_on: '生産着手日'
+      completed_on: '生産完了日'
+      shipmented_on: '出荷日'
+      deliveried_on: '納品日'
   enums:
     user:
       department:

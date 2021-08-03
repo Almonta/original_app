@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-4">
-      <h3><strong>プロダクト詳細</strong></h3>
+      <h3><strong><%= t('views.title.product_show') %></strong></h3>
       <div class="product_name_title">
         <%= @product.name %>
-
+        
         <br>
 
         <% if @user_product.present? %>
