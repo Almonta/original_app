@@ -10,34 +10,74 @@
     </div>
   <% end %>
 
+
+  <div class="row">
+    <div class="col-2">
+      <div class="field">
+        <%= form.label t('views.title.serial_number') %>
+        <%= form.text_field :serial_number %>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="field">
+        <%= form.label t('views.title.line_on') %>
+        <%= form.date_field :line_on %>
+      </div>
+    </div>
+        <div class="col-2">
+      <div class="field">
+        <%= form.label t('views.title.completed_on') %>
+        <%= form.date_field :completed_on %>
+      </div>
+    </div>
+        <div class="col-2">
+      <div class="field">
+        <%= form.label t('views.title.shipmented_on') %>
+        <%= form.date_field :shipmented_on %>
+      </div>
+    </div>
+        <div class="col-2">
+      <div class="field">
+        <%= form.label t('views.title.deliveried_on') %>
+        <%= form.date_field :deliveried_on %>
+      </div>
+    </div>
+    <div class="col-2">
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
+  </div>
+
+<!--
   <ul class="form">
     <li>
       <div class="field">
-        <%= form.label :serial_number %>
+        <%= form.label t('views.title.serial_number') %>
         <%= form.text_field :serial_number, id: "schedule_serial_number_#{customer.id}" %>
       </div>
     </li>
     <li>
       <div class="field">
-        <%= form.label :line_on %>
+        <%= form.label t('views.title.line_on') %>
         <%= form.date_field :line_on, id: "schedule_line_on_#{customer.id}" %>
       </div>
     </li>
     <li>
       <div class="field">
-        <%= form.label :completed_on %>
+        <%= form.label t('views.title.completed_on') %>
         <%= form.date_field :completed_on, id: "schedule_completed_on_#{customer.id}" %>
       </div>
     </li>
     <li>
       <div class="field">
-        <%= form.label :shipmented_on %>
+        <%= form.label t('views.title.shipmented_on') %>
         <%= form.date_field :shipmented_on, id: "schedule_shipmented_on_#{customer.id}" %>
       </div>
     </li>
     <li>
       <div class="field">
-        <%= form.label :deliveried_on %>
+        <%= form.label t('views.title.deliveried_on') %>
         <%= form.date_field :deliveried_on, id: "schedule_deliveried_on_#{customer.id}" %>
       </div>
     </li>
@@ -46,4 +86,7 @@
         <%= form.submit %>
       </div>
     </li>
+  </ul>
+  <br>
+-->
 <% end %>

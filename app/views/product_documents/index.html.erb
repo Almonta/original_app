@@ -1,12 +1,14 @@
-<h1>Product Documents</h1>
+<h3><%= t('views.title.product_documents') %></h3>
+<br>
+<%= link_to t('views.button.new_product_document'), new_product_product_document_path %>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Public level</th>
-      <th colspan="3">Document</th>
+      <th><%= t('views.title.document_name') %></th>
+      <th><%= t('views.title.content') %></th>
+      <th><%= t('views.title.public_level') %></th>
+      <th colspan="3"><%= t('views.title.document') %></th>
     </tr>
   </thead>
 
@@ -22,9 +24,9 @@
         </td>
         <!--前のdocumentが変数で後ろのdocumentがuploader-->
         <td><object data="<%= document.document.url %>" type="application/pdf" ></object></td>
-        <td><%= link_to 'Show', product_product_document_path(@product, document) %></td>
-        <td><%= link_to 'Edit', edit_product_product_document_path(@product, document) %></td>
-        <td><%= link_to 'Destroy', product_product_document_path(@product, document), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('views.button.show'), product_product_document_path(@product, document) %></td>
+        <td><%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document) %></td>
+        <td><%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,6 +34,4 @@
 
 <br>
 
-<%= link_to 'New Product Document', new_product_product_document_path %>
-<br>
 <%= link_to '一覧へ', product_path(@product.id) %>

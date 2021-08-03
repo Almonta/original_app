@@ -1,28 +1,38 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-4">
-      <h3><strong>プロダクト名</strong></h3>
-      <%= @product.name %>
+      <h3><strong><%= t('views.title.product_show') %></strong></h3>
+      <div class="product_name_title">
+        <%= @product.name %>
+        
+        <br>
 
-      <h3>作成者</h3>
-      <%= @product.user.name %>
+        <% if @user_product.present? %>
+          <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
+            <i class="fas fa-star">プロジェクトから解除する</i>
+          <% end %>
+        <% else %>
+          <%= link_to user_products_path(product_id: @product.id), method: :post do %>
+            <i class="far fa-star">プロジェクトに登録する</i>
+          <% end %>
+        <% end %>
 
-      <% if @user_product.present? %>
-        <%= link_to 'プロジェクトから解除する', user_product_path(id: @user_product.id), method: :delete, class: 'btn btn-danger' %>
-      <% else %>
-        <%= link_to 'プロジェクトに登録する', user_products_path(product_id: @product.id), method: :post, class: 'btn btn-primary' %>
-      <% end %>
+      </div>
+
       <br>
-      <%= link_to t('views.button.edit'), edit_product_path(@product) %>
+      <div class="product_editer">
+        <p class="editer">作成者：<%= @product.user.name %></p>
+        <p class="edit_link"><%= link_to t('views.button.edit'), edit_product_path(@product) %></p>
+      </div>
     </div>
 
     <div class="col-lg-9 col-md-8">
-      <div class="position-absolute" style="top:100px; left:30px;">
+      <div class="position-absolute" style="top:60px; left:30px;">
         <%= link_to product_product_documents_path(@product.id, general: "true") do %>
         <button type="button" class="btn btn-info ">一般資料</button>
         <% end %>
       </div>
-      <div class="position-absolute" style="top:100px; left:170px;">
+      <div class="position-absolute" style="top:60px; left:150px;">
         <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
         <button type="button" class="btn btn-info">技術資料</button>
         <% end %>

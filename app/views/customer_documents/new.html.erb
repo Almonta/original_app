@@ -1,6 +1,6 @@
-<h1>New Customer Document</h1>
+<h3><%= t('views.title.new_customer_document') %></h3>
 
 <%= render 'form', { customer: @customer, customer_document: @customer_document } %>
 
 <%#= link_to 'Back', customer_customer_documents_path %>
-<%= link_to 'Back', :back %>
+<%= link_to t('views.button.back'), :back %>

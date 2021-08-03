@@ -27,7 +27,7 @@ class ProductDocumentsController < ApplicationController
 
     respond_to do |format|
       if @product_document.save
-        format.html { redirect_to [@product, @product_document], notice: "Product document was successfully created." }
+        format.html { redirect_to [@product, @product_document], notice: t('views.messages.create_product_document') }
         format.json { render :show, status: :created, location: @product_document }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class ProductDocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @product_document.update(product_document_params)
-        format.html { redirect_to [@product, @product_document], notice: "Product document was successfully updated." }
+        format.html { redirect_to [@product, @product_document], notice: t('views.messages.update_product_document') }
         format.json { render :show, status: :ok, location: @product_document }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,10 +54,10 @@ class ProductDocumentsController < ApplicationController
       # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
       case @product_document.public_level
       when 0
-        format.html { redirect_to product_product_documents_path(general: "true"), notice: "Product document was successfully destroyed." }
+        format.html { redirect_to product_product_documents_path(general: "true"), notice: t('views.messages.destroy_product_document') }
         format.json { head :no_content }
       when 1
-        format.html { redirect_to product_product_documents_path(technical: "true"), notice: "Product document was successfully destroyed." }
+        format.html { redirect_to product_product_documents_path(technical: "true"), notice: t('views.messages.destroy_product_document') }
         format.json { head :no_content }
       end
     end

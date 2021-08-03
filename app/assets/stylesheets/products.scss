@@ -2,3 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.product_name_title {
+  padding: 1rem 2rem;
+  background: rgb(201, 201, 201);
+  border-radius: 1rem;
+}
+
+.box {
+  height: 350px;
+  border: 2px solid rgb(201, 201, 201);
+  overflow-y: scroll;
+  border-radius: 1rem;
+}
+
+.editer {
+  text-align: left;
+  float: left;
+}
+
+.edit_link {
+  text-align: right;
+}

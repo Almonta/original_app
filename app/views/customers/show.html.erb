@@ -1,29 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-4">
-      <p>
-        <strong>Customer number:</strong>
-        <%= @customer.number %>
-      </p>
+      <h3><strong><%= t('views.title.customer_show') %></strong></h3>
+      <div class="product_name_title">
+        <p>
+          <strong><%= t('views.title.customer_number') %>:</strong>
+          <%= @customer.number %>
+        </p>
 
-      <p>
-        <strong>Customer name:</strong>
-        <%= @customer.name %>
-      </p>
+        <p>
+          <strong><%= t('views.title.customer_name') %>:</strong>
+          <%= @customer.name %>
+        </p>
 
-      <% if @user_customer.present? %>
-        <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
-          <i class="fas fa-star"></i>
+        <% if @user_customer.present? %>
+          <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
+            <i class="fas fa-star">プロジェクトから解除する</i>
+          <% end %>
+        <% else %>
+          <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
+            <i class="far fa-star">プロジェクトに登録する</i>
+          <% end %>
         <% end %>
-        <p>プロジェクトから解除する</p>
-      <% else %>
-        <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
-          <i class="far fa-star fa-5x"></i>
-        <% end %>
-        <p>プロジェクトに登録する</p>
-      <% end %>
-      <div>
-        <%= link_to t('views.button.edit'), edit_customer_path(@customer) %> 
+      </div>
+
+      <div class="product_editer">
+        <p class="editer">作成者：<%= @customer.user.name %></p>
+        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) %></p>
       </div>
     </div>
 
@@ -43,8 +46,9 @@
 
   </div>
 
-
-  <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+  <div class="schedule_form">
+    <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+  </div>
 
   <div id="schedules_area">
     <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
