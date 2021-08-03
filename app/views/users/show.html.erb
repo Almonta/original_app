@@ -13,10 +13,22 @@
 <% @products.each do |product| %>
   <%= product.name %>
   <%= link_to '権限移行' %>
+  <br>
 <% end %>
 <h5>カスタマー</h5>
 <% @customers.each do |customer| %>
   <%= customer.name %>
+  <%= link_to '権限移行' %>
+  <br>
+<% end %>
+<h5>投稿したドキュメント</h5>
+<% @product_documents.each do |product_document| %>
+  <%= product_document.name %>
+  <%= link_to '権限移行' %>
+  <br>
+<% end %>
+<% @customer_documents.each do |customer_document| %>
+  <%= customer_document.name %>
   <%= link_to '権限移行' %>
   <br>
 <% end %>
