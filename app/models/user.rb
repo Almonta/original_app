@@ -26,13 +26,13 @@ class User < ApplicationRecord
                      manufacturing: 4,
                      service: 5 }
 
-  has_many :products
-  has_many :user_products
+  has_many :products, dependent: :destroy
+  has_many :user_products, dependent: :destroy
   has_many :registered_products, through: :user_products, source: :product
   has_many :product_contacts
   has_many :product_documents
   has_many :customers
-  has_many :user_customers
+  has_many :user_customers, dependent: :destroy
   has_many :registered_customers, through: :user_customers, source: :customer
   has_many :customer_contacts
   has_many :customer_documents
