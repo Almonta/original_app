@@ -1,29 +1,31 @@
 
   <% schedules.each do |schedule| %>
     <% if schedule.id.present? %>
-      <div class="row">
-        <div class="schedule-content" id ="this_schedule_<%= schedule.id %>"></div>
-        <div class="col-2">
-          <%= schedule.serial_number %>
-        </div>
-        <div class="col-2">
-          <%= schedule.line_on %>
-        </div>
-        <div class="col-2">
-          <%= schedule.completed_on %>
-        </div>
-        <div class="col-2">
-          <%= schedule.shipmented_on %>
-        </div>
-        <div class="col-2">
-          <%= schedule.deliveried_on %>
-        </div>
-        <div class="col-1">
-        <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
-        </div>
-        <div class="col-1">
-        <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
-                            data: { confirm: "本当に削除しますか?"} %>
+      <div class="container">
+        <div class="row">
+          <div class="schedule-content" id ="this_schedule_<%= schedule.id %>"></div>
+          <div class="col-2">
+            <%= schedule.serial_number %>
+          </div>
+          <div class="col-2">
+            <%= schedule.line_on %>
+          </div>
+          <div class="col-2">
+            <%= schedule.completed_on %>
+          </div>
+          <div class="col-2">
+            <%= schedule.shipmented_on %>
+          </div>
+          <div class="col-2">
+            <%= schedule.deliveried_on %>
+          </div>
+          <div class="col-1">
+          <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
+          </div>
+          <div class="col-1">
+          <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
+                              data: { confirm: "本当に削除しますか?"} %>
+          </div>
         </div>
       </div>
     <% end %>

@@ -46,8 +46,9 @@
 
   </div>
 
-
-  <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+  <div class="schedule_form">
+    <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+  </div>
 
   <div id="schedules_area">
     <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
