@@ -2,18 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.parent{
+.parent {
   height: 100%;
-  width: 100%;
+  width: max-content;
   background-color:rgb(255, 255, 255);
+  border-radius: 20px;
 }
 
-.created_products_customers_title_card{
+.created_products_customers_title {
+  padding: 10px;
+}
+
+.created_products_customers_title_card {
   display: flex;
+  // overflow-x: auto;
   overflow-x: scroll;
+  // white-space: nowrap; 
+  // overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
 }
 
-.child{
+.child {
+  // display: inline-block;
   height: 120px;
   width: 100px;
   min-width: 100px;
