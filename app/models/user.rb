@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, presence: true
+  validates :name, :department, presence: true
 
   def self.guest
     find_or_create_by!(name: 'ゲスト', department: 0, email: 'guest@example.com') do |user|
@@ -26,7 +26,7 @@ class User < ApplicationRecord
                      manufacturing: 4,
                      service: 5 }
 
-  has_many :products
+  has_many :products, dependent: :destroy
   has_many :user_products, dependent: :destroy
   has_many :registered_products, through: :user_products, source: :product
   has_many :product_contacts

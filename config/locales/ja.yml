@@ -240,6 +240,8 @@ ja:
       customer_number: 'カスタマーNo'
       editing_product_documents: 'プロダクト資料編集'
       editing_customer_documents: 'カスタマー資料編集'
+      new_product: 'プロダクト新規登録'
+      new_customer: 'カスタマー新規登録'
       new_product_document: 'プロダクト資料新規登録'
       new_customer_document: 'カスタマー資料新規登録'
       document_name: '資料名'
