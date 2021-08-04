@@ -13,17 +13,17 @@
     <div class="created_products_customers_title">
       <h4>作成したプロダクト・カスタマー</h4>
     </div>
-    <ul class="created_products_customers_title_card">
+    <ul class="created_products_customers_card">
       <% @products.each do |product| %>
-      <li class="created_title_card">
-        <%= product.name %>
+      <li class="created_products_customers_card_list">
+        <p class="created_products_customers_card_list_name"><%= product.name %></p>
         <%= link_to '権限移行' %>
       </li>
       <% end %>
 
       <% @customers.each do |customer| %>
-      <li class="created_title_card">
-        <%= customer.name %>
+      <li class="created_products_customers_card_list">
+        <p class="created_products_customers_card_list_name"><%= customer.name %></p>
         <%= link_to '権限移行' %>
       </li>
       <% end %>
@@ -33,13 +33,26 @@
 
   <div class="created_documents_box">
     <div class="created_documents_title">
-      <h5>投稿したドキュメント</h5>
+      <h4>投稿したドキュメント</h4>
     </div>
     <ul class="created_documents_card">
       <% @product_documents.each do |product_document| %>
       <li class="created_document_card_list">
-        <%= product_document.name %>
-        <%= link_to '権限移行' %>
+        <p class="created_document_card_list_name"><%= product_document.name %></p>
+        <div class="created_document_card_list_content"><%= product_document.content %></div>
+        <div class="created_document_card_list_content">あああああああああああああああああああああああああああああああああああああああああ</div>
+        <p>
+        <% if product_document.public_level == 0 %>一般
+        <% elsif product_document.public_level == 1 %>技術
+        <% end %>
+        </p>
+        <!--前のdocumentが変数で後ろのdocumentがuploader-->
+        <p><object data="<%= product_document.document.url %>" type="application/pdf" width="160" height="90"></object></p>
+        <td><%#= link_to t('views.button.show'), product_product_document_path(@product, product_document) %></td>
+        <td><%#= link_to t('views.button.edit'), edit_product_product_document_path(@product, product_document) %></td>
+        <td><%#= link_to t('views.button.destroy'), product_product_document_path(@product, product_document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
+
+        <p><%= link_to '権限移行' %></p>
       </li>
       <% end %>
       <% @customer_documents.each do |customer_document| %>
