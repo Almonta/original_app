@@ -2,9 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.parent {
+.created_products_customers_box {
   height: 100%;
-  width: max-content;
+  // width: auto;
+  // width: fit-content;
   background-color:rgb(255, 255, 255);
   border-radius: 20px;
 }
@@ -14,15 +15,17 @@
 }
 
 .created_products_customers_title_card {
+  // flexを使った方法
   display: flex;
-  // overflow-x: auto;
   overflow-x: scroll;
+  // nowrapを使った方法
+  // overflow-x: auto;
   // white-space: nowrap; 
   // overflow-scrolling: touch;
   // -webkit-overflow-scrolling: touch;
 }
 
-.child {
+.created_title_card {
   // display: inline-block;
   height: 120px;
   width: 100px;
@@ -30,4 +33,38 @@
   margin: 10px;
   background-color: #f3f3f3;
 }
+
+
+.created_documents_box {
+  height: 100%;
+  // width: auto;
+  // width: fit-content;
+  background-color:rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+.created_documents_title {
+  padding: 10px;
+}
+
+.created_documents_card {
+  // flexを使った方法
+  display: flex;
+  overflow-x: scroll;
+  // nowrapを使った方法
+  // overflow-x: auto;
+  // white-space: nowrap; 
+  // overflow-scrolling: touch;
+  // -webkit-overflow-scrolling: touch;
+}
+
+.created_document_card_list {
+  // display: inline-block;
+  height: 120px;
+  width: 100px;
+  min-width: 100px;
+  margin: 10px;
+  background-color: #f3f3f3;
+}
+
 
