@@ -16,6 +16,9 @@ Product.seed(
 UserProduct.seed(
   :id,
   { id: 1,  user_id: 5,  product_id: 1  },
+  { id: 11, user_id: 5,  product_id: 2  },
+  { id: 12, user_id: 5,  product_id: 3  },
+  { id: 13, user_id: 5,  product_id: 4  },
   { id: 2,  user_id: 6,  product_id: 2  },
   { id: 3,  user_id: 7,  product_id: 3  },
   { id: 4,  user_id: 8,  product_id: 4  },
@@ -39,5 +42,19 @@ Customer.seed(
   { id: 8,  user_id: 12, number: '456-100', name: 'ルネサスエレクトロニクス' },
   { id: 9,  user_id: 13, number: '456-100', name: 'キオクシアホールディングス' },
   { id: 10, user_id: 14, number: '456-100', name: 'マイクロンテクノロジー' }
+)
+
+UserCustomer.seed(
+  :id,
+  { id: 1,  user_id: 5,  customer_id: 1  },
+  { id: 2,  user_id: 6,  customer_id: 2  },
+  { id: 3,  user_id: 7,  customer_id: 3  },
+  { id: 4,  user_id: 8,  customer_id: 4  },
+  { id: 5,  user_id: 9,  customer_id: 5  },
+  { id: 6,  user_id: 10, customer_id: 6  },
+  { id: 7,  user_id: 11, customer_id: 7  },
+  { id: 8,  user_id: 12, customer_id: 8  },
+  { id: 9,  user_id: 13, customer_id: 9  },
+  { id: 10, user_id: 14, customer_id: 10 }
 )
 
