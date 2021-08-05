@@ -71,4 +71,10 @@ ProductDocument.seed(
   )
 
 
-  # { id: 3,  user_id: 6,  product_id: 1,  name: '注文書',     content: "注文書です。#{content}",    document:File.open("./db/documents/'21.07.07_チェリー本_7.7-7.8_メソッドの公開レベル.pdf"), public_level: 0 },
+  CustomerDocument.seed(
+  :id,
+  { id: 1,  user_id: 6,  customer_id: 1,  name: '注文書',    content: "注文書です。#{content}",    document:File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"), public_level: 0 },
+  { id: 2,  user_id: 7,  customer_id: 1,  name: '見積書',    content: "見積書です。#{content}",    document:File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),          public_level: 0 },
+  { id: 3,  user_id: 8,  customer_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document:File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),             public_level: 1 },
+  { id: 4,  user_id: 9,  customer_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document:File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),            public_level: 1 },
+  )
