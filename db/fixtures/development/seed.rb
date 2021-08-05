@@ -58,3 +58,16 @@ UserCustomer.seed(
   { id: 10, user_id: 14, customer_id: 10 }
 )
 
+# ProductDocument.seed(
+#   :id,
+#   { id: 1,  name: ,  content: 1, document:  , public_level:   },
+#   { id: 2,  user_id: 6,  customer_id: 2  },
+#   { id: 3,  user_id: 7,  customer_id: 3  },
+#   { id: 4,  user_id: 8,  customer_id: 4  },
+#   { id: 5,  user_id: 9,  customer_id: 5  },
+#   { id: 6,  user_id: 10, customer_id: 6  },
+#   { id: 7,  user_id: 11, customer_id: 7  },
+#   { id: 8,  user_id: 12, customer_id: 8  },
+#   { id: 9,  user_id: 13, customer_id: 9  },
+#   { id: 10, user_id: 14, customer_id: 10 }
+# )
