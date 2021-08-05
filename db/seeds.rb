@@ -7,13 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do |n|
+  id = n+5
   name = Faker::Name.name
   email = Faker::Internet.email
+  department = rand(1..5)
   password = "password"
-  User.create!(name: name,
+  User.create!(id: id,
+               name: name,
+               department: department,
                email: email,
                password: password,
                password_confirmation: password,
+               admin: false
                )
 end
-
