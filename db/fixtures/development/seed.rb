@@ -103,3 +103,10 @@ CustomerContact.seed(
   { id: 8,  user_id: 13, customer_id: 2,  contact_message: '製造としては〇〇の部分を特殊対応しています。' },
   { id: 9,  user_id: 14, customer_id: 2,  contact_message: 'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' },
   )
+
+Schedule.seed(
+  :id,
+  { id: 1,  customer_id: 1,  serial_number: '123456',  line_on: '2021-05-01', completed_on: '2021-06-01', shipmented_on: '2021-07-01', deliveried_on: '2021-08-01' },
+  { id: 2,  customer_id: 1,  serial_number: '234567',  line_on: '2021-05-15', completed_on: '2021-06-15', shipmented_on: '2021-07-15', deliveried_on: '2021-08-15' },
+  { id: 3,  customer_id: 1,  serial_number: '345678',  line_on: '2021-05-30', completed_on: '2021-06-30', shipmented_on: '2021-07-30', deliveried_on: '2021-08-30' },
+)
