@@ -8,16 +8,16 @@
             <%= schedule.serial_number %>
           </div>
           <div class="col-2">
-            <%= schedule.line_on %>
+            <%= l schedule.line_on, format: :long %>
           </div>
           <div class="col-2">
-            <%= schedule.completed_on %>
+            <%= l schedule.completed_on, format: :long %>
           </div>
           <div class="col-2">
-            <%= schedule.shipmented_on %>
+            <%= l schedule.shipmented_on, format: :long %>
           </div>
           <div class="col-2">
-            <%= schedule.deliveried_on %>
+            <%= l schedule.deliveried_on, format: :long %>
           </div>
           <div class="col-1">
           <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
