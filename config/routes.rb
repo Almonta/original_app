@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :products do
     resources :product_contacts, only: %i[create edit update destroy]
     resources :product_documents
+    # resources :product_documents, shallow: true
+    # resources :documents, shallow: true
   end
   resources :customers do
     resources :customer_contacts, only: %i[create edit update destroy]

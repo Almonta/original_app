@@ -40,7 +40,6 @@
       <li class="created_document_card_list">
         <p class="created_document_card_list_name"><%= product_document.name %></p>
         <div class="created_document_card_list_content"><%= product_document.content %></div>
-        <div class="created_document_card_list_content">あああああああああああああああああああああああああああああああああああああああああ</div>
         <p>
         <% if product_document.public_level == 0 %>一般
         <% elsif product_document.public_level == 1 %>技術
@@ -57,8 +56,15 @@
       <% end %>
       <% @customer_documents.each do |customer_document| %>
       <li class="created_document_card_list">
-        <%= customer_document.name %>
-        <%= link_to '権限移行' %>
+        <p class="created_document_card_list_name"><%= customer_document.name %></p>
+        <div class="created_document_card_list_content"><%= customer_document.content %></div>
+        <p>
+        <% if customer_document.public_level == 0 %>一般
+        <% elsif customer_document.public_level == 1 %>技術
+        <% end %>
+        </p>
+        <p><object data="<%= customer_document.document.url %>" type="application/pdf" width="160" height="90"></object></p>
+        <p><%= link_to '権限移行' %></p>
       </li>
       <% end %>
     </ul>
