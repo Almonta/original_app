@@ -23,6 +23,7 @@
 
       <% @customers.each do |customer| %>
       <li class="created_products_customers_card_list">
+        <p class="created_products_customers_card_list_name"><%= customer.number %></p>
         <p class="created_products_customers_card_list_name"><%= customer.name %></p>
         <%= link_to '権限移行' %>
       </li>

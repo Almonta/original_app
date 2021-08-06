@@ -32,6 +32,24 @@
   </tbody>
 </table>
 
+<% @documents.each do |document| %>
+<div class="card" style="width: 18rem;">
+  <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+  <div class="card-body">
+    <h5 class="card-title"><%= document.name %></h5>
+    <p class="card-text">
+      <% if document.public_level == 0 %>一般公開資料
+      <% elsif document.public_level == 1 %>技術資料
+      <% end %>
+    </p>
+    <p class="card-text"><%= document.content %></p>
+      <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+      <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
+      <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+  </div>
+</div>
+<% end %>
+
 <br>
 
 <%= link_to '一覧へ', product_path(@product.id) %>

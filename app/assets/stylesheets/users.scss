@@ -21,13 +21,14 @@
   // nowrapを使った方法
   overflow-x: auto;
   white-space: nowrap; 
-  overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
 
 .created_products_customers_card_list {
   display: inline-block;
-  height: 80px;
+  // position: relative;
+  top: 0px;
+  height: 120px;
   width: 180px;
   margin: 10px;
   padding: 10px;
@@ -60,7 +61,6 @@
   // nowrapを使った方法
   overflow-x: auto;
   white-space: nowrap; 
-  overflow-scrolling: touch;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -77,13 +77,17 @@
 
 
 .created_document_card_list_name {
-  width: 160px;
+  // width: 160px;
   // overflow-wrap: break-word;
 }
 
 .created_document_card_list_content {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   min-width: 160px;
-  border: 1px solid #ccc;
+  // height: 50px;
+  // border: 1px solid #ccc;
   word-wrap: break-word;
   word-break: break-all;
   // overflow-wrap: break-word;

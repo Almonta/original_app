@@ -17,6 +17,16 @@ class Ability
     #   else
     #     can :read, :all
     #   end
+
+    # ゲスト管理者は編集、削除ができないようにする
+    # if admin.email == 'admin_guest@example.com'
+    #   can :access, :rails_admin
+    #   can :read, :all
+    # elsif admin
+    #   can :access, :rails_admin
+    #   can :manage, :all
+    # end
+    
     #
     # The first argument to `can` is the action you are giving the user
     # permission to do.
