@@ -1,7 +1,8 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h2>プロダクト</h2>
+      <h2 class="page_title_en">Products</h2>
+      <h5 class="page_title_ja">製品</h5>
 
       <h4>プロダクト検索</h4>
       <%= form_with url: homes_path, method: :get, local: true do |s| %>
@@ -31,7 +32,8 @@
     </div>
 
     <div class="col-6">
-      <h2>カスタマー</h2>
+      <h2 class="page_title_en">Customers</h2>
+      <h5 class="page_title_ja">お客様</h5>
 
       <h4>カスタマー検索</h4>
       <%= search_form_for @q, url: homes_path do |f| %>
