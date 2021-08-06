@@ -58,7 +58,6 @@ UserCustomer.seed(
   { id: 10, user_id: 14, customer_id: 10 }
 )
 
-
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 ProductDocument.seed(
   :id,
@@ -70,11 +69,37 @@ ProductDocument.seed(
   { id: 6,  user_id: 9,  product_id: 1,  name: '評価データ',  content: "評価データです。#{content}", document:File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),      public_level: 1 },
   )
 
-
-  CustomerDocument.seed(
+CustomerDocument.seed(
   :id,
   { id: 1,  user_id: 6,  customer_id: 1,  name: '注文書',    content: "注文書です。#{content}",    document:File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"), public_level: 0 },
   { id: 2,  user_id: 7,  customer_id: 1,  name: '見積書',    content: "見積書です。#{content}",    document:File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),          public_level: 0 },
   { id: 3,  user_id: 8,  customer_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document:File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),             public_level: 1 },
   { id: 4,  user_id: 9,  customer_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document:File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),            public_level: 1 },
+  )
+
+ProductContact.seed(
+  :id,
+  # ニーズの共有
+  { id: 1,  user_id: 6,  product_id: 1,  contact_message: 'お客様よりこの製品の〇〇の改善要望が多くあります。' },
+  { id: 2,  user_id: 8,  product_id: 1,  contact_message: '共有ありがとうございます。マイナーチェンジ時に反映検討します。' },
+  { id: 3,  user_id: 6,  product_id: 1,  contact_message: 'このアプリのおかげで情報共有がスマートにできていいですね！' },
+  # 提供資料の蓄積
+  { id: 4,  user_id: 12, product_id: 2,  contact_message: 'この製品の〇〇部の組立方法がわかりません。何か資料いただけますか？' },
+  { id: 5,  user_id: 9,  product_id: 2,  contact_message: '資料をアップしました。資料名「〇〇」をご確認ください' },
+  { id: 6,  user_id: 12, product_id: 2,  contact_message: 'ありがとうございます。次回からこれを見れば良いので便利ですね！' },
+  )
+
+CustomerContact.seed(
+  :id,
+  # 納期の早期明確化
+  { id: 1,  user_id: 7,  customer_id: 1,  contact_message: 'お客様より〇月納期での引き合いがあります。この条件を満たせば受注獲得できそうですが、生産計画いかがでしょうか？仕様はアップしたファイル「〇〇」を参照ください' },
+  { id: 2,  user_id: 10, customer_id: 1,  contact_message: '日程計画します。技術さん、製造さん、この仕様ですが、通常リードタイムに対しプラスで必要であれば教えて下さい' },
+  { id: 3,  user_id: 8,  customer_id: 1,  contact_message: '技術としては、この「〇〇」という仕様に+100hrの工数が必要です。' },
+  { id: 4,  user_id: 13, customer_id: 1,  contact_message: '製造としては、追加工数は発生しません。' },
+  { id: 5,  user_id: 7,  customer_id: 1,  contact_message: 'ありがとうございます。このアプリ内で完結できていいですね！' },
+  # 客先専用仕様の共有
+  { id: 6,  user_id: 14, customer_id: 2,  contact_message: '製品〇〇の修理で現在客先訪問中です。〇〇の部分が標準品と異なるのですが、何か特殊な仕様でしょうか？' },
+  { id: 7,  user_id: 9,  customer_id: 2,  contact_message: 'このお客様には〇〇の特殊仕様があります。資料をアップしています。資料名「〇〇」をご確認ください' },
+  { id: 8,  user_id: 13, customer_id: 2,  contact_message: '製造としては〇〇の部分を特殊対応しています。' },
+  { id: 9,  user_id: 14, customer_id: 2,  contact_message: 'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' },
   )
