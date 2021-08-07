@@ -1,18 +1,17 @@
-<h2><i class="fas fa-star" style="color:#ffff00;"></i>登録プロジェクト一覧</h2>
-
 <div class="container">
+  <h2 class="page_title_en">My Projects</h2>
+  <h5 class="page_title_ja">登録プロジェクト一覧</h5>
   <div class="row">
     <div class="col-6">
-      <h2>プロダクト</h2>
+      <h2 class="page_title_en">Products</h2>
+      <h5 class="page_title_ja">製品</h5>
 
-      <h4>プロダクト検索</h4>
       <%= form_with url: registered_projects_path, method: :get, local: true do |s| %>
-        <%= s.label :name, 'プロダクト名' %>
-        <%= s.text_field :search %>
+        <%#= s.label :name, 'プロダクト名' %>
+        <%= s.text_field :search, placeholder: 'プロダクト名で検索' %>
         <%= s.submit '検索', name: nil %>
       <% end %>
-
-      <br>
+      <hr>
 
       <div class="row">
         <% @products.each do |product| %>
@@ -31,25 +30,29 @@
     </div>
 
     <div class="col-6">
-      <h2>カスタマー</h2>
+      <h2 class="page_title_en">Customers</h2>
+      <h5 class="page_title_ja">お客様</h5>
 
-      <h4>カスタマー検索</h4>
       <%= search_form_for @q, url: registered_projects_path do |f| %>
         <div class="row">
-          <div class="col-md-5">
-            <%= f.label :number_cont, 'カスタマーNo.' %>
-            <%= f.search_field :number_cont %>
+          <div class="col-lg-4 col-md-5">
+            <%#= f.label :number_cont, 'カスタマーNo.' %>
+            <%= f.search_field :number_cont, placeholder: 'カスタマーNoで検索' %>
           </div>
-          <div class="col-md-5">
-            <%= f.label :name_cont, 'カスタマー名' %>
-            <%= f.search_field :name_cont %>
+          <div class="col-lg-4 col-md-5">
+            <%#= f.label :name_cont, 'カスタマー名' %>
+            <%= f.search_field :name_cont, placeholder: 'カスタマー名で検索' %>
           </div>
-          <div class="col-md-2 d-flex align-items-end text-left">
+          <div class="col-lg-4 col-md-2 d-flex align-items-end text-left">
             <%= f.submit '検索' %>
           </div>
-            <%= sort_link(@q, :number, "Noソート") %>
+          <div class="customer_no_sort">
+            並び替え:
+            <%= sort_link(@q, :number, 'No順で表示', default_order: :desc) %>
+          </div>
         </div>
       <% end %>
+      <hr>
 
       <div class="row">
         <% @customers.each do |customer| %>
