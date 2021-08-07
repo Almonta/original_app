@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.page_title_en {
+  text-align: center;
+  // border-bottom: solid 3px #cce4ff;
+  // position: relative;
+}
+
+.page_title_ja {
+  text-align: center;
+  font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 15px;
+}
+
+.customer_no_sort {
+  margin: 10px 10px 0px 20px;
+}

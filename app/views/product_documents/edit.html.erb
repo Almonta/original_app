@@ -1,10 +1,15 @@
-<h3><%= t('views.title.editing_product_documents') %></h3>
+<div class="container">
+  <div class="create_new_product_page">
+    <h2 class="page_title_en">Edit Product Document</h2>
+    <h5 class="page_title_ja"><%= t("views.title.editing_product_documents") %></h5>
 
-<%#= render 'form', product_document: @product_document %>
-<%= render 'form', { product: @product, product_document: @product_document } %>
+  <div class="create_new_product_form">
+    <%= render "form", { product: @product, product_document: @product_document } %>
+  </div>
 
-<%= link_to t('views.button.back'), :back %>|
-<%#= link_to 'Show', @product_document %> 
-<%= link_to t('views.button.show'), product_product_document_path(@product, @product_document) %> 
-<%#= link_to 'Back', product_documents_path %>
-<%#= link_to 'Back', product_product_documents_path(general: "true") %>
+  <p>
+    <%= link_to t("views.button.back"), :back %>|
+    <%= link_to t("views.button.show"), product_product_document_path(@product, @product_document) %>
+  </p>
+  </div>
+</div>

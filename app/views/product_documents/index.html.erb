@@ -1,37 +1,32 @@
-<h3><%= t('views.title.product_documents') %></h3>
-<br>
-<%= link_to t('views.button.new_product_document'), new_product_product_document_path %>
+<div class="container">
+  <h2 class="page_title_en">Product Documents</h2>
+  <h5 class="page_title_ja"><%= t('views.title.product_documents') %></h5>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t('views.title.document_name') %></th>
-      <th><%= t('views.title.content') %></th>
-      <th><%= t('views.title.public_level') %></th>
-      <th colspan="3"><%= t('views.title.document') %></th>
-    </tr>
-  </thead>
+  <%= link_to new_product_product_document_path do %>
+  <button type="button" class="btn btn-warning"><%= t('views.button.new_product_document') %></button>
+  <% end %>
 
-  <tbody>
+  <div class="row">
     <% @documents.each do |document| %>
-      <tr>
-        <td><%= document.name %></td>
-        <td><%= document.content %></td>
-        <td>
-        <% if document.public_level == 0 %>一般
-        <% elsif document.public_level == 1 %>技術
-        <% end %>
-        </td>
-        <!--前のdocumentが変数で後ろのdocumentがuploader-->
-        <td><object data="<%= document.document.url %>" type="application/pdf" ></object></td>
-        <td><%= link_to t('views.button.show'), product_product_document_path(@product, document) %></td>
-        <td><%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document) %></td>
-        <td><%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
-      </tr>
+    <div class="document_card_list"> 
+      <div class="card" style="width: 18rem;">
+        <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+        <div class="card-body">
+          <h5 class="card-title"><%= document.name %></h5>
+          <p class="card-text">
+            <% if document.public_level == 0 %>一般公開資料
+            <% elsif document.public_level == 1 %>技術資料
+            <% end %>
+          </p>
+          <p class="card-text"><%= document.content %></p>
+          <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+          <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
+          <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
-
-<%= link_to '一覧へ', product_path(@product.id) %>
+  <%= link_to '一覧へ', product_path(@product.id) %>
+</div>
