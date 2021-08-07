@@ -11,13 +11,9 @@
 .page_title_ja {
   text-align: center;
   font-family: 'Noto Sans JP', sans-serif;
+  margin-bottom: 15px;
 }
 
-h2:after {
-  // position: absolute;
-  // content: " ";
-  // display: block;
-  // border-bottom: solid 3px #5472cd;
-  // bottom: -3px;
-  // width: 20%;
+.customer_no_sort {
+  margin: 10px 10px 0px 20px;
 }
