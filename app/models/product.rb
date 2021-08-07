@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 255 }
   belongs_to :user
   has_many :user_products, dependent: :destroy
   # has_many :registered_products, through: :user_products, source: :user
