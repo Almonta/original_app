@@ -238,6 +238,8 @@ ja:
       product_documents: 'プロダクト資料'
       customer_documents: 'カスタマー資料'
       customer_number: 'カスタマーNo'
+      detail_product_document: 'プロダクト資料詳細'
+      detail_customer_document: 'カスタマー資料詳細'
       editing_product_documents: 'プロダクト資料編集'
       editing_customer_documents: 'カスタマー資料編集'
       new_product: 'プロダクト新規登録'

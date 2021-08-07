@@ -1,8 +1,12 @@
-<h3><%= t('views.title.new_product_document') %></h3>
+<div class="container">
+  <div class="create_new_product_page">
+    <h2 class="page_title_en">New Product Document</h2>
+    <h5 class="page_title_ja"><%= t("views.title.new_product_document") %></h5>
 
-<%#= render 'form', product_document: @product_document %>
-<%= render 'form', { product: @product, product_document: @product_document }%>
+  <div class="create_new_product_form">
+    <%= render "form", { product: @product, product_document: @product_document } %>
+  </div>
 
-<%#= link_to 'Back', product_product_documents_path %>
-<%#= link_to 'Back', product_product_documents_path(general: "true") %>
-<%= link_to t('views.button.back'), :back %>
+    <p><%= link_to t("views.button.back"), :back %></p>
+  </div>
+</div>
