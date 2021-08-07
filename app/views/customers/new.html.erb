@@ -1,5 +1,13 @@
-<h3><%= t('views.title.new_customer') %></h3>
+<div class="container">
+  <div class="create_new_product_page">
 
-<%= render 'form', customer: @customer %>
+    <h2 class="page_title_en">New Customer</h2>
+    <h5 class="page_title_ja"><%= t("views.title.new_customer") %></h5>
 
-<%= link_to t('views.button.back_home'), homes_path %>
+    <div class="create_new_product_form">
+      <%= render "form", customer: @customer %>
+    </div>
+
+  <p><%= link_to t("views.button.back_home"), homes_path %></p>
+  </div>
+</div>
