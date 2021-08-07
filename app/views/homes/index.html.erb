@@ -3,17 +3,18 @@
     <div class="col-6">
       <h2 class="page_title_en">Products</h2>
       <h5 class="page_title_ja">製品</h5>
+      <div class="button_new">
+        <%= link_to new_product_path do %>
+        <button type="button" class="btn btn-warning"><%= t('views.button.new_product') %></button>
+        <% end %>
+      </div>
 
       <h4>プロダクト検索</h4>
       <%= form_with url: homes_path, method: :get, local: true do |s| %>
-        <%= s.label :name, 'プロダクト名' %>
-        <%= s.text_field :search %>
+        <%#= s.label :name, 'プロダクト名' %>
+        <%= s.text_field :search, placeholder: 'プロダクト名で検索' %>
         <%= s.submit '検索', name: nil %>
       <% end %>
-
-      <br>
-
-      <%= link_to t('views.button.new_product'), new_product_path %>
       
       <div class="row">
         <% @products.each do |product| %>
@@ -35,16 +36,22 @@
       <h2 class="page_title_en">Customers</h2>
       <h5 class="page_title_ja">お客様</h5>
 
+      <div class="button_new">
+        <%= link_to new_customer_path do %>
+        <button type="button" class="btn btn-warning"><%= t('views.button.new_customer') %></button>
+        <% end %>
+      </div>
+
       <h4>カスタマー検索</h4>
       <%= search_form_for @q, url: homes_path do |f| %>
         <div class="row">
           <div class="col-md-5">
-            <%= f.label :number_cont, 'カスタマーNo.' %>
-            <%= f.search_field :number_cont %>
+            <%#= f.label :number_cont, 'カスタマーNo.' %>
+            <%= f.search_field :number_cont, placeholder: 'カスタマーNo.で検索' %>
           </div>
           <div class="col-md-5">
-            <%= f.label :name_cont, 'カスタマー名' %>
-            <%= f.search_field :name_cont %>
+            <%#= f.label :name_cont, 'カスタマー名' %>
+            <%= f.search_field :name_cont, placeholder: 'カスタマー名で検索' %>
           </div>
           <div class="col-md-2 d-flex align-items-end text-left">
             <%= f.submit '検索' %>
@@ -52,8 +59,6 @@
             <%= sort_link(@q, :number, "Noソート") %>
         </div>
       <% end %>
-
-      <%= link_to t('views.button.new_customer'), new_customer_path %>
 
       <div class="row">
         <% @customers.each do |customer| %>
