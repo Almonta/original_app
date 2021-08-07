@@ -5,3 +5,12 @@
 .document_card_list {
   margin: 10px;
 }
+
+.document_card_list {
+  transition:0.5s all;
+}
+
+.document_card_list:hover {
+  transform:scale(1.05,1.05);
+  transition:1s all;
+}

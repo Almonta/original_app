@@ -22,7 +22,7 @@
       <div class="row">
         <% @products.each do |product| %>
           <div class="col-lg-4 col-md-6 p-1"> 
-            <div class="card rounded-pill shadow-sm" style="width: 99%;">
+            <div class="card product_title_card rounded-pill shadow-sm" style="width: 99%;">
               <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
                 <%= link_to t('views.button.show'), product, class: "card-link" %>
@@ -69,7 +69,7 @@
       <div class="row">
         <% @customers.each do |customer| %>
           <div class="col-lg-4 col-md-6 p-1"> 
-            <div class="card shadow-sm" style="width: 99%;">
+            <div class="card customer_title_card shadow-sm" style="width: 99%;">
               <div class="card-body">
                 <h5 class="card-title"><%= customer.number %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
