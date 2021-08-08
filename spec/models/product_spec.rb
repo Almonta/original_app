@@ -6,7 +6,7 @@ RSpec.describe Product, type: :model do
   describe 'バリデーションテスト' do
     context '名前が空欄の場合' do
       it 'エラーが表示される' do
-        product = user.products.build(name: '')
+        product = user.products.build(name: nil)
         expect(product).not_to be_valid
         expect(product.errors[:name]).to be_present
       end
