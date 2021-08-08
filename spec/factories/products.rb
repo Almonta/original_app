@@ -1,8 +1,8 @@
 FactoryBot.define do
-  
+
   factory :product do
     name { 'product1' }
-    association :user
+    # association :user
   end
 
   factory :second_product, class: Product do
