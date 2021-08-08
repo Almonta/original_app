@@ -27,7 +27,7 @@
 
       <div class="product_editer">
         <p class="editer">作成者：<%= @customer.user.name %></p>
-        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) %></p>
+        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) if current_user == @customer.user %></p>
       </div>
     </div>
 

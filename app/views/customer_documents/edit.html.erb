@@ -2,6 +2,6 @@
 
 <%= render 'form', { customer: @customer, customer_document: @customer_document } %>
 
-<%= link_to 'Show', customer_customer_document_path(@customer, @customer_document) %> |
+<%= link_to t("views.button.show"), customer_customer_document_path(@customer, @customer_document) %> |
 <%#= link_to 'Back', customer_customer_documents_path %>
 <%= link_to t('views.button.back'), :back %>

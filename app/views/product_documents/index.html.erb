@@ -20,8 +20,10 @@
           </p>
           <p class="card-text"><%= document.content %></p>
           <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
-          <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
-          <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+          <% if current_user == document.user %>
+            <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
+            <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+          <% end %>
         </div>
       </div>
     </div>

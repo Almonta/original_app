@@ -12,13 +12,13 @@ Rails.application.routes.draw do
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
   end
   resources :homes, only: [:index]
-  resources :products do
+  resources :products, except: [:index] do
     resources :product_contacts, only: %i[create edit update destroy]
     resources :product_documents
     # resources :product_documents, shallow: true
     # resources :documents, shallow: true
   end
-  resources :customers do
+  resources :customers, except: [:index] do
     resources :customer_contacts, only: %i[create edit update destroy]
     resources :customer_documents
     resources :schedules

@@ -11,14 +11,18 @@ class ProductDocumentsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    # binding.pry
+  end
 
   def new
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build
   end
 
-  def edit; end
+  def edit
+    redirect_to product_path(@product.id) unless current_user == @product_document.user
+  end
 
   def create
     @product = Product.where(id: params[:product_id]).first
@@ -37,6 +41,7 @@ class ProductDocumentsController < ApplicationController
   end
 
   def update
+    redirect_to product_path(@product.id) unless current_user == @product_document.user
     respond_to do |format|
       if @product_document.update(product_document_params)
         format.html { redirect_to [@product, @product_document], notice: t('views.messages.update_product_document') }
@@ -49,9 +54,13 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
-    @product_document.destroy
+    if current_user == @product_document.user
+      @product_document.destroy
+    else
+      return redirect_to product_path(@product.id)
+    end
+
     respond_to do |format|
-      # format.html { redirect_to product_documents_url, notice: "Product document was successfully destroyed." }
       case @product_document.public_level
       when 0
         format.html { redirect_to product_product_documents_path(general: "true"), notice: t('views.messages.destroy_product_document') }
