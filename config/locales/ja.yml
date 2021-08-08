@@ -250,6 +250,7 @@ ja:
       content: '概要'
       public_level: '公開レベル'
       document: '資料'
+      create_user: '作成者'
       serial_number: '製造番号'
       line_on: '生産着手日'
       completed_on: '生産完了日'

@@ -11,7 +11,9 @@ class ProductDocumentsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    # binding.pry
+  end
 
   def new
     @product = Product.where(id: params[:product_id]).first

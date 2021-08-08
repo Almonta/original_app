@@ -20,6 +20,11 @@
   <object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>
 </p>
 
+<p>
+  <strong><%= t('views.title.create_user') %>:</strong>
+  <%= @customer_document.user.name %>
+</p>
+
 <%= link_to 'Edit', edit_customer_customer_document_path(@customer, @customer_document) %> |
 <%#= link_to 'Back', customer_customer_documents_path %>
 
