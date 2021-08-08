@@ -18,7 +18,9 @@ class CustomerDocumentsController < ApplicationController
     @customer_document = @customer.customer_documents.build
   end
 
-  def edit; end
+  def edit
+    redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
+  end
 
   def create
     @customer = Customer.where(id: params[:customer_id]).first
@@ -37,6 +39,7 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def update
+    redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
     respond_to do |format|
       if @customer_document.update(customer_document_params)
         format.html { redirect_to [@customer, @customer_document], notice: "Customer document was successfully updated." }
@@ -49,6 +52,12 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def destroy
+    if current_user == @customer_document.user
+      @customer_document.destroy
+    else
+      return redirect_to customer_path(@customer.id)
+    end
+    
     @customer_document.destroy
     respond_to do |format|
       # if @customer_document.public_level == 0
