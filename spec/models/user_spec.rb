@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  describe 'バリデーション' do
+  describe 'バリデーションテスト' do
     it '名前が正しく入力されていないときエラー文が表示される テキストRspec1のテスト' do
       user = User.new
       expect(user).not_to be_valid
