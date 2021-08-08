@@ -56,8 +56,11 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    redirect_to homes_path unless current_user == @customer.user
-    @customer.destroy
+    if current_user == @customer.user
+      @customer.destroy
+    else
+      return redirect_to homes_path
+    end
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
       format.json { head :no_content }
