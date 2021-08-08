@@ -25,11 +25,12 @@
   <%= @customer_document.user.name %>
 </p>
 
-<%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, @customer_document) %> |
-<%#= link_to 'Back', customer_customer_documents_path %>
-
 <% if @customer_document.public_level == 0 %>
   <%= link_to '一般資料一覧へ', customer_customer_documents_path(general: "true") %>
 <% elsif @customer_document.public_level == 1 %>
   <%= link_to '技術資料一覧へ', customer_customer_documents_path(technical: "true") %>
+<% end %>
+
+<% if current_user == @customer_document.user %>
+  |<%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, @customer_document) %>
 <% end %>

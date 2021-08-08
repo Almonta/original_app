@@ -26,8 +26,10 @@
         <!--前のdocumentが変数で後ろのdocumentがuploader-->
         <td><object data="<%= document.document.url %>" type="application/pdf" ></object></td>
         <td><%= link_to t('views.button.show'), customer_customer_document_path(@customer, document) %></td>
+        <% if current_user == document.user %>
         <td><%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document) %></td>
         <td><%= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
