@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     redirect_to homes_path unless current_user == @product.user
   end
 

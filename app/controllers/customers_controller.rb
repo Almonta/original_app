@@ -20,13 +20,12 @@ class CustomersController < ApplicationController
   end
 
   def edit
+    redirect_to homes_path unless current_user == @customer.user
   end
 
   def create
-    # @customer = Customer.new(customer_params)
     @customer = current_user.customers.build(customer_params)
 
-    # binding.irb
     if @customer.number =~ /^[0-9]+$/
       respond_to do |format|
         if @customer.save
@@ -44,6 +43,7 @@ class CustomersController < ApplicationController
   end
 
   def update
+    redirect_to homes_path unless current_user == @customer.user
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: t('views.messages.update_customer') }
@@ -56,6 +56,7 @@ class CustomersController < ApplicationController
   end
 
   def destroy
+    redirect_to homes_path unless current_user == @customer.user
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
