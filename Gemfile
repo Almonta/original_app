@@ -59,6 +59,8 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
