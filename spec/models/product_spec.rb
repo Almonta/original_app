@@ -31,8 +31,6 @@ RSpec.describe Product, type: :model do
     let!(:third_product) { FactoryBot.create(:third_product, user: user) }
     context 'プロダクトの曖昧検索をした場合' do
       it '検索キーワードを含むプロダクトが絞り込まれる' do
-        # product = user.products.build
-        # binding.irb
         expect(Product.search_product('1')).to include(product)
         expect(Product.search_product('1')).not_to include(second_product)
         expect(Product.search_product('1').count).to eq 1
