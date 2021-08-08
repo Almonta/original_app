@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     # resources :product_documents, shallow: true
     # resources :documents, shallow: true
   end
-  resources :customers do
+  resources :customers, except: [:index] do
     resources :customer_contacts, only: %i[create edit update destroy]
     resources :customer_documents
     resources :schedules
