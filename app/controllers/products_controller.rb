@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    # binding.pry
+    redirect_to homes_path unless current_user == @product.user
   end
 
   def create
@@ -36,6 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    redirect_to homes_path unless current_user == @product.user
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: t('views.messages.update_product') }
@@ -48,6 +51,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    redirect_to homes_path unless current_user == @product.user
     @product.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_product') }
