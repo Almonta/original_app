@@ -65,7 +65,7 @@ RSpec.describe ProductDocument, type: :model do
                                                         content: 'test',
                                                         document: 'test',
                                                         public_level: 0 )
-        user.valid?
+        product_document.valid?
         expect(product_document.errors[:name]).to include('は255文字以内で入力してください')
       end
     end
