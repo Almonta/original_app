@@ -53,4 +53,19 @@ RSpec.describe Product, type: :system do
       end
     end
   end
+
+  describe 'プロジェクト登録機能' do
+    context 'プロダクトをプロジェクト登録した場合' do
+      it '登録プロジェクト画面に、登録したプロジェクトが表示される' do
+        user_login
+        visit homes_path
+        first(:link, '詳細').click
+        find(".product_project_registration").click
+        visit registered_projects_path
+        expect(page).to have_content 'product1'
+        expect(page).not_to have_content 'product2'
+        # binding.irb
+      end
+    end
+  end
 end

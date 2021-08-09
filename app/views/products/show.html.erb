@@ -10,11 +10,11 @@
 
         <% if @user_product.present? %>
           <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
-            <i class="fas fa-star">プロジェクトから解除する</i>
+            <i class="fas fa-star product_project_cancel">プロジェクトから解除する</i>
           <% end %>
         <% else %>
           <%= link_to user_products_path(product_id: @product.id), method: :post do %>
-            <i class="far fa-star">プロジェクトに登録する</i>
+            <i class="far fa-star product_project_registration">プロジェクトに登録する</i>
           <% end %>
         <% end %>
 
