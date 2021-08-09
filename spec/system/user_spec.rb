@@ -11,16 +11,24 @@ RSpec.describe 'ログイン機能', type: :system do
   #   # visit new_session_path
   # end
   
-  # def user_login
-  #   fill_in 'session_email', with: 'test_user1@sample.com'
-  #   fill_in 'session_password', with: 'pass1'
-  #   click_on 'Log in'
-  # end
+  def user_login
+    visit new_user_session_path
+    fill_in 'user_name', with: 'test_name1'
+    select '技術', from: 'user_department'
+    fill_in 'user_email', with: 'test_email1@sample.com'
+    fill_in 'user_password', with: 'test_password1'
+    fill_in 'user_password_confirmation', with: 'test_password1'
+    click_button 'サインアップ'
+  end
 
   # def admin_login
-  #   fill_in 'session_email', with: 'test_user3@sample.com'
-  #   fill_in 'session_password', with: 'pass3'
-  #   click_on 'Log in'
+  #   visit new_user_session_path
+  #   fill_in 'user_name', with: 'test_name1'
+  #   select '技術', from: 'user_department'
+  #   fill_in 'user_email', with: 'test_email1@sample.com'
+  #   fill_in 'user_password', with: 'test_password1'
+  #   fill_in 'user_password_confirmation', with: 'test_password1'
+  #   click_button 'サインアップ'
   # end
 
   describe 'ユーザ登録' do
@@ -37,6 +45,19 @@ RSpec.describe 'ログイン機能', type: :system do
         expect(page).to have_content 'test_name1'
         expect(page).to have_content '技術'
         expect(page).to have_content 'test_email1@sample.com'
+      end
+    end
+    context 'ログインせずにホーム画面に飛ぼうとした場合' do
+      it 'ログインページが表示される' do
+        visit homes_path
+        expect(page).to have_content 'ログイン'
+      end
+    end
+  end
+  describe 'ログイン機能' do
+    context 'ログインした場合' do
+      it 'ホーム画面が表示される' do
+        user_login
       end
     end
   end
