@@ -13,12 +13,9 @@ RSpec.describe 'ログイン機能', type: :system do
   
   def user_login
     visit new_user_session_path
-    fill_in 'user_name', with: 'test_name1'
-    select '技術', from: 'user_department'
-    fill_in 'user_email', with: 'test_email1@sample.com'
-    fill_in 'user_password', with: 'test_password1'
-    fill_in 'user_password_confirmation', with: 'test_password1'
-    click_button 'サインアップ'
+    fill_in 'user_email', with: 'user1@sample.com'
+    fill_in 'user_password', with: 'pass1111'
+    click_button 'ログイン'
   end
 
   # def admin_login
@@ -58,6 +55,17 @@ RSpec.describe 'ログイン機能', type: :system do
     context 'ログインした場合' do
       it 'ホーム画面が表示される' do
         user_login
+        expect(page).to have_content 'Home'
+      end
+    end
+    context 'ログアウトした場合' do
+      it 'ログインページが表示される' do
+        user_login
+        visit homes_path
+        click_on 'ログアウト'
+        # binding.irb
+        expect(page).to have_content 'ログアウトしました'
+        expect(current_path).to eq root_path
       end
     end
   end
