@@ -33,11 +33,13 @@
         <button type="button" class="btn btn-info ">一般資料</button>
         <% end %>
       </div>
-      <div class="position-absolute" style="top:60px; left:150px;">
-        <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
-        <button type="button" class="btn btn-info">技術資料</button>
-        <% end %>
-      </div>
+      <% if (current_user.department == 2) || (current_user.name == 'ゲスト') %>
+        <div class="position-absolute" style="top:60px; left:150px;">
+          <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
+          <button type="button" class="btn btn-info">技術資料</button>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 
