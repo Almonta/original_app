@@ -51,12 +51,12 @@
             <%#= f.label :name_cont, 'カスタマー名' %>
             <%= f.search_field :name_cont, placeholder: 'カスタマー名で検索' %>
           </div>
-          <div class="col-lg-4 col-md-2 d-flex align-items-end text-left">
+          <div class="col-lg-4 col-md-2 d-flex align-items-end text-left" id="customer_search_button">
             <%= f.submit '検索' %>
           </div>
           <div class="customer_no_sort">
             並び替え:
-            <%= sort_link(@q, :number, 'No順で表示', default_order: :desc) %>
+            <%= sort_link(@q, :number, 'No順で表示') %>
           </div>
         </div>
       <% end %>

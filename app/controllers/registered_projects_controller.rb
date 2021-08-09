@@ -3,6 +3,6 @@ class RegisteredProjectsController < ApplicationController
     @products = current_user.registered_products
     @products = @products.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
     @q = current_user.registered_customers.ransack(params[:q])
-    @customers = @q.result(distinct: true)
+    @customers = @q.result(distinct: true).order(number: :asc)
   end
 end
