@@ -21,6 +21,21 @@ RSpec.describe Product, type: :system do
         fill_in 'product_name', with: 'product1'
         click_button '登録する'
         expect(page).to have_content 'product1'
+        # binding.irb
+        expect(current_path).to eq product_path(4)
+      end
+    end
+  end
+
+  describe '一覧表示機能' do
+    context 'プロダクト一覧画面に遷移した場合' do
+      it '作成済みのプロダクト一覧が表示される' do
+        user_login
+        visit homes_path
+        # binding.irb
+        expect(page).to have_content 'product1'
+        expect(page).to have_content 'product2'
+        expect(page).to have_content 'product3'
       end
     end
   end
