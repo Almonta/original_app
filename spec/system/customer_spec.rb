@@ -80,10 +80,10 @@ RSpec.describe Product, type: :system do
         visit homes_path
         first(:link, '詳細').click
         find(".product_project_registration").click
-        binding.irb
+        # binding.irb
         visit registered_projects_path
-        expect(page).to have_content 'custoemr3'
-        expect(page).not_to have_content 'custoemr1'
+        expect(page).to have_content 'customer1'
+        expect(page).not_to have_content 'customer3'
         # binding.irb
       end
     end
