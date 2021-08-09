@@ -18,16 +18,6 @@ RSpec.describe 'ログイン機能', type: :system do
     click_button 'ログイン'
   end
 
-  # def admin_login
-  #   visit new_user_session_path
-  #   fill_in 'user_name', with: 'test_name1'
-  #   select '技術', from: 'user_department'
-  #   fill_in 'user_email', with: 'test_email1@sample.com'
-  #   fill_in 'user_password', with: 'test_password1'
-  #   fill_in 'user_password_confirmation', with: 'test_password1'
-  #   click_button 'サインアップ'
-  # end
-
   describe 'ユーザ登録' do
     context 'ユーザがサインアップした場合' do
       it 'マイページに、作成ユーザの情報が表示される' do
