@@ -7,7 +7,6 @@ RSpec.describe Customer, type: :model do
       it 'エラーが表示される' do
         customer = user.customers.build(number: nil, name: 'test')
         expect(customer).not_to be_valid
-        # binding.irb
         expect(customer.errors[:number]).to be_present
       end
     end
