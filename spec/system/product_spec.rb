@@ -39,4 +39,18 @@ RSpec.describe Product, type: :system do
       end
     end
   end
+
+  describe '検索機能' do
+    context 'プロダクト名で曖昧検索した場合' do
+      it '検索キーワードを含むプロダクトのみに絞り込まれる' do
+        user_login
+        visit homes_path
+        fill_in 'search', with: '1'
+        search_link = find(:xpath, "/html/body/div/div/div[1]/form/input[3]")
+        search_link.click
+        expect(page).to have_content 'product1'
+        expect(page).not_to have_content 'product2'
+      end
+    end
+  end
 end
