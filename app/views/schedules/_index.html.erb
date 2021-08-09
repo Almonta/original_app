@@ -19,13 +19,15 @@
           <div class="col-2">
             <%= l schedule.deliveried_on, format: :long %>
           </div>
-          <div class="col-1">
-          <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
-          </div>
-          <div class="col-1">
-          <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
-                              data: { confirm: "本当に削除しますか?"} %>
-          </div>
+          <% if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+            <div class="col-1">
+            <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
+            </div>
+            <div class="col-1">
+            <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
+                                data: { confirm: "本当に削除しますか?"} %>
+            </div>
+          <% end %>
         </div>
       </div>
     <% end %>

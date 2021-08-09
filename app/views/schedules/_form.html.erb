@@ -14,36 +14,36 @@
     <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.serial_number') %>
-        <%= form.text_field :serial_number %>
+        <%= form.text_field :serial_number if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
     <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.line_on') %>
-        <%= form.date_field :line_on %>
+        <%= form.date_field :line_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
         <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.completed_on') %>
-        <%= form.date_field :completed_on %>
+        <%= form.date_field :completed_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
         <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.shipmented_on') %>
-        <%= form.date_field :shipmented_on %>
+        <%= form.date_field :shipmented_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
         <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.deliveried_on') %>
-        <%= form.date_field :deliveried_on %>
+        <%= form.date_field :deliveried_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
     <div class="col-2">
       <div class="actions">
-        <%= form.submit %>
+        <%= form.submit if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
       </div>
     </div>
   </div>
