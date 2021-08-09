@@ -5,7 +5,7 @@ RSpec.describe ProductDocument, type: :model do
   let!(:product) { FactoryBot.create(:product, user: user) }
   # let!(:product) { FactoryBot.create(:product) }
   # 以下の方法でproduct_documentが作れない！
-  let!(:product_document) { FactoryBot.create(:product_document, user: user, product: product) }
+  # let!(:product_document) { FactoryBot.create(:product_document, user: user, product: product) }
   # let!(:product_document) { FactoryBot.create(:product_document) }
 
   describe 'バリデーションテスト' do
@@ -43,20 +43,21 @@ RSpec.describe ProductDocument, type: :model do
       end
     end
 
-    # context '名前と概要と公開レベルの全てが入力されている場合' do
-    #   it 'バリデーションが通る' do
-    #     # let!(:product_document) { FactoryBot.create(:product_document, user: user, product:user.prroducts.first) }
-    #     # product = user.products.build(name: 'test')
-    #     # product_document = user.product_documents.build
-    #     product_document = product.product_documents.build(product_id: 1,
-    #                                                         name: 'test', 
-    #                                                         content: 'test',
-    #                                                         document: 'test',
-    #                                                         public_level: 0)
-    #     # binding.irb
-    #     expect(product_document).to be_valid
-    #   end
-    # end
+    context '名前と概要と公開レベルの全てが入力されている場合' do
+      it 'バリデーションが通る' do
+        # let!(:product_document) { FactoryBot.create(:product_document, user: user, product:user.prroducts.first) }
+        # product = user.products.build(name: 'test')
+        # product_document = user.product_documents.build
+        product_document = product.product_documents.build(user: user,
+                                                            # product: product,
+                                                            name: 'test', 
+                                                            content: 'test',
+                                                            document: 'test',
+                                                            public_level: 0)
+        # binding.irb
+        expect(product_document).to be_valid
+      end
+    end
 
     context '資料名の文字数が255文字を超える場合' do
       it 'エラーが表示される' do
