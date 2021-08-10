@@ -1,4 +1,3 @@
-
 Product.seed(
   :id,
   { id: 1,  user_id: 5,  name: 'Model1' },
@@ -61,20 +60,20 @@ UserCustomer.seed(
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 ProductDocument.seed(
   :id,
-  { id: 1,  user_id: 12, product_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document:File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),        public_level: 0 },
-  { id: 2,  user_id: 8,  product_id: 1,  name: '取説',      content: "取説です。#{content}",      document:File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),        public_level: 0 },
-  { id: 3,  user_id: 8,  product_id: 1,  name: 'カタログ',   content: "カタログです。#{content}",   document:File.open("./db/documents/'21.07.07_チェリー本_7.7-7.8_メソッドの公開レベル.pdf"), public_level: 0 },
-  { id: 4,  user_id: 9,  product_id: 1,  name: '解析結果',   content: "解析結果です。#{content}",   document:File.open("./db/documents/'21.07.07_チェリー本_7.9-7.10_クラスの作成.pdf"),       public_level: 1 },
-  { id: 5,  user_id: 9,  product_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document:File.open("./db/documents/'21.07.07_チェリー本_7.10_クラスの作成.pdf"),           public_level: 1 },
-  { id: 6,  user_id: 9,  product_id: 1,  name: '評価データ',  content: "評価データです。#{content}", document:File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),      public_level: 1 },
+  { id: 1,  user_id: 12, product_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document: File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),        public_level: 0 },
+  { id: 2,  user_id: 8,  product_id: 1,  name: '取説',      content: "取説です。#{content}",      document: File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),        public_level: 0 },
+  { id: 3,  user_id: 8,  product_id: 1,  name: 'カタログ',   content: "カタログです。#{content}",   document: File.open("./db/documents/'21.07.07_チェリー本_7.7-7.8_メソッドの公開レベル.pdf"), public_level: 0 },
+  { id: 4,  user_id: 9,  product_id: 1,  name: '解析結果',   content: "解析結果です。#{content}",   document: File.open("./db/documents/'21.07.07_チェリー本_7.9-7.10_クラスの作成.pdf"),       public_level: 1 },
+  { id: 5,  user_id: 9,  product_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document: File.open("./db/documents/'21.07.07_チェリー本_7.10_クラスの作成.pdf"),           public_level: 1 },
+  { id: 6,  user_id: 9,  product_id: 1,  name: '評価データ',  content: "評価データです。#{content}", document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),      public_level: 1 }
   )
 
 CustomerDocument.seed(
   :id,
-  { id: 1,  user_id: 6,  customer_id: 1,  name: '注文書',    content: "注文書です。#{content}",    document:File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"), public_level: 0 },
-  { id: 2,  user_id: 7,  customer_id: 1,  name: '見積書',    content: "見積書です。#{content}",    document:File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),          public_level: 0 },
-  { id: 3,  user_id: 8,  customer_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document:File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),             public_level: 1 },
-  { id: 4,  user_id: 9,  customer_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document:File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),            public_level: 1 },
+  { id: 1,  user_id: 6,  customer_id: 1,  name: '注文書',    content: "注文書です。#{content}",    document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"), public_level: 0 },
+  { id: 2,  user_id: 7,  customer_id: 1,  name: '見積書',    content: "見積書です。#{content}",    document: File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),          public_level: 0 },
+  { id: 3,  user_id: 8,  customer_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document: File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),             public_level: 1 },
+  { id: 4,  user_id: 9,  customer_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document: File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),            public_level: 1 }
   )
 
 ProductContact.seed(
@@ -86,7 +85,7 @@ ProductContact.seed(
   # 提供資料の蓄積
   { id: 4,  user_id: 12, product_id: 2,  contact_message: 'この製品の〇〇部の組立方法がわかりません。何か資料いただけますか？' },
   { id: 5,  user_id: 9,  product_id: 2,  contact_message: '資料をアップしました。資料名「〇〇」をご確認ください' },
-  { id: 6,  user_id: 12, product_id: 2,  contact_message: 'ありがとうございます。次回からこれを見れば良いので便利ですね！' },
+  { id: 6,  user_id: 12, product_id: 2,  contact_message: 'ありがとうございます。次回からこれを見れば良いので便利ですね！' }
   )
 
 CustomerContact.seed(
@@ -101,12 +100,12 @@ CustomerContact.seed(
   { id: 6,  user_id: 14, customer_id: 2,  contact_message: '製品〇〇の修理で現在客先訪問中です。〇〇の部分が標準品と異なるのですが、何か特殊な仕様でしょうか？' },
   { id: 7,  user_id: 9,  customer_id: 2,  contact_message: 'このお客様には〇〇の特殊仕様があります。資料をアップしています。資料名「〇〇」をご確認ください' },
   { id: 8,  user_id: 13, customer_id: 2,  contact_message: '製造としては〇〇の部分を特殊対応しています。' },
-  { id: 9,  user_id: 14, customer_id: 2,  contact_message: 'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' },
+  { id: 9,  user_id: 14, customer_id: 2,  contact_message: 'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' }
   )
 
 Schedule.seed(
   :id,
   { id: 1,  customer_id: 1,  serial_number: '123456',  line_on: '2021-05-01', completed_on: '2021-06-01', shipmented_on: '2021-07-01', deliveried_on: '2021-08-01' },
   { id: 2,  customer_id: 1,  serial_number: '234567',  line_on: '2021-05-15', completed_on: '2021-06-15', shipmented_on: '2021-07-15', deliveried_on: '2021-08-15' },
-  { id: 3,  customer_id: 1,  serial_number: '345678',  line_on: '2021-05-30', completed_on: '2021-06-30', shipmented_on: '2021-07-30', deliveried_on: '2021-08-30' },
+  { id: 3,  customer_id: 1,  serial_number: '345678',  line_on: '2021-05-30', completed_on: '2021-06-30', shipmented_on: '2021-07-30', deliveried_on: '2021-08-30' }
 )

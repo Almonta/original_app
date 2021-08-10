@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
-  before_action :set_customer, only: %i[ create edit update ]
+  before_action :set_customer, only: %i[create edit update]
   def create
     @schedule = @customer.schedules.build(schedule_params)
     respond_to do |format|
@@ -37,11 +37,9 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
-    if (current_user.department == 'planning') || (current_user.name == 'ゲスト')
-      @schedule.destroy
-    else
-      return redirect_to customer_path(@customer.id)
-    end
+    return redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == 'ゲスト')
+
+    @schedule.destroy
     respond_to do |format|
       flash.now[:notice] = 'コメントが削除されました'
       format.js { render :index }
@@ -57,5 +55,4 @@ class SchedulesController < ApplicationController
   def set_customer
     @customer = Customer.find(params[:customer_id])
   end
-
 end
