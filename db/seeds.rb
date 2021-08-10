@@ -103,3 +103,30 @@ User.create!(id: 14,
              password_confirmation: 'sample1414',
              admin: false)
 
+
+10.times do |n|
+  Product.create!(id: n,
+                  user_id: 5,
+                  name: "Model#{n}")
+end
+
+5.times do |n|
+  UserProduct.create!(id: n,
+                      user_id: 5,
+                      product_id: n)
+end
+
+10.times do |n|
+  Customer.create!(id: n,
+                  user_id: 5,
+                  number: "#{n}" * 4,
+                  name: "カンパニー#{n}")
+end
+
+5.times do |n|
+  UserCustomer.create!(id: n,
+                      user_id: 5,
+                      product_id: n)
+end
+
+
