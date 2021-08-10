@@ -5,6 +5,10 @@ RSpec.describe ProductDocument, type: :system do
   let!(:product) { FactoryBot.create(:product, user: user) }
   let!(:second_product) { FactoryBot.create(:second_product, user: user) }
   let!(:third_product) { FactoryBot.create(:third_product, user: user) }
+  let!(:product_document) { FactoryBot.create(:product_document, user: user, product: product) }
+  let!(:second_product_document) { FactoryBot.create(:second_product_document, user: user, product: second_product) }
+  let!(:third_product_document) { FactoryBot.create(:third_product_document, user: user, product: product) }
+  let!(:fourth_product_document) { FactoryBot.create(:fourth_product_document, user: user, product: second_product) }
 
   def user_login
     visit new_user_session_path
@@ -33,45 +37,16 @@ RSpec.describe ProductDocument, type: :system do
     end
   end
 
-  # describe '一覧表示機能' do
-  #   context 'プロダクト一覧画面に遷移した場合' do
-  #     it '作成済みのプロダクト一覧が表示される' do
-  #       user_login
-  #       visit homes_path
-  #       # binding.irb
-  #       expect(page).to have_content 'product1'
-  #       expect(page).to have_content 'product2'
-  #       expect(page).to have_content 'product3'
-  #     end
-  #   end
-  # end
+  describe '一覧表示機能' do
+    context 'product1の詳細画面から一般資料一覧画面に遷移した場合' do
+      it 'product1の持つ一般資料のみが表示される' do
+        user_login
+        first(:link, '詳細').click
+        find(".general_document_button").click
+        # binding.irb
+        expect(page).to have_content 'product_document1'
+      end
+    end
+  end
 
-  # describe '検索機能' do
-  #   context 'プロダクト名で曖昧検索した場合' do
-  #     it '検索キーワードを含むプロダクトのみに絞り込まれる' do
-  #       user_login
-  #       visit homes_path
-  #       fill_in 'search', with: '1'
-  #       search_link = find(:xpath, "/html/body/div/div/div[1]/form/input[3]")
-  #       search_link.click
-  #       expect(page).to have_content 'product1'
-  #       expect(page).not_to have_content 'product2'
-  #     end
-  #   end
-  # end
-
-  # describe 'プロジェクト登録機能' do
-  #   context 'プロダクトをプロジェクト登録した場合' do
-  #     it '登録プロジェクト画面に、登録したプロジェクトが表示される' do
-  #       user_login
-  #       visit homes_path
-  #       first(:link, '詳細').click
-  #       find(".product_project_registration").click
-  #       visit registered_projects_path
-  #       expect(page).to have_content 'product1'
-  #       expect(page).not_to have_content 'product2'
-  #       # binding.irb
-  #     end
-  #   end
-  # end
 end
