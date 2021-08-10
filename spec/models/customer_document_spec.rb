@@ -10,7 +10,7 @@ RSpec.describe CustomerDocument, type: :model do
     context '資料名が空欄の場合' do
       it 'エラーとなりエラー文が表示される' do
         customer_document = user.customer_documents.build(customer: customer,
-                                                          name: nil, 
+                                                          name: nil,
                                                           content: 'test',
                                                           document: 'test',
                                                           public_level: 0)
@@ -21,7 +21,7 @@ RSpec.describe CustomerDocument, type: :model do
     context '概要が空欄の場合' do
       it 'エラーとなりエラー文が表示される' do
         customer_document = user.customer_documents.build(customer: customer,
-                                                          name: 'test', 
+                                                          name: 'test',
                                                           content: nil,
                                                           document: 'test',
                                                           public_level: 0)
@@ -32,7 +32,7 @@ RSpec.describe CustomerDocument, type: :model do
     context '公開レベルが未選択の場合' do
       it 'エラーとなりエラー文が表示される' do
         customer_document = user.customer_documents.build(customer: customer,
-                                                          name: 'test', 
+                                                          name: 'test',
                                                           content: 'test',
                                                           document: 'test',
                                                           public_level: nil)
@@ -44,7 +44,7 @@ RSpec.describe CustomerDocument, type: :model do
     context '名前と概要と公開レベルの全てが入力されている場合' do
       it 'バリデーションが通る' do
         customer_document = user.customer_documents.build(customer: customer,
-                                                          name: 'test', 
+                                                          name: 'test',
                                                           content: 'test',
                                                           document: 'test',
                                                           public_level: 0)
@@ -55,20 +55,20 @@ RSpec.describe CustomerDocument, type: :model do
 
     context '資料名の文字数が255文字を超える場合' do
       it 'エラーが表示される' do
-        customer_document = user.customer_documents.build(name: 'a' * 256, 
+        customer_document = user.customer_documents.build(name: 'a' * 256,
                                                           content: 'test',
                                                           document: 'test',
-                                                          public_level: 0 )
+                                                          public_level: 0)
         customer_document.valid?
         expect(customer_document.errors[:name]).to include('は255文字以内で入力してください')
       end
     end
     context '概要の文字数が1000文字を超える場合' do
       it 'エラーが表示される' do
-        customer_document = user.customer_documents.build(name: 'test', 
+        customer_document = user.customer_documents.build(name: 'test',
                                                           content: 'a' * 1001,
                                                           document: 'test',
-                                                          public_level: 0 )
+                                                          public_level: 0)
         customer_document.valid?
         expect(customer_document.errors[:content]).to include('は1000文字以内で入力してください')
       end
