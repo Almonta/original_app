@@ -10,11 +10,11 @@
 
         <% if @user_product.present? %>
           <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
-            <i class="fas fa-star">プロジェクトから解除する</i>
+            <i class="fas fa-star product_project_cancel">プロジェクトから解除する</i>
           <% end %>
         <% else %>
           <%= link_to user_products_path(product_id: @product.id), method: :post do %>
-            <i class="far fa-star">プロジェクトに登録する</i>
+            <i class="far fa-star product_project_registration">プロジェクトに登録する</i>
           <% end %>
         <% end %>
 
@@ -30,13 +30,13 @@
     <div class="col-lg-9 col-md-8">
       <div class="position-absolute" style="top:60px; left:30px;">
         <%= link_to product_product_documents_path(@product.id, general: "true") do %>
-        <button type="button" class="btn btn-info ">一般資料</button>
+        <button type="button" class="btn btn-info general_document_button">一般資料</button>
         <% end %>
       </div>
       <% if (current_user.department == 2) || (current_user.name == 'ゲスト') %>
         <div class="position-absolute" style="top:60px; left:150px;">
           <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
-          <button type="button" class="btn btn-info">技術資料</button>
+          <button type="button" class="btn btn-info technical_document_button">技術資料</button>
           <% end %>
         </div>
       <% end %>
