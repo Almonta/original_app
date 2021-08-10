@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :user do
     name { 'user1' }
-    department { 1 }
+    department { 2 } # 技術
     email { 'user1@sample.com' }
     password { 'pass1111' }
     password_confirmation { 'pass1111' }
@@ -10,7 +10,7 @@ FactoryBot.define do
 
   factory :second_user, class: User do
     name { 'user2' }
-    department { 2 }
+    department { 3 } # 計画
     email { 'user2@sample.com' }
     password { 'pass2222' }
     password_confirmation { 'pass2222' }
