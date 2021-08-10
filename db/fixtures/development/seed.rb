@@ -66,7 +66,7 @@ ProductDocument.seed(
   { id: 4,  user_id: 9,  product_id: 1,  name: '解析結果',   content: "解析結果です。#{content}",   document: File.open("./db/documents/'21.07.07_チェリー本_7.9-7.10_クラスの作成.pdf"),       public_level: 1 },
   { id: 5,  user_id: 9,  product_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document: File.open("./db/documents/'21.07.07_チェリー本_7.10_クラスの作成.pdf"),           public_level: 1 },
   { id: 6,  user_id: 9,  product_id: 1,  name: '評価データ',  content: "評価データです。#{content}", document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),      public_level: 1 }
-  )
+)
 
 CustomerDocument.seed(
   :id,
@@ -74,7 +74,7 @@ CustomerDocument.seed(
   { id: 2,  user_id: 7,  customer_id: 1,  name: '見積書',    content: "見積書です。#{content}",    document: File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),          public_level: 0 },
   { id: 3,  user_id: 8,  customer_id: 1,  name: '組立手順書', content: "組立手順書です。#{content}", document: File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),             public_level: 1 },
   { id: 4,  user_id: 9,  customer_id: 1,  name: '計算資料',   content: "計算資料です。#{content}",   document: File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),            public_level: 1 }
-  )
+)
 
 ProductContact.seed(
   :id,
@@ -86,7 +86,7 @@ ProductContact.seed(
   { id: 4,  user_id: 12, product_id: 2,  contact_message: 'この製品の〇〇部の組立方法がわかりません。何か資料いただけますか？' },
   { id: 5,  user_id: 9,  product_id: 2,  contact_message: '資料をアップしました。資料名「〇〇」をご確認ください' },
   { id: 6,  user_id: 12, product_id: 2,  contact_message: 'ありがとうございます。次回からこれを見れば良いので便利ですね！' }
-  )
+)
 
 CustomerContact.seed(
   :id,
@@ -101,7 +101,7 @@ CustomerContact.seed(
   { id: 7,  user_id: 9,  customer_id: 2,  contact_message: 'このお客様には〇〇の特殊仕様があります。資料をアップしています。資料名「〇〇」をご確認ください' },
   { id: 8,  user_id: 13, customer_id: 2,  contact_message: '製造としては〇〇の部分を特殊対応しています。' },
   { id: 9,  user_id: 14, customer_id: 2,  contact_message: 'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' }
-  )
+)
 
 Schedule.seed(
   :id,

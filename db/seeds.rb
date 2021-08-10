@@ -103,7 +103,6 @@ User.create!(id: 14,
              password_confirmation: 'sample1414',
              admin: false)
 
-
 10.times do |n|
   Product.create!(user_id: 5,
                   name: "Model#{n + 1}")

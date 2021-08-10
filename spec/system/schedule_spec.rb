@@ -28,7 +28,6 @@ RSpec.describe Schedule, type: :system do
         # binding.irb
         # /html/body/div/div[2]/form/div/div[6]/div/input
         expect(page).to have_content '12345'
-
       end
     end
   end
