@@ -35,13 +35,13 @@
     <div class="col-lg-9 col-md-8">
       <div class="position-absolute" style="top:100px; left:30px;">
         <%= link_to customer_customer_documents_path(@customer.id, general: "true") do %>
-        <button type="button" class="btn btn-info ">一般資料</button>
+        <button type="button" class="btn btn-info general_document_button">一般資料</button>
         <% end %>
       </div>
       <% if (current_user.department == 2) || (current_user.name == 'ゲスト') %>
         <div class="position-absolute" style="top:100px; left:170px;">
           <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
-          <button type="button" class="btn btn-info">技術資料</button>
+          <button type="button" class="btn btn-info technical_document_button">技術資料</button>
           <% end %>
         </div>
       <% end %>
