@@ -65,7 +65,7 @@ RSpec.describe CustomerDocument, type: :model do
     end
     context '概要の文字数が1000文字を超える場合' do
       it 'エラーが表示される' do
-        customer_document = user.customer_documenta.build(name: 'test', 
+        customer_document = user.customer_documents.build(name: 'test', 
                                                           content: 'a' * 1001,
                                                           document: 'test',
                                                           public_level: 0 )
