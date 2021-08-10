@@ -105,35 +105,30 @@ User.create!(id: 14,
 
 
 10.times do |n|
-  Product.create!(id: n,
-                  user_id: 5,
-                  name: "Model#{n}")
+  Product.create!(user_id: 5,
+                  name: "Model#{n + 1}")
 end
 
 5.times do |n|
-  UserProduct.create!(id: n,
-                      user_id: 5,
-                      product_id: n)
+  UserProduct.create!(user_id: 5,
+                      product_id: n + 1)
 end
 
 10.times do |n|
-  Customer.create!(id: n,
-                  user_id: 5,
+  Customer.create!(user_id: 5,
                   number: "#{n}" * 4,
-                  name: "カンパニー#{n}")
+                  name: "カンパニー#{n + 1}")
 end
 
 5.times do |n|
-  UserCustomer.create!(id: n,
-                      user_id: 5,
-                      customer_id: n)
+  UserCustomer.create!(user_id: 5,
+                      customer_id: n + 1)
 end
 
 2.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  ProductDocument.create!(id: n,
-                          user_id: 8,
-                          product_id: n,
+  ProductDocument.create!(user_id: 8,
+                          product_id: n + 1,
                           name: '取説',
                           content: content,
                           document: File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
@@ -142,9 +137,9 @@ end
 
 3.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  ProductDocument.create!(id: n + 2,
+  ProductDocument.create!(id: n + 3,
                           user_id: 9,
-                          product_id: n + 2,
+                          product_id: n + 3,
                           name: '解析結果',
                           content: content,
                           document: File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),
@@ -153,9 +148,8 @@ end
 
 2.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  CustomerDocument.create!(id: n,
-                          user_id: 6,
-                          customer_id: n,
+  CustomerDocument.create!(user_id: 6,
+                          customer_id: n + 1,
                           name: '注文書',
                           content: content,
                           document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
@@ -164,9 +158,9 @@ end
 
 3.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  CustomerDocument.create!(id: n + 2,
+  CustomerDocument.create!(id: n + 3,
                           user_id: 9,
-                          customer_id: n + 2,
+                          customer_id: n + 3,
                           name: '組立手順書',
                           content: content,
                           document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
@@ -174,23 +168,20 @@ end
 end
 
 5.times do |n|
-  ProductContact.create!(id: n,
-                          user_id: n + 5,
+  ProductContact.create!(user_id: n + 5,
                           product_id: 1,
-                          contact_message: "メッセージ#{n}")
+                          contact_message: "メッセージ#{n+1}")
 end
 
 5.times do |n|
-  CustomerContact.create!(id: n,
-                          user_id: n + 5,
+  CustomerContact.create!(user_id: n + 5,
                           customer_id: 1,
-                          contact_message: "メッセージ#{n}")
+                          contact_message: "メッセージ#{n+1}")
 end
 
 5.times do |n|
-  Schedule.create!(id: n,
-                    customer_id: 1,
-                    serial_number: "123#{n}",
+  Schedule.create!(customer_id: 1,
+                    serial_number: "123#{n+1}",
                     line_on: "2021-05-0#{n+1}",
                     completed_on: "2021-05-0#{n+2}",
                     shipmented_on: "2021-05-0#{n+3}",
