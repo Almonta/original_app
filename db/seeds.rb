@@ -151,3 +151,48 @@ end
                           public_level: 1)
 end
 
+2.times do |n|
+  content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
+  CustomerDocument.create!(id: n,
+                          user_id: 6,
+                          customer_id: n,
+                          name: '注文書',
+                          content: content,
+                          document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
+                          public_level: 0)
+end
+
+3.times do |n|
+  content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
+  CustomerDocument.create!(id: n + 2,
+                          user_id: 9,
+                          customer_id: n + 2,
+                          name: '組立手順書',
+                          content: content,
+                          document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
+                          public_level: 1)
+end
+
+5.times do |n|
+  ProductContact.create!(id: n,
+                          user_id: n + 5,
+                          product_id: 1,
+                          contact_message: "メッセージ#{n}")
+end
+
+5.times do |n|
+  CustomerContact.create!(id: n,
+                          user_id: n + 5,
+                          customer_id: 1,
+                          contact_message: "メッセージ#{n}")
+end
+
+5.times do |n|
+  Schedule.create!(id: n,
+                    customer_id: 1,
+                    serial_number: "123#{n}",
+                    line_on: "2021-05-0#{n+1}",
+                    completed_on: "2021-05-0#{n+2}",
+                    shipmented_on: "2021-05-0#{n+3}",
+                    deliveried_on: "2021-05-0#{n+4}")
+end
