@@ -116,7 +116,7 @@ end
 
 10.times do |n|
   Customer.create!(user_id: 5,
-                  number: "#{n}" * 4,
+                  number: "#{n+1}" * 4,
                   name: "カンパニー#{n + 1}")
 end
 

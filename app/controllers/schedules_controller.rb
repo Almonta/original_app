@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
-  before_action :set_customer, only: [:create, :edit, :update]
+  before_action :set_customer, only: %i[ create edit update ]
   def create
     @schedule = @customer.schedules.build(schedule_params)
     respond_to do |format|
