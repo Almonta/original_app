@@ -44,7 +44,7 @@ RSpec.describe ProductDocument, type: :system do
         first(:link, '詳細').click
         find(".general_document_button").click
         # binding.irb
-        expect(page).to have_content 'custoemr_document1'
+        expect(page).to have_content 'customer_document1'
       end
     end
   end
