@@ -126,7 +126,28 @@ end
 5.times do |n|
   UserCustomer.create!(id: n,
                       user_id: 5,
-                      product_id: n)
+                      customer_id: n)
 end
 
+2.times do |n|
+  content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
+  ProductDocument.create!(id: n,
+                          user_id: 8,
+                          product_id: n,
+                          name: '取説',
+                          content: content,
+                          document: File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
+                          public_level: 0)
+end
+
+3.times do |n|
+  content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
+  ProductDocument.create!(id: n + 2,
+                          user_id: 9,
+                          product_id: n + 2,
+                          name: '解析結果',
+                          content: content,
+                          document: File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),
+                          public_level: 1)
+end
 
