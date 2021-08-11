@@ -33,15 +33,15 @@
 
 
     <div class="col-lg-9 col-md-8">
-      <div class="position-absolute" style="top:100px; left:30px;">
+      <div class="position-absolute" style="top:70px; left:30px;">
         <%= link_to customer_customer_documents_path(@customer.id, general: "true") do %>
-        <button type="button" class="btn btn-info general_document_button">一般資料</button>
+        <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
         <% end %>
       </div>
       <% if (current_user.department == 2) || (current_user.name == 'ゲスト') %>
-        <div class="position-absolute" style="top:100px; left:170px;">
+        <div class="position-absolute" style="top:70px; left:180px;">
           <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
-          <button type="button" class="btn btn-info technical_document_button">技術資料</button>
+          <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
           <% end %>
         </div>
       <% end %>
@@ -49,11 +49,15 @@
 
   </div>
 
-  <div class="schedule_form">
-    <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
-  </div>
-  <div id="schedules_area">
-    <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
+  <h4>スケジュール</h4>
+  <p>スケジュールの登録・編集は「計画部」所属者のみ可能です。</p>
+  <div class="schedule_area">
+    <div class="schedule_form">
+      <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
+    </div>
+    <div id="schedules_area">
+      <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
+    </div>
   </div>
 
   <div class="row">
@@ -72,7 +76,7 @@
     </div>
 
     <div class="col-lg-9 col-md-8">
-      <p>コンタクト</p>
+      <h4>コンタクト</h4>
       <div id="customer_contacts_area" class="box">
         <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
       </div>

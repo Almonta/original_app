@@ -21,6 +21,5 @@ RSpec.describe Schedule, type: :model do
         expect(schedule.errors[:serial_number]).to include('は255文字以内で入力してください')
       end
     end
-
   end
 end

@@ -13,7 +13,7 @@ RSpec.describe ProductDocument, type: :model do
       it 'エラーが表示される' do
         # product_document =@product_document
         # binding.irb
-        product_document = user.product_documents.build(name: nil, 
+        product_document = user.product_documents.build(name: nil,
                                                         content: 'test',
                                                         document: 'test',
                                                         public_level: 0)
@@ -24,7 +24,7 @@ RSpec.describe ProductDocument, type: :model do
     end
     context '概要が空欄の場合' do
       it 'エラーが表示される' do
-        product_document = user.product_documents.build(name: 'test', 
+        product_document = user.product_documents.build(name: 'test',
                                                         content: nil,
                                                         document: 'test',
                                                         public_level: 0)
@@ -34,7 +34,7 @@ RSpec.describe ProductDocument, type: :model do
     end
     context '公開レベルが未選択の場合' do
       it 'エラーが表示される' do
-        product_document = user.product_documents.build(name: 'test', 
+        product_document = user.product_documents.build(name: 'test',
                                                         content: 'test',
                                                         document: 'test',
                                                         public_level: nil)
@@ -49,11 +49,10 @@ RSpec.describe ProductDocument, type: :model do
         # product = user.products.build(name: 'test')
         # product_document = user.product_documents.build
         product_document = product.product_documents.build(user: user,
-                                                            # product: product,
-                                                            name: 'test', 
-                                                            content: 'test',
-                                                            document: 'test',
-                                                            public_level: 0)
+                                                           name: 'test',
+                                                           content: 'test',
+                                                           document: 'test',
+                                                           public_level: 0)
         # binding.irb
         expect(product_document).to be_valid
       end
@@ -61,20 +60,20 @@ RSpec.describe ProductDocument, type: :model do
 
     context '資料名の文字数が255文字を超える場合' do
       it 'エラーが表示される' do
-        product_document = user.product_documents.build(name: 'a' * 256, 
+        product_document = user.product_documents.build(name: 'a' * 256,
                                                         content: 'test',
                                                         document: 'test',
-                                                        public_level: 0 )
+                                                        public_level: 0)
         product_document.valid?
         expect(product_document.errors[:name]).to include('は255文字以内で入力してください')
       end
     end
     context '概要の文字数が1000文字を超える場合' do
       it 'エラーが表示される' do
-        product_document = user.product_documents.build(name: 'test', 
+        product_document = user.product_documents.build(name: 'test',
                                                         content: 'a' * 1001,
                                                         document: 'test',
-                                                        public_level: 0 )
+                                                        public_level: 0)
         user.valid?
         expect(product_document.errors[:content]).to include('は1000文字以内で入力してください')
       end

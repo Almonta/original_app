@@ -52,12 +52,8 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def destroy
-    if current_user == @customer_document.user
-      @customer_document.destroy
-    else
-      return redirect_to customer_path(@customer.id)
-    end
-    
+    return redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
+
     @customer_document.destroy
     respond_to do |format|
       # if @customer_document.public_level == 0
