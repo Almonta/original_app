@@ -48,5 +48,4 @@ RSpec.describe ProductDocument, type: :system do
       end
     end
   end
-
 end

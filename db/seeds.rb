@@ -25,7 +25,7 @@
 
 User.create!(id: 5,
              name: '佐藤 翔太',
-             department: 0,# 未所属
+             department: 0, # 未所属
              email: 'sample5@sample.com',
              password: 'sample55',
              password_confirmation: 'sample55',
@@ -33,7 +33,7 @@ User.create!(id: 5,
 
 User.create!(id: 6,
              name: '鈴木 美咲',
-             department: 1,# 営業
+             department: 1, # 営業
              email: 'sample6@sample.com',
              password: 'sample66',
              password_confirmation: 'sample66',
@@ -49,7 +49,7 @@ User.create!(id: 7,
 
 User.create!(id: 8,
              name: '田中 葵',
-             department: 2,# 技術
+             department: 2, # 技術
              email: 'sample8@sample.com',
              password: 'sample88',
              password_confirmation: 'sample88',
@@ -65,7 +65,7 @@ User.create!(id: 9,
 
 User.create!(id: 10,
              name: '渡辺 陽菜',
-             department: 3,# 計画
+             department: 3, # 計画
              email: 'sample10@sample.com',
              password: 'sample1010',
              password_confirmation: 'sample1010',
@@ -81,7 +81,7 @@ User.create!(id: 11,
 
 User.create!(id: 12,
              name: '中村 さくら',
-             department: 4,# 製造
+             department: 4, # 製造
              email: 'sample12@sample.com',
              password: 'sample1212',
              password_confirmation: 'sample1212',
@@ -97,12 +97,11 @@ User.create!(id: 13,
 
 User.create!(id: 14,
              name: '加藤 愛',
-             department: 5,# サービス
+             department: 5, # サービス
              email: 'sample14@sample.com',
              password: 'sample1414',
              password_confirmation: 'sample1414',
              admin: false)
-
 
 10.times do |n|
   Product.create!(user_id: 5,
@@ -116,7 +115,7 @@ end
 
 10.times do |n|
   Customer.create!(user_id: 5,
-                  number: "#{n}" * 4,
+                  number: "#{n+1}" * 4,
                   name: "カンパニー#{n + 1}")
 end
 

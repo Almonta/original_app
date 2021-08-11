@@ -50,11 +50,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    if current_user == @product.user
-      @product.destroy
-    else
-      return redirect_to homes_path
-    end
+    return redirect_to homes_path unless current_user == @product.user
+
     @product.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_product') }

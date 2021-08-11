@@ -1,16 +1,10 @@
 require 'rails_helper'
 
-RSpec.describe 'ログイン機能', type: :system do
+RSpec.describe User, type: :system do
   let!(:user) { FactoryBot.create(:user) }
   let!(:second_user) { FactoryBot.create(:second_user) }
   let!(:admin) { FactoryBot.create(:admin) }
-  # let!(:task) { FactoryBot.create(:task, user_id: user.id) }
-  # let!(:second_task) { FactoryBot.create(:second_task, user_id: user.id) }
-  # let!(:third_task) { FactoryBot.create(:third_task, user_id: user.id) }
-  # before do
-  #   # visit new_session_path
-  # end
-  
+
   def user_login
     visit new_user_session_path
     fill_in 'user_email', with: 'user1@sample.com'

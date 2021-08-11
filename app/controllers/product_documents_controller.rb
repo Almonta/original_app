@@ -54,12 +54,9 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
-    if current_user == @product_document.user
-      @product_document.destroy
-    else
-      return redirect_to product_path(@product.id)
-    end
+    return redirect_to product_path(@product.id) unless current_user == @product_document.user
 
+    @product_document.destroy
     respond_to do |format|
       case @product_document.public_level
       when 0

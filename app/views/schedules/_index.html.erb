@@ -8,16 +8,16 @@
             <%= schedule.serial_number %>
           </div>
           <div class="col-2">
-            <%= l schedule.line_on, format: :long %>
+            <%= l schedule.line_on, format: :long, default: '-' %>
           </div>
           <div class="col-2">
-            <%= l schedule.completed_on, format: :long %>
+            <%= l schedule.completed_on, format: :long, default: '-' %>
           </div>
           <div class="col-2">
-            <%= l schedule.shipmented_on, format: :long %>
+            <%= l schedule.shipmented_on, format: :long, default: '-' %>
           </div>
           <div class="col-2">
-            <%= l schedule.deliveried_on, format: :long %>
+            <%= l schedule.deliveried_on, format: :long, default: '-' %>
           </div>
           <% if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
             <div class="col-1">
