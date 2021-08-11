@@ -18,6 +18,7 @@ class ProductContactsController < ApplicationController
   def edit
     # binding.pry
     @product_contact = @product.product_contacts.find(params[:id])
+    redirect_to product_path(@product) unless current_user == @product_contact.user
     respond_to do |format|
       flash.now[:notice] = 'コメントの編集中'
       format.js { render :edit }
@@ -26,6 +27,7 @@ class ProductContactsController < ApplicationController
 
   def update
     @product_contact = @product.product_contacts.find(params[:id])
+    redirect_to product_path(@product) unless current_user == @product_contact.user
     respond_to do |format|
       if @product_contact.update(product_contact_params)
         flash.now[:notice] = 'コメントが編集されました'
@@ -39,6 +41,7 @@ class ProductContactsController < ApplicationController
 
   def destroy
     @product_contact = ProductContact.find(params[:id])
+    redirect_to product_path(@product) unless current_user == @product_contact.user
     @product_contact.destroy
     respond_to do |format|
       flash.now[:notice] = 'コメントが削除されました'

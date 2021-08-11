@@ -10,82 +10,48 @@
     </div>
   <% end %>
 
-  <div class="row">
-    <div class="col-2">
-      <div class="field">
-        <%= form.label t('views.title.serial_number') %>
-        <%= form.text_field :serial_number if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="field">
-        <%= form.label t('views.title.line_on') %>
-        <%= form.date_field :line_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-        <div class="col-2">
-      <div class="field">
-        <%= form.label t('views.title.completed_on') %>
-        <%= form.date_field :completed_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-        <div class="col-2">
-      <div class="field">
-        <%= form.label t('views.title.shipmented_on') %>
-        <%= form.date_field :shipmented_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-        <div class="col-2">
-      <div class="field">
-        <%= form.label t('views.title.deliveried_on') %>
-        <%= form.date_field :deliveried_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-    <div class="col-2">
-      <div class="actions">
-        <%= form.submit if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
-      </div>
-    </div>
-  </div>
+  <table class="table table-hover">
+    <thead>
 
-<!--
-  <ul class="form">
-    <li>
-      <div class="field">
-        <%= form.label :serial_number %><br>
-        <%= form.text_field :serial_number %>
-      </div>
-    </li>
-    <li>
-      <div class="field">
-        <%= form.label :line_on %><br>
-        <%= form.date_field :line_on %>
-      </div>
-    </li>
-    <li>
-      <div class="field">
-        <%= form.label :completed_on %><br>
-        <%= form.date_field :completed_on %>
-      </div>
-    </li>
-    <li>
-      <div class="field">
-        <%= form.label :shipmented_on %><br>
-        <%= form.date_field :shipmented_on %>
-      </div>
-    </li>
-    <li>
-      <div class="field">
-        <%= form.label :deliveried_on %><br>
-        <%= form.date_field :deliveried_on %>
-      </div>
-    </li>
-    <li>
-      <div class="actions">
-        <%= form.submit %>
-      </div>
-    </li>
-  </ul>
--->
+      <tr class="row">
+        <th class="col-2">
+          <div class="field">
+            <%= form.label t('views.title.serial_number') %>
+            <%= form.text_field :serial_number if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+        <th class="col-2">
+          <div class="field">
+            <%= form.label t('views.title.line_on') %>
+            <%= form.date_field :line_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+        <th class="col-2">
+          <div class="field">
+            <%= form.label t('views.title.completed_on') %>
+            <%= form.date_field :completed_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+        <th class="col-2">
+          <div class="field">
+            <%= form.label t('views.title.shipmented_on') %>
+            <%= form.date_field :shipmented_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+        <th class="col-2">
+          <div class="field">
+            <%= form.label t('views.title.deliveried_on') %>
+            <%= form.date_field :deliveried_on if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+        <th class="col-2">
+          <div class="actions">
+            <%= form.submit if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+          </div>
+        </th>
+      </tr>
+
+    </thead>
+  </table>
 
 <% end %>
