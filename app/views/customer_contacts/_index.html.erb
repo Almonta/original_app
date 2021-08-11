@@ -8,11 +8,13 @@
           <%= l customer_contact.created_at %>
         </p>
         <p><%= customer_contact.contact_message %></p>
-        <p>
-        <%= link_to "編集", edit_customer_customer_contact_path(customer, customer_contact), remote: true %>
-        <%= link_to "削除", customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true,
-                            data: { confirm: "本当に削除しますか?"} %>
-        </p>
+        <% if current_user == customer_contact.user %>
+          <p>
+          <%= link_to "編集", edit_customer_customer_contact_path(customer, customer_contact), remote: true %>
+          <%= link_to "削除", customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true,
+                              data: { confirm: "本当に削除しますか?"} %>
+          </p>
+        <% end %>
         <hr>
       </li>
     <% end %>
