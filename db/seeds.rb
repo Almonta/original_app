@@ -136,8 +136,7 @@ end
 
 3.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  ProductDocument.create!(id: n + 3,
-                          user_id: 9,
+  ProductDocument.create!(user_id: 9,
                           product_id: n + 3,
                           name: '解析結果',
                           content: content,
@@ -148,28 +147,27 @@ end
 2.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
   CustomerDocument.create!(user_id: 6,
-                          customer_id: n + 1,
-                          name: '注文書',
-                          content: content,
-                          document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
-                          public_level: 0)
+                           customer_id: n + 1,
+                           name: '注文書',
+                           content: content,
+                           document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
+                           public_level: 0)
 end
 
 3.times do |n|
   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-  CustomerDocument.create!(id: n + 3,
-                          user_id: 9,
-                          customer_id: n + 3,
-                          name: '組立手順書',
-                          content: content,
-                          document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
-                          public_level: 1)
+  CustomerDocument.create!(user_id: 9,
+                           customer_id: n + 3,
+                           name: '組立手順書',
+                           content: content,
+                           document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
+                           public_level: 1)
 end
 
 5.times do |n|
   ProductContact.create!(user_id: n + 5,
-                          product_id: 1,
-                          contact_message: "メッセージ#{n+1}")
+                         product_id: 1,
+                         contact_message: "メッセージ#{n+1}")
 end
 
 5.times do |n|
@@ -180,9 +178,9 @@ end
 
 5.times do |n|
   Schedule.create!(customer_id: 1,
-                    serial_number: "123#{n+1}",
-                    line_on: "2021-05-0#{n+1}",
-                    completed_on: "2021-05-0#{n+2}",
-                    shipmented_on: "2021-05-0#{n+3}",
-                    deliveried_on: "2021-05-0#{n+4}")
+                   serial_number: "123#{n+1}",
+                   line_on: "2021-05-0#{n+1}",
+                   completed_on: "2021-05-0#{n+2}",
+                   shipmented_on: "2021-05-0#{n+3}",
+                   deliveried_on: "2021-05-0#{n+4}")
 end
