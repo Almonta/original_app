@@ -28,6 +28,8 @@
                 <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
                                     data: { confirm: "本当に削除しますか?"} %>
               </td>
+            <% else %>
+              <td class="col-2"></td>
             <% end %>
           </tr>
         </tbody>
