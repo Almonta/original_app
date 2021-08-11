@@ -13,13 +13,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label t('views.title.customer_name') %>
+    <%= form.label t('views.title.document_name') %>
     <%= form.text_field :name %>
   </div>
 
   <div class="field">
     <%= form.label t('views.title.content') %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, size: "50x5" %>
   </div>
 
   <div class="field">
