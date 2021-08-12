@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label t('views.title.customer_number') %>
-    <%= form.text_field :number %>
+    <%= form.text_field :number, placeholder: '123-456' %>
   </div>
 
   <div class="field">
     <%= form.label t('views.title.customer_name') %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: 'お客様名' %>
   </div>
 
   <div class="actions">

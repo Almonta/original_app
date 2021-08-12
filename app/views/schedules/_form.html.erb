@@ -17,7 +17,7 @@
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.serial_number') %>
-            <%= form.text_field :serial_number if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
+            <%= form.text_field :serial_number, size: "17x1", placeholder: "123-456-789" if (current_user.department == 'planning') || (current_user.name == 'ゲスト') %>
           </div>
         </th>
         <th class="col-2">
