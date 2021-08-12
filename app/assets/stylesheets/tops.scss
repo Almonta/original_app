@@ -4,7 +4,7 @@
 
 section {
   max-width: 300px;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 a.btn_10 {
   display: flex;
@@ -74,17 +74,18 @@ body{
 }
 
 .top_page {
-  width: 80%;
+  width: 85%;
   margin: 0 auto;
 }
 
 .problem_area{
-  // position: relative;
+  position: relative;
+  height: 345px;
 }
 
 .problem_image {
   // position: absolute;
-  position: relative;
+  // position: relative;
   display:block;
   float: right;
 }
@@ -100,18 +101,65 @@ body{
   background: rgba(255, 255, 255, 0.829);
 }
 
+.why_area {
+  position: relative;
+  height: 345px;
+  // display: table;
+}
+
+.why_image {
+  // position: absolute;
+  display:block;
+  float: left;
+}
+
 .why_content {
-  // border: solid;
-  width: 50%;
-  margin: 20px 0 20px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(10%);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.829);
+
+}
+
+.how_area {
+  position: relative;
+  height: 345px;
+}
+
+.how_image {
+  display:block;
+  float: right;
 }
 
 .how_content {
-  margin: 50px;
+  position: absolute;
+  // margin: 110px 50px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-110%);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.829);
+}
+
+.what_area {
+  position: relative;
+  height: 345px;
+}
+
+.what_image {
+  display:block;
+  float: left;
 }
 
 .what_content {
-  // border: solid;
-  width: 50%;
-  margin: 20px 0 20px auto;
+  position: absolute;
+  top: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(0%);
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.829);
 }
+
