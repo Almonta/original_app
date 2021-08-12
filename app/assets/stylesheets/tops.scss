@@ -78,8 +78,26 @@ body{
   margin: 0 auto;
 }
 
+.problem_area{
+  // position: relative;
+}
+
+.problem_image {
+  // position: absolute;
+  position: relative;
+  display:block;
+  float: right;
+}
+
 .problem_content {
-  margin: 50px;
+  position: absolute;
+  // position: relative;
+  // top: 20px;
+  // display:block;
+  // float: left;
+  margin: 100px 30px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.829);
 }
 
 .why_content {
