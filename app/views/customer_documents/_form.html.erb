@@ -2,7 +2,7 @@
 <%= form_with(model: [customer, customer_document], local: true) do |form| %>
   <% if customer_document.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer_document.errors.count, "error") %> prohibited this customer_document from being saved:</h2>
+      <h2><%= customer_document.errors.count %> 件のエラーが発生しました</h2>
 
       <ul>
       <% customer_document.errors.full_messages.each do |message| %>
