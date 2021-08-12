@@ -84,18 +84,12 @@ body{
 }
 
 .problem_image {
-  // position: absolute;
-  // position: relative;
   display:block;
   float: right;
 }
 
 .problem_content {
   position: absolute;
-  // position: relative;
-  // top: 20px;
-  // display:block;
-  // float: left;
   margin: 100px 30px;
   padding: 10px;
   background: rgba(255, 255, 255, 0.829);
@@ -104,11 +98,9 @@ body{
 .why_area {
   position: relative;
   height: 345px;
-  // display: table;
 }
 
 .why_image {
-  // position: absolute;
   display:block;
   float: left;
 }
@@ -120,7 +112,6 @@ body{
   transform: translateY(-50%) translateX(10%);
   padding: 10px;
   background: rgba(255, 255, 255, 0.829);
-
 }
 
 .how_area {
@@ -135,7 +126,6 @@ body{
 
 .how_content {
   position: absolute;
-  // margin: 110px 50px;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(-110%);
@@ -155,7 +145,6 @@ body{
 
 .what_content {
   position: absolute;
-  top: 300px;
   top: 50%;
   left: 50%;
   transform: translateY(-50%) translateX(0%);

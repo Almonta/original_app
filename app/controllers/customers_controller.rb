@@ -26,20 +26,20 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.build(customer_params)
 
-    if @customer.number =~ /^[0-9]+$/
+    # if @customer.number =~ /^[0-9]+$/
       respond_to do |format|
         if @customer.save
           format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
-          format.json { render :show, status: :created, location: @customer }
+          # format.json { render :show, status: :created, location: @customer }
         else
           format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @customer.errors, status: :unprocessable_entity }
+          # format.json { render json: @customer.errors, status: :unprocessable_entity }
         end
       end
-    else
-      flash.now[:alert] = t('views.messages.check_number')
-      render :new
-    end
+    # else
+      # flash.now[:alert] = t('views.messages.check_number')
+      # render :new
+    # end
   end
 
   def update
@@ -47,10 +47,10 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: t('views.messages.update_customer') }
-        format.json { render :show, status: :ok, location: @customer }
+        # format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        # format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +61,7 @@ class CustomersController < ApplicationController
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 
