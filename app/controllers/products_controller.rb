@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
 
   def index
     # @q = Product.ransack(params[:q])
-    @products = Product.all
+    # @products = Product.all
   end
 
   def show
@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    redirect_to homes_path unless current_user == @product.user
+    redirect_to homes_path unless (current_user == @product.user) || (current_user.id == 1) || (current_user.id ==2)
   end
 
   def create
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    redirect_to homes_path unless current_user == @product.user
+    redirect_to homes_path unless (current_user == @product.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: t('views.messages.update_product') }
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    return redirect_to homes_path unless current_user == @product.user
+    return redirect_to homes_path unless (current_user == @product.user) || (current_user.id == 1) || (current_user.id ==2)
 
     @product.destroy
     respond_to do |format|
