@@ -1,4 +1,3 @@
 $("#schedules_area").html("<%= j(render 'schedules/index', { schedules: @schedule.customer.schedules.order(created_at: :desc), customer: @schedule.customer }) %>");
-$("textfield").val('');
-$("datefield").val('');
+$("input").val('');
 $("#notice").html("<%= j flash[:notice] %>");

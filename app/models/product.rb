@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 255 }
+  # validates :name, presence: true, length: { maximum: 255 }
   validate :add_error_product
   # scope :search_product, -> (search){ where("name LIKE ?", "%#{params[:search]}%") }
   scope :search_product, ->(search) { where("name LIKE ?", "%#{search}%") }
@@ -11,7 +11,8 @@ class Product < ApplicationRecord
   has_many :product_documents, dependent: :destroy
 
   def add_error_product
-    errors[:base] << 'プロダクト名を入力してください' if name.blank?
-    errors[:base] << 'プロダクト名は255文字以内' if name.length > 255
+    # errors[:base] << 'プロダクト名を入力してください' if name.blank?
+    errors.add(:base, 'プロダクト名を入力してください') if name.blank?
+    errors.add(:base, 'プロダクト名は255文字以内にしてください') if name.length > 255
   end
 end

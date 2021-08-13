@@ -51,6 +51,19 @@
 
   <h4>スケジュール</h4>
   <p>スケジュールの登録・編集は「計画部」所属者のみ可能です。</p>
+
+  <% if @schedule.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this comment from being saved:</h2>
+      <ul>
+      <% @schedule.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div class="schedule_area">
     <div class="schedule_form">
       <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
@@ -77,6 +90,7 @@
 
     <div class="col-lg-9 col-md-8">
       <h4>コンタクト</h4>
+      <p id="notice"><%= notice %></p>
       <div id="customer_contacts_area" class="box">
         <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
       </div>

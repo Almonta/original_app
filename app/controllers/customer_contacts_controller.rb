@@ -8,7 +8,7 @@ class CustomerContactsController < ApplicationController
         # format.html { redirect_to customer_path(@customer) }
         format.js { render :index }
       else
-        format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした' }
+        format.html { redirect_to customer_path(@customer), notice: '空メッセージは投稿出来ません。' }
       end
     end
   end
@@ -17,7 +17,7 @@ class CustomerContactsController < ApplicationController
     @customer_contact = @customer.customer_contacts.find(params[:id])
     redirect_to product_path(@customer) unless (current_user == @customer_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
+      flash.now[:notice] = 'メッセージの編集中...'
       format.js { render :edit }
     end
   end
@@ -27,10 +27,10 @@ class CustomerContactsController < ApplicationController
     redirect_to product_path(@customer) unless (current_user == @customer_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @customer_contact.update(customer_contact_params)
-        flash.now[:notice] = 'コメントが編集されました'
+        flash.now[:notice] = 'メッセージが編集されました。'
         format.js { render :index }
       else
-        flash.now[:notice] = 'コメントの編集に失敗しました'
+        flash.now[:notice] = 'メッセージの編集に失敗しました。'
         format.js { render :edit_error }
       end
     end
@@ -41,7 +41,7 @@ class CustomerContactsController < ApplicationController
     redirect_to product_path(@customer) unless (current_user == @customer_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     @customer_contact.destroy
     respond_to do |format|
-      flash.now[:notice] = 'コメントが削除されました'
+      flash.now[:notice] = 'メッセージが削除されました。'
       format.js { render :index }
     end
   end
