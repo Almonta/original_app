@@ -8,7 +8,7 @@
 
         <div class="field">
           <%= f.label t(".name") %>
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: 'メーカーオーサムさん' %>
         </div>
 
         <div class="field">
@@ -18,7 +18,7 @@
 
         <div class="field">
           <%= f.label t(".email") %>
-          <%= f.email_field :email, autocomplete: "email" %>
+          <%= f.email_field :email, autocomplete: "email", placeholder: 'maker@awesome.com' %>
         </div>
 
         <div class="field ">
@@ -32,12 +32,12 @@
           </span>
 
           <br>
-          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password' %>
         </div>
 
         <div class="field">
           <%= f.label t(".password_confirmation") %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'password' %>
         </div>
       </div>
       <div class="actions">

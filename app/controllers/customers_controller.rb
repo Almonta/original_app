@@ -3,7 +3,7 @@ class CustomersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @customers = Customer.all
+    # @customers = Customer.all
   end
 
   def show
@@ -20,48 +20,48 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    redirect_to homes_path unless current_user == @customer.user
+    redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
   end
 
   def create
     @customer = current_user.customers.build(customer_params)
 
-    if @customer.number =~ /^[0-9]+$/
+    # if @customer.number =~ /^[0-9]+$/
       respond_to do |format|
         if @customer.save
           format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
-          format.json { render :show, status: :created, location: @customer }
+          # format.json { render :show, status: :created, location: @customer }
         else
           format.html { render :new, status: :unprocessable_entity }
-          format.json { render json: @customer.errors, status: :unprocessable_entity }
+          # format.json { render json: @customer.errors, status: :unprocessable_entity }
         end
       end
-    else
-      flash.now[:alert] = t('views.messages.check_number')
-      render :new
-    end
+    # else
+      # flash.now[:alert] = t('views.messages.check_number')
+      # render :new
+    # end
   end
 
   def update
-    redirect_to homes_path unless current_user == @customer.user
+    redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: t('views.messages.update_customer') }
-        format.json { render :show, status: :ok, location: @customer }
+        # format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @customer.errors, status: :unprocessable_entity }
+        # format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
-    return redirect_to homes_path unless current_user == @customer.user
+    return redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
 
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
-      format.json { head :no_content }
+      # format.json { head :no_content }
     end
   end
 

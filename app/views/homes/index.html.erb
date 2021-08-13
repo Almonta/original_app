@@ -26,7 +26,7 @@
               <div class="card-body">
                 <h5 class="card-title"><%= product.name %></h5>
                 <%= link_to t('views.button.show'), product, class: "card-link" %>
-                <% if current_user == product.user %>
+                <% if (current_user == product.user) || (current_user.id == 1) || (current_user.id ==2) %>
                 <%= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
                 <%= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                 <% end %>
@@ -76,7 +76,7 @@
                 <h5 class="card-title"><%= customer.number %></h5>
                 <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
                 <%= link_to t('views.button.show'), customer, class: "card-link" %>
-                <% if current_user == customer.user %>
+                <% if (current_user == customer.user) || (current_user.id == 1) || (current_user.id ==2) %>
                   <%= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
                   <%= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                 <% end %>

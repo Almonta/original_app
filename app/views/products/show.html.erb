@@ -33,7 +33,7 @@
         <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
         <% end %>
       </div>
-      <% if (current_user.department == 2) || (current_user.name == 'ゲスト') %>
+      <% if (current_user.department == 2) || (current_user.id == 1) || (current_user.id ==2) %>
         <div class="position-absolute" style="top:20px; left:180px;">
           <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
           <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
@@ -60,6 +60,7 @@
 
     <div class="col-lg-9 col-md-8">
       <h3>コンタクト</h3>
+      <p id="notice"><%= notice %></p>
       <div id="product_contacts_area" class="box">
         <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
       </div>

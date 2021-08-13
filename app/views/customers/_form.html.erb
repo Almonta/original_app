@@ -1,7 +1,7 @@
 <%= form_with(model: customer, local: true) do |form| %>
   <% if customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2><%= customer.errors.count %> 件のエラーが発生しました</h2>
 
       <ul>
       <% customer.errors.full_messages.each do |message| %>
@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label t('views.title.customer_number') %>
-    <%= form.text_field :number %>
+    <%= form.text_field :number, placeholder: '123-456' %>
   </div>
 
   <div class="field">
     <%= form.label t('views.title.customer_name') %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: 'お客様名' %>
   </div>
 
   <div class="actions">

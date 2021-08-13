@@ -18,7 +18,8 @@
       <% @products.each do |product| %>
       <li class="created_products_customers_card_list">
         <p class="created_products_customers_card_list_name"><%= product.name %></p>
-        <%= link_to '権限移行' %>
+        <br>
+        <%#= link_to '権限移行' %>
       </li>
       <% end %>
 
@@ -26,7 +27,7 @@
       <li class="created_products_customers_card_list">
         <p class="created_products_customers_card_list_name"><%= customer.number %></p>
         <p class="created_products_customers_card_list_name"><%= customer.name %></p>
-        <%= link_to '権限移行' %>
+        <%#= link_to '権限移行' %>
       </li>
       <% end %>
     </ul>
@@ -53,7 +54,7 @@
         <td><%#= link_to t('views.button.edit'), edit_product_product_document_path(@product, product_document) %></td>
         <td><%#= link_to t('views.button.destroy'), product_product_document_path(@product, product_document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
 
-        <p><%= link_to '権限移行' %></p>
+        <p><%#= link_to '権限移行' %></p>
       </li>
       <% end %>
       <% @customer_documents.each do |customer_document| %>

@@ -12,7 +12,7 @@
 
   <span class="field">
     <%= form.label t("views.title.contact_message") %>
-    <%= form.text_area :contact_message, size: "80x2" %>
+    <%= form.text_area :contact_message, size: "80x2", placeholder: "#{@product.name}についてのメッセージ" %>
   </span>
 
   <span class="actions">

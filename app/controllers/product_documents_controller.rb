@@ -21,7 +21,7 @@ class ProductDocumentsController < ApplicationController
   end
 
   def edit
-    redirect_to product_path(@product.id) unless current_user == @product_document.user
+    redirect_to product_path(@product.id) unless (current_user == @product_document.user) || (current_user.id == 1) || (current_user.id ==2)
   end
 
   def create
@@ -41,7 +41,7 @@ class ProductDocumentsController < ApplicationController
   end
 
   def update
-    redirect_to product_path(@product.id) unless current_user == @product_document.user
+    redirect_to product_path(@product.id) unless (current_user == @product_document.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @product_document.update(product_document_params)
         format.html { redirect_to [@product, @product_document], notice: t('views.messages.update_product_document') }
@@ -54,7 +54,7 @@ class ProductDocumentsController < ApplicationController
   end
 
   def destroy
-    return redirect_to product_path(@product.id) unless current_user == @product_document.user
+    return redirect_to product_path(@product.id) unless (current_user == @product_document.user) || (current_user.id == 1) || (current_user.id ==2)
 
     @product_document.destroy
     respond_to do |format|
