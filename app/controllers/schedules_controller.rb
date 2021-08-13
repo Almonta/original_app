@@ -5,9 +5,20 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       if @schedule.save
         # format.html { redirect_to customer_path(@customer) }
+        # binding.pry
         format.js { render :index }
       else
-        format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
+        # binding.irb
+        # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
+        if @schedule.serial_number.blank?
+          format.html { redirect_to customer_path(@customer), notice: '製品番号が空欄です。' }
+        elsif @schedule.serial_number.length > 255
+          format.html { redirect_to customer_path(@customer), notice: '製品番号は255文字以内で入力してください。'
+        elsif Schedule.where(serial_number: @schedule.serial_number).present?
+          format.html { redirect_to customer_path(@customer), notice: '製品番号が重複しています。' }
+        end
+        # format.html { redirect_to customer_path(@customer) , flash: message }
+        # format.html { redirect_to customer_path(@customer) }
       end
     end
   end

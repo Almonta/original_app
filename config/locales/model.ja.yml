@@ -1,0 +1,14 @@
+ja:
+  activerecord:
+    models:
+      product: プロダクト
+    attributes:
+      product:
+        name: プロダクト名
+      product_document:
+        name: プロダクト資料名
+    errors:
+      models:
+        product:
+          attributes:
+            name: プロダクト名
