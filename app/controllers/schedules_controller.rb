@@ -12,7 +12,7 @@ class SchedulesController < ApplicationController
         # binding.irb
         # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
         if @schedule.serial_number.blank?
-          flash[:notice] = '製品番号が空欄です。。。。。'
+          flash[:notice] = '製品番号が空欄です。'
           format.html { redirect_to customer_path(@customer)}
         elsif @schedule.serial_number.length > 255
           format.html { redirect_to customer_path(@customer), notice: '製品番号は255文字以内で入力してください。'}
@@ -34,25 +34,32 @@ class SchedulesController < ApplicationController
         # format.html { redirect_to customer_path(@customer) }
         end
 
-        # case
-        # when @schedule.line_on > @schedule.completed_on
-        #   format.html { redirect_to customer_path(@customer), notice: "着手日か完了日がおかしい" }
-
-        # when @schedule.line_on > @schedule.shipmented_on
-        #   format.html { redirect_to customer_path(@customer), notice: "着手日か出荷日がおかしい" }
-
-        # when @schedule.line_on > @schedule.deliveried_on
-        #   format.html { redirect_to customer_path(@customer), notice: "着手日か納品日がおかしい" }
-
-        # when @schedule.completed_on > @schedule.shipmented_on
-        #   format.html { redirect_to customer_path(@customer), notice: "完了日か出荷日がおかしい" }
-
-        # when @schedule.completed_on > @schedule.deliveried_on
-        #   format.html { redirect_to customer_path(@customer), notice: "完了日か納品日がおかしい" }
-
-        # when @schedule.shipmented_on > @schedule.deliveried_on
-        #   format.html { redirect_to customer_path(@customer), notice: "完了日か納品日がおかしい" }
-        # end
+        case
+        when @schedule.line_on > @schedule.completed_on
+          # format.html { redirect_to customer_path(@customer), notice: "着手日か完了日がおかしい" }
+          flash.now[:notice] = "着手日が完了日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        when @schedule.line_on > @schedule.shipmented_on
+          # format.html { redirect_to customer_path(@customer), notice: "着手日か出荷日がおかしい" }
+          flash.now[:notice] = "着手日が出荷日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        when @schedule.line_on > @schedule.deliveried_on
+          # format.html { redirect_to customer_path(@customer), notice: "着手日か納品日がおかしい" }
+          flash.now[:notice] = "着手日が納品日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        when @schedule.completed_on > @schedule.shipmented_on
+          # format.html { redirect_to customer_path(@customer), notice: "完了日か出荷日がおかしい" }
+          flash.now[:notice] = "完了日が出荷日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        when @schedule.completed_on > @schedule.deliveried_on
+          # format.html { redirect_to customer_path(@customer), notice: "完了日か納品日がおかしい" }
+          flash.now[:notice] = "完了日が納品日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        when @schedule.shipmented_on > @schedule.deliveried_on
+          # format.html { redirect_to customer_path(@customer), notice: "完了日か納品日がおかしい" }
+          flash.now[:notice] = "出荷日が納品日より先の日付が設定されました。間違いがないか確認してください。"
+          format.js { render :index }
+        end
       end
     end
   end
