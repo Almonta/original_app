@@ -10,7 +10,7 @@ class ProductContactsController < ApplicationController
         format.js { render :index }
         # binding.irb
       else
-        format.html { redirect_to product_path(@product), notice: '投稿できませんでした' }
+        format.html { redirect_to product_path(@product), notice: '空メッセージは投稿出来ません。' }
       end
     end
   end
@@ -18,22 +18,22 @@ class ProductContactsController < ApplicationController
   def edit
     # binding.pry
     @product_contact = @product.product_contacts.find(params[:id])
-    redirect_to product_path(@product) unless current_user == @product_contact.user
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
+      flash.now[:notice] = 'メッセージの編集中...'
       format.js { render :edit }
     end
   end
 
   def update
     @product_contact = @product.product_contacts.find(params[:id])
-    redirect_to product_path(@product) unless current_user == @product_contact.user
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @product_contact.update(product_contact_params)
-        flash.now[:notice] = 'コメントが編集されました'
+        flash.now[:notice] = 'メッセージが編集されました。'
         format.js { render :index }
       else
-        flash.now[:notice] = 'コメントの編集に失敗しました'
+        flash.now[:notice] = 'メッセージの編集に失敗しました。'
         format.js { render :edit_error }
       end
     end
@@ -41,10 +41,10 @@ class ProductContactsController < ApplicationController
 
   def destroy
     @product_contact = ProductContact.find(params[:id])
-    redirect_to product_path(@product) unless current_user == @product_contact.user
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
     @product_contact.destroy
     respond_to do |format|
-      flash.now[:notice] = 'コメントが削除されました'
+      flash.now[:notice] = 'メッセージが削除されました。'
       format.js { render :index }
     end
   end

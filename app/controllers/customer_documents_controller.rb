@@ -19,7 +19,7 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def edit
-    redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
+    redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.id == 1) || (current_user.id ==2)
   end
 
   def create
@@ -39,7 +39,7 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def update
-    redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
+    redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.id == 1) || (current_user.id ==2)
     respond_to do |format|
       if @customer_document.update(customer_document_params)
         format.html { redirect_to [@customer, @customer_document], notice: "Customer document was successfully updated." }
@@ -52,7 +52,7 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def destroy
-    return redirect_to customer_path(@customer.id) unless current_user == @customer_document.user
+    return redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.id == 1) || (current_user.id ==2)
 
     @customer_document.destroy
     respond_to do |format|

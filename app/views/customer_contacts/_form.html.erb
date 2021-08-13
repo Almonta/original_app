@@ -11,7 +11,7 @@
   <% end %>
   <div class="field">
     <%= form.label t("views.title.contact_message") %>
-    <%= form.text_area :contact_message %>
+    <%= form.text_area :contact_message, size: "80x2", placeholder: "#{@customer.name}についてのメッセージ" %>
   </div>
   <div class="actions">
     <%= form.submit %>

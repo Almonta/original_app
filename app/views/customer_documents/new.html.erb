@@ -1,6 +1,13 @@
-<h3><%= t('views.title.new_customer_document') %></h3>
 
-<%= render 'form', { customer: @customer, customer_document: @customer_document } %>
+<div class="container">
+  <div class="create_new_product_page">
+    <h2 class="page_title_en">New Product Document</h2>
+    <h5 class="page_title_ja"><%= t("views.title.new_customer_document") %></h5>
 
-<%#= link_to 'Back', customer_customer_documents_path %>
-<%= link_to t('views.button.back'), :back %>
+  <div class="create_new_product_form">
+    <%= render "form", { customer: @customer, customer_document: @customer_document } %>
+  </div>
+
+    <p><%= link_to t("views.button.back"), :back %></p>
+  </div>
+</div>
