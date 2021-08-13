@@ -8,17 +8,30 @@ class SchedulesController < ApplicationController
         # binding.pry
         format.js { render :index }
       else
-        # binding.irb
-        # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
-        if @schedule.serial_number.blank?
-          format.html { redirect_to customer_path(@customer), notice: '製品番号が空欄です。' }
-        elsif @schedule.serial_number.length > 255
-          format.html { redirect_to customer_path(@customer), notice: '製品番号は255文字以内で入力してください。'
-        elsif Schedule.where(serial_number: @schedule.serial_number).present?
-          format.html { redirect_to customer_path(@customer), notice: '製品番号が重複しています。' }
-        end
-        # format.html { redirect_to customer_path(@customer) , flash: message }
-        # format.html { redirect_to customer_path(@customer) }
+        # if @schedule.serial_number.new_record?
+          # binding.irb
+          # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
+          if @schedule.serial_number.blank?
+            format.html { redirect_to customer_path(@customer), notice: '製品番号が空欄です。' }
+          elsif @schedule.serial_number.length > 255
+            format.html { redirect_to customer_path(@customer), notice: '製品番号は255文字以内で入力してください。'}
+          elsif Schedule.where(serial_number: @schedule.serial_number).present?
+            format.html { redirect_to customer_path(@customer), notice: '製品番号が重複しています。' }
+          # elsif
+        #   elsif @schedule.line_on.present? || @schedule.conpleted_on.present? || @schedule.shipmented_on.present? || @schedule.deliveried_on.present?
+        # # if @schedule.serial_number.valid?
+          # binding.irb
+          elsif @schedule.line_on > @schedule.completed_on
+            format.html { redirect_to customer_path(@customer), notice: '生産着手日と生産完了日の日付が前後しています。' }
+          elsif (@schedule.line_on > @schedule.shipmented_on) || (@schedule.completed_on > @schedule.shipmented_on)
+            format.html { redirect_to customer_path(@customer), notice: '生産着手日と生産完了日の日付がおかしい。' }
+          elsif (@schedule.line_on > @schedule.deliveried_on) || (@schedule.completed_on > @schedule.deliveried_on) || (@schedule.shipmented_on > @schedule.deliveried_on)
+            format.html { redirect_to customer_path(@customer), notice: '生産着手日と生産完了日の日付がおかしいって。' }
+            # binding.irb
+          # end
+          # format.html { redirect_to customer_path(@customer) , flash: message }
+          # format.html { redirect_to customer_path(@customer) }
+          end
       end
     end
   end
