@@ -12,7 +12,8 @@ class SchedulesController < ApplicationController
         # binding.irb
         # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
         if @schedule.serial_number.blank?
-          format.html { redirect_to customer_path(@customer), notice: '製品番号が空欄です。' }
+          flash[:notice] = '製品番号が空欄です。。。。。'
+          format.html { redirect_to customer_path(@customer)}
         elsif @schedule.serial_number.length > 255
           format.html { redirect_to customer_path(@customer), notice: '製品番号は255文字以内で入力してください。'}
         elsif Schedule.where(serial_number: @schedule.serial_number).present?
@@ -60,7 +61,7 @@ class SchedulesController < ApplicationController
     redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2)
     @schedule = @customer.schedules.find(params[:id])
     respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
+      flash.now[:notice] = 'スケジュールの編集中...'
       format.js { render :edit }
     end
   end
@@ -70,10 +71,10 @@ class SchedulesController < ApplicationController
     @schedule = @customer.schedules.find(params[:id])
     respond_to do |format|
       if @schedule.update(schedule_params)
-        flash.now[:notice] = 'コメントが編集されました'
+        flash.now[:notice] = 'スケジュールが編集されました。'
         format.js { render :index }
       else
-        flash.now[:notice] = 'コメントの編集に失敗しました'
+        flash.now[:notice] = 'スケジュールの編集に失敗しました。'
         format.js { render :edit_error }
       end
     end
@@ -85,7 +86,7 @@ class SchedulesController < ApplicationController
 
     @schedule.destroy
     respond_to do |format|
-      flash.now[:notice] = 'コメントが削除されました'
+      flash.now[:notice] = 'スケジュールが削除されました。'
       format.js { render :index }
     end
   end

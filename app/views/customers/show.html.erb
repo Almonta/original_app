@@ -51,17 +51,7 @@
 
   <h4>スケジュール</h4>
   <p>スケジュールの登録・編集は「計画部」所属者のみ可能です。</p>
-
-  <% if @schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@schedule.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-      <% @schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <p id="notice_schedule"><%= notice %></p>
 
 
   <div class="schedule_area">
