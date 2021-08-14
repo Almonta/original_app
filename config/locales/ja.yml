@@ -237,7 +237,7 @@ ja:
       new_product_document: 'プロダクト資料新規登録'
       new_customer_document: 'カスタマー資料新規登録'
     title:
-      contact_message: 'コンタクトメッセージ'
+      contact_message: 'コンタクトメッセージ入力フォーム'
       product_show: 'プロダクト詳細'
       customer_show: 'カスタマー詳細'
       product_edit: 'プロダクト編集'

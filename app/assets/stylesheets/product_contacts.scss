@@ -6,12 +6,35 @@ ul {
   list-style: none;
 }
 
+.message_form_area {
+  padding: 0px 15px;
+}
+
 .fa-paper-plane {
-  color: rgb(119, 44, 204);
+  color: white;
   position: relative;
-  bottom: 15px;
+  // bottom: 15px;
 }
 
 .contact_box {
   padding: 20px;
+}
+
+.message_label {
+  margin: 15px 0px 5px 0px;
+}
+
+.massage_btn {
+  background:green;
+  height: 42px;
+  width: 50px
+}
+
+.massage_btn:hover {
+  background-color: #239723;
+}
+
+.message_edit_delete {
+  // margin: 0 0 0 auto;
+  text-align: right;
 }
