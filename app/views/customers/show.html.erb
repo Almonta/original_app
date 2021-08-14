@@ -62,6 +62,7 @@
     <div id="schedules_area">
       <%= render partial: 'schedules/index', locals: { schedules: @schedules, customer: @customer } %>
     </div>
+    <%= paginate @schedules %>
   </div>
 
   <div class="row">
