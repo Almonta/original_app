@@ -110,13 +110,25 @@ product = [
 
 u = 0
 n = 0
-10.times do |n|
-  5.times do |u|
-    Product.create!(user_id: user_ids[u],
-                    name: product[n])
-  u += 1
-  end
+5.times do |u|
+  Product.create!(user_id: user_ids[u],
+                  name: product[n])
+u += 1
+n += 1
 end
+
+u = 0
+n = 5
+5.times do |u|
+  Product.create!(user_id: user_ids[u],
+                  name: product[n])
+u += 1
+n += 1
+end
+
+customer = [
+  
+]
 
 # 5.times do |n|
 #   UserProduct.create!(user_id: 5,
