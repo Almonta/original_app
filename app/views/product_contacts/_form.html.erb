@@ -1,25 +1,32 @@
-<%= form_with(model: [product, product_contact]) do |form| %>
-  <% if product_contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product_contact.errors.count, "error") %> prohibited this comment from being saved:</h2>
-      <ul>
-      <% product_contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+  <%= form_with(model: [product, product_contact]) do |form| %>
+
+    <% if product_contact.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(product_contact.errors.count, "error") %> prohibited this comment from being saved:</h2>
+        <ul>
+        <% product_contact.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="message_label">
+      <%= form.label t("views.title.contact_message") %>
     </div>
+    <div class="row message_form_area">
+      <span class="field message_box">
+        <%#= form.text_area :contact_message, size: "80x2", placeholder: "#{@product.name}についてのメッセージ" %>
+        <%= form.text_area :contact_message, size: "50x2",placeholder: "#{@product.name}についてのメッセージ" %>
+      </span>
+
+      <span class="actions">
+        <%#= form.submit %>
+        <button name="button" type="submit" class="btn massage_btn">
+        <i class="far fa-paper-plane fa-lg"></i>
+        </button>
+      </span>
+    </div>
+
   <% end %>
-
-  <span class="field">
-    <%= form.label t("views.title.contact_message") %>
-    <%= form.text_area :contact_message, size: "80x2", placeholder: "#{@product.name}についてのメッセージ" %>
-  </span>
-
-  <span class="actions">
-    <%#= form.submit %>
-    <button name="button" type="submit" class="btn comment_btn">
-    <i class="far fa-paper-plane fa-lg"></i>
-    </button>
-  </span>
-
-<% end %>
