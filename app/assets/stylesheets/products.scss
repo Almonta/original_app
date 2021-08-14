@@ -4,15 +4,17 @@
 
 .product_name_title {
   padding: 1rem 2rem;
+  border: 1px solid rgb(201, 201, 201);
   background: rgb(255, 255, 255);
   border-radius: 1rem;
 }
 
 .box {
   height: 350px;
-  border: 2px solid rgb(201, 201, 201);
+  border: 1px solid rgb(201, 201, 201);
   overflow-y: scroll;
   border-radius: 1rem;
+  background: white;
 }
 
 .editer {
