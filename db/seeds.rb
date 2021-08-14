@@ -93,7 +93,20 @@ User.create!(name: '加藤 愛',
              password_confirmation: 'sample1414',
              admin: false)
 
-user_ids = [ User.first.id, User.first.id + 2, User.first.id + 2, User.first.id + 3, User.first.id + 4,]
+
+user_ids = [
+  User.first.id, 
+  User.first.id + 1, 
+  User.first.id + 2, 
+  User.first.id + 3, 
+  User.first.id + 4,
+  User.first.id + 5,
+  User.first.id + 6,
+  User.first.id + 7,
+  User.first.id + 8,
+  User.first.id + 9,
+  User.first.id + 10
+]
 
 product = [
   "Model 1",
@@ -108,38 +121,69 @@ product = [
   "Model Z"
 ]
 
-u = 0
+
 n = 0
 5.times do |u|
   Product.create!(user_id: user_ids[u],
                   name: product[n])
-u += 1
 n += 1
 end
 
-u = 0
 n = 5
 5.times do |u|
   Product.create!(user_id: user_ids[u],
                   name: product[n])
-u += 1
 n += 1
 end
 
-customer = [
-  
-]
-
-# 5.times do |n|
-#   UserProduct.create!(user_id: 5,
-#                       product_id: n + 1)
-# end
 
 # 10.times do |n|
 #   Customer.create!(user_id: 5,
 #                   number: "#{n+1}" * 4,
 #                   name: "カンパニー#{n + 1}")
 # end
+
+Customer.create!(user_id: user_ids[0],
+                 number: "123-456",
+                 name: "TSMC")
+
+Customer.create!(user_id: user_ids[1],
+                 number: "234-567",
+                 name: "サムスン")
+
+Customer.create!(user_id: user_ids[2],
+                 number: "345-600",
+                 name: "エヌビディア")
+
+Customer.create!(user_id: user_ids[3],
+                 number: "345-700",
+                 name: "インテル")
+
+Customer.create!(user_id: user_ids[4],
+                 number: "345-800",
+                 name: "ブロードコム")
+
+Customer.create!(user_id: user_ids[5],
+                 number: "345-900",
+                 name: "クアルコム")
+
+Customer.create!(user_id: user_ids[6],
+                 number: "456-100",
+                 name: "ソニー")
+
+Customer.create!(user_id: user_ids[7],
+                 number: "456-200",
+                 name: "ルネサスエレクトロニクス")
+
+Customer.create!(user_id: user_ids[8],
+                 number: "456-300",
+                 name: "キオクシアホールディングス")
+
+Customer.create!(user_id: user_ids[9],
+                 number: "456-400",
+                 name: "マイクロンテクノロジー")
+
+
 
 # 5.times do |n|
 #   UserCustomer.create!(user_id: 5,
