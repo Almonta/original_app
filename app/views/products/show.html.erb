@@ -20,7 +20,6 @@
 
       </div>
 
-      <br>
       <div class="product_editer">
         <p class="editer">作成者：<%= @product.user.name %></p>
         <p class="edit_link"><%= link_to t('views.button.edit'), edit_product_path(@product) if (current_user == @product.user) || (current_user.id == 1) || (current_user.id ==2) %></p>
