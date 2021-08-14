@@ -187,42 +187,50 @@ odd_user_id  = user_id_all.select(&:odd?)
 even_user_id = user_id_all.select(&:even?)
 
 
-# Productから奇数のproduct_idのみを配列で取り出す。
-
-first_product =Product.first.id
+first_product = Product.first.id
 last_product = Product.first.id + 9
 product_id_all = (first_product..last_product).to_a
 odd_product_id = product_id_all.select(&:odd?)
 even_product_id = product_id_all.select(&:even?)
 
 
+first_customer = Customer.first.id
+last_customer = Customer.first.id + 9
+customer_id_all = (first_customer..last_customer).to_a
+odd_customer_id = customer_id_all.select(&:odd?)
+even_customer_id = customer_id_all.select(&:even?)
+
+
 5.times do |m|
-  3.times do |n|
+  4.times do |n|
     UserProduct.create!(user_id: odd_user_id[m],
                         product_id: odd_product_id[n])
   end
 end
 
 5.times do |m|
-  3.times do |n|
+  4.times do |n|
     UserProduct.create!(user_id: even_user_id[m],
                         product_id: even_product_id[n])
   end
 end
 
+5.times do |m|
+  4.times do |n|
+    UserCustomer.create!(user_id: odd_user_id[m],
+                         customer_id: odd_customer_id[n])
+  end
+end
+
+5.times do |m|
+  4.times do |n|
+    UserCustomer.create!(user_id: even_user_id[m],
+                         customer_id: even_customer_id[n])
+  end
+end
+
 # binding.irb
 
-
-# 5.times do |n|
-#   UserProduct.create!(user_id: even_user_id[n],
-#                       product_id: n + 1)
-# end
-
-
-# 5.times do |n|
-#   UserCustomer.create!(user_id: 5,
-#                       customer_id: n + 1)
-# end
 
 # 2.times do |n|
 #   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
