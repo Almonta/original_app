@@ -136,13 +136,6 @@ n = 5
 n += 1
 end
 
-
-# 10.times do |n|
-#   Customer.create!(user_id: 5,
-#                   number: "#{n+1}" * 4,
-#                   name: "カンパニー#{n + 1}")
-# end
-
 Customer.create!(user_id: user_ids[0],
                  number: "123-456",
                  name: "TSMC")
@@ -183,6 +176,47 @@ Customer.create!(user_id: user_ids[9],
                  number: "456-400",
                  name: "マイクロンテクノロジー")
 
+
+# Userから全てのuser_idを配列で取り出す。
+first_user = User.first.id
+last_user = User.first.id + 9
+user_id_all = (first_user..last_user).to_a
+# Userから奇数のuser_idのみを配列で取り出す。
+odd_user_id  = user_id_all.select(&:odd?)
+# Userから偶数のuser_idのみを配列で取り出す。
+even_user_id = user_id_all.select(&:even?)
+
+
+# Productから奇数のproduct_idのみを配列で取り出す。
+
+first_product =Product.first.id
+last_product = Product.first.id + 9
+product_id_all = (first_product..last_product).to_a
+odd_product_id = product_id_all.select(&:odd?)
+even_product_id = product_id_all.select(&:even?)
+
+
+5.times do |m|
+  3.times do |n|
+    UserProduct.create!(user_id: odd_user_id[m],
+                        product_id: odd_product_id[n])
+  end
+end
+
+5.times do |m|
+  3.times do |n|
+    UserProduct.create!(user_id: even_user_id[m],
+                        product_id: even_product_id[n])
+  end
+end
+
+# binding.irb
+
+
+# 5.times do |n|
+#   UserProduct.create!(user_id: even_user_id[n],
+#                       product_id: n + 1)
+# end
 
 
 # 5.times do |n|
