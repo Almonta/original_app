@@ -18,7 +18,7 @@ class ProductContactsController < ApplicationController
   def edit
     # binding.pry
     @product_contact = @product.product_contacts.find(params[:id])
-    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
     respond_to do |format|
       flash.now[:notice] = 'メッセージの編集中...'
       format.js { render :edit }
@@ -27,7 +27,7 @@ class ProductContactsController < ApplicationController
 
   def update
     @product_contact = @product.product_contacts.find(params[:id])
-    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
     respond_to do |format|
       if @product_contact.update(product_contact_params)
         flash.now[:notice] = 'メッセージが編集されました。'
@@ -41,7 +41,7 @@ class ProductContactsController < ApplicationController
 
   def destroy
     @product_contact = ProductContact.find(params[:id])
-    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.id == 1) || (current_user.id ==2)
+    redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
     @product_contact.destroy
     respond_to do |format|
       flash.now[:notice] = 'メッセージが削除されました。'

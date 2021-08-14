@@ -20,7 +20,7 @@
           </p>
           <p class="card-text"><%= document.content %></p>
           <%= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link" %>
-          <% if (current_user == document.user) || (current_user.id == 1) || (current_user.id ==2) %>
+          <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
             <%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link" %>
             <%= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
           <% end %>

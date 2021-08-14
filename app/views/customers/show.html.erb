@@ -27,7 +27,7 @@
 
       <div class="product_editer">
         <p class="editer">作成者：<%= @customer.user.name %></p>
-        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) if (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2) %></p>
+        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %></p>
       </div>
     </div>
 
@@ -39,7 +39,7 @@
         <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
         <% end %>
       </div>
-      <% if (current_user.department == 2) || (current_user.id == 1) || (current_user.id ==2) %>
+      <% if (current_user.department == 2) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
         <div class="position-absolute" style="top:70px; left:180px;">
           <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
           <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
