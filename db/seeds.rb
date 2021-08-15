@@ -238,6 +238,16 @@ planning_user = User.find_by(department: 3).id
 manufacturing_user = User.find_by(department: 4).id
 service_user = User.find_by(department: 5).id
 
+technical_document_user = [
+  engineering_user,
+  manufacturing_user
+]
+
+public_document_user = [
+  sales_user,
+  planning_user,
+  service_user,
+]
 
 document = [
   File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
@@ -254,28 +264,28 @@ document = [
 
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 
-5.times do |m|
-  5.times do |n|
-    ProductDocument.create!(user_id: manufacturing_user,
-                            product_id: odd_product_id[n],
-                            name: '組立手順書',
-                            content: content,
-                            document: document[m],
-                            public_level: 0)
-  end
+m = 0
+5.times do |n|
+  ProductDocument.create!(user_id: engineering_user,
+                          product_id: odd_product_id[n],
+                          name: '設計計算書',
+                          content: content,
+                          document: document[m],
+                          public_level: 0)
+  m += 1
 end
 
-5.times do |m|
-  5.times do |n|
-    ProductDocument.create!(user_id: engineering_user,
-                            product_id: even_product_id[n],
-                            name: '設計計算',
-                            content: content,
-                            document: document[m + 5],
-                            public_level: 1)
-  end
-end
 
+m = 5
+5.times do |n|
+  ProductDocument.create!(user_id: manufacturing_user,
+                          product_id: even_product_id[n],
+                          name: '組立手順書',
+                          content: content,
+                          document: document[m],
+                          public_level: 1)
+  m += 1
+end
 
 
 # 2.times do |n|

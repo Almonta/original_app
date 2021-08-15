@@ -7,26 +7,30 @@
   <% end %>
 
   <div class="row">
-    <% @documents.each do |document| %>
-    <div class="document_card_list"> 
-      <div class="card" style="width: 18rem;">
-        <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
-        <div class="card-body">
-          <h5 class="card-title"><%= document.name %></h5>
-          <p class="card-text">
-            <% if document.public_level == 0 %>一般公開資料
-            <% elsif document.public_level == 1 %>技術資料
+    <% if @documents == [] %>
+      <p>現在登録がありません</p>
+    <% else %>
+      <% @documents.each do |document| %>
+      <div class="document_card_list"> 
+        <div class="card" style="width: 18rem;">
+          <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+          <div class="card-body">
+            <h5 class="card-title"><%= document.name %></h5>
+            <p class="card-text">
+              <% if document.public_level == 0 %>一般公開資料
+              <% elsif document.public_level == 1 %>技術資料
+              <% end %>
+            </p>
+            <p class="card-text"><%= document.content %></p>
+            <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+            <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
+              <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
+              <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
             <% end %>
-          </p>
-          <p class="card-text"><%= document.content %></p>
-          <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
-          <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
-            <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
-            <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
+      <% end %>
     <% end %>
   </div>
 
