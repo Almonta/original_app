@@ -8,7 +8,7 @@
           <%= l product_contact.created_at %>
         </p>
         <p><%= product_contact.contact_message %></p>
-        <% if (current_user == product_contact.user) || (current_user.id == 1) || (current_user.id ==2) %>
+        <% if (current_user == product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           <div class="message_edit_delete">
           <%#= link_to "編集", edit_product_product_contact_path(product, product_contact), remote: true %>
           <%= link_to edit_product_product_contact_path(product, product_contact), remote: true do %>

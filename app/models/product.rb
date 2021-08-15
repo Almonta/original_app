@@ -1,5 +1,8 @@
 class Product < ApplicationRecord
-  # validates :name, presence: true, length: { maximum: 255 }
+  # validates :name, 
+    # presence: true,
+    # uniqueness: true
+    # length: { maximum: 255 }
   validate :add_error_product
   # scope :search_product, -> (search){ where("name LIKE ?", "%#{params[:search]}%") }
   scope :search_product, ->(search) { where("name LIKE ?", "%#{search}%") }
@@ -12,7 +15,9 @@ class Product < ApplicationRecord
 
   def add_error_product
     # errors[:base] << 'プロダクト名を入力してください' if name.blank?
-    errors.add(:base, 'プロダクト名を入力してください') if name.blank?
-    errors.add(:base, 'プロダクト名は255文字以内にしてください') if name.length > 255
+    errors.add(:base, 'プロダクト名を入力してください。') if name.blank?
+    # errors.add(:base, 'プロダクト名の重複があります。') if name.unique?
+    errors.add(:base, '既に登録済のプロダクト名です。') if Product.where(name: name).present?
+    errors.add(:base, 'プロダクト名は255文字以内にしてください。') if name.length > 255
   end
 end

@@ -2,7 +2,7 @@ class ProductDocument < ApplicationRecord
   # validates :name, presence: true, length: { maximum: 255 }
   # validates :content, presence: true, length: { maximum: 1000 }
   # validates :public_level, presence: true
-  validate :add_error_cproduct_document
+  validate :add_error_product_document
 
   belongs_to :user
   belongs_to :product
