@@ -202,28 +202,28 @@ even_customer_id = customer_id_all.select(&:even?)
 
 
 5.times do |m|
-  4.times do |n|
+  5.times do |n|
     UserProduct.create!(user_id: odd_user_id[m],
                         product_id: odd_product_id[n])
   end
 end
 
 5.times do |m|
-  4.times do |n|
+  5.times do |n|
     UserProduct.create!(user_id: even_user_id[m],
                         product_id: even_product_id[n])
   end
 end
 
 5.times do |m|
-  4.times do |n|
+  5.times do |n|
     UserCustomer.create!(user_id: odd_user_id[m],
                          customer_id: odd_customer_id[n])
   end
 end
 
 5.times do |m|
-  4.times do |n|
+  5.times do |n|
     UserCustomer.create!(user_id: even_user_id[m],
                          customer_id: even_customer_id[n])
   end
@@ -237,6 +237,11 @@ engineering_user = User.find_by(department: 2).id
 planning_user = User.find_by(department: 3).id
 manufacturing_user = User.find_by(department: 4).id
 service_user = User.find_by(department: 5).id
+
+sales_users = User.where(department: 1).ids
+engineering_users = User.where(department: 2).ids
+planning_users = User.where(department: 3).ids
+manufacturing_users = User.where(department: 4).ids
 
 technical_document_user = [
   engineering_user,
@@ -311,33 +316,54 @@ m = 5
   m += 1
 end
 
+sales_engineering_contact = [
+  'お客様よりこの製品の〇〇の改善要望が多くあります。',
+  '共有ありがとうございます。マイナーチェンジ時に反映検討します。',
+  'このアプリのおかげで情報共有がスマートにできていいですね！'
+]
+
+manufacturing_engineering_contact = [
+  'この製品の〇〇部の組立方法がわかりません。何か資料いただけますか？',
+  '資料をアップしました。資料名「〇〇」をご確認ください',
+  'ありがとうございます。次回からこれを見れば良いので便利ですね！'
+]
 
 
-# 2.times do |n|
-#   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-#   CustomerDocument.create!(user_id: 6,
-#                            customer_id: n + 1,
-#                            name: '注文書',
-#                            content: content,
-#                            document: File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
-#                            public_level: 0)
-# end
+5.times do |n|
+  ProductContact.create!(user_id: sales_users[0],
+                         product_id: even_product_id[n],
+                         contact_message: sales_engineering_contact[0])
+end
 
-# 3.times do |n|
-#   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-#   CustomerDocument.create!(user_id: 9,
-#                            customer_id: n + 3,
-#                            name: '組立手順書',
-#                            content: content,
-#                            document: File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
-#                            public_level: 1)
-# end
+5.times do |n|
+  ProductContact.create!(user_id: engineering_users[0],
+                         product_id: even_product_id[n],
+                         contact_message: sales_engineering_contact[1])
+end
 
-# 5.times do |n|
-#   ProductContact.create!(user_id: n + 5,
-#                          product_id: 1,
-#                          contact_message: "メッセージ#{n+1}")
-# end
+5.times do |n|
+  ProductContact.create!(user_id: sales_users[0],
+                         product_id: even_product_id[n],
+                         contact_message: sales_engineering_contact[2])
+end
+
+5.times do |n|
+  ProductContact.create!(user_id: manufacturing_users[1],
+                         product_id: odd_product_id[n],
+                         contact_message: manufacturing_engineering_contact[0])
+end
+
+5.times do |n|
+  ProductContact.create!(user_id: engineering_users[1],
+                         product_id: odd_product_id[n],
+                         contact_message: manufacturing_engineering_contact[1])
+end
+
+5.times do |n|
+  ProductContact.create!(user_id: manufacturing_users[1],
+                         product_id: odd_product_id[n],
+                         contact_message: manufacturing_engineering_contact[2])
+end
 
 # 5.times do |n|
 #   CustomerContact.create!(user_id: n + 5,
