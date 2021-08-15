@@ -460,17 +460,56 @@ sleep 1
 end
 
 
-# 5.times do |n|
-#   CustomerContact.create!(user_id: n + 5,
-#                           customer_id: 1,
-#                           contact_message: "メッセージ#{n+1}")
-# end
 
-# 5.times do |n|
-#   Schedule.create!(customer_id: 1,
-#                    serial_number: "123#{n+1}",
-#                    line_on: "2021-05-0#{n+1}",
-#                    completed_on: "2021-05-0#{n+2}",
-#                    shipmented_on: "2021-05-0#{n+3}",
-#                    deliveried_on: "2021-05-0#{n+4}")
-# end
+10.times do |n|
+  Schedule.create!(customer_id: customer_id_all[n],
+                    serial_number: "123-456-#{n}",
+                    line_on: "2021-05-01",
+                    completed_on: "2021-06-01",
+                    shipmented_on: "2021-07-01",
+                    deliveried_on: "2021-08-01")
+end
+
+m = 10
+10.times do |n|
+  Schedule.create!(customer_id: customer_id_all[n],
+                    serial_number: "123-456-#{m}",
+                    line_on: "2021-05-#{m}",
+                    completed_on: "2021-06-#{m}",
+                    shipmented_on: "2021-07-#{m}",
+                    deliveried_on: "2021-08-#{m}")
+  m += 1
+end
+
+m = 20
+10.times do |n|
+  Schedule.create!(customer_id: customer_id_all[n],
+                    serial_number: "123-456-#{m}",
+                    line_on: "2021-05-#{m}",
+                    completed_on: "2021-06-#{m}",
+                    shipmented_on: "2021-07-#{m}",
+                    deliveried_on: "2021-08-#{m}")
+  m += 1
+end
+
+m = 30
+10.times do |n|
+  Schedule.create!(customer_id: customer_id_all[n],
+                    serial_number: "123-456-#{m}",
+                    line_on: "2021-05-01",
+                    completed_on: "2021-06-01",
+                    shipmented_on: "2021-07-01",
+                    deliveried_on: "2021-08-01")
+  m += 1
+end
+
+m = 40
+10.times do |n|
+  Schedule.create!(customer_id: customer_id_all[n],
+                    serial_number: "123-456-#{m}",
+                    line_on: "2021-06-01",
+                    completed_on: "2021-07-01",
+                    shipmented_on: "2021-08-01",
+                    deliveried_on: "2021-09-01")
+  m += 1
+end
