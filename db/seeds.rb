@@ -288,6 +288,31 @@ m = 5
 end
 
 
+m = 0
+5.times do |n|
+  CustomerDocument.create!(user_id: sales_user,
+                          customer_id: even_customer_id[n],
+                          name: '注文書',
+                          content: content,
+                          document: document[m],
+                          public_level: 0)
+  m += 1
+end
+
+
+m = 5
+5.times do |n|
+  CustomerDocument.create!(user_id: service_user,
+                          customer_id: even_customer_id[n],
+                          name: 'サービス報告書',
+                          content: content,
+                          document: document[m],
+                          public_level: 0)
+  m += 1
+end
+
+
+
 # 2.times do |n|
 #   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 #   CustomerDocument.create!(user_id: 6,
