@@ -231,26 +231,52 @@ end
 
 # binding.irb
 
+no_position_user = User.find_by(department: 0).id
+sales_user = User.find_by(department: 1).id
+engineering_user = User.find_by(department: 2).id
+planning_user = User.find_by(department: 3).id
+manufacturing_user = User.find_by(department: 4).id
+service_user = User.find_by(department: 5).id
 
-# 2.times do |n|
-#   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-#   ProductDocument.create!(user_id: 8,
-#                           product_id: n + 1,
-#                           name: '取説',
-#                           content: content,
-#                           document: File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
-#                           public_level: 0)
-# end
 
-# 3.times do |n|
-#   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
-#   ProductDocument.create!(user_id: 9,
-#                           product_id: n + 3,
-#                           name: '解析結果',
-#                           content: content,
-#                           document: File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),
-#                           public_level: 1)
-# end
+document = [
+  File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
+  File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),
+  File.open("./db/documents/'21.07.07_チェリー本_7.7-7.8_メソッドの公開レベル.pdf"),
+  File.open("./db/documents/'21.07.07_チェリー本_7.9-7.10_クラスの作成.pdf"),
+  File.open("./db/documents/'21.07.07_チェリー本_7.10_クラスの作成.pdf"),
+  File.open("./db/documents/'21.07.12_チェリー本_8.1-8.5_モジュールとは.pdf"),
+  File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
+  File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),
+  File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),
+  File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),
+]
+
+content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
+
+5.times do |m|
+  5.times do |n|
+    ProductDocument.create!(user_id: manufacturing_user,
+                            product_id: odd_product_id[n],
+                            name: '組立手順書',
+                            content: content,
+                            document: document[m],
+                            public_level: 0)
+  end
+end
+
+5.times do |m|
+  5.times do |n|
+    ProductDocument.create!(user_id: engineering_user,
+                            product_id: even_product_id[n],
+                            name: '設計計算',
+                            content: content,
+                            document: document[m + 5],
+                            public_level: 1)
+  end
+end
+
+
 
 # 2.times do |n|
 #   content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
