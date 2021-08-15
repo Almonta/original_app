@@ -335,11 +335,15 @@ manufacturing_engineering_contact = [
                          contact_message: sales_engineering_contact[0])
 end
 
+sleep 1
+
 5.times do |n|
   ProductContact.create!(user_id: engineering_users[0],
                          product_id: even_product_id[n],
                          contact_message: sales_engineering_contact[1])
 end
+
+sleep 1
 
 5.times do |n|
   ProductContact.create!(user_id: sales_users[0],
@@ -353,17 +357,108 @@ end
                          contact_message: manufacturing_engineering_contact[0])
 end
 
+sleep 1
+
 5.times do |n|
   ProductContact.create!(user_id: engineering_users[1],
                          product_id: odd_product_id[n],
                          contact_message: manufacturing_engineering_contact[1])
 end
 
+sleep 1
+
 5.times do |n|
   ProductContact.create!(user_id: manufacturing_users[1],
                          product_id: odd_product_id[n],
                          contact_message: manufacturing_engineering_contact[2])
 end
+
+
+sales_planning_engineering_manufacturing_contact = [
+  'お客様より〇月納期での引き合いがあります。この条件を満たせば受注獲得できそうですが、生産計画いかがでしょうか？仕様はアップしたファイル「〇〇」を参照ください' ,
+  '日程計画します。技術さん、製造さん、この仕様ですが、通常リードタイムに対しプラスで必要であれば教えて下さい' ,
+  '技術としては、この「〇〇」という仕様に+100hrの工数が必要です。' ,
+  '製造としては、追加工数は発生しません。' ,
+  'ありがとうございます。このアプリ内で完結できていいですね！' ,
+]
+  # 客先専用仕様の共有
+
+service_engineering_manufacturing_contact = [
+  '製品〇〇の修理で現在客先訪問中です。〇〇の部分が標準品と異なるのですが、何か特殊な仕様でしょうか？' ,
+  'このお客様には〇〇の特殊仕様があります。資料をアップしています。資料名「〇〇」をご確認ください' ,
+  '製造としては〇〇の部分を特殊対応しています。' ,
+  'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' 
+]
+
+5.times do |n|
+  CustomerContact.create!(user_id: sales_users[1],
+                          customer_id: odd_product_id[n],
+                          contact_message: sales_planning_engineering_manufacturing_contact[0])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: planning_users[1],
+                          customer_id: odd_product_id[n],
+                          contact_message: sales_planning_engineering_manufacturing_contact[1])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: engineering_users[1],
+                          customer_id: odd_product_id[n],
+                          contact_message: sales_planning_engineering_manufacturing_contact[2])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: manufacturing_users[1],
+                          customer_id: odd_product_id[n],
+                          contact_message: sales_planning_engineering_manufacturing_contact[3])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: sales_users[1],
+                          customer_id: odd_product_id[n],
+                          contact_message: sales_planning_engineering_manufacturing_contact[4])
+end
+
+
+5.times do |n|
+  CustomerContact.create!(user_id: service_user,
+                          customer_id: even_product_id[n],
+                          contact_message: service_engineering_manufacturing_contact[0])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: engineering_users[0],
+                          customer_id: even_product_id[n],
+                          contact_message: service_engineering_manufacturing_contact[1])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: manufacturing_users[0],
+                          customer_id: even_product_id[n],
+                          contact_message: service_engineering_manufacturing_contact[2])
+end
+
+sleep 1
+
+5.times do |n|
+  CustomerContact.create!(user_id: service_user,
+                          customer_id: even_product_id[n],
+                          contact_message: service_engineering_manufacturing_contact[3])
+end
+
 
 # 5.times do |n|
 #   CustomerContact.create!(user_id: n + 5,
