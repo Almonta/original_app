@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .created_products_customers_box {
-  height: 100%;
+  height: 200px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
   // width: auto;
   // width: fit-content;
   background-color:rgb(255, 255, 255);
@@ -22,6 +24,7 @@
   overflow-x: auto;
   white-space: nowrap; 
   -webkit-overflow-scrolling: touch;
+  // margin-bottom: 0px;
 }
 
 .created_products_customers_card_list {
@@ -30,10 +33,10 @@
   top: 0px;
   height: 120px;
   width: 180px;
-  margin: 10px;
-  padding: 10px;
-  background-color: #f3f3f3;
-  border-radius: 15px;
+  margin: 5px;
+  // padding: 10px;
+  // background-color: #f3f3f3;
+  // border-radius: 15px;
 }
 
 .created_products_customers_card_list_name {
@@ -43,7 +46,7 @@
 
 
 .created_documents_box {
-  height: 100%;
+  height: 400px;
   // width: auto;
   // width: fit-content;
   background-color:rgb(255, 255, 255);
@@ -66,12 +69,12 @@
 
 .created_document_card_list {
   display: inline-block;
-  height: 280px;
+  height: 320px;
   width: 180px;
-  margin: 10px;
-  padding: 10px;
-  background-color: #f3f3f3;
-  border-radius: 15px;
+  margin: 5px 5px 10px 5px;
+  padding: 0px;
+  // background-color: #f3f3f3;
+  // border-radius: 15px;
   word-break: break-all;
 }
 
@@ -85,10 +88,35 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  min-width: 160px;
+  min-width: 150px;
   // height: 50px;
   // border: 1px solid #ccc;
   word-wrap: break-word;
   word-break: break-all;
   // overflow-wrap: break-word;
+}
+
+.not_exist_puroduct_customer {
+  margin: 50px;
+}
+
+.not_exist_document {
+  margin: 100px 50px ;
+}
+
+.profile_info_area{
+  display: inline-block;
+  padding: 15px;
+  margin-bottom: 20px;
+  background-color:rgb(255, 255, 255);
+  border-radius: 20px;
+}
+
+.profile_info{
+  display: inline-block;
+}
+
+.profile_edit{
+  display: inline-block;
+  margin: 20px;
 }
