@@ -1,14 +1,27 @@
 <div class="container">
   <h2 class="page_title_en">My Page</h2>
   <h5 class="page_title_ja">マイページ</h5>
-  <h3>名前</h3>
-  <p><%= @user.name %></p>
-  <h3>所属</h3>
-  <p><%= @user.department_i18n %></p>
-  <h3>メールアドレス</h3>
-  <p><%= @user.email %></p>
 
-  <%= link_to t('views.button.edit'), edit_user_registration_path %>
+  <div class="profile_info_area">
+    <div class="profile_info">
+      <h4>基本情報</h4>
+      <h6><strong>名前：</strong></h6>
+      <h6><strong>所属：</strong></h6>
+      <h6><strong>メールアドレス：</strong></h6>
+    </div>
+    <div class="profile_info">
+      <br>
+      <h6><%= @user.name %></h6>
+      <h6><%= @user.department_i18n %></h6>
+      <h6><%= @user.email %></h6>
+    </div>
+  </div>
+
+  <div class="profile_edit">
+    <%= link_to edit_user_registration_path do %>
+      <button type="button" class="btn btn-outline-secondary"><%= t('views.button.edit') %></button>
+    <% end %>
+  </div>
 
   <div class="created_products_customers_box">
     <div class="created_products_customers_title">
