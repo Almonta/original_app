@@ -56,6 +56,17 @@
 
   <div class="schedule_area">
 
+<%
+# 1
+=begin %>
+  <div class="schedule_errror_area">
+    <%= render partial: 'schedules/error', locals: { schedule: @schedule, customer: @customer } %>
+  </div>
+<%
+=end %>
+
+    <div id="errror_explanation"></div>
+
     <div class="schedule_form">
       <%= render partial: 'schedules/form', locals: { schedule: @schedule, customer: @customer } %>
     </div>
