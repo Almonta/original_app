@@ -60,7 +60,7 @@ RSpec.describe CustomerDocument, type: :model do
                                                           document: 'test',
                                                           public_level: 0)
         customer_document.valid?
-        expect(customer_document.errors[:name]).to include('は255文字以内で入力してください')
+        expect(customer_document.errors[:name]).to be_present
       end
     end
     context '概要の文字数が1000文字を超える場合' do
@@ -70,7 +70,7 @@ RSpec.describe CustomerDocument, type: :model do
                                                           document: 'test',
                                                           public_level: 0)
         customer_document.valid?
-        expect(customer_document.errors[:content]).to include('は1000文字以内で入力してください')
+        expect(customer_document.errors[:content]).to be_present
       end
     end
   end

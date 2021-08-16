@@ -23,7 +23,7 @@ RSpec.describe ProductDocument, type: :system do
         user_login
         first(:link, '詳細').click
         find(".general_document_button").click
-        click_on 'カスタマー資料新規登録'
+        click_button 'カスタマー資料新規登録'
         fill_in 'customer_document_name', with: 'customer_document1'
         fill_in 'customer_document_content', with: 'customer_document_content1'
         choose 'customer_document_public_level_0'

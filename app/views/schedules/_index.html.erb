@@ -1,38 +1,38 @@
 
-  <% schedules.each do |schedule| %>
-  <div class="schedule-content" id ="this_schedule_<%= schedule.id %>"></div>
-    <% if schedule.id.present? %>
-      <table class="table table-hover">
-        <tbody>
-          <tr class="">
-            <td class="col-2">
-              <%= schedule.serial_number %>
+<% schedules.each do |schedule| %>
+<div class="schedule-content" id ="this_schedule_<%= schedule.id %>"></div>
+  <% if schedule.id.present? %>
+    <table class="table table-hover">
+      <tbody>
+        <tr class="">
+          <td class="col-2">
+            <%= schedule.serial_number %>
+          </td>
+          <td class="col-2">
+            <%= l schedule.line_on, format: :long, default: '-' %>
+          </td>
+          <td class="col-2">
+            <%= l schedule.completed_on, format: :long, default: '-' %>
+          </td>
+          <td class="col-2">
+            <%= l schedule.shipmented_on, format: :long, default: '-' %>
+          </td>
+          <td class="col-2">
+            <%= l schedule.deliveried_on, format: :long, default: '-' %>
+          </td>
+          <% if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
+            <td class="col-1">
+              <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
             </td>
-            <td class="col-2">
-              <%= l schedule.line_on, format: :long, default: '-' %>
+            <td class="col-1">
+              <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
+                                  data: { confirm: "本当に削除しますか?"} %>
             </td>
-            <td class="col-2">
-              <%= l schedule.completed_on, format: :long, default: '-' %>
-            </td>
-            <td class="col-2">
-              <%= l schedule.shipmented_on, format: :long, default: '-' %>
-            </td>
-            <td class="col-2">
-              <%= l schedule.deliveried_on, format: :long, default: '-' %>
-            </td>
-            <% if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
-              <td class="col-1">
-                <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
-              </td>
-              <td class="col-1">
-                <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
-                                    data: { confirm: "本当に削除しますか?"} %>
-              </td>
-            <% else %>
-              <td class="col-2"></td>
-            <% end %>
-          </tr>
-        </tbody>
-      </table>
-    <% end %>
+          <% else %>
+            <td class="col-2"></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
+<% end %>

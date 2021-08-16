@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  validates :number, :name, presence: true, length: { maximum: 255 }
+  # validates :number, :name, presence: true, length: { maximum: 255 }
   validate :add_error_customer
 
   belongs_to :user
@@ -10,8 +10,17 @@ class Customer < ApplicationRecord
   has_many :schedules, dependent: :destroy
 
   def add_error_customer
-    errors.add(:base, 'カスタマーNoを入力してください') if number.blank?
-    errors.add(:base, 'カスタマー名を入力してください') if name.blank?
-    errors.add(:base, '文字数は255文字以内にしてください') if (name.length > 255) || (number.length > 255)
+    if number.blank?
+      errors.add(:number, 'カスタマーNoを入力してください')
+    elsif Customer.where(number: number).present?
+      errors.add(:number, '既に登録済のカスタマーNoです。')
+    elsif number.length > 255
+      errors.add(:number, '文字数は255文字以内にしてください')
+    end
+    if name.blank?
+      errors.add(:name, 'カスタマー名を入力してください')
+    elsif name.length > 255
+      errors.add(:name, '文字数は255文字以内にしてください')
+    end
   end
 end

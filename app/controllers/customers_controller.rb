@@ -11,7 +11,8 @@ class CustomersController < ApplicationController
     @customer_contacts = @customer.customer_contacts
     @customer_contact = @customer.customer_contacts.build
     @user_customers = @customer.user_customers
-    @schedules = @customer.schedules.order(created_at: :desc)
+    # @schedules = @customer.schedules.order(created_at: :desc)
+    @schedules = @customer.schedules.page(params[:page]).per(4).order(created_at: :desc)
     @schedule = @customer.schedules.build
   end
 
@@ -20,7 +21,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
+    redirect_to homes_path unless (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
   end
 
   def create
@@ -43,7 +44,7 @@ class CustomersController < ApplicationController
   end
 
   def update
-    redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
+    redirect_to homes_path unless (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: t('views.messages.update_customer') }
@@ -56,7 +57,7 @@ class CustomersController < ApplicationController
   end
 
   def destroy
-    return redirect_to homes_path unless (current_user == @customer.user) || (current_user.id == 1) || (current_user.id ==2)
+    return redirect_to homes_path unless (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
 
     @customer.destroy
     respond_to do |format|

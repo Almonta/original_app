@@ -20,21 +20,21 @@
 
       </div>
 
-      <br>
       <div class="product_editer">
         <p class="editer">作成者：<%= @product.user.name %></p>
-        <p class="edit_link"><%= link_to t('views.button.edit'), edit_product_path(@product) if current_user == @product.user %></p>
+        <p class="edit_link"><%= link_to t('views.button.edit'), edit_product_path(@product) if (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %></p>
       </div>
     </div>
 
     <div class="col-lg-9 col-md-8">
-      <div class="position-absolute" style="top:20px; left:30px;">
+      <h4>ドキュメント</h4>
+      <div class="position-absolute" style="top:40px; left:20px;">
         <%= link_to product_product_documents_path(@product.id, general: "true") do %>
         <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
         <% end %>
       </div>
-      <% if (current_user.department == 2) || (current_user.id == 1) || (current_user.id ==2) %>
-        <div class="position-absolute" style="top:20px; left:180px;">
+      <% if (current_user.department == 2) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
+        <div class="position-absolute" style="top:40px; left:180px;">
           <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
           <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
           <% end %>
@@ -59,12 +59,14 @@
     </div>
 
     <div class="col-lg-9 col-md-8">
-      <h3>コンタクト</h3>
+      <h4>コンタクト</h4>
       <p id="notice"><%= notice %></p>
       <div id="product_contacts_area" class="box">
         <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
       </div>
-      <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
+
+        <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
+
     </div>
   </div>
 

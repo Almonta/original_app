@@ -1,7 +1,8 @@
 <%= form_with(model: [customer, schedule]) do |form| %>
+
   <% if schedule.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
       <ul>
       <% schedule.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -17,36 +18,36 @@
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.serial_number') %>
-            <%= form.text_field :serial_number, size: "17x1", placeholder: "123-456-789" if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.text_field :serial_number, size: "17x1", placeholder: "123-456-789" if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.line_on') %>
-            <%= form.date_field :line_on if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.date_field :line_on if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.completed_on') %>
-            <%= form.date_field :completed_on if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.date_field :completed_on if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.shipmented_on') %>
-            <%= form.date_field :shipmented_on if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.date_field :shipmented_on if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
         <th class="col-2">
           <div class="field">
             <%= form.label t('views.title.deliveried_on') %>
-            <%= form.date_field :deliveried_on if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.date_field :deliveried_on if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
         <th class="col-2">
           <div class="actions">
-            <%= form.submit if (current_user.department == 'planning') || (current_user.id == 1) || (current_user.id ==2) %>
+            <%= form.submit if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
           </div>
         </th>
       </tr>

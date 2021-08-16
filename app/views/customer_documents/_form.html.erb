@@ -14,12 +14,12 @@
 
   <div class="field">
     <%= form.label t('views.title.document_name') %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, placeholder: '資料名' %>
   </div>
 
   <div class="field">
     <%= form.label t('views.title.content') %>
-    <%= form.text_area :content, size: "50x5" %>
+    <%= form.text_area :content, size: "50x5", placeholder: '資料概要を記入してください' %>
   </div>
 
   <div class="field">

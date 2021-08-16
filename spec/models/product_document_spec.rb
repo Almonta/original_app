@@ -65,7 +65,7 @@ RSpec.describe ProductDocument, type: :model do
                                                         document: 'test',
                                                         public_level: 0)
         product_document.valid?
-        expect(product_document.errors[:name]).to include('は255文字以内で入力してください')
+        expect(product_document.errors[:name]).to be_present
       end
     end
     context '概要の文字数が1000文字を超える場合' do
@@ -75,7 +75,7 @@ RSpec.describe ProductDocument, type: :model do
                                                         document: 'test',
                                                         public_level: 0)
         user.valid?
-        expect(product_document.errors[:content]).to include('は1000文字以内で入力してください')
+        expect(product_document.errors[:content]).to be_present
       end
     end
   end
