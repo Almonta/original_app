@@ -18,11 +18,10 @@ RSpec.describe Product, type: :system do
       it '詳細画面に遷移し作成したプロダクトが表示される' do
         user_login
         click_button 'プロダクト新規登録'
-        fill_in 'product_name', with: 'product1'
+        fill_in 'product_name', with: 'product4'
         click_button '登録する'
-        expect(page).to have_content 'product1'
         # binding.irb
-        expect(current_path).to eq product_path(4)
+        expect(page).to have_content 'product4'
       end
     end
   end
