@@ -18,7 +18,7 @@ class Ability
     #     can :read, :all
     #   end
 
-    # ゲスト管理者は編集、削除ができないようにする
+    # ゲストゲスト管理者は編集、削除ができないようにする
     # if admin.email == 'admin_guest@example.com'
     #   can :access, :rails_admin
     #   can :read, :all

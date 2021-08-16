@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
   end
 
   def create
@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
     respond_to do |format|
       if @product.update(product_params)
         format.html { redirect_to @product, notice: t('views.messages.update_product') }
@@ -50,7 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    return redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    return redirect_to homes_path unless (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
 
     @product.destroy
     respond_to do |format|

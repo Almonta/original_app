@@ -21,7 +21,7 @@
 ## 就職Termの技術
 - devise
 - Ajax (コメント機能)
-- AWS
+- AWS (優先度:低)
 
 ## カリキュラム外の技術
 - ransack

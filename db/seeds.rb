@@ -93,6 +93,13 @@ User.create!(name: '加藤 愛',
              password_confirmation: 'sample1414',
              admin: false)
 
+User.create!(name: '管理者',
+             department: 0,
+             email: 'sample15@sample.com',
+             password: 'sample1515',
+             password_confirmation: 'sample1515',
+             admin: true)
+
 
 user_ids = [
   User.first.id, 

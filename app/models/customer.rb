@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
   # validates :number, :name, presence: true, length: { maximum: 255 }
+  validates :number, uniqueness: true
   validate :add_error_customer
 
   belongs_to :user
@@ -12,8 +13,8 @@ class Customer < ApplicationRecord
   def add_error_customer
     if number.blank?
       errors.add(:number, 'カスタマーNoを入力してください')
-    elsif Customer.where(number: number).present?
-      errors.add(:number, '既に登録済のカスタマーNoです。')
+    # elsif Customer.where(number: number).present?
+      # errors.add(:number, '既に登録済のカスタマーNoです。')
     elsif number.length > 255
       errors.add(:number, '文字数は255文字以内にしてください')
     end
