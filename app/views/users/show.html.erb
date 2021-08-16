@@ -16,12 +16,16 @@
     </div>
     <ul class="created_products_customers_card">
       <% @products.each do |product| %>
-      <li class="created_products_customers_card_list">
-        <p class="created_products_customers_card_list_name"><%= product.name %></p>
-        <br>
-        <%#= link_to '権限移行' %>
-      </li>
+        <li class="created_products_customers_card_list">
+          <div class="card product_title_card rounded-pill shadow-sm" style="width: 99%;">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+            </div>
+          </div>
+        </li>
       <% end %>
+
+        
 
       <% @customers.each do |customer| %>
       <li class="created_products_customers_card_list">
