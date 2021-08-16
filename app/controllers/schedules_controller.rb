@@ -70,7 +70,7 @@ class SchedulesController < ApplicationController
   end
 
   def edit
-    redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
     @schedule = @customer.schedules.find(params[:id])
     respond_to do |format|
       flash.now[:notice] = 'スケジュールの編集中...'
@@ -79,7 +79,7 @@ class SchedulesController < ApplicationController
   end
 
   def update
-    redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
     @schedule = @customer.schedules.find(params[:id])
     respond_to do |format|
       if @schedule.update(schedule_params)
@@ -94,7 +94,7 @@ class SchedulesController < ApplicationController
 
   def destroy
     @schedule = Schedule.find(params[:id])
-    return redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "管理者")
+    return redirect_to customer_path(@customer.id) unless (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
 
     @schedule.destroy
     respond_to do |format|
