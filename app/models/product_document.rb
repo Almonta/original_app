@@ -9,10 +9,16 @@ class ProductDocument < ApplicationRecord
   mount_uploader :document, DocumentUploader
 
   def add_error_product_document
-    errors.add(:base, '資料名を入力してください') if name.blank?
-    errors.add(:base, '概要を入力してください') if content.blank?
-    errors.add(:base, '公開レベルを選択してください') if public_level.blank?
-    errors.add(:base, 'プロダクト名は255文字以内にしてください') if name.length > 255
-    errors.add(:base, '概要は1000文字以内にしてください') if content.length > 1000
+    if name.blank?
+      errors.add(:name, '資料名を入力してください')
+    elsif name.length > 255
+      errors.add(:name, 'プロダクト名は255文字以内にしてください')
+    end
+    if content.blank?
+      errors.add(:content, '概要を入力してください')
+    elsif content.length > 1000
+      errors.add(:content, '概要は1000文字以内にしてください')
+    end
+    errors.add(:public_level, '公開レベルを選択してください') if public_level.blank?
   end
 end
