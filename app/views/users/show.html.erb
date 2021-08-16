@@ -14,7 +14,7 @@
     <div class="created_products_customers_title">
       <h4>登録したプロダクト・カスタマー</h4>
     </div>
-    <% if (@products == []) || (@customers == []) %>
+    <% if (@products == []) && (@customers == []) %>
       <p class="not_exist_puroduct_customer">登録したプロダクト・カスタマーはありません</p>
     <% else %>
     <ul class="created_products_customers_card">
@@ -58,7 +58,7 @@
     <div class="created_documents_title">
       <h4>登録したドキュメント</h4>
     </div>
-    <% if (@product_documents == []) || (@customer_documents == []) %>
+    <% if (@product_documents == []) && (@customer_documents == []) %>
       <p class="not_exist_document">登録したドキュメントはありません</p>
     <% else %>
       <ul class="created_documents_card">
@@ -75,10 +75,10 @@
                 <% end %>
               </p>
               <p class="card-text created_document_card_list_content"><%= document.content %></p>
-              <%#= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+              <%= link_to t('views.button.show'), product_product_document_path(document.product, document), class: "card-link" %>
               <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
-                <%#= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
-                <%#= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+                <%= link_to t('views.button.edit'), edit_product_product_document_path(document.product, document), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), product_product_document_path(document.product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
               <% end %>
             </div>
           </div>
@@ -98,10 +98,10 @@
                 <% end %>
               </p>
               <p class="card-text created_document_card_list_content"><%= document.content %></p>
-              <%#= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link" %>
+              <%= link_to t('views.button.show'), customer_customer_document_path(document.customer, document), class: "card-link" %>
               <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
-                <%#= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link" %>
-                <%#= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+                <%= link_to t('views.button.edit'), edit_customer_customer_document_path(document.customer, document), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), customer_customer_document_path(document.customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
               <% end %>
             </div>
           </div>
