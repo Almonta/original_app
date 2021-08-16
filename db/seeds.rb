@@ -123,15 +123,15 @@ product = [
 
 
 n = 0
-5.times do |u|
-  Product.create!(user_id: user_ids[u],
+5.times do |m|
+  Product.create!(user_id: user_ids[m],
                   name: product[n])
 n += 1
 end
 
 n = 5
-5.times do |u|
-  Product.create!(user_id: user_ids[u],
+5.times do |m|
+  Product.create!(user_id: user_ids[m],
                   name: product[n])
 n += 1
 end
@@ -201,37 +201,36 @@ odd_customer_id = customer_id_all.select(&:odd?)
 even_customer_id = customer_id_all.select(&:even?)
 
 
-5.times do |m|
-  5.times do |n|
-    UserProduct.create!(user_id: odd_user_id[m],
-                        product_id: odd_product_id[n])
+5.times do |o|
+  5.times do |l|
+    UserProduct.create!(user_id: odd_user_id[o],
+                        product_id: odd_product_id[l])
   end
 end
 
-5.times do |m|
-  5.times do |n|
-    UserProduct.create!(user_id: even_user_id[m],
-                        product_id: even_product_id[n])
+5.times do |o|
+  5.times do |l|
+    UserProduct.create!(user_id: even_user_id[o],
+                        product_id: even_product_id[l])
   end
 end
 
-5.times do |m|
-  5.times do |n|
-    UserCustomer.create!(user_id: odd_user_id[m],
-                         customer_id: odd_customer_id[n])
+5.times do |k|
+  5.times do |q|
+    UserCustomer.create!(user_id: odd_user_id[k],
+                         customer_id: odd_customer_id[q])
   end
 end
 
-5.times do |m|
-  5.times do |n|
-    UserCustomer.create!(user_id: even_user_id[m],
-                         customer_id: even_customer_id[n])
+5.times do |k|
+  5.times do |q|
+    UserCustomer.create!(user_id: even_user_id[k],
+                         customer_id: even_customer_id[q])
   end
 end
 
 # binding.irb
 
-no_position_user = User.find_by(department: 0).id
 sales_user = User.find_by(department: 1).id
 engineering_user = User.find_by(department: 2).id
 planning_user = User.find_by(department: 3).id
@@ -243,16 +242,6 @@ engineering_users = User.where(department: 2).ids
 planning_users = User.where(department: 3).ids
 manufacturing_users = User.where(department: 4).ids
 
-technical_document_user = [
-  engineering_user,
-  manufacturing_user
-]
-
-public_document_user = [
-  sales_user,
-  planning_user,
-  service_user,
-]
 
 document = [
   File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
@@ -269,51 +258,51 @@ document = [
 
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 
-m = 0
-5.times do |n|
+r = 0
+5.times do |j|
   ProductDocument.create!(user_id: engineering_user,
-                          product_id: odd_product_id[n],
+                          product_id: odd_product_id[j],
                           name: '設計計算書',
                           content: content,
-                          document: document[m],
+                          document: document[r],
                           public_level: 0)
-  m += 1
+  r += 1
 end
 
 
-m = 5
-5.times do |n|
+r = 5
+5.times do |j|
   ProductDocument.create!(user_id: manufacturing_user,
-                          product_id: even_product_id[n],
+                          product_id: even_product_id[j],
                           name: '組立手順書',
                           content: content,
-                          document: document[m],
+                          document: document[r],
                           public_level: 1)
-  m += 1
+  r += 1
 end
 
 
-m = 0
-5.times do |n|
+r = 0
+5.times do |j|
   CustomerDocument.create!(user_id: sales_user,
-                          customer_id: even_customer_id[n],
+                          customer_id: even_customer_id[j],
                           name: '注文書',
                           content: content,
-                          document: document[m],
+                          document: document[r],
                           public_level: 0)
-  m += 1
+  r += 1
 end
 
 
-m = 5
-5.times do |n|
+r = 5
+5.times do |j|
   CustomerDocument.create!(user_id: service_user,
-                          customer_id: even_customer_id[n],
+                          customer_id: even_customer_id[j],
                           name: 'サービス報告書',
                           content: content,
-                          document: document[m],
+                          document: document[r],
                           public_level: 0)
-  m += 1
+  r += 1
 end
 
 sales_engineering_contact = [
@@ -329,47 +318,47 @@ manufacturing_engineering_contact = [
 ]
 
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: sales_users[0],
-                         product_id: even_product_id[n],
+                         product_id: even_product_id[i],
                          contact_message: sales_engineering_contact[0])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: engineering_users[0],
-                         product_id: even_product_id[n],
+                         product_id: even_product_id[i],
                          contact_message: sales_engineering_contact[1])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: sales_users[0],
-                         product_id: even_product_id[n],
+                         product_id: even_product_id[i],
                          contact_message: sales_engineering_contact[2])
 end
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: manufacturing_users[1],
-                         product_id: odd_product_id[n],
+                         product_id: odd_product_id[i],
                          contact_message: manufacturing_engineering_contact[0])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: engineering_users[1],
-                         product_id: odd_product_id[n],
+                         product_id: odd_product_id[i],
                          contact_message: manufacturing_engineering_contact[1])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |i|
   ProductContact.create!(user_id: manufacturing_users[1],
-                         product_id: odd_product_id[n],
+                         product_id: odd_product_id[i],
                          contact_message: manufacturing_engineering_contact[2])
 end
 
@@ -390,126 +379,126 @@ service_engineering_manufacturing_contact = [
   'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' 
 ]
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: sales_users[1],
-                          customer_id: odd_product_id[n],
+                          customer_id: odd_product_id[s],
                           contact_message: sales_planning_engineering_manufacturing_contact[0])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: planning_users[1],
-                          customer_id: odd_product_id[n],
+                          customer_id: odd_product_id[s],
                           contact_message: sales_planning_engineering_manufacturing_contact[1])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: engineering_users[1],
-                          customer_id: odd_product_id[n],
+                          customer_id: odd_product_id[s],
                           contact_message: sales_planning_engineering_manufacturing_contact[2])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: manufacturing_users[1],
-                          customer_id: odd_product_id[n],
+                          customer_id: odd_product_id[s],
                           contact_message: sales_planning_engineering_manufacturing_contact[3])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: sales_users[1],
-                          customer_id: odd_product_id[n],
+                          customer_id: odd_product_id[s],
                           contact_message: sales_planning_engineering_manufacturing_contact[4])
 end
 
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: service_user,
-                          customer_id: even_product_id[n],
+                          customer_id: even_product_id[s],
                           contact_message: service_engineering_manufacturing_contact[0])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: engineering_users[0],
-                          customer_id: even_product_id[n],
+                          customer_id: even_product_id[s],
                           contact_message: service_engineering_manufacturing_contact[1])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: manufacturing_users[0],
-                          customer_id: even_product_id[n],
+                          customer_id: even_product_id[s],
                           contact_message: service_engineering_manufacturing_contact[2])
 end
 
 sleep 1
 
-5.times do |n|
+5.times do |s|
   CustomerContact.create!(user_id: service_user,
-                          customer_id: even_product_id[n],
+                          customer_id: even_product_id[s],
                           contact_message: service_engineering_manufacturing_contact[3])
 end
 
 
 
-10.times do |n|
-  Schedule.create!(customer_id: customer_id_all[n],
-                    serial_number: "123-456-#{n}",
+10.times do |t|
+  Schedule.create!(customer_id: customer_id_all[t],
+                    serial_number: "123-456-#{t}",
                     line_on: "2021-05-01",
                     completed_on: "2021-06-01",
                     shipmented_on: "2021-07-01",
                     deliveried_on: "2021-08-01")
 end
 
-m = 10
-10.times do |n|
-  Schedule.create!(customer_id: customer_id_all[n],
-                    serial_number: "123-456-#{m}",
-                    line_on: "2021-05-#{m}",
-                    completed_on: "2021-06-#{m}",
-                    shipmented_on: "2021-07-#{m}",
-                    deliveried_on: "2021-08-#{m}")
-  m += 1
+h = 10
+10.times do |t|
+  Schedule.create!(customer_id: customer_id_all[t],
+                    serial_number: "123-456-#{h}",
+                    line_on: "2021-05-#{h}",
+                    completed_on: "2021-06-#{h}",
+                    shipmented_on: "2021-07-#{h}",
+                    deliveried_on: "2021-08-#{h}")
+  h += 1
 end
 
-m = 20
-10.times do |n|
-  Schedule.create!(customer_id: customer_id_all[n],
-                    serial_number: "123-456-#{m}",
-                    line_on: "2021-05-#{m}",
-                    completed_on: "2021-06-#{m}",
-                    shipmented_on: "2021-07-#{m}",
-                    deliveried_on: "2021-08-#{m}")
-  m += 1
+h = 20
+10.times do |t|
+  Schedule.create!(customer_id: customer_id_all[t],
+                    serial_number: "123-456-#{h}",
+                    line_on: "2021-05-#{h}",
+                    completed_on: "2021-06-#{h}",
+                    shipmented_on: "2021-07-#{h}",
+                    deliveried_on: "2021-08-#{h}")
+  h += 1
 end
 
-m = 30
-10.times do |n|
-  Schedule.create!(customer_id: customer_id_all[n],
-                    serial_number: "123-456-#{m}",
+h = 30
+10.times do |t|
+  Schedule.create!(customer_id: customer_id_all[t],
+                    serial_number: "123-456-#{h}",
                     line_on: "2021-05-01",
                     completed_on: "2021-06-01",
                     shipmented_on: "2021-07-01",
                     deliveried_on: "2021-08-01")
-  m += 1
+  h += 1
 end
 
-m = 40
-10.times do |n|
-  Schedule.create!(customer_id: customer_id_all[n],
-                    serial_number: "123-456-#{m}",
+h = 40
+10.times do |t|
+  Schedule.create!(customer_id: customer_id_all[t],
+                    serial_number: "123-456-#{h}",
                     line_on: "2021-06-01",
                     completed_on: "2021-07-01",
                     shipmented_on: "2021-08-01",
                     deliveried_on: "2021-09-01")
-  m += 1
+  h += 1
 end

@@ -27,14 +27,14 @@ RSpec.describe Customer, type: :model do
       it 'エラーが表示される' do
         customer = user.customers.build(number: 'a' * 256, name: 'test')
         customer.valid?
-        expect(customer.errors[:number]).to include('は255文字以内で入力してください')
+        expect(customer.errors[:number]).to be_present
       end
     end
     context '名前の文字数が255文字を超える場合' do
       it 'エラーが表示される' do
         customer = user.customers.build(number: '123', name: 'a' * 256)
         customer.valid?
-        expect(customer.errors[:name]).to include('は255文字以内で入力してください')
+        expect(customer.errors[:name]).to be_present
       end
     end
   end

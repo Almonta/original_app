@@ -21,7 +21,8 @@ RSpec.describe CustomerContact, type: :system do
         fill_in 'customer_contact_contact_message', with: 'テストメッセージ'
         # binding.irb
         # find(:xpath, '/html/body/div/div[2]/div[2]/form/span[2]/button/i').click
-        click_button '登録する'
+        find(:xpath, '/html/body/div/div[3]/div[2]/form/div[2]/span[2]/button').click
+        # click_button '登録する'
         expect(page).to have_content 'テストメッセージ'
       end
     end

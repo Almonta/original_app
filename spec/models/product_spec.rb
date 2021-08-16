@@ -7,7 +7,7 @@ RSpec.describe Product, type: :model do
       it 'エラーが表示される' do
         product = user.products.build(name: nil)
         expect(product).not_to be_valid
-        expect(product.errors[:name]).to be_present
+        expect(product.errors[:base]).to be_present
       end
     end
     context '名前が記載されている場合' do
@@ -20,7 +20,7 @@ RSpec.describe Product, type: :model do
       it 'エラーが表示される' do
         product = user.products.build(name: 'a' * 256)
         user.valid?
-        expect(product.errors[:name]).to include('は255文字以内で入力してください')
+        expect(product.errors[:base]).to be_present
       end
     end
   end
