@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .created_products_customers_box {
-  height: 100%;
+  height: 200px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   // width: auto;
   // width: fit-content;
   background-color:rgb(255, 255, 255);
@@ -22,14 +24,15 @@
   overflow-x: auto;
   white-space: nowrap; 
   -webkit-overflow-scrolling: touch;
+  // margin-bottom: 0px;
 }
 
 .created_products_customers_card_list {
   display: inline-block;
   // position: relative;
   top: 0px;
-  height: 100px;
-  width: 120px;
+  height: 120px;
+  width: 180px;
   margin: 5px;
   // padding: 10px;
   // background-color: #f3f3f3;
@@ -91,4 +94,8 @@
   word-wrap: break-word;
   word-break: break-all;
   // overflow-wrap: break-word;
+}
+
+.not_exist_puroduct_customer {
+  margin: 50px;
 }
