@@ -46,7 +46,7 @@
 
 
 .created_documents_box {
-  height: 100%;
+  height: 350px;
   // width: auto;
   // width: fit-content;
   background-color:rgb(255, 255, 255);
@@ -71,10 +71,10 @@
   display: inline-block;
   height: 280px;
   width: 180px;
-  margin: 10px;
-  padding: 10px;
-  background-color: #f3f3f3;
-  border-radius: 15px;
+  margin: 5px 5px 10px 5px;
+  padding: 0px;
+  // background-color: #f3f3f3;
+  // border-radius: 15px;
   word-break: break-all;
 }
 
@@ -88,7 +88,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  min-width: 160px;
+  min-width: 150px;
   // height: 50px;
   // border: 1px solid #ccc;
   word-wrap: break-word;
@@ -98,4 +98,8 @@
 
 .not_exist_puroduct_customer {
   margin: 50px;
+}
+
+.not_exist_document {
+  margin: 100px 50px ;
 }

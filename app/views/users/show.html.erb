@@ -12,10 +12,10 @@
 
   <div class="created_products_customers_box">
     <div class="created_products_customers_title">
-      <h4>作成したプロダクト・カスタマー</h4>
+      <h4>登録したプロダクト・カスタマー</h4>
     </div>
     <% if (@products == []) || (@customers == []) %>
-      <p class="not_exist_puroduct_customer">作成したプロダクト・カスタマーはありません</p>
+      <p class="not_exist_puroduct_customer">登録したプロダクト・カスタマーはありません</p>
     <% else %>
     <ul class="created_products_customers_card">
       <% @products.each do |product| %>
@@ -49,48 +49,67 @@
         </div>
       </li>
       <% end %>
-    <% end %>
     </ul>
+    <% end %>
   </div>
 
 
   <div class="created_documents_box">
     <div class="created_documents_title">
-      <h4>投稿したドキュメント</h4>
+      <h4>登録したドキュメント</h4>
     </div>
-    <ul class="created_documents_card">
-      <% @product_documents.each do |product_document| %>
-      <li class="created_document_card_list">
-        <p class="created_document_card_list_name"><%= product_document.name %></p>
-        <div class="created_document_card_list_content"><%= product_document.content %></div>
-        <p>
-        <% if product_document.public_level == 0 %>一般
-        <% elsif product_document.public_level == 1 %>技術
+    <% if (@product_documents == []) || (@customer_documents == []) %>
+      <p class="not_exist_document">登録したドキュメントはありません</p>
+    <% else %>
+      <ul class="created_documents_card">
+        <% @product_documents.each do |document| %>
+        <li class="created_document_card_list">
+        <div class="document_card_list">
+          <div class="card w-auto h-auto" style="width: 18rem;">
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+            <div class="card-body">
+              <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
+              <p class="card-text">
+                <% if document.public_level == 0 %>一般公開資料
+                <% elsif document.public_level == 1 %>技術資料
+                <% end %>
+              </p>
+              <p class="card-text created_document_card_list_content"><%= document.content %></p>
+              <%#= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
+                <%#= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
+                <%#= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        </li>
         <% end %>
-        </p>
-        <!--前のdocumentが変数で後ろのdocumentがuploader-->
-        <p><object data="<%= product_document.document.url %>" type="application/pdf" width="160" height="90"></object></p>
-        <td><%#= link_to t('views.button.show'), product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to t('views.button.edit'), edit_product_product_document_path(@product, product_document) %></td>
-        <td><%#= link_to t('views.button.destroy'), product_product_document_path(@product, product_document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %></td>
-
-        <p><%#= link_to '権限移行' %></p>
-      </li>
-      <% end %>
-      <% @customer_documents.each do |customer_document| %>
-      <li class="created_document_card_list">
-        <p class="created_document_card_list_name"><%= customer_document.name %></p>
-        <div class="created_document_card_list_content"><%= customer_document.content %></div>
-        <p>
-        <% if customer_document.public_level == 0 %>一般
-        <% elsif customer_document.public_level == 1 %>技術
+        <% @customer_documents.each do |document| %>
+        <li class="created_document_card_list">
+        <div class="document_card_list">
+          <div class="card w-auto h-auto" style="width: 18rem;">
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+            <div class="card-body">
+              <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
+              <p class="card-text">
+                <% if document.public_level == 0 %>一般公開資料
+                <% elsif document.public_level == 1 %>技術資料
+                <% end %>
+              </p>
+              <p class="card-text created_document_card_list_content"><%= document.content %></p>
+              <%#= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link" %>
+              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "管理者") %>
+                <%#= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link" %>
+                <%#= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        </li>
         <% end %>
-        </p>
-        <p><object data="<%= customer_document.document.url %>" type="application/pdf" width="160" height="90"></object></p>
-        <p><%= link_to '権限移行' %></p>
-      </li>
-      <% end %>
-    </ul>
+      </ul>
+    <% end %>
   </div>
 </div>
 
