@@ -99,8 +99,9 @@
       <div id="customer_contacts_area" class="box">
         <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
       </div>
-      <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
-
+      <div class="new_product_contact">
+        <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
+      </div>
     </div>
   </div>
   <%= link_to t('views.button.back_home'), homes_path %>

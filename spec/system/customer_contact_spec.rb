@@ -20,8 +20,7 @@ RSpec.describe CustomerContact, type: :system do
         first(:link, '詳細').click
         fill_in 'customer_contact_contact_message', with: 'テストメッセージ'
         # binding.irb
-        # find(:xpath, '/html/body/div/div[2]/div[2]/form/span[2]/button/i').click
-        find(:xpath, '/html/body/div/div[3]/div[2]/form/div[2]/span[2]/button').click
+        find(:xpath, '/html/body/div/div[3]/div[2]/div[2]/form/div[2]/span[2]/button').click
         # click_button '登録する'
         expect(page).to have_content 'テストメッセージ'
       end

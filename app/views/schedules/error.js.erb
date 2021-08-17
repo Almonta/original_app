@@ -1,1 +1,1 @@
-$("#schedule_errror_area").html("<%= j(render 'schedules/error', { schedule: @schedule }) %>");
+$("#schedule-error").html("<%= j(render 'layouts/error_messages', model: @schedule) %>");
