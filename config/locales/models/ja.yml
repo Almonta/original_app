@@ -1,0 +1,34 @@
+ja:
+  activerecord:
+    models:
+      customer_contact: カスタマーコンタクト
+      customer_document: カスタマー資料
+      customer: カスタマー
+      product_contact: プロダクト資料
+      product: プロダクト
+    attributes:
+      customer_contact:
+        contact_message: コンタクトメッセージ
+      customer_document:
+        name: 資料名
+        content: 概要
+        public_level: 公開レベル
+        document: 資料
+      customer:
+        number: カスタマー番号
+        name: カスタマー名
+      product_contact:
+        contact_message: コンタクトメッセージ
+      customer_document:
+        name: 資料名
+        content: 概要
+        public_level: 公開レベル
+        document: 資料
+      product:
+        name: プロダクト名
+      schedule:
+        serial_number: 製造番号
+        line_on: 生産着手日
+        completed_on: 生産完了日
+        shipmented_on: 出荷日
+        deliveried_on: 納品日

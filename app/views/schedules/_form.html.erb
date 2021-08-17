@@ -1,5 +1,8 @@
 <%= form_with(model: [customer, schedule]) do |form| %>
 
+<!--デフォルトのエラー文 この部分を共通化するため別ファイルに移す-->
+<%
+=begin %>
   <% if schedule.errors.any? %>
     <div id="error_explanation">
 
@@ -10,6 +13,12 @@
       </ul>
     </div>
   <% end %>
+<%
+=end %>
+
+  <div id="schedule-error">
+    <%= render 'layouts/error_messages', model: form.object %>
+  </div>
 
   <table class="table table-hover">
     <thead>
