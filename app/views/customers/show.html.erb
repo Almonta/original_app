@@ -27,7 +27,12 @@
 
       <div class="product_editer">
         <p class="editer">作成者：<%= @customer.user.name %></p>
-        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %></p>
+        <% if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+          <p class="edit_link">
+          <%= link_to t('views.button.edit'), edit_customer_path(@customer) %>|
+          <%= link_to t('views.button.destroy'), customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %>
+          </p>
+        <% end %>
       </div>
     </div>
 
