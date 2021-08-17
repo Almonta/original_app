@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   validates :name, 
     presence: true,
-    uniqueness: true
+    uniqueness: true,
     length: { maximum: 255 }
 
   # validate :add_error_product
