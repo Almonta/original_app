@@ -64,33 +64,9 @@
       <div id="product_contacts_area" class="box">
         <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
       </div>
-
-        <!-- 一旦renderするのをやめてやってみる -->
-        <%#= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
-
-  <%= form_with(model: [@product, @product_contact], local: true) do |form| %>
-
-  <%= render 'layouts/error_messages', model: form.object %>
-
-    <h6 class="message_label">
-      <%= form.label t("views.title.contact_message") %>
-    </h6>
-    <div class="row message_form_area">
-      <span class="field message_box">
-        <%= form.text_area :contact_message, style: "width:100%", placeholder: "#{@product.name}についてのメッセージ" %>
-      </span>
-
-      <span class="actions">
-        <button name="button" type="submit" class="btn massage_btn">
-        <i class="far fa-paper-plane fa-lg"></i>
-        </button>
-      </span>
-    </div>
-
-  <% end %>
-
-  <!-- ここまで -->
-
+      <div class="new_product_contact">
+        <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
+      </div>
     </div>
   </div>
 
