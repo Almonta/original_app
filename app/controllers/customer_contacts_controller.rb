@@ -5,10 +5,10 @@ class CustomerContactsController < ApplicationController
     @customer_contact = @customer.customer_contacts.build(customer_contact_params)
     respond_to do |format|
       if @customer_contact.save
-        # format.html { redirect_to customer_path(@customer) }
         format.js { render :index }
       else
-        format.html { redirect_to customer_path(@customer), notice: '空メッセージは投稿出来ません。' }
+        format.js { render :error }
+        # format.html { redirect_to customer_path(@customer), notice: '空メッセージは投稿出来ません。' }
       end
     end
   end

@@ -1,4 +1,8 @@
 <%= form_with(model: [customer, customer_contact]) do |form| %>
+
+<!--デフォルトのエラー文 この部分を共通化するため別ファイルに移す-->
+<%
+=begin %>
   <% if customer_contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(customer_contact.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -9,18 +13,22 @@
       </ul>
     </div>
   <% end %>
+<%
+=end %>
 
-  <div class="message_label">
-    <%= form.label t("views.title.contact_message") %>
+  <div id="contact_messages-error">
+    <%= render 'layouts/error_messages', model: form.object %>
   </div>
+
+  <h6 class="message_label">
+    <%= form.label t("views.title.contact_message") %>
+  </h6>
   <div class="row message_form_area">
     <span class="field message_box">
-      <%#= form.text_area :contact_message, size: "80x2", placeholder: "#{@product.name}についてのメッセージ" %>
       <%= form.text_area :contact_message, style: "width:100%", placeholder: "#{@customer.name}についてのメッセージ" %>
     </span>
 
     <span class="actions">
-      <%#= form.submit %>
       <button name="button" type="submit" class="btn massage_btn">
       <i class="far fa-paper-plane fa-lg"></i>
       </button>

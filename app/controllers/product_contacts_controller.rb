@@ -1,16 +1,12 @@
 class ProductContactsController < ApplicationController
   before_action :set_product, only: %i[create edit update]
   def create
-    # raise
     # @product = Product.find(params[:product_id])
     @product_contact = @product.product_contacts.build(product_contact_params)
-    # binding.irb
     respond_to do |format|
       if @product_contact.save
         format.js { render :index }
-        # binding.irb
       else
-        # format.html { render products/show }
         format.js { render :error }
         # format.html { redirect_to product_path(@product), notice: '空メッセージは投稿出来ません。' }
       end
@@ -18,7 +14,6 @@ class ProductContactsController < ApplicationController
   end
 
   def edit
-    # binding.pry
     @product_contact = @product.product_contacts.find(params[:id])
     redirect_to product_path(@product) unless (current_user == @product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
     respond_to do |format|

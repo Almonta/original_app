@@ -1,6 +1,7 @@
 <ul class="contact_box">
   <% product_contacts.each do |product_contact| %>
     <% if product_contact.id.present? %>
+  <%# binding.pry %>
       <li>
         <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <p>
@@ -21,8 +22,16 @@
         <% end %>
         <hr>
       </li>
-    <% else %>
-      <p class="not_exit_message">メッセージばまだありません</p>
     <% end %>
   <% end %>
 </ul>
+
+<!--できない。保留-->
+<%
+=begin %>
+    <%# elsif product_contact.id == nil %>
+    <% if ProductContact.find_by(product_id: product.id) != present? %>
+      <p class="not_exit_message">メッセージばまだありません</p>
+    <% end %>
+<% 
+=end %>
