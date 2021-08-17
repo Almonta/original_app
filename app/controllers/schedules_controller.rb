@@ -9,14 +9,14 @@ class SchedulesController < ApplicationController
         # binding.pry
         format.js { render :index }
       else
-        # format.js { render :error }
+        format.js { render :error }
         # error_messages = @schedule.errors.full_messages
         # format.js { message :error_messages }
         # format.html { redirect_to customer_path(@customer, @schedule) }
         
       # if @schedule.serial_number.new_record?
         # binding.irb
-        format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
+        # format.html { redirect_to customer_path(@customer), notice: '投稿できませんでした...' }
         # if @schedule.serial_number.blank?
 
           # flash[:notice] = '製品番号が空欄です。'
