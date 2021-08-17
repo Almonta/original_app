@@ -1,7 +1,6 @@
 class Schedule < ApplicationRecord
   validates :serial_number, 
     presence: true,
-    # presence: {message: "空です"}, 
     uniqueness: true,
     length: { maximum: 255 }
 

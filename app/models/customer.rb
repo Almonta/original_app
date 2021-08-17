@@ -1,7 +1,13 @@
 class Customer < ApplicationRecord
-  # validates :number, :name, presence: true, length: { maximum: 255 }
-  validates :number, uniqueness: true
-  validate :add_error_customer
+  validates :number,
+    presence: true,
+    uniqueness: true,
+    length: { maximum: 255 }
+  validates :name,
+    presence: true,
+    length: { maximum: 255 }
+
+  # validate :add_error_customer
 
   belongs_to :user
   has_many :user_customers, dependent: :destroy
@@ -10,18 +16,18 @@ class Customer < ApplicationRecord
   has_many :customer_documents, dependent: :destroy
   has_many :schedules, dependent: :destroy
 
-  def add_error_customer
-    if number.blank?
-      errors.add(:number, 'カスタマーNoを入力してください')
-    # elsif Customer.where(number: number).present?
-      # errors.add(:number, '既に登録済のカスタマーNoです。')
-    elsif number.length > 255
-      errors.add(:number, '文字数は255文字以内にしてください')
-    end
-    if name.blank?
-      errors.add(:name, 'カスタマー名を入力してください')
-    elsif name.length > 255
-      errors.add(:name, '文字数は255文字以内にしてください')
-    end
-  end
+  # def add_error_customer
+  #   if number.blank?
+  #     errors.add(:number, 'カスタマーNoを入力してください')
+  #   # elsif Customer.where(number: number).present?
+  #     # errors.add(:number, '既に登録済のカスタマーNoです。')
+  #   elsif number.length > 255
+  #     errors.add(:number, '文字数は255文字以内にしてください')
+  #   end
+  #   if name.blank?
+  #     errors.add(:name, 'カスタマー名を入力してください')
+  #   elsif name.length > 255
+  #     errors.add(:name, '文字数は255文字以内にしてください')
+  #   end
+  # end
 end
