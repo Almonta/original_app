@@ -22,12 +22,13 @@ RSpec.describe Schedule, type: :system do
         fill_in 'schedule_line_on', with: "002021-08-10"
         fill_in 'schedule_completed_on', with: '002021-08-20'
         fill_in 'schedule_shipmented_on', with: '002021-08-30'
-        fill_in 'schedule_deliveried_on', with: '002021-8-31'
-        # click_on '登録する'
+        fill_in 'schedule_deliveried_on', with: '002021-08-31'
+        click_button '登録する'
         # binding.irb
-        find(:xpath, '/html/body/div/div[2]/div[1]/form/table/thead/tr/th[6]/div/input').click
+        # find(:xpath, '/html/body/div/div[2]/div[2]/form/table/thead/tr/th[6]/div/input').click
         # /html/body/div/div[2]/div[1]/form/table/thead/tr/th[6]/div/input
         # /html/body/div/div[2]/form/div/div[6]/div/input
+        # binding.irb
         expect(page).to have_content '12345'
       end
     end

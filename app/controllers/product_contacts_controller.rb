@@ -10,6 +10,7 @@ class ProductContactsController < ApplicationController
         format.js { render :index }
         # binding.irb
       else
+        # format.html { render products/show }
         format.html { redirect_to product_path(@product), notice: '空メッセージは投稿出来ません。' }
       end
     end
