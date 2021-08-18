@@ -42,3 +42,36 @@
 .product_editer {
   margin: 10px;
 }
+
+.project_cancel {
+  display: flex;
+  // overflow: hidden;
+}
+
+.project_cancel_icon {
+  // display: flex;
+  color: #f3dd18;
+}
+
+.project_cancel_icon:hover {
+  color: #f3dd18;
+  background-color: white;
+}
+
+.project_cancel_text {
+  // display: flex;
+}
+
+.project_registration {
+  display: flex;
+  // display: flex;
+}
+
+.project_registration_icon {
+  color: #f3dd18;
+}
+
+.project_registration_icon:hover {
+  color: #f3dd18;
+  background-color: white;
+}
