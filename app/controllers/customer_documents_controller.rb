@@ -29,7 +29,7 @@ class CustomerDocumentsController < ApplicationController
 
     respond_to do |format|
       if @customer_document.save
-        format.html { redirect_to [@customer, @customer_document], notice: "Customer document was successfully created." }
+        format.html { redirect_to [@customer, @customer_document], notice: "views.messages.create_customer_document" }
         format.json { render :show, status: :created, location: @customer_document }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class CustomerDocumentsController < ApplicationController
     redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
     respond_to do |format|
       if @customer_document.update(customer_document_params)
-        format.html { redirect_to [@customer, @customer_document], notice: "Customer document was successfully updated." }
+        format.html { redirect_to [@customer, @customer_document], notice: "views.messages.update_customer_document" }
         format.json { render :show, status: :ok, location: @customer_document }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,10 +65,10 @@ class CustomerDocumentsController < ApplicationController
       # end
       case @customer_document.public_level
       when 0
-        format.html { redirect_to customer_customer_documents_path(general: "true"), notice: "Customer document was successfully destroyed." }
+        format.html { redirect_to customer_customer_documents_path(general: "true"), notice: "views.messages.destroy_customer_document" }
         format.json { head :no_content }
       when 1
-        format.html { redirect_to customer_customer_documents_path(technical: "true"), notice: "Customer document was successfully destroyed." }
+        format.html { redirect_to customer_customer_documents_path(technical: "true"), notice: "views.messages.destroy_customer_document" }
         format.json { head :no_content }
       end
     end
