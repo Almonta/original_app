@@ -16,3 +16,23 @@
  */
 
 
+@font-face {
+  font-family: 'KodomoRounded';
+  src: url('/assets/KodomoRounded.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Chalk-JP';
+  src: url('/assets/Chalk-JP.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'bokutachi';
+  src: url('/assets/bokutachi.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
