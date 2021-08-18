@@ -1,0 +1,1 @@
+$('#register_buttons_<%= @product.id %>').html("<%= j(render partial: 'user_products/register', locals: {product: @product, user_product: @user_product}) %>");
