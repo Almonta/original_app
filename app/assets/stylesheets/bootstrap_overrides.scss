@@ -1,6 +1,6 @@
 .list-group-item.active {
-  background-color: #ffff00;
-  border-color: #ffff00;
+  background-color: #e8d20c;
+  border-color: #E8D20C;
   color: black;
   font-size: 1rem;
 }
@@ -23,6 +23,18 @@
 .btn-warning:hover {
   background-color: #f5f502;
   border-color: #f5f502;
+}
+
+.btn-info {
+  background-color: #FFCE0D;
+  border-color: #FFCE0D;
+  color: #343a40;
+}
+
+.btn-info:hover {
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
+  color: #343a40;
 }
 
 
