@@ -28,31 +28,31 @@ class Schedule < ApplicationRecord
 
   def before_after_date_check_line_shipmented
     if (self.line_on.present? && self.shipmented_on.present?) && (self.line_on > self.shipmented_on)
-      errors.add(:base, "着手日か日付が正しいか確認してください")
+      errors.add(:base, "着手日か出荷日の日付が正しいか確認してください")
     end
   end
 
   def before_after_date_check_line_deliveried
     if (self.line_on.present? && self.deliveried_on.present?) && (self.line_on > self.deliveried_on)
-      errors.add(:base, "日付が正しいか確認してください")
+      errors.add(:base, "着手日か納品日の日付が正しいか確認してください")
     end
   end
 
   def before_after_date_check_completed_shipmented
     if (self.completed_on.present? && self.shipmented_on.present?) && (self.completed_on > self.shipmented_on)
-      errors.add(:base, "日付が正しいか確認してください")
+      errors.add(:base, "完了日か出荷日の日付が正しいか確認してください")
     end
   end
 
   def before_after_date_check_completed_deliveried
     if (self.completed_on.present? && self.deliveried_on.present?) && (self.completed_on > self.deliveried_on)
-      errors.add(:base, "日付が正しいか確認してください")
+      errors.add(:base, "完了日か納品日の日付が正しいか確認してください")
     end
   end
 
   def before_after_date_check_shipmented_deliveried
     if (self.shipmented_on.present? && self.deliveried_on.present?) && (self.shipmented_on > self.deliveried_on)
-      errors.add(:base, "日付が正しいか確認してください")
+      errors.add(:base, "出荷日か納品日の日付が正しいか確認してください")
     end
   end
 

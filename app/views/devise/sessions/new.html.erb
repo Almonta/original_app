@@ -23,19 +23,30 @@
       <% end %>
     -->
       <div class="actions">
-        <%= f.submit t('.sign_in') %>
+          <%= f.submit t('.sign_in'), class: "login_submit_button" %>
       </div>
     <% end %>
+    <br>
     <br />
     <h5>サインアップがお済みでない場合</h5>
     <%= render "devise/shared/links" %>
     <br>
+    <br>
     <h4>ゲストログイン</h4>
-    <div>
-      <tr>
-        <td><%= link_to '一般ユーザ', users_guest_sign_in_path, method: :post %>|</td>
-        <td><%= link_to 'ゲスト管理者', users_admin_guest_sign_in_path, method: :post %></td>
-      </tr>
+    <div class="guest_area">
+        
+      <div class="guest_button">
+        <%= link_to users_guest_sign_in_path, method: :post do %>
+          <button type="button" class="btn btn-success guest_login_button">一般ユーザ</button>
+        <% end %>
+      </div>
+
+      <div class="guest_button">
+        <%= link_to users_admin_guest_sign_in_path, method: :post do %>
+          <button type="button" class="btn btn-success guest_login_button">ゲスト管理者</button>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>
