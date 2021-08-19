@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="create_new_product_page">
-
+  <div class="set_center_outer">
     <h2 class="page_title_en">New Product</h2>
     <h5 class="page_title_ja"><%= t("views.title.new_product") %></h5>
+  </div>
 
-    <div class="create_new_product_form">
-      <%= render "form", product: @product %>
-    </div>
+  <%= render "form", product: @product %>
+
+  <div class="set_center_outer">
     <p><%= link_to t("views.button.back_home"), homes_path %></p>
   </div>
 </div>

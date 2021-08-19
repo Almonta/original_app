@@ -26,18 +26,31 @@
   text-align: right;
 }
 
+
 .create_new_product_page {
   text-align: center;
+}
+
+.validation_error_messages {
+  display: inline-block;
+  text-align: left;
 }
 
 .create_new_product_form {
   display: inline-block;
   text-align: left;
-  padding: 10px;
-  // border: 2px solid rgb(201, 201, 201);
-  // background-color: #ffffa0;
-  // border-radius: 1rem;
 }
+
+
+.set_center_outer {
+  text-align: center;
+}
+
+.set_center_inner {
+  display: inline-block;
+  text-align: left;
+}
+
 
 .product_editer {
   margin: 10px;
