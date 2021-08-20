@@ -5,6 +5,7 @@ ja:
       customer_document: カスタマー資料
       customer: カスタマー
       product_contact: プロダクト資料
+      customer_document: プロダクト資料
       product: プロダクト
     attributes:
       customer_contact:
@@ -19,7 +20,7 @@ ja:
         name: カスタマー名
       product_contact:
         contact_message: コンタクトメッセージ
-      customer_document:
+      product_document:
         name: 資料名
         content: 概要
         public_level: 公開レベル

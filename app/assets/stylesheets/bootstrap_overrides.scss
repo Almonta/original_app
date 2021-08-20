@@ -25,16 +25,34 @@
   border-color: #f5f502;
 }
 
-.btn-info {
+.general_document_button {
   background-color: #FFCE0D;
   border-color: #FFCE0D;
   color: #343a40;
 }
 
-.btn-info:hover {
+.general_document_button:hover {
   background-color: #ffdc4f;
   border-color: #ffdc4f;
   color: #343a40;
+}
+
+.technical_document_button {
+  background-color: #FFCE0D;
+  border-color: #FFCE0D;
+  color: #343a40;
+}
+
+.technical_document_button:hover {
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
+  color: #343a40;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+  color: #fff;
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
 }
 
 
@@ -75,5 +93,10 @@
 
 // スケジュールテーブル
 .table {
-    margin-bottom: 0rem;
+  margin-bottom: 0rem;
+}
+
+
+.list-group {
+  margin-bottom: 20px;
 }

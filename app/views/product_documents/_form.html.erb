@@ -1,38 +1,49 @@
-<%#= form_with(model: product_document, local: true) do |form| %>
 <%= form_with(model: [product, product_document], local: true) do |form| %>
-  <% if product_document.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= product_document.errors.count %> 件のエラーが発生しました</h2>
 
-      <ul>
-      <% product_document.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <% if product_document.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= product_document.errors.count %> 件のエラーが発生しました</h2>
+          <ul>
+          <% product_document.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label t('views.title.document_name') %>
-    <%= form.text_field :name, placeholder: '資料名' %>
   </div>
 
-  <div class="field">
-    <%= form.label t('views.title.content') %>
-    <%= form.text_area :content, size: "50x5", placeholder: '資料概要を記入してください' %>
-  </div>
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <div class="field">
+        <%= form.label t('views.title.document_name') %>
+        <%= form.text_field :name, placeholder: '資料名' %>
+      </div>
 
-  <div class="field">
-    <%= form.label t('views.title.public_level') %>
-    <%= form.radio_button :public_level, 0 %>一般 <%= form.radio_button :public_level, 1 %>技術
-  </div>
+      <div class="field">
+        <%= form.label t('views.title.content') %>
+        <%= form.text_area :content, size: "50x5", placeholder: '資料概要を記入してください' %>
+      </div>
+      
+      <div class="field">
+        <%= form.label t('views.title.public_level') %>
+        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <p>資料の公開範囲を技術部内のみとする場合は「技術」を選択してください</p>
+        <%= form.radio_button :public_level, 1 %>技術
+        <% end %>
+        <%= form.radio_button :public_level, 0 %>一般
+      </div>
 
-  <div class="field">
-    <%= form.label t('views.title.document') %>
-    <%= form.file_field :document %>
-  </div>
+      <div class="field">
+        <%= form.label t('views.title.document') %>
+        <%= form.file_field :document %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
 <% end %>

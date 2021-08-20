@@ -26,18 +26,15 @@
   text-align: right;
 }
 
-.create_new_product_page {
+.set_center_outer {
   text-align: center;
 }
 
-.create_new_product_form {
+.set_center_inner {
   display: inline-block;
   text-align: left;
-  padding: 10px;
-  // border: 2px solid rgb(201, 201, 201);
-  // background-color: #ffffa0;
-  // border-radius: 1rem;
 }
+
 
 .product_editer {
   margin: 10px;
@@ -74,4 +71,46 @@
 .project_registration_icon:hover {
   color: #f3dd18;
   background-color: white;
+}
+
+
+// .sample {
+// 	position: relative;
+// }
+
+.technical_document_button_disable .box {
+	position: absolute;
+	width: 340px; /* 吹き出しの幅 */
+	height: 38px; /* 吹き出しの高さ */
+	top: 95px; /* 画像と三角形の高さをプラスした値 */
+	left: 180px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: rgba(172, 171, 171, 0.521);
+	display: none;
+}
+.technical_document_button_disable .box:after { /* 三角形を作成 */
+	position: absolute;
+	content: "";
+	width: 0;
+	height: 0;
+	top: -32px; /* 三角形の高さを２倍した値 */
+	left: 32px;
+	border: 16px solid transparent;
+	border-bottom: 16px solid rgba(172, 171, 171, 0.521);
+}
+.technical_document_button_disable .text {
+	position: absolute;
+	font-size: 16px;
+	top: 8px;
+	left: 4px;
+	color: #000;
+}
+.technical_document_button_disable:hover .box {
+	z-index: 2;
+	display: block;
+}
+
+.document_link_area {
+  position: relative;
+  height: 140px;
 }
