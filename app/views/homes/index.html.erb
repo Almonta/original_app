@@ -8,7 +8,8 @@
 
       <%= form_with url: homes_path, method: :get, local: true do |s| %>
         <%#= s.label :name, 'プロダクト名' %>
-        <%= s.text_field :search, placeholder: 'プロダクト名で検索' %>
+        <%#= s.text_field :search, placeholder: 'プロダクト名で検索' %>
+        <%= s.text_field :search, placeholder: 'プロダクト名で検索', value: params[:search] %>
         <%= s.submit '検索', name: nil %>
       <% end %>
       <hr>
@@ -58,8 +59,7 @@
             <%= f.submit '検索' %>
           </div>
           <div class="customer_no_sort">
-            並び替え:
-            <%= sort_link(@q, :number, 'No順で表示') %>
+            <h6>並び替え:<%= sort_link(@q, :number, 'カスタマーNo順で表示') %></h6>
           </div>
         </div>
       <% end %>
@@ -82,7 +82,7 @@
                     <%#= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
                     <%#= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                   <% end %>
-                  <h5 class="card-title"><%= customer.number %></h5>
+                  <h5 class="card-title">No.<%= customer.number %></h5>
                   <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
                 </div>
               </div>
