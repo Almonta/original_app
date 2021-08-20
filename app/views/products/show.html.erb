@@ -55,7 +55,7 @@
       </div>
     </div>
 
-    <div class="col-lg-9 col-md-8">
+    <div class="col-lg-9 col-md-8 document_link_area">
       <h4>ドキュメント</h4>
       <div class="position-absolute" style="top:40px; left:20px;">
         <%= link_to product_product_documents_path(@product.id, general: "true") do %>
@@ -74,11 +74,12 @@
           <button type="button" class="btn btn-info technical_document_button btn-lg" disabled>技術資料</button>
         </div>
         <div class="box">
-          <p class="text">このボタンは「技術部」所属者のみ有効です</p>
+          <p class="text">このリンクは「技術部」所属者のみ有効です</p>
         </div>
       </div>
       <% end %>
     </div>
+
   </div>
 
   <div class="row">
