@@ -1,12 +1,12 @@
 <div class="container">
-  <div class="create_new_product_page">
+  <div class="set_center_outer">
     <h2 class="page_title_en">New Product Document</h2>
     <h5 class="page_title_ja"><%= t("views.title.new_product_document") %></h5>
-
-  <div class="create_new_product_form">
-    <%= render "form", { product: @product, product_document: @product_document } %>
   </div>
 
+  <%= render "form", { product: @product, product_document: @product_document } %>
+
+  <div class="set_center_outer">
     <p><%= link_to t("views.button.back"), :back %></p>
   </div>
 </div>
