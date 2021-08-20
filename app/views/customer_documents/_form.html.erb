@@ -29,7 +29,11 @@
 
       <div class="field">
         <%= form.label t('views.title.public_level') %>
-        <%= form.radio_button :public_level, 0 %>一般 <%= form.radio_button :public_level, 1 %>技術
+        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <p>資料の公開範囲を技術部内のみとする場合は「技術」を選択してください</p>
+        <%= form.radio_button :public_level, 1 %>技術
+        <% end %>
+        <%= form.radio_button :public_level, 0 %>一般
       </div>
 
       <div class="field">
