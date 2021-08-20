@@ -1,43 +1,49 @@
 <div class="container">
+
+
   <h2 class="page_title_en">Detail Product Document</h2>
   <h5 class="page_title_ja"><%= t('views.title.detail_product_document') %></h5>
 
-  <p>
-    <strong><%= t('views.title.document_name') %>:</strong>
-    <%= @product_document.name %>
-  </p>
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <p>
+        <strong><%= t('views.title.document_name') %>:</strong>
+        <%= @product_document.name %>
+      </p>
 
-  <p>
-    <strong><%= t('views.title.content') %>:</strong>
-    <%= @product_document.content %>
-  </p>
+      <p>
+        <strong><%= t('views.title.content') %>:</strong>
+        <%= @product_document.content %>
+      </p>
 
-  <p>
-    <strong><%= t('views.title.public_level') %>:</strong>
-    <%#= @product_document.public_level %>
-    <% if @product_document.public_level == 0 %>一般
-    <% elsif @product_document.public_level == 1 %>技術
-    <% end %>
-  </p>
+      <p>
+        <strong><%= t('views.title.public_level') %>:</strong>
+        <%#= @product_document.public_level %>
+        <% if @product_document.public_level == 0 %>一般
+        <% elsif @product_document.public_level == 1 %>技術
+        <% end %>
+      </p>
 
-  <p>
-    <strong><%= t('views.title.document') %>:</strong>
-    <object data="<%= @product_document.document.url %>" type="application/pdf" width="800" height="450"></object>
-  </p>
+      <p>
+        <strong><%= t('views.title.document') %>:</strong>
+        <object data="<%= @product_document.document.url %>" type="application/pdf" width="800" height="450"></object>
+      </p>
 
-  <p>
-    <strong><%= t('views.title.create_user') %>:</strong>
-    <%= @product_document.user.name %>
-  </p>
+      <p>
+        <strong><%= t('views.title.create_user') %>:</strong>
+        <%= @product_document.user.name %>
+      </p>
 
-  <% if @product_document.public_level == 0 %>
-    <%= link_to '一般資料一覧へ', product_product_documents_path(general: "true") %>
-  <% elsif @product_document.public_level == 1 %>
-    <%= link_to '技術資料一覧へ', product_product_documents_path(technical: "true") %>
-  <% end %>
-  <%#= link_to 'Edit', edit_product_document_path(@product_document) %> 
-  <%#= link_to 'Edit', edit_product_product_document_path(@product_document, @product) %> 
-  <% if current_user == @product_document.user %>
-    |<%= link_to t('views.button.edit'), edit_product_product_document_path(@product, @product_document) %> 
-  <% end %>
+      <% if @product_document.public_level == 0 %>
+        <%= link_to '一般資料一覧へ', product_product_documents_path(general: "true") %>
+      <% elsif @product_document.public_level == 1 %>
+        <%= link_to '技術資料一覧へ', product_product_documents_path(technical: "true") %>
+      <% end %>
+      <%#= link_to 'Edit', edit_product_document_path(@product_document) %> 
+      <%#= link_to 'Edit', edit_product_product_document_path(@product_document, @product) %> 
+      <% if current_user == @product_document.user %>
+        |<%= link_to t('views.button.edit'), edit_product_product_document_path(@product, @product_document) %> 
+      <% end %>
+    </div>
+  </div>
 </div>

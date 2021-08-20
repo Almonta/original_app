@@ -100,7 +100,6 @@ User.create!(name: '管理者',
              password_confirmation: 'sample1515',
              admin: true)
 
-
 user_ids = [
   User.first.id, 
   User.first.id + 1, 

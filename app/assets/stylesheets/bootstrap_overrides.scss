@@ -1,6 +1,6 @@
 .list-group-item.active {
-  background-color: #ffff00;
-  border-color: #ffff00;
+  background-color: #e8d20c;
+  border-color: #E8D20C;
   color: black;
   font-size: 1rem;
 }
@@ -25,26 +25,78 @@
   border-color: #f5f502;
 }
 
+.general_document_button {
+  background-color: #FFCE0D;
+  border-color: #FFCE0D;
+  color: #343a40;
+}
+
+.general_document_button:hover {
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
+  color: #343a40;
+}
+
+.technical_document_button {
+  background-color: #FFCE0D;
+  border-color: #FFCE0D;
+  color: #343a40;
+}
+
+.technical_document_button:hover {
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
+  color: #343a40;
+}
+
+.btn-info.disabled, .btn-info:disabled {
+  color: #fff;
+  background-color: #ffdc4f;
+  border-color: #ffdc4f;
+}
+
+
+// .product_title_card {
+//   transition:0.1s all;
+// }
+
+// .product_title_card:hover {
+//   transform:scale(1.1,1.1);
+//   transition:1s all;
+// }
+
+// .customer_title_card {
+//   transition:0.1s all;
+// }
+
+// .customer_title_card:hover {
+//   transform:scale(1.1,1.1);
+//   transition:1s all;
+// }
+
+// card-body
 
 .product_title_card {
-  transition:0.1s all;
+  // box-shadow: 0 10px 25px 0 rgba(255, 245, 110, 0.877);
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 }
 
 .product_title_card:hover {
-  transform:scale(1.1,1.1);
-  transition:1s all;
+  position: relative;
+  top: -5px;
+  box-shadow: 0 5px 20px 0 rgba(216, 203, 24, 0.726);
 }
 
-.customer_title_card {
-  transition:0.1s all;
-}
-
-.customer_title_card:hover {
-  transform:scale(1.1,1.1);
-  transition:1s all;
+.card-title {
+  color: black;
 }
 
 // スケジュールテーブル
 .table {
-    margin-bottom: 0rem;
+  margin-bottom: 0rem;
+}
+
+
+.list-group {
+  margin-bottom: 20px;
 }

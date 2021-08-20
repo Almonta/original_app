@@ -8,7 +8,7 @@
 
   <div class="row">
     <% if @documents == [] %>
-      <p>現在登録がありません</p>
+      <p class="not_exist_document">現在登録がありません</p>
     <% else %>
       <% @documents.each do |document| %>
       <div class="document_card_list"> 

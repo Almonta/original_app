@@ -4,47 +4,68 @@
   <div class="row">
     <div class="col-lg-3 col-md-4">
       <div class="product_name_title">
-        <p>
-          <strong><%= t('views.title.customer_number') %>:</strong>
-          <%= @customer.number %>
-        </p>
-
-        <p>
-          <strong><%= t('views.title.customer_name') %>:</strong>
-          <%= @customer.name %>
-        </p>
+          <h5><%= @customer.number %></h5>
+          <h5><%= @customer.name %></h5>
 
         <% if @user_customer.present? %>
           <%= link_to user_customer_path(id: @user_customer.id), method: :delete do %>
-            <i class="fas fa-star product_project_cancel">プロジェクトから解除する</i>
+          <div class="project_cancel">
+            <div class="project_cancel_icon">
+              <i class="fas fa-star fa-lg"></i>
+            </div>
           <% end %>
+            <div class="project_cancel_text">
+              プロジェクトから解除する
+            </div>
+          </div>
         <% else %>
           <%= link_to user_customers_path(customer_id: @customer.id), method: :post do %>
-            <i class="far fa-star product_project_registration">プロジェクトに登録する</i>
+          <div class="project_registration">
+            <div class="project_registration_icon">
+              <i class="far fa-star fa-lg"></i>
+            </div>
           <% end %>
+            <div class="project_registration_text">
+              プロジェクトに登録する
+            </div>
+          </div>
         <% end %>
       </div>
 
       <div class="product_editer">
         <p class="editer">作成者：<%= @customer.user.name %></p>
-        <p class="edit_link"><%= link_to t('views.button.edit'), edit_customer_path(@customer) if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %></p>
+        <% if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+          <p class="edit_link">
+          <%= link_to t('views.button.edit'), edit_customer_path(@customer) %>|
+          <%= link_to t('views.button.destroy'), customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %>
+          </p>
+        <% end %>
       </div>
     </div>
 
 
-    <div class="col-lg-9 col-md-8">
+    <div class="col-lg-9 col-md-8 document_link_area">
       <h4>ドキュメント</h4>
-      <div class="position-absolute" style="top:70px; left:20px;">
+      <div class="position-absolute" style="top:40px; left:20px;">
         <%= link_to customer_customer_documents_path(@customer.id, general: "true") do %>
         <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
         <% end %>
       </div>
-      <% if (current_user.department == 2) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-        <div class="position-absolute" style="top:70px; left:180px;">
+      <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <div class="position-absolute" style="top:40px; left:180px;">
           <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
           <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
           <% end %>
         </div>
+      <% else %>
+      <div class="technical_document_button_disable">
+        <div class="position-absolute" style="top:40px; left:180px;">
+          <button type="button" class="btn btn-info technical_document_button btn-lg" disabled>技術資料</button>
+        </div>
+        <div class="box">
+          <p class="text">このリンクは「技術部」所属者のみ有効です</p>
+        </div>
+      </div>
       <% end %>
     </div>
 

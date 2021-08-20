@@ -1,21 +1,30 @@
 <%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= product.errors.count %> 件のエラーが発生しました</h2>
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <% if product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= product.errors.count %> 件のエラーが発生しました</h2>
+          <ul>
+          <% product.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label t('views.title.product_name') %>
-    <%= form.text_field :name, placeholder: '製品名' %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <div class="field">
+        <%= form.label t('views.title.product_name') %>
+        <%= form.text_field :name, placeholder: '製品名' %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
   </div>
+
 <% end %>
