@@ -52,8 +52,7 @@
             <%= f.submit '検索' %>
           </div>
           <div class="customer_no_sort">
-            並び替え:
-            <%= sort_link(@q, :number, 'No順で表示', default_order: :desc) %>
+            <h6>並び替え:<%= sort_link(@q, :number, 'カスタマーNo順で表示') %></h6>
           </div>
         </div>
       <% end %>

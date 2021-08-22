@@ -11,11 +11,11 @@
   <% end %>
 
 
-  <div class="row">
+  <div class="row schedule_edit_area">
     <div class="col-2">
       <div class="field">
         <%= form.label t('views.title.serial_number') %>
-        <%= form.text_field :serial_number, size: "18x1" %>
+        <%= form.text_field :serial_number, size: "17x1" %>
       </div>
     </div>
     <div class="col-2">
@@ -42,8 +42,8 @@
         <%= form.date_field :deliveried_on %>
       </div>
     </div>
-    <div class="col-2">
-      <div class="actions">
+    <div class="col-2 schedule_edit_button_area">
+      <div class="actions schedule_edit_button">
         <%= form.submit %>
       </div>
     </div>

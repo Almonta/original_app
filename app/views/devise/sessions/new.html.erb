@@ -29,7 +29,10 @@
     <br>
     <br />
     <h5>サインアップがお済みでない場合</h5>
-    <%= render "devise/shared/links" %>
+    <div class="login_checkout_button">
+      <%= link_to t(".sign_up"), new_user_registration_path %>
+    </div>
+
     <br>
     <br>
     <h4>ゲストログイン</h4>
@@ -43,7 +46,7 @@
 
       <div class="guest_button">
         <%= link_to users_admin_guest_sign_in_path, method: :post do %>
-          <button type="button" class="btn btn-success guest_login_button">ゲスト管理者</button>
+          <button type="button" class="btn btn-success guest_login_button">管理者</button>
         <% end %>
       </div>
 
