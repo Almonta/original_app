@@ -59,6 +59,7 @@ ja:
 
       new:
         sign_up: "サインアップ"
+        sign_in: "ログイン"
         name: "お名前"
         department: "所属"
         email: "メールアドレス"
@@ -66,6 +67,7 @@ ja:
         password_confirmation: "確認パスワード"
     sessions:
       new:
+        sign_up: "サインアップ"
         sign_in: "ログイン"
         email: "メールアドレス"
         password: "パスワード"
