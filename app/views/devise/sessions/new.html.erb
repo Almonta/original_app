@@ -28,25 +28,25 @@
     <% end %>
     <br>
     <br />
-    <h5>サインアップがお済みでない場合</h5>
+    <h5><%= t('.unregistered') %></h5>
     <div class="login_checkout_button">
       <%= link_to t(".sign_up"), new_user_registration_path %>
     </div>
 
     <br>
     <br>
-    <h4>ゲストログイン</h4>
+    <h4><%= t('.guest_sign_in') %></h4>
     <div class="guest_area">
         
       <div class="guest_button">
         <%= link_to users_guest_sign_in_path, method: :post do %>
-          <button type="button" class="btn btn-success guest_login_button">一般ユーザー</button>
+          <button type="button" class="btn btn-success guest_login_button"><%= t('.public_user') %></button>
         <% end %>
       </div>
 
       <div class="guest_button">
         <%= link_to users_admin_guest_sign_in_path, method: :post do %>
-          <button type="button" class="btn btn-success guest_login_button">管理者</button>
+          <button type="button" class="btn btn-success guest_login_button"><%= t('.admin') %></button>
         <% end %>
       </div>
 
