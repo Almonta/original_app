@@ -18,9 +18,7 @@
   </div>
 
   <div class="profile_edit">
-    <%= link_to edit_user_registration_path do %>
-      <button type="button" class="btn btn-outline-secondary"><%= t('views.button.edit') %></button>
-    <% end %>
+    <%= link_to t('views.button.edit'), edit_user_registration_path, class: "btn btn-outline-secondary" %>
   </div>
 
   <div class="created_products_customers_box">
