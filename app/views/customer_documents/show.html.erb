@@ -34,9 +34,9 @@
       </p>
 
       <% if @customer_document.public_level == 0 %>
-        <%= link_to '一般資料一覧へ', customer_customer_documents_path(general: "true") %>
+        <%= link_to t('views.button.back_index_customer_document_public'), customer_customer_documents_path(general: "true") %>
       <% elsif @customer_document.public_level == 1 %>
-        <%= link_to '技術資料一覧へ', customer_customer_documents_path(technical: "true") %>
+        <%= link_to t('views.button.back_index_customer_document_technical'), customer_customer_documents_path(technical: "true") %>
       <% end %>
 
       <% if current_user == @customer_document.user %>
