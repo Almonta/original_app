@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="set_center_outer">
     <h2 class="page_title_en">Edit Customer</h2>
@@ -8,7 +7,7 @@
   <%= render "form", customer: @customer %>
 
   <div class="set_center_outer">
-    <%= link_to t("views.button.show"), @customer %> |
-    <%= link_to t("views.button.back_home"), homes_path %>
+    <%= link_to t("views.button.back_home"), homes_path %>|
+    <%= link_to t("views.button.show_customer"), @customer %>
   </div>
 </div>
