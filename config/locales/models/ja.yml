@@ -1,6 +1,7 @@
 ja:
   activerecord:
     models:
+      user: ユーザー
       customer_contact: カスタマーコンタクト
       customer_document: カスタマー資料
       customer: カスタマー
@@ -8,6 +9,12 @@ ja:
       customer_document: プロダクト資料
       product: プロダクト
     attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+        current_password: 現在のパスワード
+        password_confirmation: 確認パスワード
       customer_contact:
         contact_message: コンタクトメッセージ
       customer_document:
