@@ -41,6 +41,7 @@ $ cd original_app
 $ bundle install
 $ rails db:create
 $ rails db:migrate
+$ yarn add jquery
 $ rails s
 ```
 ## カタログ設計
