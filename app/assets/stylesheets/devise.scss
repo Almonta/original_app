@@ -8,3 +8,25 @@
   text-align: left;
   padding: 10px;
 }
+
+.login_form {
+  width: 220px;
+  height: 2rem;
+  padding: 0.4rem 0.7rem;
+  background-color: white;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.login_form:focus {
+  outline: 0;
+  // box-shadow: none;
+  border: 2px solid #FFCE0D;
+  background-color: #ffffff;
+}
+
+.password_form {
+  display: inline-block;
+}

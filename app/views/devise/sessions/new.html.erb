@@ -6,12 +6,12 @@
     <div class="form_field">
       <div class="field">
         <%= f.label t(".email") %>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'maker@awesome.com' %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'maker@awesome.com', class: "login_form" %>
       </div>
 
       <div class="field">
         <%= f.label t(".password") %>
-        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password' %>
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: 'password', class: "login_form" %>
       </div>
     </div>
     <!--
