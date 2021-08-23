@@ -57,6 +57,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  template: template0
+  encoding: utf-8
   database: maker_awesome_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
