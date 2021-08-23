@@ -65,12 +65,17 @@ ja:
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認パスワード"
+        registered: "ご登録がお済みの場合"
     sessions:
       new:
         sign_up: "サインアップ"
         sign_in: "ログイン"
         email: "メールアドレス"
         password: "パスワード"
+        unregistered: "サインアップがお済みでない場合"
+        guest_sign_in: "ゲストログイン"
+        public_user: "一般ユーザー"
+        admin: "管理者"
     shared:
       links:
         back: "戻る"

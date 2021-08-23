@@ -117,7 +117,7 @@
     <div class="col-lg-9 col-md-8">
       <h4>コンタクト</h4>
       <p id="notice"><%= notice %></p>
-      <div id="customer_contacts_area" class="box">
+      <div id="customer_contacts_area">
         <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
       </div>
       <div class="new_product_contact">
@@ -127,3 +127,7 @@
   </div>
   <%= link_to t('views.button.back_home'), homes_path %>
 </div>
+
+<script>
+  $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
+</script>
