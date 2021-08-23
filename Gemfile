@@ -45,9 +45,7 @@ gem 'mini_magick'
 gem 'faker'
 gem 'seed-fu'
 gem 'kaminari'
-gem 'dotenv-rails'
-gem 'unicorn'
-gem 'mini_racer', platforms: :ruby
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -62,13 +60,8 @@ group :development, :test do
   gem 'launchy'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capistrano', '3.6.0'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rails'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
-  gem 'ed25519'
-  gem 'bcrypt_pbkdf'
+
+
 end
 
 group :development do
