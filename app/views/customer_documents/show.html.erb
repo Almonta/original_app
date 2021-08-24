@@ -25,7 +25,9 @@
 
       <p>
         <strong><%= t('views.title.document') %>:</strong>
-        <%= image_tag @customer_document.document.url %>
+        <% if @customer_document.document.present? %>
+          <%= image_tag @customer_document.document.url %>
+        <% end %>
       </p>
 
       <p>
