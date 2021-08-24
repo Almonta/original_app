@@ -264,52 +264,52 @@ document = [
 
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
 
-r = 0
-5.times do |j|
-  ProductDocument.create!(user_id: engineering_user,
-                          product_id: odd_product_id[j],
-                          name: '設計計算書',
-                          content: content,
-                          document: document[r],
-                          public_level: 0)
-  r += 1
-end
+# r = 0
+# 5.times do |j|
+#   ProductDocument.create!(user_id: engineering_user,
+#                           product_id: odd_product_id[j],
+#                           name: '設計計算書',
+#                           content: content,
+#                           document: document[r],
+#                           public_level: 0)
+#   r += 1
+# end
 
 
-r = 5
-5.times do |j|
-  ProductDocument.create!(user_id: manufacturing_user,
-                          product_id: even_product_id[j],
-                          name: '組立手順書',
-                          content: content,
-                          document: document[r],
-                          public_level: 1)
-  r += 1
-end
+# r = 5
+# 5.times do |j|
+#   ProductDocument.create!(user_id: manufacturing_user,
+#                           product_id: even_product_id[j],
+#                           name: '組立手順書',
+#                           content: content,
+#                           document: document[r],
+#                           public_level: 1)
+#   r += 1
+# end
 
 
-r = 0
-5.times do |j|
-  CustomerDocument.create!(user_id: sales_user,
-                          customer_id: even_customer_id[j],
-                          name: '注文書',
-                          content: content,
-                          document: document[r],
-                          public_level: 0)
-  r += 1
-end
+# r = 0
+# 5.times do |j|
+#   CustomerDocument.create!(user_id: sales_user,
+#                           customer_id: even_customer_id[j],
+#                           name: '注文書',
+#                           content: content,
+#                           document: document[r],
+#                           public_level: 0)
+#   r += 1
+# end
 
 
-r = 5
-5.times do |j|
-  CustomerDocument.create!(user_id: service_user,
-                          customer_id: even_customer_id[j],
-                          name: 'サービス報告書',
-                          content: content,
-                          document: document[r],
-                          public_level: 0)
-  r += 1
-end
+# r = 5
+# 5.times do |j|
+#   CustomerDocument.create!(user_id: service_user,
+#                           customer_id: even_customer_id[j],
+#                           name: 'サービス報告書',
+#                           content: content,
+#                           document: document[r],
+#                           public_level: 0)
+#   r += 1
+# end
 
 sales_engineering_contact = [
   'お客様よりこの製品の〇〇の改善要望が多くあります。',
