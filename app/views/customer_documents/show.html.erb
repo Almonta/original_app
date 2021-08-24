@@ -25,7 +25,9 @@
 
       <p>
         <strong><%= t('views.title.document') %>:</strong>
-        <object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>
+        <% if @customer_document.document.present? %>
+          <object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>
+        <% end %>
       </p>
 
       <p>

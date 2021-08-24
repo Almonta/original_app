@@ -13,7 +13,9 @@
       <% @documents.each do |document| %>
       <div class="document_card_list"> 
         <div class="card" style="width: 18rem;">
-          <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+          <% if document.document.present? %>
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= document.name %></h5>
             <p class="card-text">

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# ruby '2.6.5'
+ruby '2.6.5'
 
 gem 'rails', '5.2.5'
 gem 'pg', '>= 0.18', '< 2.0'
@@ -42,12 +42,16 @@ gem 'ransack'
 gem 'enum_help'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'mimemagic', '0.3.7'
+
 gem 'faker'
 gem 'seed-fu'
 gem 'kaminari'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
+gem 'fog-aws'
+gem 'dotenv-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
