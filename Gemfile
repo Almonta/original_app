@@ -42,6 +42,8 @@ gem 'ransack'
 gem 'enum_help'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'mimemagic', '0.3.7'
+
 gem 'faker'
 gem 'seed-fu'
 gem 'kaminari'
