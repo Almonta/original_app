@@ -18,7 +18,7 @@ CarrierWave.configure do |config|
       config.fog_directory = 'makerawesome-production'
       config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/makerawesome-production'
     when 'development'
-      config.fog_directory = 'makerawesome-production'
-      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/makerawesome-production'
+      config.fog_directory = 'makerawesome-development'
+      config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/makerawesome-development'
   end
 end
