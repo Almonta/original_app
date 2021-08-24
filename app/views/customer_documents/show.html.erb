@@ -25,7 +25,8 @@
 
       <p>
         <strong><%= t('views.title.document') %>:</strong>
-        <object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>
+        <!--<object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>-->
+        <%= image_tag @customer_document.document.url %>
       </p>
 
       <p>
