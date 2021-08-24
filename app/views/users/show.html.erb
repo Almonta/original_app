@@ -78,7 +78,7 @@
         <div class="document_card_list">
           <div class="card w-auto h-auto" style="width: 18rem;">
             <% if document.document.present? %>
-            <%= image_tag document.document.url %>
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
             <% end %>
             <div class="card-body">
               <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
@@ -102,7 +102,9 @@
         <li class="created_document_card_list">
         <div class="document_card_list">
           <div class="card w-auto h-auto" style="width: 18rem;">
-            <%= image_tag document.document.url %>
+            <% if document.document.present? %>
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+            <% end %>
             <div class="card-body">
               <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
               <p class="card-text">

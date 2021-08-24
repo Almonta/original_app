@@ -14,7 +14,7 @@
       <div class="document_card_list"> 
         <div class="card" style="width: 18rem;">
           <% if document.document.present? %>
-            <%= image_tag document.document.url %>
+            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
           <% end %>
           <div class="card-body">
             <h5 class="card-title"><%= document.name %></h5>

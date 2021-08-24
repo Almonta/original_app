@@ -27,7 +27,7 @@
       <p>
         <strong><%= t('views.title.document') %>:</strong>
         <% if @product_document.document.present? %>
-          <%= image_tag @product_document.document.url %>
+          <object data="<%= @product_document.document.url %>" type="application/pdf" width="800" height="450"></object>
         <% end %>
       </p>
 
