@@ -18,14 +18,14 @@
 
 @font-face {
   font-family: 'KodomoRounded';
-  src: asset_url('KodomoRounded.otf') format("truetype");
+  src: url('KodomoRounded.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Chalk-JP';
-  src: asset_url('Chalk-JP.otf') format("truetype");
+  src: url('Chalk-JP.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -39,7 +39,7 @@
 
 @font-face {
   font-family: 'sawarabi-gothic-medium';
-  src: asset_url('sawarabi-gothic-medium.otf') format("truetype");
+  src: url('sawarabi-gothic-medium.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
