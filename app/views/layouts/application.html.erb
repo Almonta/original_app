@@ -63,13 +63,13 @@
         </div>
       </nav>
     </header>
-    <% if notice %>
-      <p class="alert alert-info"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
-    <%= yield %>
+      <% if notice %>
+        <p class="alert alert-info"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+      <%= yield %>
     <footer>
       <p>© 2021 TKG Inc</p>
     </footer>
