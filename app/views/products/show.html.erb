@@ -8,8 +8,8 @@
           <h4><%= @product.name %></h4>
 
           <% if @user_product.present? %>
-            <%#= link_to user_product_path(id: @user_product.id), method: :delete do %>
-            <%= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
+            <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
+            <%#= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
             <div class="project_cancel">
               <div class="project_cancel_icon">
                 <i class="fas fa-star fa-lg"></i>
@@ -20,8 +20,8 @@
               </div>
             </div>
           <% else %>
-            <%#= link_to user_products_path(product_id: @product.id), method: :post do %>
-            <%= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
+            <%= link_to user_products_path(product_id: @product.id), method: :post do %>
+            <%#= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
             <div class="project_registration">
               <div class="project_registration_icon">
                 <i class="far fa-star fa-lg"></i>
