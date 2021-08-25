@@ -36,3 +36,18 @@
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: 'sawarabi-gothic-medium';
+  src: url('/assets/sawarabi-gothic-medium.otf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'Qarmic_sans_Abridged';
+  src: url('/assets/Qarmic_sans_Abridged.ttf') format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}

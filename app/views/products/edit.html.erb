@@ -1,13 +1,15 @@
 <div class="container">
-  <div class="set_center_outer">
-    <h2 class="page_title_en">Edit Product</h2>
-    <h5 class="page_title_ja"><%= t("views.title.product_edit") %></h5>
-  </div>
+  <div class="product_page">
+    <div class="set_center_outer">
+      <h2 class="page_title_en">Edit Product</h2>
+      <h5 class="page_title_ja"><%= t("views.title.product_edit") %></h5>
+    </div>
 
-  <%= render "form", product: @product %>
+    <%= render "form", product: @product %>
 
-  <div class="set_center_outer">
-    <%= link_to t("views.button.back_home"), homes_path %>|
-    <%= link_to t("views.button.show_product"), @product %>
+    <div class="set_center_outer">
+      <%= link_to t("views.button.back_home"), homes_path %>|
+      <%= link_to t("views.button.show_product"), @product %>
+    </div>
   </div>
 </div>

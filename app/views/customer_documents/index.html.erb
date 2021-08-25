@@ -1,40 +1,42 @@
 <div class="container">
-  <h2 class="page_title_en">Customer Documents</h2>
-  <h5 class="page_title_ja"><%= t('views.title.customer_documents') %></h5>
+  <div class="customer_document_page">
+    <h2 class="page_title_en">Customer Documents</h2>
+    <h5 class="page_title_ja"><%= t('views.title.customer_documents') %></h5>
 
-  <%= link_to new_customer_customer_document_path do %>
-  <button type="button" class="btn btn-warning"><%= t('views.button.new_customer_document') %></button>
-  <% end %>
+    <%= link_to new_customer_customer_document_path do %>
+    <button type="button" class="btn btn-warning"><%= t('views.button.new_customer_document') %></button>
+    <% end %>
 
-  <div class="row">
-    <% if @documents == [] %>
-      <p class="not_exist_document">現在登録がありません</p>
-    <% else %>
-      <% @documents.each do |document| %>
-      <div class="document_card_list"> 
-        <div class="card" style="width: 18rem;">
-          <% if document.document.present? %>
-            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
-          <% end %>
-          <div class="card-body">
-            <h5 class="card-title"><%= document.name %></h5>
-            <p class="card-text">
-              <% if document.public_level == 0 %>一般公開資料
-              <% elsif document.public_level == 1 %>技術資料
-              <% end %>
-            </p>
-            <p class="card-text"><%= document.content %></p>
-            <%= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link" %>
-            <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-              <%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link" %>
-              <%= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+    <div class="row">
+      <% if @documents == [] %>
+        <p class="not_exist_document">現在登録がありません</p>
+      <% else %>
+        <% @documents.each do |document| %>
+        <div class="document_card_list"> 
+          <div class="card" style="width: 18rem;">
+            <% if document.document.present? %>
+              <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
             <% end %>
+            <div class="card-body">
+              <h5 class="card-title"><%= document.name %></h5>
+              <p class="card-text">
+                <% if document.public_level == 0 %>一般公開資料
+                <% elsif document.public_level == 1 %>技術資料
+                <% end %>
+              </p>
+              <p class="card-text"><%= document.content %></p>
+              <%= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link" %>
+              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                <%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-      <% end %>
-    <% end %> 
-  </div>
+        <% end %>
+      <% end %> 
+    </div>
 
-  <%= link_to t('views.button.back_show_customer'), customer_path(@customer.id) %>
+    <%= link_to t('views.button.back_show_customer'), customer_path(@customer.id) %>
+  </div>
 </div>

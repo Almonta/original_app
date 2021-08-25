@@ -1,133 +1,135 @@
 <div class="container">
-  <h2 class="page_title_en">My Page</h2>
-  <h5 class="page_title_ja">マイページ</h5>
+  <div class="my_page">
+    <h2 class="page_title_en">My Page</h2>
+    <h5 class="page_title_ja">マイページ</h5>
 
-  <div class="profile_info_area">
-    <div class="profile_info">
-      <h4>基本情報</h4>
-      <h6><strong>名前：</strong></h6>
-      <h6><strong>所属：</strong></h6>
-      <h6><strong>メールアドレス：</strong></h6>
+    <div class="profile_info_area">
+      <div class="profile_info">
+        <h4>基本情報</h4>
+        <h6><strong>名前：</strong></h6>
+        <h6><strong>所属：</strong></h6>
+        <h6><strong>メールアドレス：</strong></h6>
+      </div>
+      <div class="profile_info">
+        <br>
+        <h6><%= @user.name %></h6>
+        <h6><%= @user.department_i18n %></h6>
+        <h6><%= @user.email %></h6>
+      </div>
     </div>
-    <div class="profile_info">
-      <br>
-      <h6><%= @user.name %></h6>
-      <h6><%= @user.department_i18n %></h6>
-      <h6><%= @user.email %></h6>
+
+    <div class="profile_edit">
+      <%= link_to t('views.button.edit'), edit_user_registration_path, class: "btn btn-outline-secondary" %>
     </div>
-  </div>
 
-  <div class="profile_edit">
-    <%= link_to t('views.button.edit'), edit_user_registration_path, class: "btn btn-outline-secondary" %>
-  </div>
-
-  <div class="created_products_customers_box">
-    <div class="created_products_customers_title">
-      <h4>登録したプロダクト・カスタマー</h4>
-    </div>
-    <% if (@products == []) && (@customers == []) %>
-      <p class="not_exist_puroduct_customer">登録したプロダクト・カスタマーはありません</p>
-    <% else %>
-    <ul class="created_products_customers_card">
-      <% @products.each do |product| %>
-        <li class="created_products_customers_card_list">
-          <div class="card product_title_card rounded-pill shadow-sm" style="width: 99%;">
-            <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
-              <%= link_to t('views.button.show'), product, class: "card-link" %>
-              <% if (current_user == product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-                <%= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
-                <%= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
-              <% end %>
-            </div>
-          </div>
-        </li>
-      <% end %>
-
-      <% @customers.each do |customer| %>
-      <li class="created_products_customers_card_list">
-        <div class="card customer_title_card shadow-sm" style="width: 99%;">
-          <div class="card-body">
-            <h5 class="card-title"><%= customer.number %></h5>
-            <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
-            <%= link_to t('views.button.show'), customer, class: "card-link" %>
-            <% if (current_user == customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-              <%= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
-              <%= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
-            <% end %>
-        <%#= link_to '権限移行' %>
-          </div>
-        </div>
-      </li>
-      <% end %>
-    </ul>
-    <% end %>
-  </div>
-
-
-  <div class="created_documents_box">
-    <div class="created_documents_title">
-      <h4>登録したドキュメント</h4>
-    </div>
-    <% if (@product_documents == []) && (@customer_documents == []) %>
-      <p class="not_exist_document">登録したドキュメントはありません</p>
-    <% else %>
-      <ul class="created_documents_card">
-        <% @product_documents.each do |document| %>
-        <li class="created_document_card_list">
-        <div class="document_card_list">
-          <div class="card w-auto h-auto" style="width: 18rem;">
-            <% if document.document.present? %>
-            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
-              <p class="card-text">
-                <% if document.public_level == 0 %>一般公開資料
-                <% elsif document.public_level == 1 %>技術資料
+    <div class="created_products_customers_box">
+      <div class="created_products_customers_title">
+        <h4>登録したプロダクト・カスタマー</h4>
+      </div>
+      <% if (@products == []) && (@customers == []) %>
+        <p class="not_exist_puroduct_customer">登録したプロダクト・カスタマーはありません</p>
+      <% else %>
+      <ul class="created_products_customers_card">
+        <% @products.each do |product| %>
+          <li class="created_products_customers_card_list">
+            <div class="card product_title_card rounded-pill shadow-sm" style="width: 99%;">
+              <div class="card-body">
+                <h5 class="card-title"><%= product.name %></h5>
+                <%= link_to t('views.button.show'), product, class: "card-link" %>
+                <% if (current_user == product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                  <%= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
+                  <%= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                 <% end %>
-              </p>
-              <p class="card-text created_document_card_list_content"><%= document.content %></p>
-              <%= link_to t('views.button.show'), product_product_document_path(document.product, document), class: "card-link" %>
-              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-                <%= link_to t('views.button.edit'), edit_product_product_document_path(document.product, document), class: "card-link" %>
-                <%= link_to t('views.button.destroy'), product_product_document_path(document.product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
-              <% end %>
+              </div>
             </div>
-          </div>
-        </div>
-        </li>
+          </li>
         <% end %>
-        <% @customer_documents.each do |document| %>
-        <li class="created_document_card_list">
-        <div class="document_card_list">
-          <div class="card w-auto h-auto" style="width: 18rem;">
-            <% if document.document.present? %>
-            <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
-            <% end %>
+
+        <% @customers.each do |customer| %>
+        <li class="created_products_customers_card_list">
+          <div class="card product_title_card shadow-sm" style="width: 99%;">
             <div class="card-body">
-              <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
-              <p class="card-text">
-                <% if document.public_level == 0 %>一般公開資料
-                <% elsif document.public_level == 1 %>技術資料
-                <% end %>
-              </p>
-              <p class="card-text created_document_card_list_content"><%= document.content %></p>
-              <%= link_to t('views.button.show'), customer_customer_document_path(document.customer, document), class: "card-link" %>
-              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-                <%= link_to t('views.button.edit'), edit_customer_customer_document_path(document.customer, document), class: "card-link" %>
-                <%= link_to t('views.button.destroy'), customer_customer_document_path(document.customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+              <h5 class="card-title"><%= customer.number %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= customer.name %></h6>
+              <%= link_to t('views.button.show'), customer, class: "card-link" %>
+              <% if (current_user == customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                <%= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
+                <%= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
               <% end %>
+          <%#= link_to '権限移行' %>
             </div>
           </div>
-        </div>
         </li>
         <% end %>
       </ul>
-    <% end %>
+      <% end %>
+    </div>
+
+
+    <div class="created_documents_box">
+      <div class="created_documents_title">
+        <h4>登録したドキュメント</h4>
+      </div>
+      <% if (@product_documents == []) && (@customer_documents == []) %>
+        <p class="not_exist_document">登録したドキュメントはありません</p>
+      <% else %>
+        <ul class="created_documents_card">
+          <% @product_documents.each do |document| %>
+          <li class="created_document_card_list">
+          <div class="document_card_list">
+            <div class="card w-auto h-auto" style="width: 18rem;">
+              <% if document.document.present? %>
+              <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
+                <p class="card-text">
+                  <% if document.public_level == 0 %>一般公開資料
+                  <% elsif document.public_level == 1 %>技術資料
+                  <% end %>
+                </p>
+                <p class="card-text created_document_card_list_content"><%= document.content %></p>
+                <%= link_to t('views.button.show'), product_product_document_path(document.product, document), class: "card-link" %>
+                <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                  <%= link_to t('views.button.edit'), edit_product_product_document_path(document.product, document), class: "card-link" %>
+                  <%= link_to t('views.button.destroy'), product_product_document_path(document.product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          </li>
+          <% end %>
+          <% @customer_documents.each do |document| %>
+          <li class="created_document_card_list">
+          <div class="document_card_list">
+            <div class="card w-auto h-auto" style="width: 18rem;">
+              <% if document.document.present? %>
+              <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title created_document_card_list_content"><%= document.name %></h5>
+                <p class="card-text">
+                  <% if document.public_level == 0 %>一般公開資料
+                  <% elsif document.public_level == 1 %>技術資料
+                  <% end %>
+                </p>
+                <p class="card-text created_document_card_list_content"><%= document.content %></p>
+                <%= link_to t('views.button.show'), customer_customer_document_path(document.customer, document), class: "card-link" %>
+                <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                  <%= link_to t('views.button.edit'), edit_customer_customer_document_path(document.customer, document), class: "card-link" %>
+                  <%= link_to t('views.button.destroy'), customer_customer_document_path(document.customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
 </div>
 
-  <p><%#= button_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    <p><%#= button_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
 
-  <p><%#= button_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
+    <p><%#= button_to t('devise.registrations.edit.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete %></p>
