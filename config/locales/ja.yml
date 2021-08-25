@@ -233,6 +233,7 @@ ja:
       back_index_customer_document_public: 'カスタマー一般資料一覧に戻る'
       back_index_customer_document_technical: 'カスタマー技術資料一覧に戻る'
       show_product: 'プロダクト詳細へ'
+      show_customer: 'カスタマー詳細へ'
       show_product_document: 'プロダクト資料詳細へ'
       show_customer_document: 'カスタマー資料詳細へ'
       new_product: 'プロダクト新規登録'

@@ -2,14 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.home_page{
+  margin-top: 10px;
+}
+
 .page_title_en {
-  font-family: 'Chalk-JP';
+  font-family: 'Qarmic_sans_Abridged', sans-serif;
 }
 
 .page_title_ja {
-  font-family: 'bokutachi';
+  font-family: 'bokutachi', sans-serif;
 }
 
+.area_title_ja {
+  font-family: 'bokutachi', sans-serif;
+}
 
 .page_title_en {
   text-align: center;
@@ -19,7 +26,7 @@
 
 .page_title_ja {
   text-align: center;
-  font-family: 'Noto Sans JP', sans-serif;
+  // font-family: 'Noto Sans JP', sans-serif;
   margin-bottom: 15px;
 }
 
