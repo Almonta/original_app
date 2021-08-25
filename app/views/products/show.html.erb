@@ -1,11 +1,12 @@
 <div class="container">
-  <h2 class="page_title_en">Show Product</h2>
-  <h5 class="page_title_ja"><%= t('views.title.product_show') %></h5>
-  <div class="row">
-    <div class="col-lg-3 col-md-4">
-      <div class="product_name_title">
-        <h4><%= @product.name %></h4>
-        
+  <div class="product_page">
+    <h2 class="page_title_en">Show Product</h2>
+    <h5 class="page_title_ja"><%= t('views.title.product_show') %></h5>
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <div class="product_name_title">
+          <h4><%= @product.name %></h4>
+          
 
 <!--非同期challenge-->
 <%
@@ -16,100 +17,101 @@
 <%
 =end %>
 
-        <% if @user_product.present? %>
-          <%#= link_to user_product_path(id: @user_product.id), method: :delete do %>
-          <%= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
-          <div class="project_cancel">
-            <div class="project_cancel_icon">
-              <i class="fas fa-star fa-lg"></i>
+          <% if @user_product.present? %>
+            <%#= link_to user_product_path(id: @user_product.id), method: :delete do %>
+            <%= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
+            <div class="project_cancel">
+              <div class="project_cancel_icon">
+                <i class="fas fa-star fa-lg"></i>
+              </div>
+            <% end %>
+              <div class="project_cancel_text">
+                プロジェクトから解除する
+              </div>
+            </div>
+          <% else %>
+            <%#= link_to user_products_path(product_id: @product.id), method: :post do %>
+            <%= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
+            <div class="project_registration">
+              <div class="project_registration_icon">
+                <i class="far fa-star fa-lg"></i>
+              </div>
+            <% end %>
+              <div class="project_registration_text">
+                プロジェクトに登録する
+              </div>
             </div>
           <% end %>
-            <div class="project_cancel_text">
-              プロジェクトから解除する
-            </div>
+        </div>
+
+        <div class="product_editer">
+          <p class="editer">作成者：<%= @product.user.name %></p>
+
+          <% if (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+            <p class="edit_link">
+              <%= link_to t('views.button.edit'), edit_product_path(@product) %>|
+              <%= link_to t('views.button.destroy'), product_path(@product), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %>
+            </p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="col-lg-9 col-md-8 document_link_area">
+        <h4 class="area_title_ja">ドキュメント</h4>
+        <div class="position-absolute" style="top:40px; left:20px;">
+          <%= link_to product_product_documents_path(@product.id, general: "true") do %>
+            <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
+          <% end %>
+        </div>
+        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+          <div class="position-absolute" style="top:40px; left:180px;">
+            <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
+              <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
+            <% end %>
           </div>
         <% else %>
-          <%#= link_to user_products_path(product_id: @product.id), method: :post do %>
-          <%= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
-          <div class="project_registration">
-            <div class="project_registration_icon">
-              <i class="far fa-star fa-lg"></i>
-            </div>
-          <% end %>
-            <div class="project_registration_text">
-              プロジェクトに登録する
-            </div>
+        <div class="technical_document_button_disable">
+          <div class="position-absolute" style="top:40px; left:180px;">
+            <button type="button" class="btn btn-info technical_document_button btn-lg" disabled>技術資料</button>
           </div>
+          <div class="box">
+            <p class="text">このリンクは「技術部」所属者のみ有効です</p>
+          </div>
+        </div>
         <% end %>
       </div>
 
-      <div class="product_editer">
-        <p class="editer">作成者：<%= @product.user.name %></p>
-
-        <% if (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-          <p class="edit_link">
-            <%= link_to t('views.button.edit'), edit_product_path(@product) %>|
-            <%= link_to t('views.button.destroy'), product_path(@product), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %>
-          </p>
-        <% end %>
-      </div>
     </div>
 
-    <div class="col-lg-9 col-md-8 document_link_area">
-      <h4 class="area_title_ja">ドキュメント</h4>
-      <div class="position-absolute" style="top:40px; left:20px;">
-        <%= link_to product_product_documents_path(@product.id, general: "true") do %>
-          <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
-        <% end %>
-      </div>
-      <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-        <div class="position-absolute" style="top:40px; left:180px;">
-          <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
-            <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
+    <div class="row">
+      <div class="col-lg-3 col-md-4">
+        <ul class="list-group">
+          <li class="list-group-item active">プロジェクトメンバー</li>
+          <% @user_products.each do |user_product| %>
+            <li class="list-group-item">
+              <div class="row">
+                <span class="col-7"><%= user_product.user.name %></span>
+                <span class="col-5"><%= user_product.user.department_i18n %></span>
+              </div>
+            </li>
           <% end %>
+        </ul>
+      </div>
+
+      <div class="col-lg-9 col-md-8">
+        <h4 class="area_title_ja">コンタクト</h4>
+        <p id="notice"><%= notice %></p>
+        <div id="product_contacts_area">
+          <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
         </div>
-      <% else %>
-      <div class="technical_document_button_disable">
-        <div class="position-absolute" style="top:40px; left:180px;">
-          <button type="button" class="btn btn-info technical_document_button btn-lg" disabled>技術資料</button>
-        </div>
-        <div class="box">
-          <p class="text">このリンクは「技術部」所属者のみ有効です</p>
+        <div class="new_product_contact">
+          <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
         </div>
       </div>
-      <% end %>
     </div>
 
+    <%= link_to t('views.button.back_home'), homes_path %>
   </div>
-
-  <div class="row">
-    <div class="col-lg-3 col-md-4">
-      <ul class="list-group">
-        <li class="list-group-item active">プロジェクトメンバー</li>
-        <% @user_products.each do |user_product| %>
-          <li class="list-group-item">
-            <div class="row">
-              <span class="col-7"><%= user_product.user.name %></span>
-              <span class="col-5"><%= user_product.user.department_i18n %></span>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-
-    <div class="col-lg-9 col-md-8">
-      <h4 class="area_title_ja">コンタクト</h4>
-      <p id="notice"><%= notice %></p>
-      <div id="product_contacts_area">
-        <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
-      </div>
-      <div class="new_product_contact">
-        <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
-      </div>
-    </div>
-  </div>
-
-  <%= link_to t('views.button.back_home'), homes_path %>
 </div>
 
 <script>
