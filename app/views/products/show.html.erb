@@ -6,16 +6,6 @@
       <div class="col-lg-3 col-md-4">
         <div class="product_name_title">
           <h4><%= @product.name %></h4>
-          
-
-<!--非同期challenge-->
-<%
-=begin %>
-        <div id="register_buttons_<%= @product.id %>">
-          <%= render partial: 'user_products/register', locals: { product: @product, user_product: @user_product } %>
-        </div>
-<%
-=end %>
 
           <% if @user_product.present? %>
             <%#= link_to user_product_path(id: @user_product.id), method: :delete do %>
@@ -80,7 +70,6 @@
         </div>
         <% end %>
       </div>
-
     </div>
 
     <div class="row">
@@ -104,16 +93,14 @@
         <div id="product_contacts_area">
           <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
         </div>
+        <script>
+          $(".contact_box").scrollTop($("#product_scroll-inner")[0].scrollHeight);
+        </script>
         <div class="new_product_contact">
           <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
         </div>
       </div>
     </div>
-
     <%= link_to t('views.button.back_home'), homes_path %>
   </div>
 </div>
-
-<script>
-  $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
-</script>

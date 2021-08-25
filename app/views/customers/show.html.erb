@@ -44,7 +44,6 @@
         </div>
       </div>
 
-
       <div class="col-lg-9 col-md-8 document_link_area">
         <h4 class="area_title_ja">ドキュメント</h4>
         <div class="position-absolute" style="top:40px; left:20px;">
@@ -112,6 +111,9 @@
         <div id="customer_contacts_area">
           <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
         </div>
+          <script>
+            $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
+          </script>
         <div class="new_product_contact">
           <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
         </div>
@@ -120,7 +122,3 @@
     <%= link_to t('views.button.back_home'), homes_path %>
   </div>
 </div>
-
-  <script>
-    $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
-  </script>
