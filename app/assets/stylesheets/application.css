@@ -18,28 +18,28 @@
 
 @font-face {
   font-family: 'KodomoRounded';
-  src: url('/assets/KodomoRounded.otf') format("truetype");
+  src: url('KodomoRounded.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Chalk-JP';
-  src: url('/assets/Chalk-JP.otf') format("truetype");
+  src: url('Chalk-JP.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'bokutachi';
-  src: url('/assets/bokutachi.otf') format("truetype");
+  src: url('bokutachi.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'sawarabi-gothic-medium';
-  src: url('/assets/sawarabi-gothic-medium.otf') format("truetype");
+  src: url('sawarabi-gothic-medium.otf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -47,7 +47,7 @@
 
 @font-face {
   font-family: 'Qarmic_sans_Abridged';
-  src: url('/assets/Qarmic_sans_Abridged.ttf') format("truetype");
+  src: url('Qarmic_sans_Abridged.ttf') format("truetype");
   font-weight: normal;
   font-style: normal;
 }
