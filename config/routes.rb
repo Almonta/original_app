@@ -1,12 +1,7 @@
 Rails.application.routes.draw do
-  resources :customer_documents
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # get 'user/show'
   root to: 'tops#index'
   devise_for :users
-  # devise_for :users, controllers: {
-  #   registrations: 'users/registrations'
-  # }
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     post 'users/admin_guest_sign_in', to: 'users/sessions#admin_guest_sign_in'
