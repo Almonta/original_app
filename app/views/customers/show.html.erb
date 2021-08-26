@@ -112,7 +112,7 @@
           <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
         </div>
           <script>
-            $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
+            $("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
           </script>
         <div class="new_product_contact">
           <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
