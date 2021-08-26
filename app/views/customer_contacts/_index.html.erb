@@ -9,12 +9,12 @@
         <p><%= customer_contact.contact_message %></p>
         <% if (current_user == customer_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
           <div class="message_edit_delete">
-          <%= link_to edit_customer_customer_contact_path(customer, customer_contact), remote: true do %>
-          <i class="far fa-edit"></i>
-          <% end %>
-          <%= link_to customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
-          <i class="far fa-trash-alt"></i>
-          <% end %>
+            <%= link_to edit_customer_customer_contact_path(customer, customer_contact), remote: true do %>
+            <i class="far fa-edit"></i>
+            <% end %>
+            <%= link_to customer_customer_contact_path(customer_contact.customer_id, customer_contact.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
           </div>
         <% end %>
         <div class="customer_contact_message" id ="this_customer_contact_<%= customer_contact.id %>"></div>

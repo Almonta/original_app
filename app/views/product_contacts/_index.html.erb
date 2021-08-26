@@ -2,7 +2,6 @@
   <% product_contacts.each do |product_contact| %>
     <% if product_contact.id.present? %>
       <li>
-        <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <p>
           <strong><%= product_contact.user.name %></strong>
           <%= l product_contact.created_at %>
@@ -18,6 +17,7 @@
           <% end %>
           </div>
         <% end %>
+        <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <hr>
       </li>
     <% end %>
