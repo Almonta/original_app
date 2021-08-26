@@ -34,12 +34,26 @@ RSpec.describe User, type: :system do
         expect(page).to have_content 'ログイン'
       end
     end
+    context 'サインアップページの「ログイン」ボタンをクリックした場合' do
+      it 'ログインページに遷移する' do
+        visit new_user_registration_path
+        find(:xpath, '/html/body/div/div/div/a').click
+        expect(current_path).to eq new_user_session_path
+      end
+    end
   end
   describe 'ログイン機能' do
     context 'ログインした場合' do
       it 'ホーム画面が表示される' do
         user_login
         expect(page).to have_content 'Home'
+      end
+    end
+    context 'ログインページの「サインアップ」ボタンをクリックした場合' do
+      it 'サインアップページに遷移する' do
+        visit new_user_session_path
+        find(:xpath, '/html/body/div/div/div[1]/a').click
+        expect(current_path).to eq new_user_registration_path
       end
     end
     context 'ログアウトした場合' do
@@ -50,6 +64,25 @@ RSpec.describe User, type: :system do
         # binding.irb
         expect(page).to have_content 'ログアウトしました'
         expect(current_path).to eq root_path
+      end
+    end
+    context 'ゲスト「一般ユーザー」としてログインした場合' do
+      it 'マイページのユーザー名はゲストと表示される' do
+        visit new_user_session_path
+        find(:xpath, '/html/body/div/div/div[2]/div[1]/a/button').click
+        sleep 0.5
+        find(:xpath, '//*[@id="navbarNavAltMarkup"]/div/li[3]/a').click
+        # binding.irb
+        expect(page).to have_selector '.mypage_name', text: 'ゲスト'
+      end
+    end
+    context 'ゲスト「管理者」としてログインした場合' do
+      it 'headerに管理者画面へのリンクが表示される' do
+        visit new_user_session_path
+        # binding.irb
+        find(:xpath, '/html/body/div/div/div[2]/div[2]/a/button').click
+        sleep 0.5
+        expect(page).to have_content '管理者画面'
       end
     end
   end
