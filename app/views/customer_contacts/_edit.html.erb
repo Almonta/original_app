@@ -9,12 +9,16 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-    <%#= form.text_area :contact_message %>
-    <%= form.text_area :contact_message, id: "customer_contact_contact_message_#{customer.id}" %>
-    <%= form.label :contact_message %>
-  </div>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row edit_message_area">
+    <div class="field message_box">
+      <%#= form.text_area :contact_message %>
+      <%= form.text_area :contact_message, style: "width:100%", id: "customer_contact_contact_message_#{customer.id}" %>
+      <%#= form.label :contact_message %>
+    </div>
+    <span class="actions">
+      <button name="button" type="submit" class="btn massage_btn">
+        <i class="far fa-paper-plane fa-lg"></i>
+      </button>
+    </span>
   </div>
 <% end %>
