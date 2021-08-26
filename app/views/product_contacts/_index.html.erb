@@ -1,8 +1,7 @@
-<ul class="contact_box" id="scroll-inner">
+<ul class="contact_box" id="product_scroll-inner">
   <% product_contacts.each do |product_contact| %>
     <% if product_contact.id.present? %>
       <li>
-        <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <p>
           <strong><%= product_contact.user.name %></strong>
           <%= l product_contact.created_at %>
@@ -11,13 +10,18 @@
         <% if (current_user == product_contact.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
           <div class="message_edit_delete">
           <%= link_to edit_product_product_contact_path(product, product_contact), remote: true do %>
-          <i class="far fa-edit"></i>
+          <span class="edit_icon">
+            <i class="far fa-edit"></i>
+          </span>
           <% end %>
           <%= link_to product_product_contact_path(product_contact.product_id, product_contact.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"} do %>
-          <i class="far fa-trash-alt"></i>
+          <span class="delete_icon">
+            <i class="far fa-trash-alt"></i>
+          </span>
           <% end %>
           </div>
         <% end %>
+        <div class="product_contact_message" id ="this_product_contact_<%= product_contact.id %>"></div>
         <hr>
       </li>
     <% end %>

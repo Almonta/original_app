@@ -27,9 +27,9 @@ RSpec.describe ProductDocument, type: :system do
         fill_in 'customer_document_name', with: 'customer_document1'
         fill_in 'customer_document_content', with: 'customer_document_content1'
         choose 'customer_document_public_level_0'
+        binding.irb
         attach_file 'customer_document_document', "#{Rails.root}/spec/factories/RSpec_test.jpg"
         click_button '登録する'
-        # binding.irb
         expect(page).to have_content 'customer_document1'
         expect(page).to have_content 'customer_document_content1'
         expect(page).to have_content '一般'

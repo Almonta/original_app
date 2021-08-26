@@ -1,4 +1,4 @@
 $("#customer_contacts_area").html("<%= j(render 'customer_contacts/index', { customer_contacts: @customer_contact.customer.customer_contacts, customer: @customer_contact.customer }) %>");
-$("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
+$("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
 $("textarea").val('');
 $("#notice").html("<%= j flash[:notice] %>");

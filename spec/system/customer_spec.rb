@@ -78,9 +78,9 @@ RSpec.describe Product, type: :system do
       it '登録プロジェクト画面に、登録したプロジェクトが表示される' do
         user_login
         visit homes_path
-        first(:link, '詳細').click
-        find(".product_project_registration").click
+        find(:xpath, '/html/body/div/div/div/div[2]/div[2]/div[1]/a/div').click
         # binding.irb
+        find(".project_registration_icon").click
         visit registered_projects_path
         expect(page).to have_content 'customer1'
         expect(page).not_to have_content 'customer3'
