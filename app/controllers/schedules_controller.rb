@@ -80,8 +80,8 @@ class SchedulesController < ApplicationController
         flash.now[:notice] = 'スケジュールが編集されました。'
         format.js { render :index }
       else
-        flash.now[:notice] = 'スケジュールの編集に失敗しました。'
-        format.js { render :edit_error }
+        # flash.now[:notice] = 'スケジュールの編集に失敗しました。'
+        format.js { render :error }
       end
     end
   end

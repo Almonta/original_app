@@ -15,6 +15,10 @@ ul {
   // width: 100%;
 }
 
+.edit_message_area {
+  margin: 0 10px;
+}
+
 
 .fa-paper-plane {
   color: white;
@@ -53,4 +57,14 @@ ul {
 
 .not_exit_message{
   margin: 150px 0;
+}
+
+.edit_icon:hover {
+  color: green;
+  background-color: white;
+}
+
+.delete_icon:hover {
+  color: green;
+  background-color: white;
 }

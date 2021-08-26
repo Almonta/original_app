@@ -1,4 +1,4 @@
 $("#product_contacts_area").html("<%= j(render 'product_contacts/index', { product_contacts: @product_contact.product.product_contacts, product: @product_contact.product }) %>");
-$("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
+$("#product_scroll-inner").scrollTop($("#product_scroll-inner")[0].scrollHeight);
 $("textarea").val('');
 $("#notice").html("<%= j flash[:notice] %>");

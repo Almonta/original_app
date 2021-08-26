@@ -17,6 +17,7 @@ RSpec.describe Product, type: :system do
     context 'プロダクトを新規作成した場合' do
       it '詳細画面に遷移し作成したプロダクトが表示される' do
         user_login
+        visit homes_path
         click_button 'プロダクト新規登録'
         fill_in 'product_name', with: 'product4'
         click_button '登録する'
@@ -24,8 +25,18 @@ RSpec.describe Product, type: :system do
         expect(page).to have_content 'product4'
       end
     end
+    context '新規作成画面の「ホーム画面に戻る」をクリックした場合' do
+      it 'ホーム画面に戻る' do
+        user_login
+        visit homes_path
+        click_button 'プロダクト新規登録'
+        # binding.irb
+        click_on 'ホーム画面に戻る'
+        expect(current_path).to eq homes_path
+      end
+    end
   end
-
+# binding.irb
   describe '一覧表示機能' do
     context 'プロダクト一覧画面に遷移した場合' do
       it '作成済みのプロダクト一覧が表示される' do
@@ -45,7 +56,7 @@ RSpec.describe Product, type: :system do
         user_login
         visit homes_path
         fill_in 'search', with: '1'
-        search_link = find(:xpath, "/html/body/div/div/div[1]/form/input[3]")
+        search_link = find(:xpath, "/html/body/div/div/div/div[1]/form/input[3]")
         search_link.click
         expect(page).to have_content 'product1'
         expect(page).not_to have_content 'product2'
@@ -58,8 +69,12 @@ RSpec.describe Product, type: :system do
       it '登録プロジェクト画面に、登録したプロジェクトが表示される' do
         user_login
         visit homes_path
-        first(:link, '詳細').click
-        find(".product_project_registration").click
+        # product_title_card = all('.product_title_card')
+        # find(product_title_card[2]).click
+        find(:xpath, '/html/body/div/div/div/div[1]/div[2]/div[1]/a/div').click
+        # first('.product_title_card').click_on
+        # binding.irb
+        find(".project_registration_icon").click
         visit registered_projects_path
         expect(page).to have_content 'product1'
         expect(page).not_to have_content 'product2'

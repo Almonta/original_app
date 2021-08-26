@@ -6,20 +6,10 @@
       <div class="col-lg-3 col-md-4">
         <div class="product_name_title">
           <h4><%= @product.name %></h4>
-          
-
-<!--非同期challenge-->
-<%
-=begin %>
-        <div id="register_buttons_<%= @product.id %>">
-          <%= render partial: 'user_products/register', locals: { product: @product, user_product: @user_product } %>
-        </div>
-<%
-=end %>
 
           <% if @user_product.present? %>
-            <%#= link_to user_product_path(id: @user_product.id), method: :delete do %>
-            <%= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
+            <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
+            <%#= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
             <div class="project_cancel">
               <div class="project_cancel_icon">
                 <i class="fas fa-star fa-lg"></i>
@@ -30,8 +20,8 @@
               </div>
             </div>
           <% else %>
-            <%#= link_to user_products_path(product_id: @product.id), method: :post do %>
-            <%= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
+            <%= link_to user_products_path(product_id: @product.id), method: :post do %>
+            <%#= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
             <div class="project_registration">
               <div class="project_registration_icon">
                 <i class="far fa-star fa-lg"></i>
@@ -80,7 +70,6 @@
         </div>
         <% end %>
       </div>
-
     </div>
 
     <div class="row">
@@ -104,16 +93,14 @@
         <div id="product_contacts_area">
           <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
         </div>
+        <script>
+          $(".contact_box").scrollTop($("#product_scroll-inner")[0].scrollHeight);
+        </script>
         <div class="new_product_contact">
           <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
         </div>
       </div>
     </div>
-
     <%= link_to t('views.button.back_home'), homes_path %>
   </div>
 </div>
-
-<script>
-  $("#scroll-inner").scrollTop($("#scroll-inner")[0].scrollHeight);
-</script>
