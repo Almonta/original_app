@@ -37,8 +37,8 @@
           <p class="editer">作成者：<%= @customer.user.name %></p>
           <% if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
             <p class="edit_link">
-            <%= link_to t('views.button.edit'), edit_customer_path(@customer) %>|
-            <%= link_to t('views.button.destroy'), customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } %>
+            <%= link_to t('views.button.edit'), edit_customer_path(@customer), class: "hover_background_none" %> |
+            <%= link_to t('views.button.destroy'), customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "hover_background_none" %>
             </p>
           <% end %>
         </div>
@@ -119,6 +119,6 @@
         </div>
       </div>
     </div>
-    <%= link_to t('views.button.back_home'), homes_path %>
+    <%= link_to t('views.button.back_home'), homes_path, class: "hover_background_none" %>
   </div>
 </div>

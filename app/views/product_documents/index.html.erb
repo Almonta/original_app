@@ -25,10 +25,10 @@
                 <% end %>
               </p>
               <p class="card-text"><%= document.content %></p>
-              <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link" %>
+              <%= link_to t('views.button.show'), product_product_document_path(@product, document), class: "card-link hover_background_none" %>
               <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-                <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link" %>
-                <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
+                <%= link_to t('views.button.edit'), edit_product_product_document_path(@product, document), class: "card-link hover_background_none" %>
+                <%= link_to t('views.button.destroy'), product_product_document_path(@product, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link hover_background_none" %>
               <% end %>
             </div>
           </div>
@@ -37,6 +37,6 @@
       <% end %>
     </div>
 
-    <%= link_to t('views.button.back_show_product'), product_path(@product.id) %>
+    <%= link_to t('views.button.back_show_product'), product_path(@product.id), class: "hover_background_none" %>
   </div>
 </div>

@@ -96,3 +96,16 @@
   // background-color: #343a40!important;
   background: linear-gradient(70deg, rgba(187, 185, 185, 0.658), #343a40);
 }
+
+.hover_background_none:hover {
+  background-color: #f3f3f3;
+  color: green;
+  text-decoration: none;
+}
+
+
+.sort_link:hover {
+  background-color: #f3f3f3;
+  color: green;
+  text-decoration: none;
+}
