@@ -21,7 +21,8 @@ RSpec.describe ProductDocument, type: :system do
     context 'プロダクト資料を新規作成した場合' do
       it '詳細画面に遷移し作成したプロダクト資料が表示される' do
         user_login
-        first(:link, '詳細').click
+        # first(:link, '詳細').click
+        find(:xpath, '/html/body/div/div/div/div[1]/div[2]/div[1]/a/div').click
         find(".general_document_button").click
         click_button 'プロダクト資料新規登録'
         fill_in 'product_document_name', with: 'product_document1'
@@ -41,7 +42,8 @@ RSpec.describe ProductDocument, type: :system do
     context 'product1の詳細画面から一般資料一覧画面に遷移した場合' do
       it 'product1の持つ一般資料のみが表示される' do
         user_login
-        first(:link, '詳細').click
+        # first(:link, '詳細').click
+        find(:xpath, '/html/body/div/div/div/div[1]/div[2]/div[1]/a/div').click
         find(".general_document_button").click
         # binding.irb
         expect(page).to have_content 'product_document1'
