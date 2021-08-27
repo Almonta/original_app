@@ -21,13 +21,15 @@ RSpec.describe ProductDocument, type: :system do
     context 'カスタマー資料を新規作成した場合' do
       it '詳細画面に遷移し作成したカスタマー資料が表示される' do
         user_login
-        first(:link, '詳細').click
-        find(".general_document_button").click
+        # first(:link, '詳細').click
+        # find(".general_document_button").click
+        find(:xpath, '/html/body/div/div/div/div[2]/div[2]/div[1]/a/div').click
+        binding.irb
+
         click_button 'カスタマー資料新規登録'
         fill_in 'customer_document_name', with: 'customer_document1'
         fill_in 'customer_document_content', with: 'customer_document_content1'
         choose 'customer_document_public_level_0'
-        binding.irb
         attach_file 'customer_document_document', "#{Rails.root}/spec/factories/RSpec_test.jpg"
         click_button '登録する'
         expect(page).to have_content 'customer_document1'
