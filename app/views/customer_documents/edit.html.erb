@@ -9,8 +9,8 @@
     <%= render "form", { customer: @customer, customer_document: @customer_document } %>
 
     <div class="set_center_outer">
-      <%= link_to t("views.button.back"), :back %>|
-      <%= link_to t("views.button.show_customer_document"), customer_customer_document_path(@customer, @customer_document) %>
+      <%= link_to t("views.button.back"), :back, class: "hover_background_none" %> |
+      <%= link_to t("views.button.show_customer_document"), customer_customer_document_path(@customer, @customer_document), class: "hover_background_none" %>
     </div>
   </div>
 </div>
