@@ -8,8 +8,8 @@
     <%= render "form", customer: @customer %>
 
     <div class="set_center_outer">
-      <%= link_to t("views.button.back_home"), homes_path %>|
-      <%= link_to t("views.button.show_customer"), @customer %>
+      <%= link_to t("views.button.back_home"), homes_path, class: "hover_background_none" %> |
+      <%= link_to t("views.button.show_customer"), @customer, class: "hover_background_none" %>
     </div>
   </div>
 </div>

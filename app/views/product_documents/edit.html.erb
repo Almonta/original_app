@@ -8,8 +8,8 @@
       <%= render "form", { product: @product, product_document: @product_document } %>
 
     <div class="set_center_outer">
-      <%= link_to t("views.button.back"), :back %>|
-      <%= link_to t("views.button.show_product_document"), product_product_document_path(@product, @product_document) %>
+      <%= link_to t("views.button.back"), :back, class: "hover_background_none" %>|
+      <%= link_to t("views.button.show_product_document"), product_product_document_path(@product, @product_document), class: "hover_background_none" %>
     </div>
   </div>
 </div>

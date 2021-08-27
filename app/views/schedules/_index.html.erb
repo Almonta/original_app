@@ -22,10 +22,10 @@
           </td>
           <% if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
             <td class="col-1">
-              <%= link_to "編集", edit_customer_schedule_path(customer, schedule), remote: true %>
+              <%= link_to "編集", edit_customer_schedule_path(customer, schedule), class: "hover_background_none", remote: true %>
             </td>
             <td class="col-1">
-              <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true,
+              <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), class: "hover_background_none", method: :delete, remote: true,
                                   data: { confirm: "本当に削除しますか?"} %>
             </td>
           <% else %>
