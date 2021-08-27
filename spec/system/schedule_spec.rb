@@ -17,7 +17,8 @@ RSpec.describe Schedule, type: :system do
     context 'スケジュールを新規作成した場合' do
       it '作成したスケジュールが表示される' do
         user_login
-        first(:link, '詳細').click
+        # first(:link, '詳細').click
+        find(:xpath, '/html/body/div/div/div/div[2]/div[2]/div[1]/a/div').click
         fill_in 'schedule_serial_number', with: '12345'
         fill_in 'schedule_line_on', with: "002021-08-10"
         fill_in 'schedule_completed_on', with: '002021-08-20'
