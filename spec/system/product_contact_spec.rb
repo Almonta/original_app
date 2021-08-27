@@ -17,10 +17,11 @@ RSpec.describe ProductContact, type: :system do
     context 'メッセージを新規投稿した場合' do
       it '作成したメッセージが表示される' do
         user_login
-        first(:link, '詳細').click
+        # first(:link, '詳細').click
+        find(:xpath, '/html/body/div/div/div/div[1]/div[2]/div[1]/a/div').click
         fill_in 'product_contact_contact_message', with: 'テストメッセージ'
-        binding.irb
-        find(:xpath, '/html/body/div/div[2]/div[2]/div[2]/form/div[2]/span[2]/button').click
+        # binding.irb
+        find(:xpath, '/html/body/div/div/div[2]/div[2]/div[2]/form/div[2]/span[2]/button').click
         # /html/body/div/div[2]/div[2]/form/div/span[2]/button
         expect(page).to have_content 'テストメッセージ'
       end
