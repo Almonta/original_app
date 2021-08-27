@@ -1,3 +1,4 @@
 $("#schedules_area").html("<%= j(render 'schedules/index', { schedules: @schedule.customer.schedules.order(created_at: :desc), customer: @schedule.customer }) %>");
 $("input").val('');
+$(".alert").remove();
 $("#notice_schedule").html("<%= j flash[:notice] %>");
