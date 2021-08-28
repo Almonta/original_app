@@ -95,3 +95,25 @@
     </div>
   </div>
 </div>
+
+
+<div class="bg_onetime_popup">
+  <div class="onetime_popup">
+    <div class="onetime_popup_content">
+      <%= image_tag 'smile_popup.png', size: '640x396', alt: 'problem' %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  window.addEventListener('load', function() {
+    if( !sessionStorage.getItem('disp_popup') ) {
+      sessionStorage.setItem('disp_popup', 'on');
+      var popup = document.getElementsByClassName('bg_onetime_popup');
+      popup[0].classList.add('js_active');
+      popup[0].onclick = function() {
+        popup[0].classList.remove('js_active');
+      }
+    }
+  }, false);
+</script>
