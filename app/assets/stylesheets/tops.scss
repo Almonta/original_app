@@ -160,6 +160,14 @@ body{
   margin-top: 10px;
 }
 
+.guide_title {
+  padding: 10px 20px;
+  border-left: 5px solid #343a40;
+  background: #f4f4f4;
+  width: fit-content;
+  margin: 5px;
+}
+
 .home_page_image {
   border: solid 5px white;
 }
@@ -183,4 +191,28 @@ body{
 .guide_menu {
   padding-top: 70px;
   margin-top:-70px;
+}
+
+.signup_login_guide {
+  background-color: rgba(253, 253, 129, 0.349);
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.home_page_guide {
+  background-color: rgba(253, 224, 129, 0.349);
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.product_customer_show_guide {
+  background-color: rgba(253, 203, 129, 0.349);
+  padding: 10px;
+  border-radius: 30px;
+}
+
+.document_guide {
+  background-color: rgba(253, 185, 129, 0.349);
+  padding: 10px;
+  border-radius: 30px;
 }
