@@ -6,10 +6,10 @@
     <div class="signup_login_guide">
       <h4 class="area_title_ja">サインアップ・ログイン</h4>
       <h5>＜サインアップする場合＞</h5>
-      <p>ヘッダー右上の「サインアップ」よりサインアップしてください</p>
+      <p>ヘッダー右上の「サインアップ」よりサインアップしてください。</p>
       <h5>＜ゲストとしてログインする場合＞</h5>
-      <p>ヘッダー右上の「ログイン」よりゲストログインしてください</p>
-      <p>ゲストユーザーでログインした場合は、全ての編集、削除リンクを有効にしてあります</p>
+      <p>ヘッダー右上の「ログイン」よりゲストログインしてください。</p>
+      <p>ゲストユーザーでログインした場合は、全ての編集、削除リンクを有効になります。</p>
     </div>
     <br>
     <div class="home_page_guide">
@@ -64,29 +64,75 @@
 
       </div>
     </div>
-    
+
     <br>
     <div class="product_customer_show_guide">
       <h4 class="area_title_ja">プロダクト、カスタマー詳細画面説明</h4>
       <h5>＜プロダクト詳細画面でできること＞</h5>
       <ol>
-        <li class="home_page_menu"><%= link_to '進行中プロジェクトへの登録・解除', guide_path(anchor: 'home_page_image'), class: "guide_link" %></li>
-        <li class="home_page_menu"><%= link_to 'プロダクトの編集・削除', guide_path(anchor: 'register_mypage_link'), class: "guide_link"  %></li>
-        <li class="home_page_menu"><%= link_to '登録プロジェクトメンバーの一覧確認', guide_path(anchor: 'product_new_show_link'), class: "guide_link"  %></li>
-        <li class="home_page_menu"><%= link_to 'それぞれのプロダクトが持つ資料画面への遷移', guide_path(anchor: 'customer_new_show_link'), class: "guide_link"  %></li>
-        <li class="home_page_menu"><%= link_to 'それぞれのプロダクトについてのコンタクト', guide_path(anchor: 'search_product_customer'), class: "guide_link"  %></li>
+        <li class="home_page_menu"><%= link_to '進行中プロジェクトへの登録・解除', guide_path(anchor: 'register_project'), class: "guide_link" %></li>
+        <li class="home_page_menu"><%= link_to 'プロダクトの編集・削除', guide_path(anchor: 'product_edit_destroy'), class: "guide_link"  %></li>
+        <li class="home_page_menu">登録プロジェクトメンバーの一覧確認</li>
+        <li class="home_page_menu"><%= link_to '各プロダクトが持つ資料画面への遷移', guide_path(anchor: 'product_document_link'), class: "guide_link"  %></li>
+        <li class="home_page_menu"><%= link_to '各プロダクトについてのコンタクト', guide_path(anchor: 'contact_guide'), class: "guide_link"  %></li>
       </ol>
-
-      <h5>＜プロダクト詳細画面でできること＞</h5>
-        プロダクト詳細画面でできることと重複する部分は説明を除きます。
-        <ol>
-          <li class="home_page_menu"><%= link_to '日程管理', guide_path(anchor: 'home_page_image'), class: "guide_link" %></li>
-        <ol>
+      <div class="set_center_outer">
+        <div class="set_center_inner">
+          <div class="guide_menu" id="register_project">
+            <h6>進行中プロジェクトへの登録・解除</h6>
+            <%= video_tag "register_project.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+        <div class="set_center_inner">
+          <div class="guide_menu" id="product_edit_destroy">
+            <h6>プロダクトの編集・削除</h6>
+            <%= video_tag "product_edit_destroy.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+        <div class="set_center_inner">
+          <div class="guide_menu" id="product_document_link">
+            <h6>各プロダクトが持つ資料画面への遷移</h6>
+            <p>「技術資料」は技術部所属者のみ閲覧可能です。</p>
+            <%= video_tag "product_document_link.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+        <div class="set_center_inner">
+          <div class="guide_menu" id="contact_guide">
+            <h6>各プロダクトについてのコンタクト</h6>
+            <%= video_tag "contact_guide.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+      </div>
+      <h5>＜カスタマー詳細画面でできること＞</h5>
+      <p>プロダクト詳細画面と重複する部分は説明を除いています。</p>
+      <div class="set_center_outer">
+        <div class="set_center_inner">
+          <div class="guide_menu">
+            <h6>日程管理</h6>
+            <p>4つの日付全てが入力されていなくても登録できるようになっています。</p>
+            <%= video_tag "shedule_guide.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+      </div>
     </div>
+
     <br>
     <div class="document_guide">
       <h4 class="area_title_ja">資料の登録・閲覧・編集・削除</h4>
-      <li class="home_page_menu"><%= link_to '進行中プロジェクトへの登録・解除', guide_path(anchor: 'home_page_image'), class: "guide_link" %></li>
+      <div class="set_center_outer">
+        <div class="set_center_inner">
+          <div class="guide_menu">
+            <h6>資料の登録・閲覧・編集・削除</h6>
+            <%= video_tag "document_CRUD.mov", controls: true, muted: true, size: "610x355" %>
+          </div>
+          <br>
+        </div>
+      </div>
     </div>
 
   </div>
