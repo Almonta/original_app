@@ -9,9 +9,10 @@
       <p>ヘッダー右上の「サインアップ」よりサインアップしてください</p>
       <h5>＜ゲストとしてログインする場合＞</h5>
       <p>ヘッダー右上の「ログイン」よりゲストログインしてください</p>
+      <p>ゲストユーザーでログインした場合は、全ての編集、削除リンクを有効にしてあります</p>
     </div>
     <br>
-    <div>
+    <div class="home_page_guide">
       <h4 class="area_title_ja">ホーム画面説明</h4>
       <p>ログイン後のホーム画面はこちらです。</p>
 
@@ -22,26 +23,38 @@
       <h5>＜ホーム画面でできること＞</h5>
         <ol>
           <li class="home_page_menu"><%= link_to 'プロダクトとカスタマーの一覧表示', guide_path(anchor: 'home_page_image'), class: "guide_link" %></li>
-          <li class="home_page_menu"><%= link_to '登録プロジェクト画面、マイページへの遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
-          <li class="home_page_menu"><%= link_to 'プロダクトの新規登録、詳細画面への遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
-          <li class="home_page_menu"><%= link_to 'カスタマーの新規登録、詳細画面への遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
-          <li class="home_page_menu"><%= link_to 'プロダクト・カスタマーの検索、並び替え', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to '登録プロジェクト画面、マイページへの遷移', guide_path(anchor: 'register_mypage_link'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'プロダクトの新規登録、詳細画面への遷移', guide_path(anchor: 'product_new_show_link'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'カスタマーの新規登録、詳細画面への遷移', guide_path(anchor: 'customer_new_show_link'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'プロダクト・カスタマーの検索、並び替え', guide_path(anchor: 'search_product_customer'), class: "guide_link"  %></li>
         </ol>
-
-
-      <div class="" id="product_menu">
-        <p>プロダクトの新規作成、詳細、編集、削除</p>
+      <br>
+      <div class="guide_menu" id="register_mypage_link">
+        <h6>登録プロジェクト画面、マイページへの遷移</h6>
+        <%= video_tag "register_mypage_link.mov", controls: true, muted: true, size: "610x355" %>
       </div>
-
-
+      <br>
+      <div class="guide_menu" id="product_new_show_link">
+        <h6>プロダクトの新規登録、詳細画面への遷移</h6>
+        <%= video_tag "product_new_show_link.mov", controls: true, muted: true, size: "610x355" %>
+      </div>
+      <br>
+      <div class="guide_menu" id="customer_new_show_link">
+        <h6>カスタマーの新規登録、詳細画面への遷移</h6>
+        <%= video_tag "customer_new_show_link.mov", controls: true, muted: true, size: "610x355" %>
+      </div>
+      <br>
+      <div class="guide_menu" id="search_product_customer">
+        <h6>プロダクト・カスタマーの検索、並び替え</h6>
+        <%= video_tag "search_product_customer.mov", controls: true, muted: true, size: "610x355" %>
+      </div>
     </div>
 
+    <div class="product_customer_show_guide">
+      <h4 class="area_title_ja">プロダクト、カスタマー詳細画面説明</h4>
 
-
-
-
-
-    <%= video_tag "画面収録 2021-08-27 9.53.06.mov", controls: true, muted: true, size: "1000x600" %>
+      
+    </div>
 
   </div>
 </div>
