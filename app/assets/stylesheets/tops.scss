@@ -162,3 +162,19 @@ body{
 .home_page_image {
   border: solid 5px white;
 }
+
+.home_page_menu {
+  font-size: 15px;
+  margin: 6px 0;
+}
+
+// .home_page_menu:hover {
+//   text-decoration: underline;
+//   background-color: #f3f3f3;
+// }
+
+.guide_link:hover {
+  text-decoration: underline;
+  background-color: #f3f3f3;
+  color: #3980bf;
+}

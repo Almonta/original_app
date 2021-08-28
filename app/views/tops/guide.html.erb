@@ -5,18 +5,34 @@
 
     <div>
       <h4 class="area_title_ja">サインアップ・ログイン</h4>
-      <h6>サインアップする場合</h6>
+      <h5>＜サインアップする場合＞</h5>
       <p>ヘッダー右上の「サインアップ」よりサインアップしてください</p>
-      <h6>ゲストとしてログインする場合</h6>
+      <h5>＜ゲストとしてログインする場合＞</h5>
       <p>ヘッダー右上の「ログイン」よりゲストログインしてください</p>
     </div>
     <br>
     <div>
       <h4 class="area_title_ja">ホーム画面説明</h4>
       <p>ログイン後のホーム画面はこちらです。</p>
-      <div class="home_page_image">
-        <%= image_tag 'home_page.png', size: '1100x600', alt: 'home_page' %>
+
+      <div class="home_page_image" id="home_page_image">
+        <%= image_tag 'home_page.png', size: '1100x500', alt: 'home_page' %>
       </div>
+      <br>
+      <h5>＜ホーム画面でできること＞</h5>
+        <ol>
+          <li class="home_page_menu"><%= link_to 'プロダクトとカスタマーの一覧表示', guide_path(anchor: 'home_page_image'), class: "guide_link" %></li>
+          <li class="home_page_menu"><%= link_to '登録プロジェクト画面、マイページへの遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'プロダクトの新規登録、詳細画面への遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'カスタマーの新規登録、詳細画面への遷移', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
+          <li class="home_page_menu"><%= link_to 'プロダクト・カスタマーの検索、並び替え', guide_path(anchor: 'product_menu'), class: "guide_link"  %></li>
+        </ol>
+
+
+      <div class="" id="product_menu">
+        <p>プロダクトの新規作成、詳細、編集、削除</p>
+      </div>
+
 
     </div>
 

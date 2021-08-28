@@ -18,28 +18,29 @@
   <div class="set_center_outer">
     <div class="set_center_inner">
       <div class="field">
-        <%= form.label t('views.title.document_name') %>
+        <strong><%= form.label t('views.title.document_name') %></strong>
         <%= form.text_field :name, placeholder: '資料名' %>
       </div>
 
       <div class="field">
-        <%= form.label t('views.title.content') %>
+        <strong><%= form.label t('views.title.content') %></strong>
         <%= form.text_area :content, size: "50x5", placeholder: '資料概要を記入してください' %>
         <%#= form.text_area :content, id: "input-text", size: "50x5", placeholder: '資料概要を記入してください' %>
         <!--<p id="counter">0/1000文字</p>-->
       </div>
       
       <div class="field">
-        <%= form.label t('views.title.public_level') %>
+        <strong><%= form.label t('views.title.public_level') %></strong>
         <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-        <p>資料の公開範囲を技術部内のみとする場合は「技術」を選択してください</p>
+        <p>※資料の公開範囲を技術部内のみとする場合は「技術」を選択してください。</p>
         <%= form.radio_button :public_level, 1 %>技術
         <% end %>
         <%= form.radio_button :public_level, 0 %>一般
       </div>
 
       <div class="field">
-        <%= form.label t('views.title.document') %>
+        <strong><%= form.label t('views.title.document') %></strong>
+        <p>※pdf形式での保存を推奨します。</p>
         <%= form.file_field :document %>
       </div>
     </div>
