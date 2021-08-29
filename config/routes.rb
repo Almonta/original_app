@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   resources :customers, except: [:index] do
     resources :customer_contacts, only: %i[create edit update destroy]
     resources :customer_documents
+    #   collection do
+    #     post :confirm
+    #   end
+    # end
     resources :schedules
   end
   resources :registered_projects, only: [:index]

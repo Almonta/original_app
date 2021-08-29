@@ -41,7 +41,11 @@
       <div class="field">
         <strong><%= form.label t('views.title.document') %></strong>
         <p>※pfd形式での保存を推奨します。</p>
+        <% if @customer_document.document && @customer_document.document.url %>
+        <object data="<%= @customer_document.document.url %>" type="application/pdf" width="200" height="120"></object>
+        <% end %><br>
         <%= form.file_field :document %>
+        <%= form.hidden_field :document_cache %>
       </div>
     </div>
 
