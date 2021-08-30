@@ -24,7 +24,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = current_user.products.build(product_params)
-
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: t('views.messages.create_product') }
