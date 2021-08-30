@@ -15,8 +15,18 @@ class CustomerDocumentsController < ApplicationController
 
   def new
     @customer = Customer.where(id: params[:customer_id]).first
-    @customer_document = @customer.customer_documents.build
+    if params[:back]
+      @customer_document = @customer.customer_documents.build(customer_document_params)
+    else
+      @customer_document = @customer.customer_documents.build
+    end
   end
+
+  # def confirm
+  #   @customer = Customer.where(id: params[:customer_id]).first
+  #   @customer_document = @customer.customer_documents.build(customer_document_params)
+  #   # binding.pry
+  # end
 
   def edit
     redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")

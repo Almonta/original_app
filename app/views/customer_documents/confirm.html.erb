@@ -1,0 +1,12 @@
+<h1>確認画面</h1>
+<%= form_with(model: [@customer, @customer_document], url: customer_customer_documents_path, local: true) do |form| %>
+  <% if @customer_document.document && @customer_document.document.url %>
+  <object data="<%= @customer_document.document.url %>" type="application/pdf" width="800" height="450"></object>
+  <% end %>
+  <%= form.hidden_field :document_cache %>
+  <%= form.submit "投稿する" %>
+<% end %>
+<%= form_with(model: [@customer, @customer_document], url:new_customer_customer_document_path, local:true, method:"get") do |form| %>
+  <%= form.hidden_field :document_cache %>
+  <%= form.submit "戻る", name: "back" %>
+<% end %>

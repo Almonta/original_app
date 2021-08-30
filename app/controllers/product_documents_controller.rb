@@ -28,7 +28,6 @@ class ProductDocumentsController < ApplicationController
     @product = Product.where(id: params[:product_id]).first
     @product_document = @product.product_documents.build(product_document_params)
     @product_document.user_id = current_user.id
-
     respond_to do |format|
       if @product_document.save
         format.html { redirect_to [@product, @product_document], notice: t('views.messages.create_product_document') }
