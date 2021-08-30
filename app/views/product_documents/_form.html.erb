@@ -40,10 +40,11 @@
 
       <div class="field">
         <strong><%= form.label t('views.title.document') %></strong>
-        <p>※pdf形式での保存を推奨します。</p>
+        <p>※pdf形式での保存を推奨します。サイズは10MB以内としてください。</p>
         <% if @product_document.document && @product_document.document.url %>
         <object data="<%= @product_document.document.url %>" type="application/pdf" width="200" height="120"></object>
-        <% end %><br>
+        <br>
+        <% end %>
         <%= form.file_field :document %>
         <%= form.hidden_field :document_cache %>
       </div>
