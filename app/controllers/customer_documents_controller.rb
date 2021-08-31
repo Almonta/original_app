@@ -15,11 +15,11 @@ class CustomerDocumentsController < ApplicationController
 
   def new
     @customer = Customer.where(id: params[:customer_id]).first
-    if params[:back]
-      @customer_document = @customer.customer_documents.build(customer_document_params)
-    else
-      @customer_document = @customer.customer_documents.build
-    end
+    @customer_document = if params[:back]
+                           @customer.customer_documents.build(customer_document_params)
+                         else
+                           @customer.customer_documents.build
+                         end
   end
 
   # def confirm
@@ -29,7 +29,9 @@ class CustomerDocumentsController < ApplicationController
   # end
 
   def edit
-    redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+    unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+      redirect_to customer_path(@customer.id)
+    end
   end
 
   def create
@@ -49,7 +51,9 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def update
-    redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+    unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+      redirect_to customer_path(@customer.id)
+    end
     respond_to do |format|
       if @customer_document.update(customer_document_params)
         format.html { redirect_to [@customer, @customer_document], notice: t('views.messages.update_customer_document') }
@@ -62,7 +66,9 @@ class CustomerDocumentsController < ApplicationController
   end
 
   def destroy
-    return redirect_to customer_path(@customer.id) unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+    unless (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者")
+      return redirect_to customer_path(@customer.id)
+    end
 
     @customer_document.destroy
     respond_to do |format|

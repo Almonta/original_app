@@ -1,8 +1,8 @@
 class Product < ApplicationRecord
-  validates :name, 
-    presence: true,
-    uniqueness: true,
-    length: { maximum: 255 }
+  validates :name,
+            presence: true,
+            uniqueness: true,
+            length: { maximum: 255 }
 
   # validate :add_error_product
   scope :search_product, ->(search) { where("name LIKE ?", "%#{search}%") }

@@ -1,5 +1,4 @@
 FactoryBot.define do
-
   factory :customer do
     number { '111' }
     name { 'customer1' }
@@ -17,5 +16,4 @@ FactoryBot.define do
     name { 'customer3' }
     association :user
   end
-
 end

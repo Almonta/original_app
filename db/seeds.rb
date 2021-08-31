@@ -101,10 +101,10 @@ User.create!(name: '管理者',
              admin: true)
 
 user_ids = [
-  User.first.id, 
-  User.first.id + 1, 
-  User.first.id + 2, 
-  User.first.id + 3, 
+  User.first.id,
+  User.first.id + 1,
+  User.first.id + 2,
+  User.first.id + 3,
   User.first.id + 4,
   User.first.id + 5,
   User.first.id + 6,
@@ -127,19 +127,18 @@ product = [
   "Model Z"
 ]
 
-
 n = 0
 5.times do |m|
   Product.create!(user_id: user_ids[m],
                   name: product[n])
-n += 1
+  n += 1
 end
 
 n = 5
 5.times do |m|
   Product.create!(user_id: user_ids[m],
                   name: product[n])
-n += 1
+  n += 1
 end
 
 Customer.create!(user_id: user_ids[0],
@@ -182,7 +181,6 @@ Customer.create!(user_id: user_ids[9],
                  number: "456-400",
                  name: "マイクロンテクノロジー")
 
-
 # Userから全てのuser_idを配列で取り出す。
 first_user = User.first.id
 last_user = User.first.id + 9
@@ -192,20 +190,17 @@ odd_user_id  = user_id_all.select(&:odd?)
 # Userから偶数のuser_idのみを配列で取り出す。
 even_user_id = user_id_all.select(&:even?)
 
-
 first_product = Product.first.id
 last_product = Product.first.id + 9
 product_id_all = (first_product..last_product).to_a
 odd_product_id = product_id_all.select(&:odd?)
 even_product_id = product_id_all.select(&:even?)
 
-
 first_customer = Customer.first.id
 last_customer = Customer.first.id + 9
 customer_id_all = (first_customer..last_customer).to_a
 odd_customer_id = customer_id_all.select(&:odd?)
 even_customer_id = customer_id_all.select(&:even?)
-
 
 5.times do |o|
   5.times do |l|
@@ -248,7 +243,6 @@ engineering_users = User.where(department: 2).ids
 planning_users = User.where(department: 3).ids
 manufacturing_users = User.where(department: 4).ids
 
-
 document = [
   File.open("./db/documents/'21.07.07_チェリー本_7.2-7.3_クラスの定義.pdf"),
   File.open("./db/documents/'21.07.07_チェリー本_7.4-7.6_クラスの継承.pdf"),
@@ -259,7 +253,7 @@ document = [
   File.open("./db/documents/'21.07.12_チェリー本_8.6-8.8_モジュールの利用法.pdf"),
   File.open("./db/documents/'21.07.19_チェリー本_6.5-6.6_正規表現.pdf"),
   File.open("./db/documents/'21.07.30_チェリー本_9.2_例外処理.pdf"),
-  File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf"),
+  File.open("./db/documents/'21.07.30_チェリー本_9.6_例外処理.pdf")
 ]
 
 content = 'アップ資料は参考です。スクールで学習したRubyのまとめ資料です。'
@@ -275,7 +269,6 @@ r = 0
   r += 1
 end
 
-
 r = 5
 5.times do |j|
   ProductDocument.create!(user_id: manufacturing_user,
@@ -287,27 +280,25 @@ r = 5
   r += 1
 end
 
-
 r = 0
 5.times do |j|
   CustomerDocument.create!(user_id: sales_user,
-                          customer_id: even_customer_id[j],
-                          name: '注文書',
-                          content: content,
-                          document: document[r],
-                          public_level: 0)
+                           customer_id: even_customer_id[j],
+                           name: '注文書',
+                           content: content,
+                           document: document[r],
+                           public_level: 0)
   r += 1
 end
-
 
 r = 5
 5.times do |j|
   CustomerDocument.create!(user_id: service_user,
-                          customer_id: even_customer_id[j],
-                          name: 'サービス報告書',
-                          content: content,
-                          document: document[r],
-                          public_level: 0)
+                           customer_id: even_customer_id[j],
+                           name: 'サービス報告書',
+                           content: content,
+                           document: document[r],
+                           public_level: 0)
   r += 1
 end
 
@@ -322,7 +313,6 @@ manufacturing_engineering_contact = [
   '資料をアップしました。資料名「〇〇」をご確認ください',
   'ありがとうございます。次回からこれを見れば良いので便利ですね！'
 ]
-
 
 5.times do |i|
   ProductContact.create!(user_id: sales_users[0],
@@ -368,21 +358,20 @@ sleep 1
                          contact_message: manufacturing_engineering_contact[2])
 end
 
-
 sales_planning_engineering_manufacturing_contact = [
-  'お客様より〇月納期での引き合いがあります。この条件を満たせば受注獲得できそうですが、生産計画いかがでしょうか？仕様はアップしたファイル「〇〇」を参照ください' ,
+  'お客様より〇月納期での引き合いがあります。この条件を満たせば受注獲得できそうですが、生産計画いかがでしょうか？仕様はアップしたファイル「〇〇」を参照ください',
   '日程計画します。技術さん、製造さん、この仕様ですが、通常リードタイムに対しプラスで必要であれば教えて下さい',
   '技術としては、この「〇〇」という仕様に+100hrの工数が必要です。',
   '製造としては、追加工数は発生しません。',
-  'ありがとうございます。このアプリ内で完結できていいですね！' 
+  'ありがとうございます。このアプリ内で完結できていいですね！'
 ]
-  # 客先専用仕様の共有
+# 客先専用仕様の共有
 
 service_engineering_manufacturing_contact = [
   '製品〇〇の修理で現在客先訪問中です。〇〇の部分が標準品と異なるのですが、何か特殊な仕様でしょうか？',
   'このお客様には〇〇の特殊仕様があります。資料をアップしています。資料名「〇〇」をご確認ください',
-  '製造としては〇〇の部分を特殊対応しています。' ,
-  'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！' 
+  '製造としては〇〇の部分を特殊対応しています。',
+  'ありがとうございます。担当者が明確になっているので問い合わせ先に困らなくていいですね！'
 ]
 
 5.times do |s|
@@ -423,7 +412,6 @@ sleep 1
                           contact_message: sales_planning_engineering_manufacturing_contact[4])
 end
 
-
 5.times do |s|
   CustomerContact.create!(user_id: service_user,
                           customer_id: even_product_id[s],
@@ -454,57 +442,55 @@ sleep 1
                           contact_message: service_engineering_manufacturing_contact[3])
 end
 
-
-
 10.times do |t|
   Schedule.create!(customer_id: customer_id_all[t],
-                    serial_number: "123-456-#{t}",
-                    line_on: "2021-05-01",
-                    completed_on: "2021-06-01",
-                    shipmented_on: "2021-07-01",
-                    deliveried_on: "2021-08-01")
+                   serial_number: "123-456-#{t}",
+                   line_on: "2021-05-01",
+                   completed_on: "2021-06-01",
+                   shipmented_on: "2021-07-01",
+                   deliveried_on: "2021-08-01")
 end
 
 h = 10
 10.times do |t|
   Schedule.create!(customer_id: customer_id_all[t],
-                    serial_number: "123-456-#{h}",
-                    line_on: "2021-05-#{h}",
-                    completed_on: "2021-06-#{h}",
-                    shipmented_on: "2021-07-#{h}",
-                    deliveried_on: "2021-08-#{h}")
+                   serial_number: "123-456-#{h}",
+                   line_on: "2021-05-#{h}",
+                   completed_on: "2021-06-#{h}",
+                   shipmented_on: "2021-07-#{h}",
+                   deliveried_on: "2021-08-#{h}")
   h += 1
 end
 
 h = 20
 10.times do |t|
   Schedule.create!(customer_id: customer_id_all[t],
-                    serial_number: "123-456-#{h}",
-                    line_on: "2021-05-#{h}",
-                    completed_on: "2021-06-#{h}",
-                    shipmented_on: "2021-07-#{h}",
-                    deliveried_on: "2021-08-#{h}")
+                   serial_number: "123-456-#{h}",
+                   line_on: "2021-05-#{h}",
+                   completed_on: "2021-06-#{h}",
+                   shipmented_on: "2021-07-#{h}",
+                   deliveried_on: "2021-08-#{h}")
   h += 1
 end
 
 h = 30
 10.times do |t|
   Schedule.create!(customer_id: customer_id_all[t],
-                    serial_number: "123-456-#{h}",
-                    line_on: "2021-05-01",
-                    completed_on: "2021-06-01",
-                    shipmented_on: "2021-07-01",
-                    deliveried_on: "2021-08-01")
+                   serial_number: "123-456-#{h}",
+                   line_on: "2021-05-01",
+                   completed_on: "2021-06-01",
+                   shipmented_on: "2021-07-01",
+                   deliveried_on: "2021-08-01")
   h += 1
 end
 
 h = 40
 10.times do |t|
   Schedule.create!(customer_id: customer_id_all[t],
-                    serial_number: "123-456-#{h}",
-                    line_on: "2021-06-01",
-                    completed_on: "2021-07-01",
-                    shipmented_on: "2021-08-01",
-                    deliveried_on: "2021-09-01")
+                   serial_number: "123-456-#{h}",
+                   line_on: "2021-06-01",
+                   completed_on: "2021-07-01",
+                   shipmented_on: "2021-08-01",
+                   deliveried_on: "2021-09-01")
   h += 1
 end
