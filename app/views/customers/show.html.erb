@@ -59,7 +59,7 @@
           <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
           <% end %>
         </div>
-        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <% if current_user.department == "engineering" %>
           <div class="position-absolute" style="top:40px; left:180px;">
             <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
             <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
