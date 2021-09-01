@@ -22,11 +22,14 @@
           </td>
           <% if (current_user.department == 'planning') || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
             <td class="col-1">
-              <%= link_to "編集", edit_customer_schedule_path(customer, schedule), class: "hover_background_none", remote: true %>
+              <%= link_to edit_customer_schedule_path(customer, schedule), remote: true, class: "edit_icon_gray" do %>
+                <i class="far fa-edit"></i>
+              <% end %>
             </td>
             <td class="col-1">
-              <%= link_to "削除", customer_schedule_path(schedule.customer_id, schedule.id), class: "hover_background_none", method: :delete, remote: true,
-                                  data: { confirm: "本当に削除しますか?"} %>
+              <%= link_to customer_schedule_path(schedule.customer_id, schedule.id), method: :delete, remote: true, data: { confirm: "本当に削除しますか?"}, class: "delete_icon_gray" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
             </td>
           <% else %>
             <td class="col-2"></td>
