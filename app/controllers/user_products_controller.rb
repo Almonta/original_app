@@ -23,7 +23,6 @@ class UserProductsController < ApplicationController
   end
 end
 
-
 # def create
 #   @product = Product.find(params[:product_id])
 #   register = current_user.user_products.build(product_id: params[:product_id])

@@ -5,11 +5,11 @@ class DocumentUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # process :resize_to_limit => [50, 50]
-  
-# ローカル使用時
+
+  # ローカル使用時
   # storage :file
 
-# AWSデプロイ時 S3使用
+  # AWSデプロイ時 S3使用
   if Rails.env.production?
     storage :fog
   else

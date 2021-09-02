@@ -36,10 +36,18 @@
         <div class="product_editer">
           <p class="editer">作成者：<%= @customer.user.name %></p>
           <% if (current_user == @customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-            <p class="edit_link">
-            <%= link_to t('views.button.edit'), edit_customer_path(@customer), class: "hover_background_none" %> |
-            <%= link_to t('views.button.destroy'), customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "hover_background_none" %>
-            </p>
+            <div class="message_edit_delete">
+              <%= link_to edit_customer_path(@customer) do %>
+              <span class="edit_icon_gray">
+                <i class="far fa-edit"></i>
+              </span>
+              <% end %>
+              <%= link_to customer_path(@customer), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } do %>
+              <span class="delete_icon_gray">
+                <i class="far fa-trash-alt"></i>
+              </span>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
@@ -51,7 +59,7 @@
           <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
           <% end %>
         </div>
-        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <% if current_user.department == "engineering" %>
           <div class="position-absolute" style="top:40px; left:180px;">
             <%= link_to customer_customer_documents_path(@customer.id, technical: "true") do %>
             <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>
@@ -111,9 +119,6 @@
         <div id="customer_contacts_area">
           <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
         </div>
-          <script>
-            $("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
-          </script>
         <div class="new_product_contact">
           <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
         </div>
@@ -122,3 +127,7 @@
     <%= link_to t('views.button.back_home'), homes_path, class: "hover_background_none" %>
   </div>
 </div>
+
+<script>
+  $("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
+</script>

@@ -35,6 +35,21 @@
           <%= @product_document.user.name %>
         </p>
 
+        <div class="document_edit_delete_icon">
+          <% if (current_user == @product_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+            <%= link_to edit_product_product_document_path(@product, @product_document) do %>
+              <span class="edit_icon_gray">
+                <i class="far fa-edit fa-lg"></i>
+              </span>
+            <% end %>
+            <%= link_to product_product_document_path(@product, @product_document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } do %>
+              <span class="delete_icon_gray">
+                <i class="far fa-trash-alt fa-lg"></i>
+              </span>
+            <% end %>
+          <% end %>
+        </div>
+
         <% if @product_document.public_level == 0 %>
           <%= link_to t('views.button.back_index_product_document_public'), product_product_documents_path(general: "true"), class: "hover_background_none" %>
         <% elsif @product_document.public_level == 1 %>
