@@ -12,7 +12,7 @@
         <p class="not_exist_document">現在登録がありません</p>
       <% else %>
         <% @documents.each do |document| %>
-        <div class="document_card_list"> 
+        <div class="document_card_list">
           <%= link_to product_product_document_path(@product, document) do %>
             <div class="card" style="width: 18rem;">
               <% if document.document.present? %>
