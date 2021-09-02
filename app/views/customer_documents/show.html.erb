@@ -34,6 +34,21 @@
           <%= @customer_document.user.name %>
         </p>
 
+        <div class="document_edit_delete_icon">
+          <% if (current_user == @customer_document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+            <%= link_to edit_customer_customer_document_path(@customer, @customer_document) do %>
+              <span class="edit_icon_gray">
+                <i class="far fa-edit fa-lg"></i>
+              </span>
+            <% end %>
+            <%= link_to customer_customer_document_path(@customer, @customer_document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } do %>
+              <span class="delete_icon_gray">
+                <i class="far fa-trash-alt fa-lg"></i>
+              </span>
+            <% end %>
+          <% end %>
+        </div>
+
         <% if @customer_document.public_level == 0 %>
           <%= link_to t('views.button.back_index_customer_document_public'), customer_customer_documents_path(general: "true"), class: "hover_background_none" %>
         <% elsif @customer_document.public_level == 1 %>
