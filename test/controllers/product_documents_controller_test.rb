@@ -17,7 +17,9 @@ class ProductDocumentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create product_document" do
     assert_difference('ProductDocument.count') do
-      post product_documents_url, params: { product_document: { content: @product_document.content, name: @product_document.name, product_id: @product_document.product_id, public_level: @product_document.public_level, user_id: @product_document.user_id } }
+      post product_documents_url,
+           params: { product_document: { content: @product_document.content, name: @product_document.name, product_id: @product_document.product_id,
+                                         public_level: @product_document.public_level, user_id: @product_document.user_id } }
     end
 
     assert_redirected_to product_document_url(ProductDocument.last)
@@ -34,7 +36,9 @@ class ProductDocumentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update product_document" do
-    patch product_document_url(@product_document), params: { product_document: { content: @product_document.content, name: @product_document.name, product_id: @product_document.product_id, public_level: @product_document.public_level, user_id: @product_document.user_id } }
+    patch product_document_url(@product_document),
+          params: { product_document: { content: @product_document.content, name: @product_document.name, product_id: @product_document.product_id,
+                                        public_level: @product_document.public_level, user_id: @product_document.user_id } }
     assert_redirected_to product_document_url(@product_document)
   end
 

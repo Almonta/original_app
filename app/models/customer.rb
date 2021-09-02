@@ -1,11 +1,11 @@
 class Customer < ApplicationRecord
   validates :number,
-    presence: true,
-    uniqueness: true,
-    length: { maximum: 255 }
+            presence: true,
+            uniqueness: true,
+            length: { maximum: 255 }
   validates :name,
-    presence: true,
-    length: { maximum: 255 }
+            presence: true,
+            length: { maximum: 255 }
 
   # validate :add_error_customer
 

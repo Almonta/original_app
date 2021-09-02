@@ -17,7 +17,9 @@ class CustomerDocumentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create customer_document" do
     assert_difference('CustomerDocument.count') do
-      post customer_documents_url, params: { customer_document: { content: @customer_document.content, customer_id: @customer_document.customer_id, name: @customer_document.name, public_level: @customer_document.public_level, user_id: @customer_document.user_id } }
+      post customer_documents_url,
+           params: { customer_document: { content: @customer_document.content, customer_id: @customer_document.customer_id, name: @customer_document.name,
+                                          public_level: @customer_document.public_level, user_id: @customer_document.user_id } }
     end
 
     assert_redirected_to customer_document_url(CustomerDocument.last)
@@ -34,7 +36,9 @@ class CustomerDocumentsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update customer_document" do
-    patch customer_document_url(@customer_document), params: { customer_document: { content: @customer_document.content, customer_id: @customer_document.customer_id, name: @customer_document.name, public_level: @customer_document.public_level, user_id: @customer_document.user_id } }
+    patch customer_document_url(@customer_document),
+          params: { customer_document: { content: @customer_document.content, customer_id: @customer_document.customer_id, name: @customer_document.name,
+                                         public_level: @customer_document.public_level, user_id: @customer_document.user_id } }
     assert_redirected_to customer_document_url(@customer_document)
   end
 

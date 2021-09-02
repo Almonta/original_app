@@ -36,15 +36,23 @@
 
         <div class="product_editer">
           <p class="editer">作成者：<%= @product.user.name %></p>
-
           <% if (current_user == @product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-            <p class="edit_link">
-              <%= link_to t('views.button.edit'), edit_product_path(@product), class: "hover_background_none" %> |
-              <%= link_to t('views.button.destroy'), product_path(@product), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "hover_background_none" %>
-            </p>
+            <div class="message_edit_delete">
+              <%= link_to edit_product_path(@product) do %>
+              <span class="edit_icon_gray">
+                <i class="far fa-edit"></i>
+              </span>
+              <% end %>
+              <%= link_to product_path(@product), method: :delete, data: { confirm: t('views.messages.confirm_destroy') } do %>
+              <span class="delete_icon_gray">
+                <i class="far fa-trash-alt"></i>
+              </span>
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
+
 
       <div class="col-lg-9 col-md-8 document_link_area">
         <h4 class="area_title_ja">ドキュメント</h4>
@@ -53,7 +61,7 @@
             <button type="button" class="btn btn-info general_document_button btn-lg">一般資料</button>
           <% end %>
         </div>
-        <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+        <% if current_user.department == "engineering" %>
           <div class="position-absolute" style="top:40px; left:180px;">
             <%= link_to product_product_documents_path(@product.id, technical: "true") do %>
               <button type="button" class="btn btn-info technical_document_button btn-lg">技術資料</button>

@@ -36,7 +36,7 @@ RSpec.describe Product, type: :system do
       end
     end
   end
-# binding.irb
+  # binding.irb
   describe '一覧表示機能' do
     context 'プロダクト一覧画面に遷移した場合' do
       it '作成済みのプロダクト一覧が表示される' do

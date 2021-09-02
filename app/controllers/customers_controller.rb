@@ -26,7 +26,7 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.customers.build(customer_params)
 
-    # if @customer.number =~ /^[0-9]+$/
+      # if @customer.number =~ /^[0-9]+$/
       respond_to do |format|
         if @customer.save
           format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
@@ -37,8 +37,8 @@ class CustomersController < ApplicationController
         end
       end
     # else
-      # flash.now[:alert] = t('views.messages.check_number')
-      # render :new
+    # flash.now[:alert] = t('views.messages.check_number')
+    # render :new
     # end
   end
 

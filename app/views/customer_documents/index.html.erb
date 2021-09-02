@@ -13,25 +13,27 @@
       <% else %>
         <% @documents.each do |document| %>
         <div class="document_card_list"> 
-          <div class="card" style="width: 18rem;">
-            <% if document.document.present? %>
-              <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
-            <% end %>
-            <div class="card-body">
-              <h5 class="card-title"><%= document.name %></h5>
-              <p class="card-text">
-                <% if document.public_level == 0 %>一般公開資料
-                <% elsif document.public_level == 1 %>技術資料
-                <% end %>
-              </p>
-              <p class="card-text"><%= document.content %></p>
-              <%= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link hover_background_none" %>
-              <% if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
-                <%= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link hover_background_none" %>
-                <%= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link hover_background_none" %>
+          <%= link_to customer_customer_document_path(@customer, document) do %>
+            <div class="card" style="width: 18rem;">
+              <% if document.document.present? %>
+                <object class="card-img-top" data="<%= document.document.url %>" type="application/pdf" ></object>
               <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= document.name %></h5>
+                <p class="card-text">
+                  <% if document.public_level == 0 %>一般公開資料
+                  <% elsif document.public_level == 1 %>技術資料
+                  <% end %>
+                </p>
+                <p class="card-text"><%= document.content %></p>
+                <%#= link_to t('views.button.show'), customer_customer_document_path(@customer, document), class: "card-link hover_background_none" %>
+                <%# if (current_user == document.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
+                  <%#= link_to t('views.button.edit'), edit_customer_customer_document_path(@customer, document), class: "card-link hover_background_none" %>
+                  <%#= link_to t('views.button.destroy'), customer_customer_document_path(@customer, document), method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link hover_background_none" %>
+                <%# end %>
+              </div>
             </div>
-          </div>
+          <% end %>
         </div>
         <% end %>
       <% end %> 

@@ -5,5 +5,4 @@ class SchedulesControllerTest < ActionDispatch::IntegrationTest
     get schedules_create_url
     assert_response :success
   end
-
 end
