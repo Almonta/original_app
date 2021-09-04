@@ -1,5 +1,6 @@
 class HomesController < ApplicationController
   def index
+    @product = Product.new
     @products = Product.all
     # @products = Product.where("name LIKE ?", "%#{params[:search]}%") if params[:search].present?
     @products = Product.search_product(params[:search]) if params[:search].present?

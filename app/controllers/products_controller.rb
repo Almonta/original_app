@@ -14,6 +14,7 @@ class ProductsController < ApplicationController
     # binding.pry
   end
 
+# モーダルへの変更につき不要
   def new
     @product = Product.new
   end
@@ -29,7 +30,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: t('views.messages.create_product') }
         # format.json { render :show, status: :created, location: @product }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.js { render :error }
         # format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
