@@ -101,9 +101,6 @@
         <div id="product_contacts_area">
           <%= render partial: 'product_contacts/index', locals: { product_contacts: @product_contacts, product:@product } %>
         </div>
-        <script>
-          $(".contact_box").scrollTop($("#product_scroll-inner")[0].scrollHeight);
-        </script>
         <div class="new_product_contact">
           <%= render partial: 'product_contacts/form', locals: { product_contact: @product_contact, product:@product } %>
         </div>
@@ -112,3 +109,7 @@
     <%= link_to t('views.button.back_home'), homes_path, class: "hover_background_none" %>
   </div>
 </div>
+
+<script>
+  $(".contact_box").scrollTop($("#product_scroll-inner")[0].scrollHeight);
+</script>

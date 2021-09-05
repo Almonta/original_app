@@ -1,0 +1,25 @@
+<%= form_with(model: customer, remote: true) do |form| %>
+
+  <div id="modal_customer_messages-error">
+    <%= render 'layouts/error_messages', model: form.object %>
+  </div>
+
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <div class="field">
+        <%= form.label t('views.title.customer_number') %>
+        <%= form.text_field :number, placeholder: '123-456' %>
+      </div>
+
+      <div class="field">
+        <%= form.label t('views.title.customer_name') %>
+        <%= form.text_field :name, placeholder: 'お客様名' %>
+      </div>
+    </div>
+
+    <div class="modal_submit">
+      <%= form.submit %>
+    </div>
+  </div>
+
+<% end %>

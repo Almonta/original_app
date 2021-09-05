@@ -1,0 +1,19 @@
+<%= form_with(model: product, remote: true) do |form| %>
+
+  <div id="modal_product_messages-error">
+    <%= render 'layouts/error_messages', model: form.object %>
+  </div>
+
+  <div class="set_center_outer">
+    <div class="set_center_inner">
+      <div class="field">
+        <%= form.label t('views.title.product_name') %>
+        <%= form.text_field :name, placeholder: '製品名' %>
+      </div>
+    </div>
+    <div class="modal_submit">
+      <%= form.submit %>
+    </div>
+  </div>
+
+<% end %>
