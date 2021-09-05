@@ -8,39 +8,32 @@
         <h5 class="page_title_ja">製品</h5>
 
         <%= form_with url: homes_path, method: :get, local: true do |s| %>
-          <%#= s.label :name, 'プロダクト名' %>
-          <%#= s.text_field :search, placeholder: 'プロダクト名で検索' %>
           <%= s.text_field :search, placeholder: 'プロダクト名で検索', value: params[:search] %>
           <%= s.submit '検索', name: nil %>
         <% end %>
         <hr>
 
         <div class="button_new">
-          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo"><%= t('views.button.new_product') %></button>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#productModal" data-whatever="@product"><%= t('views.button.new_product') %></button>
         </div>
 
-<!--モーダル表示部-->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!--モーダル表示部プロダクト-->
+        <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-
               <div class="set_center_outer">
                 <h2 class="page_title_en">New Product</h2>
                 <h5 class="page_title_ja"><%= t("views.title.new_product") %></h5>
               </div>
-
-              <%= render "modal_form", product: @product %>
-
+              <%= render "modal_product_form", product: @product %>
             </div>
           </div>
         </div>
-
 
         <div class="row">
           <% @products.each do |product| %>
@@ -48,11 +41,8 @@
               <%= link_to product do %>
               <div class="card product_title_card rounded-pill" style="width: 99%;">
                 <div class="card-body">
-                  <%#= link_to t('views.button.show'), product, class: "card-link" %>
                   <% if (current_user == product.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
                   <div class="title_edit_icon"><i class="fas fa-cog fa-spin" style="color: SeaGreen;"></i></div>
-                  <%#= link_to t('views.button.edit'), edit_product_path(product), class: "card-link" %>
-                  <%#= link_to t('views.button.destroy'), product, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                   <% end %>
                   <h5 class="card-title"><%= product.name %></h5>
                 </div>
@@ -70,11 +60,9 @@
         <%= search_form_for @q, url: homes_path do |f| %>
           <div class="row">
             <div class="col-lg-4 col-md-5">
-              <%#= f.label :number_cont, 'カスタマーNo.' %>
               <%= f.search_field :number_cont, placeholder: 'カスタマーNoで検索' %>
             </div>
             <div class="col-lg-4 col-md-5">
-              <%#= f.label :name_cont, 'カスタマー名' %>
               <%= f.search_field :name_cont, placeholder: 'カスタマー名で検索' %>
             </div>
             <div class="col-lg-4 col-md-2 d-flex align-items-end text-left" id="customer_search_button">
@@ -88,9 +76,25 @@
         <hr>
 
         <div class="button_new">
-          <%= link_to new_customer_path do %>
-          <button type="button" class="btn btn-warning"><%= t('views.button.new_customer') %></button>
-          <% end %>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#customerModal" data-whatever="@customer"><%= t('views.button.new_customer') %></button>
+        </div>
+
+<!--モーダル表示部カスタマー-->
+        <div class="modal fade" id="customerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="set_center_outer">
+                <h2 class="page_title_en">New Customer</h2>
+                <h5 class="page_title_ja"><%= t("views.title.new_customer") %></h5>
+              </div>
+              <%= render "modal_customer_form", customer: @customer %>
+            </div>
+          </div>
         </div>
 
         <div class="row">
@@ -101,8 +105,6 @@
                   <div class="card-body">
                     <% if (current_user == customer.user) || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
                       <div class="title_edit_icon"><i class="fas fa-cog fa-spin" style="color: green;"></i></div>
-                      <%#= link_to t('views.button.edit'), edit_customer_path(customer), class: "card-link" %>
-                      <%#= link_to t('views.button.destroy'), customer, method: :delete, data: { confirm: t('views.messages.confirm_destroy') }, class: "card-link" %>
                     <% end %>
                     <h6 class="card-title">No.<%= customer.number %></h6>
                     <h5 class="card-subtitle mb-2 text-muted"><%= customer.name %></h5>

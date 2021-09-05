@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
     # binding.pry
   end
 
-# モーダルへの変更につき不要
+# モーダルへの変更につき実際不要
   def new
     @product = Product.new
   end
