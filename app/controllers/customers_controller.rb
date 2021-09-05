@@ -15,6 +15,7 @@ class CustomersController < ApplicationController
     @schedule = @customer.schedules.build
   end
 
+# モーダルへの変更につき実際不要
   def new
     @customer = Customer.new
   end
@@ -32,8 +33,8 @@ class CustomersController < ApplicationController
           format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
           # format.json { render :show, status: :created, location: @customer }
         else
-          format.html { render :new, status: :unprocessable_entity }
-          # format.json { render json: @customer.errors, status: :unprocessable_entity }
+          # format.html { render :new, status: :unprocessable_entity }
+          format.js { render :error }
         end
       end
     # else

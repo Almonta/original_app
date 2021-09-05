@@ -5,11 +5,6 @@
   font-size: 1rem;
 }
 
-// これできなかった
-// .card-body {
-//   border-radius: 20px;
-// }
-
 .button_new {
   margin: 8px;
 }
@@ -17,20 +12,13 @@
 .btn-warning {
   background-color: #ffff00;
   border-color: #ffff00;
-  // border-bottom: 3px solid #f3dd18;
-  // border-right: 3px solid #f3dd18;
   position: relative;
-  // -webkit-transition: none;
-  // transition: none;
   box-shadow: 3px 3px 0px #f3dd18;
 }
 
 .btn-warning:hover {
   background-color: #f5f502;
   border-color: #f5f502;
-  // margin-top: 3px;
-  // border-bottom: 1px solid #f3dd18;
-  // border-right: 1px solid #f3dd18;
   top: 3px;
   box-shadow: 1px 1px 0px #f3dd18;
   color: #343a40;
@@ -40,8 +28,6 @@
   background-color: #FFCE0D;
   border-color: #FFCE0D;
   color: #343a40;
-  // border-bottom: 3px solid #a38409;
-  // border-right: 3px solid #a38409;
   position: relative;
   box-shadow: 3px 3px 0px #a38409;
 }
@@ -50,8 +36,6 @@
   background-color: #ffdc4f;
   border-color: #ffdc4f;
   color: #343a40;
-  // border-bottom: 1px solid #a38409;
-  // border-right: 1px solid #a38409;
   top: 3px;
   box-shadow: 1px 1px 0px #a38409;
 }
@@ -60,8 +44,6 @@
   background-color: #FFCE0D;
   border-color: #FFCE0D;
   color: #343a40;
-  // border-bottom: 3px solid #a38409;
-  // border-right: 3px solid #a38409;
   position: relative;
   box-shadow: 3px 3px 0px #a38409;
 
@@ -71,8 +53,6 @@
   background-color: #ffdc4f;
   border-color: #ffdc4f;
   color: #343a40;
-  // border-bottom: 1px solid #a38409;
-  // border-right: 1px solid #a38409;
   top: 3px;
   box-shadow: 1px 1px 0px #a38409;
 }
@@ -102,10 +82,7 @@
 //   transition:1s all;
 // }
 
-// card-body
-
 .product_title_card {
-  // box-shadow: 0 10px 25px 0 rgba(255, 245, 110, 0.877);
   box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 }
 
@@ -131,4 +108,12 @@
 
 .list-group {
   margin-bottom: 20px;
+}
+
+.modal-header {
+  border-bottom: none;
+}
+
+.modal-dialog {
+  max-width: 400px;
 }
