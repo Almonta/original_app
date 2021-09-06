@@ -248,6 +248,7 @@ ja:
       customer_edit: 'カスタマー編集'
       product_name: 'プロダクト名'
       customer_name: 'カスタマー名'
+      customer_address: '所在地'
       product_documents: 'プロダクト資料'
       customer_documents: 'カスタマー資料'
       customer_number: 'カスタマー番号'

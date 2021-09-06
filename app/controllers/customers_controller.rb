@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
     # @schedules = @customer.schedules.order(created_at: :desc)
     @schedules = @customer.schedules.page(params[:page]).per(4).order(created_at: :desc)
     @schedule = @customer.schedules.build
+    # binding.pry
   end
 
 # モーダルへの変更につき実際不要
@@ -72,6 +73,6 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:number, :name)
+      params.require(:customer).permit(:number, :name, :address)
     end
 end
