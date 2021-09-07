@@ -178,3 +178,31 @@
 .modal_submit {
   margin-bottom: 40px;
 }
+
+.form_title {
+  display: flex;
+  margin-bottom: -8px;
+}
+
+.required {
+  margin-right: 5px;
+  margin-bottom: 16px;
+  background-color: rgba(255, 0, 0, 0.342);
+  border-radius: 5px;
+  padding: 1px 3px;
+  color: white;
+}
+
+.optional {
+  margin-right: 5px;
+  margin-bottom: 16px;
+  background-color: rgba(0, 0, 255, 0.39);
+  border-radius: 5px;
+  padding: 1px 3px;
+  color: white;
+}
+
+.label {
+  padding-top: 3px;
+  margin-bottom: 8px;
+}
