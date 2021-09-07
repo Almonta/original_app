@@ -16,7 +16,7 @@ class CustomersController < ApplicationController
     # binding.pry
   end
 
-# モーダルへの変更につき実際不要
+  # モーダルへの変更につき実際不要
   def new
     @customer = Customer.new
   end
@@ -73,6 +73,6 @@ class CustomersController < ApplicationController
     end
 
     def customer_params
-      params.require(:customer).permit(:number, :name, :address)
+      params.require(:customer).permit(:number, :name, :address, :latitude, :longitude)
     end
 end
