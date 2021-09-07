@@ -32,6 +32,7 @@
 - bootstrap
 - carrierwave
 - mini_magick
+- google map
 
 ## 実行手順
 ```

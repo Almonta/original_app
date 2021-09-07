@@ -119,15 +119,64 @@
         <div id="customer_contacts_area">
           <%= render partial: 'customer_contacts/index', locals: { customer_contacts: @customer_contacts, customer:@customer } %>
         </div>
+
+        <script>
+          $("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
+        </script>
+
         <div class="new_product_contact">
           <%= render partial: 'customer_contacts/form', locals: { customer_contact: @customer_contact, customer:@customer } %>
         </div>
       </div>
     </div>
+
+
+
+    <h4 class="area_title_ja">カスタマー情報詳細</h4>
+    <h5 class="area_title_ja">所在地</h5>
+    <p><%= @customer.address %></p>
+
+    <div id='map'></div>
+
+    <style>
+      #map{
+        height: 400px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function initMap() {
+
+        var test ={lat: <%= @customer.latitude %>, lng: <%= @customer.longitude %>};
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 10,
+            center: test
+        });
+        var transitLayer = new google.maps.TransitLayer();
+        transitLayer.setMap(map);
+
+        var contentString = '所在地：<%= @customer.address %>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
+        var marker = new google.maps.Marker({
+            position:test,
+            map: map,
+            title: contentString
+        });
+
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+      }
+    </script>
+
+    <script async defer 
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+    </script>
+
+
     <%= link_to t('views.button.back_home'), homes_path, class: "hover_background_none" %>
   </div>
 </div>
-
-<script>
-  $("#customer_scroll-inner").scrollTop($("#customer_scroll-inner")[0].scrollHeight);
-</script>

@@ -167,6 +167,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.3.0)
+    geocoder (1.6.7)
     globalid (0.5.2)
       activesupport (>= 5.0)
     haml (5.2.2)
@@ -457,6 +458,7 @@ DEPENDENCIES
   factory_bot_rails
   faker
   fog-aws
+  geocoder
   jbuilder (~> 2.5)
   kaminari
   launchy

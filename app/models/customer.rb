@@ -16,6 +16,9 @@ class Customer < ApplicationRecord
   has_many :customer_documents, dependent: :destroy
   has_many :schedules, dependent: :destroy
 
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   # def add_error_customer
   #   if number.blank?
   #     errors.add(:number, 'カスタマーNoを入力してください')
