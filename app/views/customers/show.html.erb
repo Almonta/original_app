@@ -136,7 +136,11 @@
     <h5 class="area_title_ja">所在地</h5>
     <p><%= @customer.address %></p>
 
-    <div id='map'></div>
+    <% if @customer.address.present? %>
+      <div id='map'></div>
+    <% else %>
+      <p>所在地登録はありません。登録がある場合こちらに地図を表示します。</p>
+    <% end %>
 
     <script type="text/javascript">
       function initMap() {
