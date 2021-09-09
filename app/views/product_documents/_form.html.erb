@@ -18,19 +18,25 @@
   <div class="set_center_outer">
     <div class="set_center_inner">
       <div class="field">
-        <strong><%= form.label t('views.title.document_name') %></strong>
-        <%= form.text_field :name, placeholder: '資料名' %>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><strong><%= form.label t('views.title.document_name') %></strong></span>
+        </div>
+          <%= form.text_field :name, placeholder: '資料名' %>
       </div>
 
       <div class="field">
-        <strong><%= form.label t('views.title.content') %></strong>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><strong><%= form.label t('views.title.content') %></strong></span>
+        </div>
         <%= form.text_area :content, size: "50x5", placeholder: '資料概要を記入してください' %>
         <%#= form.text_area :content, id: "input-text", size: "50x5", placeholder: '資料概要を記入してください' %>
         <!--<p id="counter">0/1000文字</p>-->
       </div>
       
       <div class="field">
-        <strong><%= form.label t('views.title.public_level') %></strong>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><strong><%= form.label t('views.title.public_level') %></strong></span>
+        </div>
         <% if (current_user.department == "engineering") || (current_user.name == "ゲスト") || (current_user.name == "ゲスト管理者") %>
         <p>※資料の公開範囲を技術部内のみとする場合は「技術」を選択してください。</p>
         <%= form.radio_button :public_level, 1 %>技術
@@ -39,7 +45,9 @@
       </div>
 
       <div class="field">
-        <strong><%= form.label t('views.title.document') %></strong>
+        <div class="form_title">
+          <span class="optional">任意</span><span class="label"><strong><%= form.label t('views.title.document') %></strong></span>
+        </div>
         <p>※pdf形式での保存を推奨します。サイズは10MB以内としてください。</p>
         <% if @product_document.document && @product_document.document.url %>
         <object data="<%= @product_document.document.url %>" type="application/pdf" width="200" height="120"></object>
