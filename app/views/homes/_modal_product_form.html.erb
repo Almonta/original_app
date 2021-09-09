@@ -7,8 +7,10 @@
   <div class="set_center_outer">
     <div class="set_center_inner">
       <div class="field">
-        <%= form.label t('views.title.product_name') %>
-        <%= form.text_field :name, placeholder: '製品名' %>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><%= form.label t('views.title.product_name') %></span>
+        </div>
+          <%= form.text_field :name, placeholder: '製品名' %>
       </div>
     </div>
     <div class="modal_submit">
