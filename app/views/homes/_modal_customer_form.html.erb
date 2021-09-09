@@ -7,18 +7,24 @@
   <div class="set_center_outer">
     <div class="set_center_inner">
       <div class="field">
-        <%= form.label t('views.title.customer_number') %>
-        <%= form.text_field :number, size: "35x1", placeholder: '123-456' %>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><%= form.label t('views.title.customer_number') %></span>
+        </div>
+          <%= form.text_field :number, size: "35x1", placeholder: '123-456' %>
       </div>
 
       <div class="field">
-        <%= form.label t('views.title.customer_name') %>
-        <%= form.text_field :name, size: "35x1", placeholder: 'お客様名' %>
+        <div class="form_title">
+          <span class="required">必須</span><span class="label"><%= form.label t('views.title.customer_name') %></span>
+        </div>
+          <%= form.text_field :name, size: "35x1", placeholder: 'お客様名' %>
       </div>
 
       <div class="field">
-        <%= form.label t('views.title.customer_address') %>
-        <%= form.text_field :address, size: "35x2", placeholder: '東京都渋谷区道玄坂1丁目1番地' %>
+        <div class="form_title">
+          <span class="optional">任意</span><span class="label"><%= form.label t('views.title.customer_address') %></span>
+        </div>
+          <%= form.text_field :address, size: "35x2", placeholder: '東京都渋谷区道玄坂1丁目1番地' %>
       </div>
     </div>
 
