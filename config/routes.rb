@@ -23,8 +23,8 @@ Rails.application.routes.draw do
     #   end
     # end
     resources :schedules
-    resources :user_customers, only: %i[create destroy], shallow: true
   end
+  resources :user_customers, only: %i[create destroy]
   resources :registered_projects, only: [:index]
   resources :users, only: [:show]
 end

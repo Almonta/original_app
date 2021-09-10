@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
     @product_contacts = @product.product_contacts
     @product_contact = @product.product_contacts.build
     @user_products = @product.user_products
-    # binding.pry
   end
 
   # モーダルへの変更につき実際不要
@@ -28,10 +27,8 @@ class ProductsController < ApplicationController
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: t('views.messages.create_product') }
-        # format.json { render :show, status: :created, location: @product }
       else
         format.js { render :error }
-        # format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
