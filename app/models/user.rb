@@ -37,4 +37,17 @@ class User < ApplicationRecord
   has_many :registered_customers, through: :user_customers, source: :customer
   has_many :customer_contacts
   has_many :customer_documents
+
+  def registered(product)
+    registered_products << product
+  end
+
+  def unregistered(product)
+    registered_products.destroy(product)
+  end
+
+  def registered?(product)
+    user_products.where(product_id: product.id).exists?
+  end
+
 end

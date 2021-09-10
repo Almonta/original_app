@@ -7,6 +7,14 @@
         <div class="product_name_title">
           <h4><%= @product.name %></h4>
 
+
+          <div id="registered-btn-<%= @product.id %>">
+            <%= render partial: 'user_products/register', locals: { product: @product } %>
+          </div>
+
+
+<%
+=begin %>
           <% if @user_product.present? %>
             <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
             <%#= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
@@ -32,6 +40,8 @@
               </div>
             </div>
           <% end %>
+<%
+=end %>
         </div>
 
         <div class="product_editer">

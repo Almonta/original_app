@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :product_documents
     # resources :product_documents, shallow: true
     # resources :documents, shallow: true
+    resources :user_products, only: %i[create destroy], shallow: true
   end
   resources :customers, except: [:index] do
     resources :customer_contacts, only: %i[create edit update destroy]
@@ -22,9 +23,8 @@ Rails.application.routes.draw do
     #   end
     # end
     resources :schedules
+    resources :user_customers, only: %i[create destroy], shallow: true
   end
   resources :registered_projects, only: [:index]
-  resources :user_products, only: %i[create destroy]
-  resources :user_customers, only: %i[create destroy]
   resources :users, only: [:show]
 end

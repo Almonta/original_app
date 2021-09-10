@@ -1,24 +1,23 @@
 class UserProductsController < ApplicationController
   # def index
   #   @user_products = UserProduct.all
-  #   binding.irb
   # end
 
   def create
-    # binding.pry
-    # @product = Product.find(params[:product_id])
-    user_product = current_user.user_products.create(product_id: params[:product_id])
-    # binding.pry
+    @product = Product.find(params[:product_id])
+    # user_product = current_user.user_products.build(product_id: params[:product_id])
     # user_product.save
-    redirect_to registered_projects_path, notice: "#{user_product.product.name}を「★登録プロジェクト」に登録しました"
+    current_user.registered(@product)
+    # redirect_to registered_projects_path, notice: "#{user_product.product.name}を「★登録プロジェクト」に登録しました"
     # redirect_to product_path(@product), notice: "#{user_product.product.name}を「★登録プロジェクト」に登録しました"
   end
 
   def destroy
-    # @product = Product.find(params[:product_id])
-    user_product = current_user.user_products.find_by(id: params[:id]).destroy
+    @product = current_user.registered_products.find(params[:id])
+    # user_product = UserProduct.find_by(product_id: params[:product_id], user_id: current_user.id)
     # user_product.destroy
-    redirect_to homes_path, notice: "#{user_product.product.name}を「★登録プロジェクト」から解除しました"
+    current_user.unregistered(@product)
+    # redirect_to homes_path, notice: "#{user_product.product.name}を「★登録プロジェクト」から解除しました"
     # redirect_to product_path(@product), notice: "#{user_product.product.name}を「★登録プロジェクト」から解除しました"
   end
 end
