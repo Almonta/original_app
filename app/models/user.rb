@@ -50,4 +50,16 @@ class User < ApplicationRecord
     user_products.where(product_id: product.id).exists?
   end
 
+  def registered(customer)
+    registered_customers << customer
+  end
+
+  def unregistered(customer)
+    registered_customers.destroy(customer)
+  end
+
+  def registered?(customer)
+    user_customers.where(customer_id: customer.id).exists?
+  end
+
 end

@@ -1,0 +1,23 @@
+<% if current_user.registered?(customer) %>
+  <%= link_to user_customer_path(@customer), method: :delete, remote: true do %>
+  <div class="project_cancel">
+    <div class="project_cancel_icon">
+      <i class="fas fa-star fa-lg"></i>
+    </div>
+  <% end %>
+    <div class="project_cancel_text">
+      プロジェクトから解除する
+    </div>
+  </div>
+<% else %>
+  <%= link_to customer_user_customers_path(customer), method: :post, remote: true do %>
+  <div class="project_registration">
+    <div class="project_registration_icon">
+      <i class="far fa-star fa-lg"></i>
+    </div>
+  <% end %>
+    <div class="project_registration_text">
+      プロジェクトに登録する
+    </div>
+  </div>
+<% end %>
