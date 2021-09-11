@@ -61,5 +61,4 @@ class User < ApplicationRecord
   def registered?(customer)
     user_customers.where(customer_id: customer.id).exists?
   end
-
 end

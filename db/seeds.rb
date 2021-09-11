@@ -145,21 +145,21 @@ Customer.create!(user_id: user_ids[0],
                  number: "123-456",
                  name: "TSMC",
                  address: "8, Li-Hsin Rd. 6, Hsinchu Science Park, Hsinchu 300-78, Taiwan, R.O.C.",
-                 latitude: "24.7826889585257", 
+                 latitude: "24.7826889585257",
                  longitude: "121.00630419639832")
 
 Customer.create!(user_id: user_ids[1],
                  number: "234-567",
                  name: "サムスン",
                  address: "150、Maeyeong-ro、Yeongtong-gu、Suwon-si、Gyeonggi-do、Republic of Korea",
-                 latitude: "37.26386486798687", 
+                 latitude: "37.26386486798687",
                  longitude: "127.0546529552468")
 
 Customer.create!(user_id: user_ids[2],
                  number: "345-600",
                  name: "エヌビディア",
                  address: "2788 San Tomas Expressway Santa Clara, CA 95051",
-                 latitude: "37.37099748345099", 
+                 latitude: "37.37099748345099",
                  longitude: "-121.96729142547672")
 
 Customer.create!(user_id: user_ids[3],
@@ -169,11 +169,10 @@ Customer.create!(user_id: user_ids[3],
                  latitude: "37.38743617016095",
                  longitude: "-121.96384834464689")
 
-
 Customer.create!(user_id: user_ids[4],
                  number: "345-800",
                  name: "ブロードコム",
-                 address:"1320 Ridder Park Drive San Jose California, 95131 United States",
+                 address: "1320 Ridder Park Drive San Jose California, 95131 United States",
                  latitude: "37.386297349354265",
                  longitude: "-121.90044631960504")
 
@@ -202,14 +201,14 @@ Customer.create!(user_id: user_ids[8],
                  number: "456-300",
                  name: "キオクシアホールディングス",
                  address: "東京都港区芝浦3-1-21 田町ステーションタワーS",
-                 latitude: "35.64485600506475", 
+                 latitude: "35.64485600506475",
                  longitude: "139.7493164975375")
 
 Customer.create!(user_id: user_ids[9],
                  number: "456-400",
                  name: "マイクロンテクノロジー",
                  address: "8000 S Federal Way, Boise, ID 83716",
-                 latitude: "43.530264506822526", 
+                 latitude: "43.530264506822526",
                  longitude: "-116.14937145807998")
 
 # Userから全てのuser_idを配列で取り出す。
