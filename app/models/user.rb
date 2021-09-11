@@ -38,27 +38,27 @@ class User < ApplicationRecord
   has_many :customer_contacts
   has_many :customer_documents
 
-  def registered(product)
+  def product_registered(product)
     registered_products << product
   end
 
-  def unregistered(product)
+  def product_unregistered(product)
     registered_products.destroy(product)
   end
 
-  def registered?(product)
+  def product_registered?(product)
     user_products.where(product_id: product.id).exists?
   end
 
-  def registered(customer)
+  def customer_registered(customer)
     registered_customers << customer
   end
 
-  def unregistered(customer)
+  def customer_unregistered(customer)
     registered_customers.destroy(customer)
   end
 
-  def registered?(customer)
+  def customer_registered?(customer)
     user_customers.where(customer_id: customer.id).exists?
   end
 end
