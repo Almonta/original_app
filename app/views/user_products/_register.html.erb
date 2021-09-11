@@ -1,4 +1,4 @@
-<% if current_user.registered?(product) %>
+<% if current_user.product_registered?(product) %>
   <%= link_to user_product_path(product), method: :delete, remote: true do %>
   <div class="project_cancel">
     <div class="project_cancel_icon">
