@@ -1,4 +1,4 @@
-<% if current_user.registered?(customer) %>
+<% if current_user.customer_registered?(customer) %>
   <%= link_to user_customer_path(@customer), method: :delete, remote: true do %>
   <div class="project_cancel">
     <div class="project_cancel_icon">
