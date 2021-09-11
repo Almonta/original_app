@@ -6,14 +6,11 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @user_customer = current_user.user_customers.find_by(customer_id: @customer.id)
     @customer_contacts = @customer.customer_contacts
     @customer_contact = @customer.customer_contacts.build
     @user_customers = @customer.user_customers
-    # @schedules = @customer.schedules.order(created_at: :desc)
     @schedules = @customer.schedules.page(params[:page]).per(4).order(created_at: :desc)
     @schedule = @customer.schedules.build
-    # binding.pry
   end
 
   # モーダルへの変更につき実際不要
@@ -32,9 +29,7 @@ class CustomersController < ApplicationController
       respond_to do |format|
         if @customer.save
           format.html { redirect_to @customer, notice: t('views.messages.create_customer') }
-          # format.json { render :show, status: :created, location: @customer }
         else
-          # format.html { render :new, status: :unprocessable_entity }
           format.js { render :error }
         end
       end
@@ -49,10 +44,8 @@ class CustomersController < ApplicationController
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer, notice: t('views.messages.update_customer') }
-        # format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        # format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -63,7 +56,6 @@ class CustomersController < ApplicationController
     @customer.destroy
     respond_to do |format|
       format.html { redirect_to homes_path, alert: t('views.messages.destroy_customer') }
-      # format.json { head :no_content }
     end
   end
 

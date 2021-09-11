@@ -6,32 +6,9 @@
       <div class="col-lg-3 col-md-4">
         <div class="product_name_title">
           <h4><%= @product.name %></h4>
-
-          <% if @user_product.present? %>
-            <%= link_to user_product_path(id: @user_product.id), method: :delete do %>
-            <%#= link_to user_product_path(id: @user_product.id), method: :delete, remote: true do %>
-            <div class="project_cancel">
-              <div class="project_cancel_icon">
-                <i class="fas fa-star fa-lg"></i>
-              </div>
-            <% end %>
-              <div class="project_cancel_text">
-                プロジェクトから解除する
-              </div>
-            </div>
-          <% else %>
-            <%= link_to user_products_path(product_id: @product.id), method: :post do %>
-            <%#= link_to user_products_path(product_id: @product.id), method: :post, remote: true do %>
-            <div class="project_registration">
-              <div class="project_registration_icon">
-                <i class="far fa-star fa-lg"></i>
-              </div>
-            <% end %>
-              <div class="project_registration_text">
-                プロジェクトに登録する
-              </div>
-            </div>
-          <% end %>
+          <div id="registered-btn-<%= @product.id %>">
+            <%= render partial: 'user_products/register', locals: { product: @product } %>
+          </div>
         </div>
 
         <div class="product_editer">

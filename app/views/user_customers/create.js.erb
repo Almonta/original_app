@@ -1,0 +1,1 @@
+$('#registered-btn-<%= @customer.id %>').html("<%= j(render partial: 'user_customers/register', locals: {customer: @customer}) %>");
