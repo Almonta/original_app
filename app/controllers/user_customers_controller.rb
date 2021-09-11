@@ -1,12 +1,11 @@
 class UserCustomersController < ApplicationController
   def create
-    user_customer = current_user.user_customers.create(customer_id: params[:customer_id])
-    # binding.pry
-    redirect_to homes_path, notice: "#{user_customer.customer.name}を「★登録プロジェクト」に登録しました"
+    @customer = Customer.find(params[:customer_id])
+    current_user.registered(@customer)
   end
 
   def destroy
-    user_customer = current_user.user_customers.find_by(id: params[:id]).destroy
-    redirect_to homes_path, notice: "#{user_customer.customer.name}を「★登録プロジェクト」から解除しました"
+    @customer = current_user.registered_customers.find(params[:id])
+    current_user.unregistered(@customer)
   end
 end
