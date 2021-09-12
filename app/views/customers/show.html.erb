@@ -115,6 +115,7 @@
     <h5 class="area_title_ja">所在地</h5>
     <p><%= @customer.address %></p>
 
+<!--google mapがEC2で表示できない-->
     <% if @customer.address.present? %>
       <div id='map'></div>
     <% else %>
@@ -150,9 +151,8 @@
     </script>
 
     <script async defer 
-      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= Rails.application.credentials.google_map_api_key %>&callback=initMap">
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['google_map_api_key'] %>&callback=initMap">
     </script>
-
 
     <%= link_to t('views.button.back_home'), homes_path, class: "hover_background_none" %>
   </div>
