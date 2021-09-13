@@ -15,24 +15,28 @@
 
 
 ## 開発言語
-- Ruby2.6.5
-- Rails5.2.5
+- Ruby 2.6.5
+- Ruby on Rails 5.2.5
 
-## 就職Termの技術
-- devise
-- Ajax (コメント機能、スケジュール機能)
-- AWSデプロイ (EC2, S3)
+## デプロイ先
+AWS (EC2, S3)
+URL: http://3.23.243.242/
 
-## カリキュラム外の技術
-- ransack
-
-## その他の技術
-- お気に入り機能
-- kaminari
-- bootstrap
-- carrierwave
-- mini_magick
-- google map
+## 機能一覧
+- サインアップ・ログイン機能
+  - gem 'devise'
+- プロダクトとカスタマーのCRUD
+- プロダクトとカスタマーの検索機能
+  - 'ransack'
+- ドキュメントのCRUD
+  - 'carrierwave'
+- コメント機能 (Ajax)
+- スケジュール機能 (Ajax)
+- スケジュールのページネーション
+  - gem 'kaminari'
+- プロジェクト登録機能
+- カスタマーの地図表示
+  - Maps JavaScript API
 
 ## 実行手順
 ```
