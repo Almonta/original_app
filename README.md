@@ -19,17 +19,20 @@
 - Ruby on Rails 5.2.5
 
 ## デプロイ先
-AWS (EC2, S3)
+AWS (EC2, S3)  
 URL: http://3.23.243.242/
 
 ## 機能一覧
 - サインアップ・ログイン機能
   - gem 'devise'
+- 管理者機能
+  - gem 'rails_admin'
+  - gem 'cancancan'
 - プロダクトとカスタマーのCRUD
 - プロダクトとカスタマーの検索機能
-  - 'ransack'
+  - gem 'ransack'
 - ドキュメントのCRUD
-  - 'carrierwave'
+  - gem 'carrierwave'
 - コメント機能 (Ajax)
 - スケジュール機能 (Ajax)
 - スケジュールのページネーション
