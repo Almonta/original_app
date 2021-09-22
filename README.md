@@ -20,7 +20,7 @@
 
 ## デプロイ先
 AWS (EC2, S3)  
-URL: http://3.23.243.242/
+URL: http://ec2-3-23-243-242.us-east-2.compute.amazonaws.com/
 
 ## 機能一覧
 - サインアップ・ログイン機能
